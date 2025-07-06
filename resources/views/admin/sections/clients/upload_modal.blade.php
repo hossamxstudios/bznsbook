@@ -1,0 +1,37 @@
+<div class="modal fade" id="uploadExcelModal" tabindex="-1" aria-labelledby="uploadExcelModalLabel" aria-modal="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadExcelModalLabel">Upload Clients</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ route('clients.bulkImport') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Choose Excel File</label>
+                        <input type="file" name="file" class="form-control" id="file" accept=".xlsx,.xls,.csv" required>
+                    </div>
+                    <div class="alert alert-info mb-0">
+                        <p class="mb-1"><strong>Note:</strong> Your Excel file should include the following columns:</p>
+                        <ul class="mb-0 ps-3">
+                            <li>name (required)</li>
+                            <li>title</li>
+                            <li>email (required)</li>
+                            <li>phone</li>
+                            <li>address</li>
+                            <li>country</li>
+                            <li>city</li>
+                            <li>company_size</li>
+                            <li>website</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-soft-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
