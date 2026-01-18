@@ -11,7 +11,7 @@
             <div class="offcanvas-body">
                 <ul class="mb-2 navbar-nav me-auto mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a href="/" class="nav-link" >Home</a>
+                        <a href="/" class="nav-link" >Homes</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="{{ route('pages.about') }}" class="nav-link" >About Us</a>
