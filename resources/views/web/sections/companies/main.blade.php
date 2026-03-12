@@ -101,7 +101,7 @@
                                         @endif
                                     </span>
                                     <div class="fs-sm text-body-secondary">{{ $client->title ?? 'Member' }}</div>
-                                    {{-- @if ($client->last_seen && (Auth::guard('client')->check() && Auth::guard('client')->user()->hasActiveSubscription())) --}}
+                                    @if ($client->last_seen)
                                         <div class="fs-xs text-success d-flex align-items-center">
                                             <i class="bx bxs-circle me-1" style="font-size: 0.5rem;"></i>
                                             @if ($client->last_seen->diffInMinutes()  < 5)
@@ -116,7 +116,7 @@
                                                 <span>Last seen on {{ $client->last_seen->format('M d, Y') }}</span>
                                             @endif
                                         </div>
-                                    {{-- @endif --}}
+                                    @endif
                                 </div>
                             </div>
                             <a href="{{ route('client.profile.show', $client->id) }}" class="px-3 btn btn-sm"
