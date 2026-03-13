@@ -191,6 +191,12 @@
                                                     <button class="cmd-btn" data-cmd="translations_scan"><i class="bi bi-search"></i> translations:scan</button>
                                                 </div>
 
+                                                {{-- Diagnostics --}}
+                                                <div class="cmd-group">
+                                                    <div class="cmd-group-title"><i class="bi bi-cpu me-1"></i> Diagnostics</div>
+                                                    <button class="cmd-btn" data-cmd="diagnose"><i class="bi bi-wrench"></i> Server Diagnose</button>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
