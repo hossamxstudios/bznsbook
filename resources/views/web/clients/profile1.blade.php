@@ -590,7 +590,7 @@
                                                 {{ $service->description ?? x_('This service helps businesses improve their performance and reach their goals through professional consultation and implementation.', 'web') }}
                                             </p>
 
-                                            @if (isset($service->skills) && count($service->skills) > 0)
+                                            @if (count($service->skills) > 0)
                                                 <div class="mb-4">
                                                     <h6 class="mb-2 fw-bold">{{ x_('Skills & Expertise', 'web') }}</h6>
                                                     <div class="flex-wrap d-flex">
