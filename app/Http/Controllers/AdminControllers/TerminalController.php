@@ -58,35 +58,49 @@ class TerminalController extends Controller
         // Translations
         'translations_compile'    => ['PHP', 'artisan', 'translations:compile'],
         'translations_scan'       => ['PHP', 'artisan', 'translations:scan'],
+
+        // Diagnostics
+        'diagnose'                => ['DIAGNOSE'],
     ];
 
     private function phpBinary(): string
     {
-        // PHP_BINARY under FPM returns php-fpm, not php-cli. Derive the CLI path.
+        // PHP_BINARY under FPM/LSAPI returns php-fpm or lsphp, not php-cli.
         $binary = PHP_BINARY;
+        $version = PHP_MAJOR_VERSION . PHP_MINOR_VERSION; // e.g. "84"
+        $versionDot = PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION; // e.g. "8.4"
 
-        // If running under FPM, swap to CLI binary
-        if (str_contains($binary, 'php-fpm') || PHP_SAPI === 'fpm-fcgi') {
-            // /path/to/php-fpm → /path/to/php
+        // cPanel EA-PHP paths (most common on cPanel)
+        $candidates = [
+            "/usr/local/bin/ea-php{$version}",
+            "/opt/cpanel/ea-php{$version}/root/usr/bin/php",
+            "/opt/alt/php{$version}/usr/bin/php",
+            "/usr/local/bin/php{$versionDot}",
+            "/usr/local/bin/php{$version}",
+            "/usr/local/bin/php",
+            "/usr/bin/php{$versionDot}",
+            "/usr/bin/php",
+        ];
+
+        // If running under FPM/LSAPI, also try deriving from current binary
+        if (str_contains($binary, 'php-fpm') || str_contains($binary, 'lsphp') || PHP_SAPI === 'fpm-fcgi' || PHP_SAPI === 'litespeed') {
             $cli = preg_replace('/php-fpm[^\/]*$/', 'php', $binary);
-            if ($cli && file_exists($cli)) {
+            if ($cli && $cli !== $binary && file_exists($cli)) {
                 return $cli;
             }
-
-            // Try sibling bin directory (e.g. /opt/homebrew/Cellar/php/8.x/sbin/php-fpm → .../bin/php)
-            $cli = str_replace('/sbin/php-fpm', '/bin/php', $binary);
-            if (file_exists($cli)) {
+            $cli = preg_replace('/lsphp$/', 'php', $binary);
+            if ($cli && $cli !== $binary && file_exists($cli)) {
+                return $cli;
+            }
+            $cli = str_replace('/sbin/', '/bin/', $binary);
+            $cli = preg_replace('/php-fpm[^\/]*$/', 'php', $cli);
+            if ($cli !== $binary && file_exists($cli)) {
                 return $cli;
             }
         }
 
-        // Common fallback paths
-        $candidates = [
-            dirname($binary) . '/php',
-            '/usr/local/bin/php',
-            '/usr/bin/php',
-            '/opt/homebrew/bin/php',
-        ];
+        // Also add sibling of current binary
+        array_unshift($candidates, dirname($binary) . '/php');
 
         foreach ($candidates as $path) {
             if ($path !== $binary && file_exists($path)) {
@@ -99,11 +113,20 @@ class TerminalController extends Controller
 
     private function composerBinary(): string
     {
-        // Check common locations
+        $user = get_current_user();
+
+        // Check common locations (cPanel shared hosting paths included)
         $candidates = [
             base_path('composer.phar'),
+            "/home/{$user}/composer.phar",
+            "/home/{$user}/bin/composer",
+            "/home/{$user}/bin/composer.phar",
+            '/opt/cpanel/composer/bin/composer',
             '/usr/local/bin/composer',
+            '/usr/local/bin/composer.phar',
             '/usr/bin/composer',
+            '/usr/bin/composer.phar',
+            '/opt/alt/php-tools/bin/composer',
             '/opt/homebrew/bin/composer',
         ];
 
@@ -113,10 +136,21 @@ class TerminalController extends Controller
             }
         }
 
-        // Fallback: try `which composer`
+        // Try `which composer`
         $which = trim((string) shell_exec('which composer 2>/dev/null'));
         if ($which && file_exists($which)) {
             return $which;
+        }
+
+        // Auto-download composer.phar if not found
+        $pharPath = base_path('composer.phar');
+        $downloaded = @file_put_contents(
+            $pharPath,
+            file_get_contents('https://getcomposer.org/composer-stable.phar')
+        );
+        if ($downloaded && file_exists($pharPath)) {
+            chmod($pharPath, 0755);
+            return $pharPath;
         }
 
         return 'composer';
@@ -154,6 +188,11 @@ class TerminalController extends Controller
             ], 400);
         }
 
+        // Handle special diagnostic command
+        if ($this->commands[$key] === ['DIAGNOSE']) {
+            return $this->diagnose();
+        }
+
         $cmd = $this->resolveCommand($this->commands[$key]);
 
         try {
@@ -175,5 +214,44 @@ class TerminalController extends Controller
                 'output'  => 'Error: ' . $e->getMessage(),
             ], 500);
         }
+    }
+
+    private function diagnose()
+    {
+        $php = $this->phpBinary();
+        $composer = $this->composerBinary();
+
+        $lines = [];
+        $lines[] = '=== Server Diagnostics ===';
+        $lines[] = '';
+        $lines[] = 'PHP_BINARY:    ' . PHP_BINARY;
+        $lines[] = 'PHP_SAPI:      ' . PHP_SAPI;
+        $lines[] = 'PHP Version:   ' . PHP_VERSION;
+        $lines[] = 'Resolved PHP:  ' . $php;
+        $lines[] = 'PHP exists:    ' . (file_exists($php) ? 'YES' : 'NO');
+        $lines[] = '';
+        $lines[] = 'Resolved Composer: ' . $composer;
+        $lines[] = 'Composer exists:   ' . (file_exists($composer) ? 'YES' : 'NO');
+        $lines[] = '';
+        $lines[] = 'Base path:     ' . base_path();
+        $lines[] = 'Current user:  ' . get_current_user();
+        $lines[] = 'Server OS:     ' . PHP_OS;
+        $lines[] = '';
+        $lines[] = 'PATH env:      ' . (getenv('PATH') ?: '(not set)');
+        $lines[] = '';
+
+        // Try running php -v
+        $process = new Process([$php, '-v']);
+        $process->setWorkingDirectory(base_path());
+        $process->setTimeout(10);
+        $process->run();
+        $lines[] = '--- php -v ---';
+        $lines[] = trim($process->getOutput()) ?: '(no output)';
+
+        return response()->json([
+            'success' => true,
+            'output'  => implode("\n", $lines),
+            'exitCode' => 0,
+        ]);
     }
 }
