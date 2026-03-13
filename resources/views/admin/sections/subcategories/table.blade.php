@@ -5,7 +5,7 @@
                 <div class="mb-3 col-md-12 mb-md-4">
                     <div class="mb-0 card rounded-8">
                         <div class="card-header card-header-action">
-                            <h6>Sub Categories
+                            <h6>{{ x_('Sub Categories', 'admin') }}
                                 <span class="badge badge-sm badge-light ms-1">{{$subcategories->count()}}</span>
                             </h6>
                         </div>
@@ -31,12 +31,12 @@
                                             <label class="form-check-label" for="customCheck1"></label>
                                         </span></th>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Slug</th>
-                                        <th>Category</th>
-                                        <th>Details</th>
-                                        <th>Clients</th>
-                                        <th>Actions</th>
+                                        <th>{{ x_('Name', 'admin') }}</th>
+                                        <th>{{ x_('Slug', 'admin') }}</th>
+                                        <th>{{ x_('Category', 'admin') }}</th>
+                                        <th>{{ x_('Details', 'admin') }}</th>
+                                        <th>{{ x_('Clients', 'admin') }}</th>
+                                        <th>{{ x_('Actions', 'admin') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,7 +58,7 @@
                                         <td>{{ $subcategory->clients->count() }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit{{ $subcategory->id }}" class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit">
+                                                <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit{{ $subcategory->id }}" class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="{{ x_('Edit', 'admin') }}">
                                                     <span class="icon"><span class="feather-icon"><i data-feather="edit"></i></span></span>
                                                 </button>
                                                 <button class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover del-button" data-bs-toggle="modal" data-bs-target="#delete_{{ $subcategory->id }}">

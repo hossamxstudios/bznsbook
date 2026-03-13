@@ -12,11 +12,11 @@
                         <div class="col-xxl-12">
                             <div>
                                 <input type="hidden" name="id" value="{{ $job->id }}">
-                                <label for="id" class="form-label"> Are you sure you want to reject the job?</label>
+                                <label for="id" class="form-label"> {{ x_('Are you sure you want to reject the job?', 'general') }}</label>
 
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-danger">Reject</button>
+                        <button type="submit" class="btn btn-danger">{{ x_('Reject', 'general') }}</button>
                     </div><!--end row-->
                 </div>
             </form>

@@ -11,9 +11,9 @@
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="role" class="form-label">Select Tag</label>
+                            <label for="role" class="form-label">{{ x_('Select Tag', 'general') }}</label>
                             <select name="tag_id"  class="form-control" required>
-                                <option value="" selected >Select a Tag</option>
+                                <option value="" selected >{{ x_('Select a Tag', 'general') }}</option>
                                 @foreach ($tags as $tag)
                                     <option value="{{ $tag->id }}" {{ $job->tags->contains('id',$tag->id) ? 'disabled' : '' }}>{{ $tag->name }}</option>
                                 @endforeach
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" class="btn btn-dark">{{ x_('Submit', 'general') }}</button>
                 </div>
             </form>
         </div>

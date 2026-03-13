@@ -30,3 +30,8 @@
 <link href="{{ URL::asset('vendors/@sweetalert2/theme-bootstrap-4/bootstrap-4.min.css') }}" rel="stylesheet" type="text/css">
 
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+@if(str_starts_with(app()->getLocale(), 'ar'))
+<link href="{{ asset('dist/css/rtl.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('dist/css/web-rtl.css') }}" rel="stylesheet" type="text/css">
+@endif

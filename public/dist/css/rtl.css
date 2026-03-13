@@ -1,0 +1,290 @@
+/*
+ * RTL (Right-to-Left) Support for Arabic locales
+ *
+ * The Vona/Zapped theme uses a standard LTR Bootstrap 5 build (physical CSS properties).
+ * dir="rtl" on <html> handles text direction but does NOT auto-flip Bootstrap utilities.
+ * This file provides:
+ *   1. Bootstrap utility flipping (margin, padding, float, text-align)
+ *   2. Theme-specific sidebar/layout positioning for twocolumn layout
+ *
+ * DO NOT flip: flex-row, flex-direction, or blanket card-body/badge overrides.
+ */
+
+/* ============================================================
+   1. Bootstrap Margin Utilities — flip start/end
+   ============================================================ */
+[dir="rtl"] .me-1 { margin-right: 0 !important; margin-left: 0.25rem !important; }
+[dir="rtl"] .me-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+[dir="rtl"] .me-3 { margin-right: 0 !important; margin-left: 1rem !important; }
+[dir="rtl"] .me-4 { margin-right: 0 !important; margin-left: 1.5rem !important; }
+[dir="rtl"] .me-5 { margin-right: 0 !important; margin-left: 3rem !important; }
+[dir="rtl"] .ms-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+[dir="rtl"] .ms-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
+[dir="rtl"] .ms-3 { margin-left: 0 !important; margin-right: 1rem !important; }
+[dir="rtl"] .ms-4 { margin-left: 0 !important; margin-right: 1.5rem !important; }
+[dir="rtl"] .ms-5 { margin-left: 0 !important; margin-right: 3rem !important; }
+[dir="rtl"] .ms-auto { margin-left: 0 !important; margin-right: auto !important; }
+[dir="rtl"] .me-auto { margin-right: 0 !important; margin-left: auto !important; }
+
+/* ============================================================
+   2. Bootstrap Padding Utilities — flip start/end
+   ============================================================ */
+[dir="rtl"] .pe-1 { padding-right: 0 !important; padding-left: 0.25rem !important; }
+[dir="rtl"] .pe-2 { padding-right: 0 !important; padding-left: 0.5rem !important; }
+[dir="rtl"] .pe-3 { padding-right: 0 !important; padding-left: 1rem !important; }
+[dir="rtl"] .pe-4 { padding-right: 0 !important; padding-left: 1.5rem !important; }
+[dir="rtl"] .pe-5 { padding-right: 0 !important; padding-left: 3rem !important; }
+[dir="rtl"] .ps-1 { padding-left: 0 !important; padding-right: 0.25rem !important; }
+[dir="rtl"] .ps-2 { padding-left: 0 !important; padding-right: 0.5rem !important; }
+[dir="rtl"] .ps-3 { padding-left: 0 !important; padding-right: 1rem !important; }
+[dir="rtl"] .ps-4 { padding-left: 0 !important; padding-right: 1.5rem !important; }
+[dir="rtl"] .ps-5 { padding-left: 0 !important; padding-right: 3rem !important; }
+[dir="rtl"] .pe-lg-1 { padding-right: 0 !important; padding-left: 0.25rem !important; }
+
+/* ============================================================
+   3. Bootstrap Float & Text Alignment — flip
+   ============================================================ */
+[dir="rtl"] .float-start { float: right !important; }
+[dir="rtl"] .float-end { float: left !important; }
+[dir="rtl"] .text-start { text-align: right !important; }
+[dir="rtl"] .text-end { text-align: left !important; }
+
+/* ============================================================
+   4. Twocolumn Layout — Sidebar Positioning
+   ============================================================ */
+
+/* Main sidebar: flip from left to right */
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-menu .main-menu {
+    left: auto;
+    right: 0;
+}
+
+/* Sub-menu: position to the right of main sidebar */
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-menu .sub-menu {
+    left: auto;
+    right: 80px;
+    transform: translate(100%);
+}
+
+/* Sub-menu active: slide in from right */
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn][data-submenu=active] .hk-menu .sub-menu {
+    transform: translate(0);
+}
+
+/* Page wrapper: flip margin from left to right */
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-pg-wrapper {
+    margin-left: 0;
+    margin-right: 80px;
+}
+
+/* Page wrapper when sub-menu is active */
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn][data-submenu=active] .hk-pg-wrapper {
+    margin-left: 0;
+    margin-right: 350px;
+}
+
+/* Navbar offset in twocolumn */
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-navbar {
+    left: auto;
+    right: 80px;
+}
+
+/* Menu backdrop */
+[dir="rtl"] #hk_menu_backdrop {
+    left: auto;
+    right: 0;
+}
+
+/* ============================================================
+   5. Sub-menu Nav Children — flip indent direction
+   ============================================================ */
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-menu .sub-menu .menu-content-wrap .menu-group .navbar-nav > .nav-item > ul:after {
+    left: auto;
+    right: 10px;
+}
+
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-menu .sub-menu .menu-content-wrap .menu-group .nav-children .nav-item .nav-link {
+    padding-left: 0;
+    padding-right: 1.4rem;
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-menu .sub-menu .menu-content-wrap .menu-group .nav-children .nav-children .nav-item .nav-link {
+    padding-left: 0;
+    padding-right: 2rem;
+}
+
+/* Collapse arrow in sub-menu: flip auto-margin */
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-menu .sub-menu .menu-content-wrap .menu-group .navbar-nav .nav-item .nav-link[data-bs-toggle=collapse]::after,
+[dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-menu .sub-menu .menu-content-wrap .menu-group .navbar-nav .nav-item .nav-item-child[data-bs-toggle=collapse]::after {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* ============================================================
+   6. Dropdown Menus
+   ============================================================ */
+[dir="rtl"] .dropdown-menu {
+    text-align: right;
+}
+
+/* ============================================================
+   7. Tables & DataTables
+   ============================================================ */
+[dir="rtl"] .table th,
+[dir="rtl"] .table td {
+    text-align: right;
+}
+
+[dir="rtl"] .table th.text-center,
+[dir="rtl"] .table td.text-center {
+    text-align: center !important;
+}
+
+[dir="rtl"] .dataTables_wrapper {
+    direction: rtl;
+}
+
+[dir="rtl"] .dataTables_filter {
+    float: left !important;
+    text-align: left;
+}
+
+[dir="rtl"] .dataTables_length {
+    float: right !important;
+    text-align: right;
+}
+
+/* ============================================================
+   8. Breadcrumbs — flip separator
+   ============================================================ */
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+    float: right;
+    padding-left: 0.5rem;
+    padding-right: 0;
+}
+
+/* ============================================================
+   9. Form Controls
+   ============================================================ */
+[dir="rtl"] .form-control,
+[dir="rtl"] .form-select {
+    text-align: right;
+}
+
+[dir="rtl"] .input-group > .form-control:not(:last-child),
+[dir="rtl"] .input-group > .input-affix-wrapper:not(:last-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+[dir="rtl"] .input-group > .form-control:not(:first-child),
+[dir="rtl"] .input-group > .input-affix-wrapper:not(:first-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+}
+
+[dir="rtl"] .input-prefix {
+    right: auto;
+    left: auto;
+}
+
+[dir="rtl"] .form-check {
+    padding-left: 0;
+    padding-right: 1.5em;
+}
+
+[dir="rtl"] .form-check .form-check-input {
+    float: right;
+    margin-left: 0;
+    margin-right: -1.5em;
+}
+
+/* ============================================================
+   10. Select2 RTL
+   ============================================================ */
+[dir="rtl"] .select2-container .select2-selection {
+    direction: rtl;
+    text-align: right;
+}
+
+/* ============================================================
+   11. Pagination
+   ============================================================ */
+[dir="rtl"] .pagination .page-item:first-child .page-link {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+[dir="rtl"] .pagination .page-item:last-child .page-link {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+}
+
+/* ============================================================
+   12. Offcanvas — flip direction
+   ============================================================ */
+[dir="rtl"] .offcanvas-end {
+    left: 0;
+    right: auto;
+    transform: translateX(-100%);
+}
+
+[dir="rtl"] .offcanvas-end.show,
+[dir="rtl"] .offcanvas-end.showing {
+    transform: translateX(0);
+}
+
+/* ============================================================
+   13. Task Board / App Content
+   ============================================================ */
+[dir="rtl"] .hk-pg-header {
+    text-align: right;
+}
+
+[dir="rtl"] .taskboardapp-wrap {
+    direction: rtl;
+}
+
+/* ============================================================
+   14. Feather icons inside buttons — fix spacing
+   ============================================================ */
+[dir="rtl"] .btn .feather-icon + span,
+[dir="rtl"] .btn span + .feather-icon {
+    margin-left: 0;
+}
+
+/* ============================================================
+   15. Media object — flip head margin
+   ============================================================ */
+[dir="rtl"] .media .media-head.me-2 {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+}
+
+/* ============================================================
+   16. Responsive — mobile adjustments
+   ============================================================ */
+@media (max-width: 1199.98px) {
+    [dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-pg-wrapper {
+        margin-right: 0;
+    }
+    [dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-menu .main-menu {
+        right: auto;
+        left: 0;
+        transform: translateX(-100%);
+    }
+    [dir="rtl"] .hk-wrapper[data-layout=twocolumn] .hk-menu .sub-menu {
+        right: auto;
+        left: 0;
+    }
+}

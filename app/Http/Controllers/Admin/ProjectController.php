@@ -96,7 +96,7 @@ class ProjectController extends Controller
         }
 
         return redirect()->route('admin.projects.index')
-            ->with('success', 'Project created successfully');
+            ->with('success', x_('Project created successfully', 'controller'));
     }
 
     /**
@@ -167,7 +167,7 @@ class ProjectController extends Controller
         }
 
         return redirect()->route('admin.projects.index')
-            ->with('success', 'Project updated successfully');
+            ->with('success', x_('Project updated successfully', 'controller'));
     }
 
     /**
@@ -186,7 +186,7 @@ class ProjectController extends Controller
         $statusText = $project->is_active ? 'activated' : 'deactivated';
 
         return redirect()->route('admin.projects.index')
-            ->with('success', "Project {$statusText} successfully");
+            ->with('success', x_('Project', 'controller') . ' ' . x_($statusText, 'controller') . ' ' . x_('successfully', 'controller'));
     }
 
     /**
@@ -204,7 +204,7 @@ class ProjectController extends Controller
         $project->save();
 
         return redirect()->route('admin.projects.index')
-            ->with('success', "Project status updated to {$request->status} successfully");
+            ->with('success', x_('Project status updated successfully', 'controller'));
     }
 
     /**
@@ -221,6 +221,6 @@ class ProjectController extends Controller
         $project->delete();
 
         return redirect()->route('admin.projects.index')
-            ->with('success', 'Project deleted successfully');
+            ->with('success', x_('Project deleted successfully', 'controller'));
     }
 }

@@ -10,10 +10,10 @@
 
         </div>
         <div class="mb-3">
-            <p>Industry: {{ $company->industry?->name }}</p>
+            <p>{{ x_('Industry', 'companies') }}: {{ $company->industry?->name }}</p>
         </div>
         <div class="mb-3">
-            <p>Created Date: {{ $company->created_at }}</p>
+            <p>{{ x_('Created Date', 'companies') }}: {{ $company->created_at }}</p>
         </div>
         <div class="my-5 row justify-content-center text-center">
             <div class="col-3">
@@ -32,7 +32,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <p>Add Activity Log</p>
+                        <p>{{ x_('Add Activity Log', 'companies') }}</p>
                     </button>
                     <div class="dropdown-menu p-3" style="width: 400px;">
                         <form action="{{ route('logs.store') }}" method="post">
@@ -41,25 +41,25 @@
                             <input type="hidden" name="loggable_id" value="{{ $company->id }}">
                             <input type="hidden" name="loggable_type" value="App\Models\Company">
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logTitle">Title</label>
+                                <label class="form-label" for="logTitle">{{ x_('Title', 'companies') }}</label>
                                 <select class="form-control" id="title" name="title" required>
-                                    <option value="" selected disabled>Select a type</option>
-                                    <option value="Phone Called">Phone Called </option>
-                                    <option value="Sent Email">Sent Email</option>
-                                    <option value="Online meeting ">Online meeting </option>
-                                    <option value="Personal meeting ">Personal meeting </option>
-                                    <option value="Contacted by Whatsapp ">Contacted by Whatsapp </option>
+                                    <option value="" selected disabled>{{ x_('Select a type', 'companies') }}</option>
+                                    <option value="Phone Called">{{ x_('Phone Called', 'companies') }} </option>
+                                    <option value="Sent Email">{{ x_('Sent Email', 'companies') }}</option>
+                                    <option value="Online meeting ">{{ x_('Online meeting', 'companies') }} </option>
+                                    <option value="Personal meeting ">{{ x_('Personal meeting', 'companies') }} </option>
+                                    <option value="Contacted by Whatsapp ">{{ x_('Contacted by Whatsapp', 'companies') }} </option>
                                 </select>
                             </div>
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logDetails">Details</label>
-                                <textarea class="form-control" id="logDetails" name="details" rows="3" placeholder="Enter details here..." required></textarea>
+                                <label class="form-label" for="logDetails">{{ x_('Details', 'companies') }}</label>
+                                <textarea class="form-control" id="logDetails" name="details" rows="3" placeholder="{{ x_('Enter details here...', 'companies') }}" required></textarea>
                             </div>
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logDate">Log Date</label>
+                                <label class="form-label" for="logDate">{{ x_('Log Date', 'companies') }}</label>
                                 <input type="date" class="form-control" id="logDate" name="log_date" >
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Save Log</button>
+                            <button type="submit" class="btn btn-primary btn-sm">{{ x_('Save Log', 'companies') }}</button>
                         </form>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <p>Add Note</p>
+                        <p>{{ x_('Add Note', 'companies') }}</p>
                     </button>
                     <div class="dropdown-menu p-3" style="width: 400px;">
                         <form action="{{ route('notes.store') }}" method="post">
@@ -88,10 +88,10 @@
                             <input type="hidden" name="notable_id" value="{{ $company->id }}">
                             <input type="hidden" name="notable_type" value="App\Models\Company">
                             <div class="form-group mb-2">
-                                <label class="form-label" for="noteDetails">Note Details</label>
-                                <textarea class="form-control" id="note-details" name="details" rows="3" placeholder="Enter your note here..."></textarea>
+                                <label class="form-label" for="noteDetails">{{ x_('Note Details', 'companies') }}</label>
+                                <textarea class="form-control" id="note-details" name="details" rows="3" placeholder="{{ x_('Enter your note here...', 'companies') }}"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Save Note</button>
+                            <button type="submit" class="btn btn-primary btn-sm">{{ x_('Save Note', 'companies') }}</button>
                         </form>
                     </div>
                 </div>
@@ -102,19 +102,19 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#activity{{$company->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="check-circle"></i></span></span>
-                        <span class="nav-link-text">Activity Log</span>
+                        <span class="nav-link-text">{{ x_('Activity Log', 'companies') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#nots{{$company->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Nots</span>
+                        <span class="nav-link-text">{{ x_('Nots', 'companies') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#contacts{{$company->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Contacts</span>
+                        <span class="nav-link-text">{{ x_('Contacts', 'companies') }}</span>
                     </a>
                 </li>
             </ul>
@@ -138,7 +138,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="media-body" style="padding-bottom: 0;">
-                                                        <p> <span class="text-dark">By {{ $log->user?->name ?? 'Unknown User' }}</span><br>{{ $log->title}} <br> {!! $log->details!!}</p>
+                                                        <p> <span class="text-dark">{{ x_('By', 'companies') }} {{ $log->user?->name ?? x_('Unknown User', 'admin') }}</span><br>{{ $log->title}} <br> {!! $log->details!!}</p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -167,7 +167,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="media-body" style="padding-bottom: 0;">
-                                                        <p> <span class="text-dark">By {{ $note->user?->name ?? 'Unknown User' }}</span><br>{{ $log->title}} <br> {{ $note->details}}</p>
+                                                        <p> <span class="text-dark">{{ x_('By', 'companies') }} {{ $note->user?->name ?? x_('Unknown User', 'admin') }}</span><br>{{ $log->title}} <br> {{ $note->details}}</p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -193,9 +193,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="media-body" style="padding-bottom: 0;">
-                                                        <p> <span class="text-dark">Name: {{$contact?->name ?? 'N/A' }}</span></p>
-                                                        <p> <span class="text-dark">Email: {{$contact?->email ?? 'N/A' }}</span></p>
-                                                        <p> <span class="text-dark">Phone: {{$contact?->phone ?? 'N/A' }}</span></p>
+                                                        <p> <span class="text-dark">{{ x_('Name', 'companies') }}: {{$contact?->name ?? x_('N/A', 'admin') }}</span></p>
+                                                        <p> <span class="text-dark">{{ x_('Email', 'companies') }}: {{$contact?->email ?? x_('N/A', 'admin') }}</span></p>
+                                                        <p> <span class="text-dark">{{ x_('Phone', 'companies') }}: {{$contact?->phone ?? x_('N/A', 'admin') }}</span></p>
                                                     </div>
                                                 </div>
                                             </li>

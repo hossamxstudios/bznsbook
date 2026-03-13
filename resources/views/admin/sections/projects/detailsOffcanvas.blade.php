@@ -3,9 +3,9 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="projectDetails{{ $project->id }}" aria-labelledby="projectDetails{{ $project->id }}Label" style="width: 1220px;">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="projectDetails{{ $project->id }}Label">
-            Project Details
+            {{ x_('Project Details', 'admin') }}
             <span class="ms-2 badge {{ $project->is_active ? 'badge-soft-success' : 'badge-soft-warning' }}">
-                {{ $project->is_active ? 'Active' : 'Inactive' }}
+                {{ $project->is_active ? x_('Active', 'admin') : x_('Inactive', 'admin') }}
             </span>
         </h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -22,70 +22,70 @@
             <!-- Basic Info Card -->
             <div class="mb-3 card">
                 <div class="card-header">
-                    <h6 class="mb-0">Basic Information</h6>
+                    <h6 class="mb-0">{{ x_('Basic Information', 'admin') }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Project ID:</div>
+                        <div class="col-5 text-muted">{{ x_('Project ID:', 'admin') }}</div>
                         <div class="col-7 fw-medium">{{ $project->id }}</div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Name:</div>
+                        <div class="col-5 text-muted">{{ x_('Name:', 'admin') }}</div>
                         <div class="col-7 fw-medium">{{ $project->name }}</div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Client:</div>
+                        <div class="col-5 text-muted">{{ x_('Client:', 'admin') }}</div>
                         <div class="col-7 fw-medium">
                             @if ($project->client)
                                 {{ $project->client->name }}
                             @else
-                                <span class="text-muted">No client assigned</span>
+                                <span class="text-muted">{{ x_('No client assigned', 'admin') }}</span>
                             @endif
                         </div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Status:</div>
+                        <div class="col-5 text-muted">{{ x_('Status:', 'admin') }}</div>
                         <div class="col-7">
                             @if ($project->status == 'pending')
-                                <span class="badge badge-soft-warning">Pending</span>
+                                <span class="badge badge-soft-warning">{{ x_('Pending', 'admin') }}</span>
                             @elseif ($project->status == 'active')
-                                <span class="badge badge-soft-success">Active</span>
+                                <span class="badge badge-soft-success">{{ x_('Active', 'admin') }}</span>
                             @elseif ($project->status == 'awarded')
-                                <span class="badge badge-soft-info">Awarded</span>
+                                <span class="badge badge-soft-info">{{ x_('Awarded', 'admin') }}</span>
                             @elseif ($project->status == 'completed')
-                                <span class="badge badge-soft-primary">Completed</span>
+                                <span class="badge badge-soft-primary">{{ x_('Completed', 'admin') }}</span>
                             @elseif ($project->status == 'cancelled')
-                                <span class="badge badge-soft-danger">Cancelled</span>
+                                <span class="badge badge-soft-danger">{{ x_('Cancelled', 'admin') }}</span>
                             @endif
                         </div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Budget:</div>
+                        <div class="col-5 text-muted">{{ x_('Budget:', 'admin') }}</div>
                         <div class="col-7 fw-medium">
                             @if ($project->budget_min && $project->budget_max)
                                 ${{ number_format($project->budget_min, 2) }} - ${{ number_format($project->budget_max, 2) }}
                             @elseif ($project->budget_min)
                                 ${{ number_format($project->budget_min, 2) }}
                             @else
-                                <span class="text-muted">Not specified</span>
+                                <span class="text-muted">{{ x_('Not specified', 'admin') }}</span>
                             @endif
                         </div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Location:</div>
-                        <div class="col-7 fw-medium">{{ $project->location ?? 'Not specified' }}</div>
+                        <div class="col-5 text-muted">{{ x_('Location:', 'admin') }}</div>
+                        <div class="col-7 fw-medium">{{ $project->location ?? x_('Not specified', 'admin') }}</div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Created:</div>
+                        <div class="col-5 text-muted">{{ x_('Created:', 'admin') }}</div>
                         <div class="col-7 fw-medium">{{ $project->created_at->format('M d, Y') }}</div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Updated:</div>
+                        <div class="col-5 text-muted">{{ x_('Updated:', 'admin') }}</div>
                         <div class="col-7 fw-medium">{{ $project->updated_at->format('M d, Y') }}</div>
                     </div>
                     @if ($project->winner)
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Winner:</div>
+                        <div class="col-5 text-muted">{{ x_('Winner:', 'admin') }}</div>
                         <div class="col-7 fw-medium">{{ $project->winner->name }}</div>
                     </div>
                     @endif
@@ -95,7 +95,7 @@
             <!-- Skills Card -->
             <div class="mb-3 card">
                 <div class="card-header">
-                    <h6 class="mb-0">Required Skills</h6>
+                    <h6 class="mb-0">{{ x_('Required Skills', 'admin') }}</h6>
                 </div>
                 <div class="card-body">
                     @if(is_array($project->skills) && count($project->skills) > 0)
@@ -105,7 +105,7 @@
                             @endforeach
                         </div>
                     @else
-                        <p class="mb-0 text-muted">No skills specified</p>
+                        <p class="mb-0 text-muted">{{ x_('No skills specified', 'admin') }}</p>
                     @endif
                 </div>
             </div>
@@ -113,7 +113,7 @@
             <!-- Services Card -->
             <div class="mb-3 card">
                 <div class="card-header">
-                    <h6 class="mb-0">Services</h6>
+                    <h6 class="mb-0">{{ x_('Services', 'admin') }}</h6>
                 </div>
                 <div class="card-body">
                     @if($project->services && $project->services->count() > 0)
@@ -123,7 +123,7 @@
                             @endforeach
                         </div>
                     @else
-                        <p class="mb-0 text-muted">No services attached</p>
+                        <p class="mb-0 text-muted">{{ x_('No services attached', 'admin') }}</p>
                     @endif
                 </div>
             </div>
@@ -131,13 +131,13 @@
             <!-- Project Details Card -->
             <div class="mb-3 card">
                 <div class="card-header">
-                    <h6 class="mb-0">Project Details</h6>
+                    <h6 class="mb-0">{{ x_('Project Details', 'admin') }}</h6>
                 </div>
                 <div class="card-body">
                     @if($project->details)
                         <p class="mb-0">{{ $project->details }}</p>
                     @else
-                        <p class="mb-0 text-muted">No details provided</p>
+                        <p class="mb-0 text-muted">{{ x_('No details provided', 'admin') }}</p>
                     @endif
                 </div>
             </div>
@@ -146,7 +146,7 @@
             @if($project->batches && $project->batches->count() > 0)
             <div class="mb-3 card">
                 <div class="card-header">
-                    <h6 class="mb-0">Batches</h6>
+                    <h6 class="mb-0">{{ x_('Batches', 'admin') }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -154,9 +154,9 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Seats</th>
-                                    <th>Status</th>
+                                    <th>{{ x_('Name', 'admin') }}</th>
+                                    <th>{{ x_('Seats', 'admin') }}</th>
+                                    <th>{{ x_('Status', 'admin') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -167,7 +167,7 @@
                                     <td>{{ $batch->seats->count() }}</td>
                                     <td>
                                         <span class="badge badge-soft-{{ $batch->is_active ? 'success' : 'danger' }}">
-                                            {{ $batch->is_active ? 'Active' : 'Inactive' }}
+                                            {{ $batch->is_active ? x_('Active', 'admin') : x_('Inactive', 'admin') }}
                                         </span>
                                     </td>
                                 </tr>
@@ -199,9 +199,9 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="projectDetails{{ $project->id }}" aria-labelledby="projectDetails{{ $project->id }}Label" style="width: 1220px;">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="projectDetails{{ $project->id }}Label">
-            Project Details
+            {{ x_('Project Details', 'admin') }}
             <span class="ms-2 badge {{ $project->is_active ? 'badge-soft-success' : 'badge-soft-warning' }}">
-                {{ $project->is_active ? 'Active' : 'Inactive' }}
+                {{ $project->is_active ? x_('Active', 'admin') : x_('Inactive', 'admin') }}
             </span>
         </h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -218,71 +218,71 @@
             <!-- Basic Info Card -->
             <div class="mb-3 card">
                 <div class="card-header">
-                    <h6 class="mb-0">Basic Information</h6>
+                    <h6 class="mb-0">{{ x_('Basic Information', 'admin') }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Project ID:</div>
+                        <div class="col-5 text-muted">{{ x_('Project ID:', 'admin') }}</div>
                         <div class="col-7 fw-medium">{{ $project->id }}</div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Name:</div>
+                        <div class="col-5 text-muted">{{ x_('Name:', 'admin') }}</div>
                         <div class="col-7 fw-medium">{{ $project->name }}</div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Client:</div>
+                        <div class="col-5 text-muted">{{ x_('Client:', 'admin') }}</div>
                         <div class="col-7 fw-medium">
                             @if ($project->client)
                                 {{ $project->client->name }}
                             @else
-                                <span class="text-muted">No client assigned</span>
+                                <span class="text-muted">{{ x_('No client assigned', 'admin') }}</span>
                             @endif
                         </div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Status:</div>
+                        <div class="col-5 text-muted">{{ x_('Status:', 'admin') }}</div>
                         <div class="col-7">
                             @if ($project->status == 'pending')
-                                <span class="badge badge-soft-warning">Pending</span>
+                                <span class="badge badge-soft-warning">{{ x_('Pending', 'admin') }}</span>
                             @elseif ($project->status == 'active')
-                                <span class="badge badge-soft-success">Active</span>
+                                <span class="badge badge-soft-success">{{ x_('Active', 'admin') }}</span>
                             @elseif ($project->status == 'awarded')
-                                <span class="badge badge-soft-info">Awarded</span>
+                                <span class="badge badge-soft-info">{{ x_('Awarded', 'admin') }}</span>
                             @elseif ($project->status == 'completed')
-                                <span class="badge badge-soft-primary">Completed</span>
+                                <span class="badge badge-soft-primary">{{ x_('Completed', 'admin') }}</span>
                             @elseif ($project->status == 'cancelled')
-                                <span class="badge badge-soft-danger">Cancelled</span>
+                                <span class="badge badge-soft-danger">{{ x_('Cancelled', 'admin') }}</span>
                             @endif
                         </div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Budget:</div>
+                        <div class="col-5 text-muted">{{ x_('Budget:', 'admin') }}</div>
                         <div class="col-7 fw-medium">
                             @if ($project->budget_min && $project->budget_max)
                                 ${{ number_format($project->budget_min, 2) }} - ${{ number_format($project->budget_max, 2) }}
                             @elseif ($project->budget_min)
                                 ${{ number_format($project->budget_min, 2) }}
                             @else
-                                <span class="text-muted">Not specified</span>
+                                <span class="text-muted">{{ x_('Not specified', 'admin') }}</span>
                             @endif
                         </div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Location:</div>
-                        <div class="col-7 fw-medium">{{ $project->location ?? 'Not specified' }}</div>
+                        <div class="col-5 text-muted">{{ x_('Location:', 'admin') }}</div>
+                        <div class="col-7 fw-medium">{{ $project->location ?? x_('Not specified', 'admin') }}</div>
                     </div>
                     @include('admin.sections.projects.components.seats-info')
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Created:</div>
+                        <div class="col-5 text-muted">{{ x_('Created:', 'admin') }}</div>
                         <div class="col-7 fw-medium">{{ $project->created_at->format('M d, Y') }}</div>
                     </div>
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Updated:</div>
+                        <div class="col-5 text-muted">{{ x_('Updated:', 'admin') }}</div>
                         <div class="col-7 fw-medium">{{ $project->updated_at->format('M d, Y') }}</div>
                     </div>
                     @if ($project->winner)
                     <div class="mb-2 row">
-                        <div class="col-5 text-muted">Winner:</div>
+                        <div class="col-5 text-muted">{{ x_('Winner:', 'admin') }}</div>
                         <div class="col-7 fw-medium">{{ $project->winner->name }}</div>
                     </div>
                     @endif
@@ -292,7 +292,7 @@
             <!-- Skills Card -->
             <div class="mb-3 card">
                 <div class="card-header">
-                    <h6 class="mb-0">Required Skills</h6>
+                    <h6 class="mb-0">{{ x_('Required Skills', 'admin') }}</h6>
                 </div>
                 <div class="card-body">
                     @if(is_array($project->skills) && count($project->skills) > 0)
@@ -302,7 +302,7 @@
                             @endforeach
                         </div>
                     @else
-                        <p class="mb-0 text-muted">No skills specified</p>
+                        <p class="mb-0 text-muted">{{ x_('No skills specified', 'admin') }}</p>
                     @endif
                 </div>
             </div>
@@ -310,7 +310,7 @@
             <!-- Services Card -->
             <div class="mb-3 card">
                 <div class="card-header">
-                    <h6 class="mb-0">Services</h6>
+                    <h6 class="mb-0">{{ x_('Services', 'admin') }}</h6>
                 </div>
                 <div class="card-body">
                     @if($project->services && $project->services->count() > 0)
@@ -320,7 +320,7 @@
                             @endforeach
                         </div>
                     @else
-                        <p class="mb-0 text-muted">No services attached</p>
+                        <p class="mb-0 text-muted">{{ x_('No services attached', 'admin') }}</p>
                     @endif
                 </div>
             </div>
@@ -328,13 +328,13 @@
             <!-- Project Details Card -->
             <div class="mb-3 card">
                 <div class="card-header">
-                    <h6 class="mb-0">Project Details</h6>
+                    <h6 class="mb-0">{{ x_('Project Details', 'admin') }}</h6>
                 </div>
                 <div class="card-body">
                     @if($project->details)
                         <p class="mb-0">{{ $project->details }}</p>
                     @else
-                        <p class="mb-0 text-muted">No details provided</p>
+                        <p class="mb-0 text-muted">{{ x_('No details provided', 'admin') }}</p>
                     @endif
                 </div>
             </div>
@@ -343,7 +343,7 @@
             @if($project->batches && $project->batches->count() > 0)
             <div class="mb-3 card">
                 <div class="card-header">
-                    <h6 class="mb-0">Batches</h6>
+                    <h6 class="mb-0">{{ x_('Batches', 'admin') }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -351,9 +351,9 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Seats</th>
-                                    <th>Status</th>
+                                    <th>{{ x_('Name', 'admin') }}</th>
+                                    <th>{{ x_('Seats', 'admin') }}</th>
+                                    <th>{{ x_('Status', 'admin') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -364,7 +364,7 @@
                                     <td>{{ $batch->seats->count() }}</td>
                                     <td>
                                         <span class="badge badge-soft-{{ $batch->is_active ? 'success' : 'danger' }}">
-                                            {{ $batch->is_active ? 'Active' : 'Inactive' }}
+                                            {{ $batch->is_active ? x_('Active', 'admin') : x_('Inactive', 'admin') }}
                                         </span>
                                     </td>
                                 </tr>
@@ -381,7 +381,7 @@
             <div class="mt-auto">
                 <div class="gap-2 d-grid">
                     <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-primary">
-                        <i class="ri-edit-2-line me-1"></i> Edit Project
+                        <i class="ri-edit-2-line me-1"></i> {{ x_('Edit Project', 'admin') }}
                     </a>
                 </div>
             </div>

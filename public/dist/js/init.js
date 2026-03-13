@@ -294,9 +294,8 @@ var jampack = function(){
 	});
 
 	$(document).on('click', '[data-layout="twocolumn"] #hk_menu_backdrop,[data-layout="twocolumn"] .hk-pg-wrapper,[data-layout="twocolumn"] .hk-navbar,[data-layout="twocolumn"] .hk-section-nav', function (e) {
-		// $wrapper.removeAttr('data-submenu');
+		$wrapper.removeAttr('data-submenu');
 		$wrapper.removeAttr('data-layout-style');
-		// return false;
 	});
 	$(document).on('click', '[data-layout="twocolumn"] .navbar-toggle', function (e) {
 		$wrapper.attr('data-layout-style','offcanvas');

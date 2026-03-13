@@ -7,13 +7,13 @@
      <div class="offcanvas-body" style="background: #f5f8fa;">
          <div class="mb-3 text-capitalize">
              <p style="font-weight: bold; font-size: 2em; display:inline-block"> {{ $deal->name }}</p>
-             <span style="font-size: 1.25em; padding-left:10px">Amount: ${{ $deal->amount }}</span>
+             <span style="font-size: 1.25em; padding-left:10px">{{ x_('Amount:', 'deals') }} ${{ $deal->amount }}</span>
          </div>
          <div class="mb-3">
-             <p>Stage: <span style="color: red">{{ $deal->stage?->name }}</span></p>
+             <p>{{ x_('Stage:', 'deals') }} <span style="color: red">{{ $deal->stage?->name }}</span></p>
          </div>
          <div class="mb-3">
-             <p>Closed Date: {{ $deal->closed_at }}</p>
+             <p>{{ x_('Closed Date:', 'deals') }} {{ $deal->closed_at }}</p>
          </div>
          <div class="my-5 row justify-content-center text-center">
             <div class="col-3">
@@ -30,7 +30,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <p>Add Activity Log</p>
+                        <p>{{ x_('Add Activity Log', 'deals') }}</p>
                     </button>
                     <div class="dropdown-menu p-3" style="width: 400px;">
                         <form action="{{ route('logs.store') }}" method="post">
@@ -39,25 +39,25 @@
                             <input type="hidden" name="loggable_id" value="{{ $deal->id }}">
                             <input type="hidden" name="loggable_type" value="App\Models\Deal">
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logTitle">Title</label>
+                                <label class="form-label" for="logTitle">{{ x_('Title', 'deals') }}</label>
                                 <select class="form-control" id="title" name="title" required>
-                                    <option value="" selected disabled>Select a type</option>
-                                    <option value="Phone Called">Phone Called </option>
-                                    <option value="Sent Email">Sent Email</option>
-                                    <option value="Online meeting ">Online meeting </option>
-                                    <option value="Personal meeting ">Personal meeting </option>
-                                    <option value="Contacted by Whatsapp ">Contacted by Whatsapp </option>
+                                    <option value="" selected disabled>{{ x_('Select a type', 'deals') }}</option>
+                                    <option value="Phone Called">{{ x_('Phone Called', 'deals') }} </option>
+                                    <option value="Sent Email">{{ x_('Sent Email', 'deals') }}</option>
+                                    <option value="Online meeting ">{{ x_('Online meeting', 'deals') }} </option>
+                                    <option value="Personal meeting ">{{ x_('Personal meeting', 'deals') }} </option>
+                                    <option value="Contacted by Whatsapp ">{{ x_('Contacted by Whatsapp', 'deals') }} </option>
                                 </select>
                             </div>
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logDetails">Details</label>
-                                <textarea class="form-control" id="logDetails" name="details" rows="3" placeholder="Enter details here..." required></textarea>
+                                <label class="form-label" for="logDetails">{{ x_('Details', 'deals') }}</label>
+                                <textarea class="form-control" id="logDetails" name="details" rows="3" placeholder="{{ x_('Enter details here...', 'deals') }}" required></textarea>
                             </div>
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logDate">Log Date</label>
+                                <label class="form-label" for="logDate">{{ x_('Log Date', 'deals') }}</label>
                                 <input type="date" class="form-control" id="logDate" name="log_date">
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Save Log</button>
+                            <button type="submit" class="btn btn-primary btn-sm">{{ x_('Save Log', 'deals') }}</button>
                         </form>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <p>Add Note</p>
+                        <p>{{ x_('Add Note', 'deals') }}</p>
                     </button>
                     <div class="dropdown-menu p-3" style="width: 400px;">
                         <form action="{{ route('notes.store') }}" method="post">
@@ -84,10 +84,10 @@
                             <input type="hidden" name="notable_id" value="{{ $deal->id }}">
                             <input type="hidden" name="notable_type" value="App\Models\Deal">
                             <div class="form-group mb-2">
-                                <label class="form-label" for="noteDetails">Note Details</label>
-                                <textarea class="form-control" id="note-details" name="details" rows="3" placeholder="Enter your note here..."></textarea>
+                                <label class="form-label" for="noteDetails">{{ x_('Note Details', 'deals') }}</label>
+                                <textarea class="form-control" id="note-details" name="details" rows="3" placeholder="{{ x_('Enter your note here...', 'deals') }}"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Save Note</button>
+                            <button type="submit" class="btn btn-primary btn-sm">{{ x_('Save Note', 'deals') }}</button>
                         </form>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                         </g>
                     </svg>
                 </div>
-                <p> Assign Contact</p>
+                <p> {{ x_('Assign Contact', 'deals') }}</p>
             </button>
             </div>
             <div class="col-3">
@@ -121,7 +121,7 @@
                             </g>
                         </svg>
                     </div>
-                    <p> Assign Company</p>
+                    <p> {{ x_('Assign Company', 'deals') }}</p>
                 </button>
             </div>
          </div>
@@ -130,25 +130,25 @@
                  <li class="nav-item">
                      <a class="nav-link active" data-bs-toggle="tab" href="#activity{{$deal->id}}">
                          <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="check-circle"></i></span></span>
-                         <span class="nav-link-text">Activity Log</span>
+                         <span class="nav-link-text">{{ x_('Activity Log', 'deals') }}</span>
                      </a>
                  </li>
                  <li class="nav-item">
                      <a class="nav-link" data-bs-toggle="tab" href="#nots{{$deal->id}}">
                          <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                         <span class="nav-link-text">Nots</span>
+                         <span class="nav-link-text">{{ x_('Nots', 'deals') }}</span>
                      </a>
                  </li>
                  <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#contacts{{$deal->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Contacts</span>
+                        <span class="nav-link-text">{{ x_('Contacts', 'deals') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#companies{{$deal->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Companies</span>
+                        <span class="nav-link-text">{{ x_('Companies', 'deals') }}</span>
                     </a>
                 </li>
 
@@ -173,7 +173,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="media-body" style="padding-bottom: 0;">
-                                                    <p> <span class="text-dark">By {{ $log->user?->name ?? 'Unknown User' }}</span><br>{{ $log->title}} <br> {!! $log->details!!}</p>
+                                                    <p> <span class="text-dark">{{ x_('By', 'deals') }} {{ $log->user?->name ?? x_('Unknown User', 'deals') }}</span><br>{{ $log->title}} <br> {!! $log->details!!}</p>
                                                 </div>
                                             </div>
                                         </li>
@@ -187,7 +187,7 @@
                     @foreach ($deal->notes as $note)
                             <div class="card card-sm">
                                 <div class="card-body">
-                                    <h5 class="card-title">Noted By {{ $note->user?->name }}</h5>
+                                    <h5 class="card-title">{{ x_('Noted By', 'deals') }} {{ $note->user?->name }}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{ date('d-M-Y h:i A', strtotime($note->created_at)) }}</h6>
                                     <p class="card-text">{{ $note->details }}</p>
                                 </div>
@@ -209,15 +209,15 @@
                                                 </div>
                                             </div>
                                             <div class="media-body" style="padding-bottom: 0;">
-                                                <p> <span class="text-dark">Name: {{$contact?->name ?? 'N/A' }}</span></p>
-                                                <p> <span class="text-dark">Email: {{$contact?->email ?? 'N/A' }}</span></p>
-                                                <p> <span class="text-dark">Phone: {{$contact?->phone ?? 'N/A' }}</span></p>
+                                                <p> <span class="text-dark">{{ x_('Name:', 'deals') }} {{$contact?->name ?? x_('N/A', 'admin') }}</span></p>
+                                                <p> <span class="text-dark">{{ x_('Email:', 'deals') }} {{$contact?->email ?? x_('N/A', 'admin') }}</span></p>
+                                                <p> <span class="text-dark">{{ x_('Phone:', 'deals') }} {{$contact?->phone ?? x_('N/A', 'admin') }}</span></p>
                                                 @if ($contact?->company_id ? $contact?->company?->name : $contact->company_name )
-                                                <p> <span class="text-dark">Company: {{$contact?->company_id ? $contact?->company?->name : $contact->company_name }}</span></p>
+                                                <p> <span class="text-dark">{{ x_('Company:', 'deals') }} {{$contact?->company_id ? $contact?->company?->name : $contact->company_name }}</span></p>
                                                 @else
-                                                <p> <span class="text-dark">Company: N/A</span></p>
+                                                <p> <span class="text-dark">{{ x_('Company: N/A', 'deals') }}</span></p>
                                                 @endif
-                                                <p> <span class="text-dark">Company Email:{{$contact?->company_id ? $contact?->company?->email : 'N/A' }}</span></p>
+                                                <p> <span class="text-dark">{{ x_('Company Email:', 'deals') }} {{$contact?->company_id ? $contact?->company?->email : x_('N/A', 'admin') }}</span></p>
                                             </div>
                                         </div>
                                     </li>
@@ -241,8 +241,8 @@
                                                 </div>
                                             </div>
                                             <div class="media-body" style="padding-bottom: 0;">
-                                                <p> <span class="text-dark">Name: {{$company?->name ?? 'N/A' }}</span></p>
-                                                <p class="mt-2"> <span class="text-dark">Domain: {{$company?->website ?? 'N/A' }}</span></pc>
+                                                <p> <span class="text-dark">{{ x_('Name:', 'deals') }} {{$company?->name ?? x_('N/A', 'admin') }}</span></p>
+                                                <p class="mt-2"> <span class="text-dark">{{ x_('Domain:', 'deals') }} {{$company?->website ?? x_('N/A', 'admin') }}</span></pc>
                                             </div>
                                         </div>
                                     </li>
@@ -260,7 +260,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Assign Company To Deal</h5>
+                <h5 class="modal-title">{{ x_('Assign Company To Deal', 'deals') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -271,7 +271,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-12">
                             <select name="company_id" class="form-control select2" style="width:100%">
-                                <option value="">Select</option>
+                                <option value="">{{ x_('Select', 'deals') }}</option>
                                 @foreach($companies as $company)
                                     <option value="{{ $company->id }}" data-email="{{ $company->email }}">
                                         {{ $company->name }}
@@ -280,7 +280,7 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-5">Assign</button>
+                    <button type="submit" class="btn btn-primary mt-5">{{ x_('Assign', 'deals') }}</button>
                 </form>
             </div>
         </div>
@@ -291,7 +291,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Assign Contact To Deal</h5>
+                <h5 class="modal-title">{{ x_('Assign Contact To Deal', 'deals') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -302,7 +302,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-12">
                             <select name="contact_id" class="form-control select2" style="width:100%">
-                                <option value="">Select</option>
+                                <option value="">{{ x_('Select', 'deals') }}</option>
                                 @foreach($contacts as $contact)
                                     <option value="{{ $contact->id }}" data-email="{{ $contact->email }}">
                                         {{ $contact->name }}
@@ -311,7 +311,7 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-5">Assign</button>
+                    <button type="submit" class="btn btn-primary mt-5">{{ x_('Assign', 'deals') }}</button>
                 </form>
             </div>
         </div>

@@ -14,7 +14,7 @@
                     <div class="pg-subtitle">
                         Overview
                     </div>
-                    <h5 class="pg-title fs-5">Companies Board</h5>
+                    <h5 class="pg-title fs-5">{{ x_('Companies Board', 'general') }}</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -45,7 +45,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Bulk Upload</span>
+                                <span class="fs-7">{{ x_('Bulk Upload', 'general') }}</span>
                             </span>
                         </button>
                     </div>
@@ -65,7 +65,7 @@
                             <line x1="7" y1="16" x2="17" y2="16"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">All Companies</span>
+                    <span class="nav-link-text">{{ x_('All Companies', 'general') }}</span>
                 </a>
             </li>
             {{-- <li class="nav-item">
@@ -79,7 +79,7 @@
                             <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">Team Members</span>
+                    <span class="nav-link-text">{{ x_('Team Members', 'general') }}</span>
                 </a>
             </li> --}}
         </ul>

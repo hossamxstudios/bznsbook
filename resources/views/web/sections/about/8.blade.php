@@ -1,8 +1,8 @@
 
       <!-- Social networks (Carousel on narrow screens) -->
       <section class="container py-5 my-2 text-center my-md-4 my-lg-5">
-        <h2 class="mb-4 h1">We Have Social Networks</h2>
-        <p class="pb-2 mb-5 fs-lg text-muted">Follow us and keep up to date with the freshest news!</p>
+        <h2 class="mb-4 h1">{{ x_('We Have Social Networks', 'about') }}</h2>
+        <p class="pb-2 mb-5 fs-lg text-muted">{{ x_('Follow us and keep up to date with the freshest news!', 'about') }}</p>
         <div class="swiper" data-swiper-options='{
           "slidesPerView": 2,
           "pagination": {
@@ -33,8 +33,8 @@
                   <i class="bx bxl-facebook"></i>
                 </a>
                 <div class="pt-4">
-                  <h6 class="mb-1">Facebook</h6>
-                  <p class="mb-0 fs-sm text-muted">Bzns Book</p>
+                  <h6 class="mb-1">{{ x_('Facebook', 'about') }}</h6>
+                  <p class="mb-0 fs-sm text-muted">{{ x_('Bzns Book', 'about') }}</p>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@
                   <i class="bx bxl-instagram"></i>
                 </a>
                 <div class="pt-4">
-                  <h6 class="mb-1">Instagram</h6>
+                  <h6 class="mb-1">{{ x_('Instagram', 'about') }}</h6>
                   <p class="mb-0 fs-sm text-muted">@BznsBook</p>
                 </div>
               </div>
@@ -59,7 +59,7 @@
                   <i class="bx bxl-twitter"></i>
                 </a>
                 <div class="pt-4">
-                  <h6 class="mb-1">Twitter</h6>
+                  <h6 class="mb-1">{{ x_('Twitter', 'about') }}</h6>
                   <p class="mb-0 fs-sm text-muted">@BznsBook</p>
                 </div>
               </div>
@@ -72,8 +72,8 @@
                   <i class="bx bxl-linkedin"></i>
                 </a>
                 <div class="pt-4">
-                  <h6 class="mb-1">LinkedIn</h6>
-                  <p class="mb-0 fs-sm text-muted">Bzns Book Inc.</p>
+                  <h6 class="mb-1">{{ x_('LinkedIn', 'about') }}</h6>
+                  <p class="mb-0 fs-sm text-muted">{{ x_('Bzns Book Inc.', 'about') }}</p>
                 </div>
               </div>
             </div>
@@ -85,8 +85,8 @@
                   <i class="bx bxl-youtube"></i>
                 </a>
                 <div class="pt-4">
-                  <h6 class="mb-1">YouTube</h6>
-                  <p class="mb-0 fs-sm text-muted">Bzns Book</p>
+                  <h6 class="mb-1">{{ x_('YouTube', 'about') }}</h6>
+                  <p class="mb-0 fs-sm text-muted">{{ x_('Bzns Book', 'about') }}</p>
                 </div>
               </div>
             </div>
@@ -98,8 +98,8 @@
                   <i class="bx bxl-dribbble"></i>
                 </a>
                 <div class="pt-4">
-                  <h6 class="mb-1">Dribbble</h6>
-                  <p class="mb-0 fs-sm text-muted">Bzns Book</p>
+                  <h6 class="mb-1">{{ x_('Dribbble', 'about') }}</h6>
+                  <p class="mb-0 fs-sm text-muted">{{ x_('Bzns Book', 'about') }}</p>
                 </div>
               </div>
             </div>

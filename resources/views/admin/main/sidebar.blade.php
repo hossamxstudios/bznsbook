@@ -16,17 +16,17 @@
                 <div class="menu-group">
                     <ul class="navbar-nav flex-column">
                         <li class="nav-item {{in_array(Request::segment(2), $crm_arr) ? 'active' : '' }} {{Request::segment(2) == NULL ? 'active' : '' }}">
-                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="CRM" data-bs-trigger="hover" data-target="#submenu_2">
+                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="{{ x_('CRM', 'sidebar') }}" data-bs-trigger="hover" data-target="#submenu_2">
                                 <i class="bi bi-cash-coin fs-3"></i>
                             </a>
                         </li>
                         <li class="nav-item {{in_array(Request::segment(2), $web_arr) ? 'active' : '' }} ">
-                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Web" data-bs-trigger="hover" data-target="#submenu_3">
+                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="{{ x_('Web', 'sidebar') }}" data-bs-trigger="hover" data-target="#submenu_3">
                                 <i class="bi bi-terminal-plus fs-3"></i>
                             </a>
                         </li>
                         <li class="nav-item {{in_array(Request::segment(2), $client_arr) ? 'active' : '' }} ">
-                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Client" data-bs-trigger="hover" data-target="#submenu_4">
+                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="{{ x_('Client', 'sidebar') }}" data-bs-trigger="hover" data-target="#submenu_4">
                                 <i class="bi bi-briefcase fs-3"></i>
                             </a>
                         </li>
@@ -35,7 +35,7 @@
                         <li class="nav-item nav-link">
                             <ul class="navbar-nav flex-column">
                                 <li class="nav-item {{in_array(Request::segment(2) , $user_arr) ? 'active' : '' }}">
-                                    <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="User Mangement" data-bs-trigger="hover" data-target="#submenu_1">
+                                    <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="{{ x_('User Management', 'sidebar') }}" data-bs-trigger="hover" data-target="#submenu_1">
                                    <i class="ri-user-settings-line fs-3"></i>
                                     </a>
                                 </li>
@@ -64,7 +64,7 @@
                                             <div class="dropdown-divider"></div>
                                             <form action="{{ route('admin.logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="dropdown-item" href="#">Logout </button>
+                                                <button type="submit" class="dropdown-item" href="#">{{ x_('Logout', 'sidebar') }} </button>
                                             </form>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                     </ul>
                     <ul class="navbar-nav flex-column">
                         <li class="nav-item {{in_array(Request::segment(2) , $user_arr) ? 'active' : '' }}">
-                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="User Mangement" data-bs-trigger="hover" data-target="#submenu_1">
+                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="{{ x_('User Management', 'sidebar') }}" data-bs-trigger="hover" data-target="#submenu_1">
                            <i class="ri-user-settings-line fs-5"></i>
                             </a>
                         </li>
@@ -86,12 +86,37 @@
             <div class="menu-content-wrap">
                 <div class="menu-group">
                     <ul class="navbar-nav flex-column">
+                        {{-- Language Switcher --}}
+                        @php
+                            $currentLocale = app()->getLocale();
+                            $sidebarLocales = array_merge(['en' => 'English'], function_exists('active_locales') ? active_locales() : []);
+                        @endphp
+                        @if(count($sidebarLocales) > 1)
+                        <li class="nav-item nav-link">
+                            <a href="javascript:void(0)" class="mx-auto d-block avatar avatar-xs avatar-soft-primary avatar-rounded dropdown-toggle no-caret" data-bs-toggle="dropdown" data-bs-placement="right" title="{{ x_('Language', 'sidebar') }}">
+                                <span class="initial-wrap" style="font-size:10px;font-weight:700;">{{ strtoupper($currentLocale) }}</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" style="min-width:170px;">
+                                <h6 class="dropdown-header">{{ x_('Language', 'sidebar') }}</h6>
+                                @foreach($sidebarLocales as $code => $name)
+                                <form action="{{ route('language.switch') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="locale" value="{{ $code }}">
+                                    <button type="submit" class="dropdown-item {{ $currentLocale === $code ? 'active' : '' }}">
+                                        {{ $name }} <small class="text-muted">({{ strtoupper($code) }})</small>
+                                    </button>
+                                </form>
+                                @endforeach
+                            </div>
+                        </li>
+                        @endif
+                        {{-- User Account --}}
                         <li class="nav-item nav-link">
                             <a href="javascript:void(0)" class="mx-auto d-block avatar avatar-xs avatar-primary avatar-rounded dropdown-toggle no-caret" data-bs-toggle="dropdown">
                                 <span class="initial-wrap">{{ strtoupper(substr(auth()->user()->name ?? 'U', 0, 1)) }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right w-250p">
-                                <h6 class="dropdown-header">Logged account</h6>
+                                <h6 class="dropdown-header">{{ x_('Logged account', 'sidebar') }}</h6>
                                 <div class="py-2 dropdown-item rounded-3">
                                     <div class="media align-items-center active-user">
                                         <div class="media-head me-2">
@@ -111,7 +136,7 @@
                                             <div class="dropdown-divider"></div>
                                             <form action="{{ route('admin.logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="dropdown-item" href="#">Logout </button>
+                                                <button type="submit" class="dropdown-item" href="#">{{ x_('Logout', 'sidebar') }} </button>
                                             </form>
                                         </div>
                                     </div>

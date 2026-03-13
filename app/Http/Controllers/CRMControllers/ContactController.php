@@ -112,7 +112,7 @@ class ContactController extends Controller
             $log->loggable_type = 'App\Models\Contact';
             $log->loggable_id   = $contact->id;
             $log->title         = 'Assigned Company "'.  $contact->company->name.' " To Contact "'.$contact->name .'" ';
-        return redirect()->back()->with('success', 'Company assigned successfully!');
+        return redirect()->back()->with('success', x_('Company assigned successfully!', 'controller'));
     }
 
     public function getContacts($company_id){
@@ -178,11 +178,11 @@ class ContactController extends Controller
                 $rowCount += count($data);
             }
 
-            return redirect()->back()->with('success', "contacts imported successfully! Total records: $rowCount");
+            return redirect()->back()->with('success', x_('Contacts imported successfully!', 'controller') . ' ' . x_('Total records:', 'controller') . ' ' . $rowCount);
 
         } catch (\Exception $e) {
             FacadesLog::error('Error importing contacts: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Error importing data: ' . $e->getMessage());
+            return redirect()->back()->with('error', x_('Error importing data:', 'controller') . ' ' . $e->getMessage());
         }
     }
 

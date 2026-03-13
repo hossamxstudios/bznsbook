@@ -11,13 +11,13 @@
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="role" class="form-label">Write Note</label>
+                            <label for="role" class="form-label">{{ x_('Write Note', 'general') }}</label>
                             <textarea name="note" class="form-control" required></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" class="btn btn-dark">{{ x_('Submit', 'general') }}</button>
                 </div>
             </form>
         </div>

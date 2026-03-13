@@ -35,6 +35,10 @@ use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\AdminControllers\TranslationController;
+
+// Locale switch (available to all authenticated users)
+Route::post('/locale/switch', [TranslationController::class, 'switchLocale'])->name('locale.switch')->middleware('auth');
 
 Route::get ('/lead-form'                           , [PageController::class              ,      'leadForm'])->name('admin.leadForm');
 Route::post('/lead-form/apply'                     , [PageController::class              , 'applyLeadForm'])->name('admin.leadForm.apply');
@@ -221,7 +225,7 @@ Route::middleware('auth:web')->group(function ()      {
         Route::get('/search',                           [ClientController::class,          'search'])->name('clients.search'); // Search companies
         Route::post('/bulkImport',                      [ClientController::class,      'bulkImport'])->name('clients.bulkImport'); // List all leads
     });
-    
+
     Route::prefix('admin/subscriptions')->group(function () {
         Route::get('/',                                 [SubscriptionController::class, 'index'])->name('admin.subscriptions.index'); // Subscriptions dashboard
         Route::get('/active',                           [SubscriptionController::class, 'getActiveSubscriptions'])->name('admin.subscriptions.active'); // AJAX: Get active subscriptions
@@ -229,7 +233,24 @@ Route::middleware('auth:web')->group(function ()      {
         Route::post('/toggle-paid',                     [SubscriptionController::class, 'togglePaidStatus'])->name('admin.subscriptions.toggle.paid'); // Toggle paid status
         Route::post('/toggle-active',                   [SubscriptionController::class, 'toggleActiveStatus'])->name('admin.subscriptions.toggle.active'); // Toggle active status
     });
-    
+
+    // Translation Management Routes
+    Route::prefix('admin/translations')->group(function () {
+        Route::get('/',                              [TranslationController::class, 'index'])->name('translations.index');
+        Route::get('/{key}/edit',                    [TranslationController::class, 'edit'])->name('translations.edit');
+        Route::put('/{key}',                         [TranslationController::class, 'update'])->name('translations.update');
+        Route::post('/{key}/inline-update',          [TranslationController::class, 'inlineUpdate'])->name('translations.inline-update');
+        Route::post('/bulk-approve',                 [TranslationController::class, 'bulkApprove'])->name('translations.bulk-approve');
+        Route::post('/approve-all',                  [TranslationController::class, 'approveAll'])->name('translations.approve-all');
+        Route::post('/{key}/retranslate/{locale}',   [TranslationController::class, 'retranslate'])->name('translations.retranslate');
+        Route::post('/compile',                      [TranslationController::class, 'compile'])->name('translations.compile');
+        Route::post('/scan-translate',               [TranslationController::class, 'scanAndTranslate'])->name('translations.scan-translate');
+        Route::post('/translate-all/start',          [TranslationController::class, 'translateAllStart'])->name('translations.translate-all-start');
+        Route::post('/translate-all/next',           [TranslationController::class, 'translateAllNext'])->name('translations.translate-all-next');
+        Route::post('/translate-all/cancel',         [TranslationController::class, 'translateAllCancel'])->name('translations.translate-all-cancel');
+        Route::post('/process-queue',                [TranslationController::class, 'processQueue'])->name('translations.process-queue');
+    });
+
     Route::prefix('admin/projects')->group(function () {
         Route::get('/',                                  [ProjectController::class,            'index']                 )->name('admin.projects.index');
         Route::get('/create',                           [ProjectController::class,            'create']                )->name('admin.projects.create');
@@ -242,4 +263,4 @@ Route::middleware('auth:web')->group(function ()      {
     });
 });
 require __DIR__.'/auth.php';
-require __DIR__.'/company.php';
+// require __DIR__.'/company.php'; // Disabled: references non-existent AuthCompany controllers and undefined auth:member guard

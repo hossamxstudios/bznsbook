@@ -14,9 +14,9 @@
             <div class="flex-wrap flex-1 d-flex justify-content-between">
                 <div>
                     <div class="pg-subtitle">
-                        Overview
+                        {{ x_('Overview', 'clients') }}
                     </div>
-                    <h5 class="pg-title fs-5">Clients Management</h5>
+                    <h5 class="pg-title fs-5">{{ x_('Clients Management', 'clients') }}</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -32,7 +32,7 @@
                                     </span>
                                 </span>
                                 <span class="fs-7">
-                                        Add New Client
+                                        {{ x_('Add New Client', 'clients') }}
                                 </span>
                             </span>
                         </button>
@@ -48,7 +48,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Bulk Upload</span>
+                                <span class="fs-7">{{ x_('Bulk Upload', 'clients') }}</span>
                             </span>
                         </button> --}}
                     </div>
@@ -68,7 +68,7 @@
                             <line x1="7" y1="16" x2="17" y2="16"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">All Clients</span>
+                    <span class="nav-link-text">{{ x_('All Clients', 'clients') }}</span>
                 </a>
             </li>
             {{-- <li class="nav-item">
@@ -82,7 +82,7 @@
                             <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">Team Members</span>
+                    <span class="nav-link-text">{{ x_('Team Members', 'clients') }}</span>
                 </a>
             </li> --}}
         </ul>

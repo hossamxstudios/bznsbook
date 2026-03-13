@@ -5,7 +5,7 @@
                 <div class="mb-3 col-md-12 mb-md-4">
                     <div class="mb-0 card rounded-8">
                         <div class="card-header card-header-action">
-                            <h6>Recruitment Clients
+                            <h6>{{ x_('Recruitment Clients', 'admin') }}
                                 <span class="badge badge-sm badge-light ms-1">{{$companies->count()}}</span>
                             </h6>
                         </div>
@@ -19,16 +19,16 @@
                                                     <input type="checkbox" class="form-check-input form-check-theme check-select-all cked" id="customCheck1">
                                                 </span>
                                             </th>
-                                            <th>Company Name</th>
-                                            <th>Email</th>
-                                            <th>Services</th>
-                                            <th>Decision Maker</th>
-                                            <th>Industry</th>
-                                            <th>Headcount</th>
-                                            <th>Domain</th>
-                                            <th>Linkedin</th>
-                                            <th>Source</th>
-                                            <th>Create Date</th>
+                                            <th>{{ x_('Company Name', 'admin') }}</th>
+                                            <th>{{ x_('Email', 'admin') }}</th>
+                                            <th>{{ x_('Services', 'admin') }}</th>
+                                            <th>{{ x_('Decision Maker', 'admin') }}</th>
+                                            <th>{{ x_('Industry', 'admin') }}</th>
+                                            <th>{{ x_('Headcount', 'admin') }}</th>
+                                            <th>{{ x_('Domain', 'admin') }}</th>
+                                            <th>{{ x_('Linkedin', 'admin') }}</th>
+                                            <th>{{ x_('Source', 'admin') }}</th>
+                                            <th>{{ x_('Create Date', 'admin') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -38,7 +38,7 @@
                                                 <input type="checkbox" name="checkeds[]" value="{{ $company->id }}" class="cked form-check-input" id="chk_sel_3"> #{{ $company->id }}
                                             </td>
                                             <td style="background: white">
-                                                <button type="button" class="p-0 btn btn-link view-details-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasShow{{$company->id}}" title="View Details">
+                                                <button type="button" class="p-0 btn btn-link view-details-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasShow{{$company->id}}" title="{{ x_('View Details', 'admin') }}">
                                                     {{ $company->name }}
                                                 </button>
                                                 <a class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover dropdown-toggle no-caret" href="#" data-bs-toggle="dropdown" style="margin-left: 30px;">
@@ -47,9 +47,9 @@
                                                     </span>
                                                 </a>
                                                 <div role="menu" class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#servicesModal{{ $company->id }}">Manage Services</a>
-                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$company->id}}">Edit</a>
-                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$company->id}}">Delete</a>
+                                                    <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#servicesModal{{ $company->id }}">{{ x_('Manage Services', 'admin') }}</a>
+                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$company->id}}">{{ x_('Edit', 'admin') }}</a>
+                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$company->id}}">{{ x_('Delete', 'admin') }}</a>
                                                 </div>
                                             </td>
                                             <td>{{ $company->email?? 'N/A' }}</td>
@@ -67,7 +67,7 @@
                                             <td><a href="{{ $company->website }}" target="_blank">{{ $company->website ?? 'N/A' }}</a></td>
                                             <td>
                                                 @if($company->social_media)
-                                                    <a href="{{ $company->social_media }}" target="_blank">Linkedin</a>
+                                                    <a href="{{ $company->social_media }}" target="_blank">{{ x_('Linkedin', 'admin') }}</a>
                                                 @else
                                                     N/A
                                                 @endif

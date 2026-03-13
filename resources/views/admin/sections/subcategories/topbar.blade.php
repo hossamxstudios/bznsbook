@@ -14,9 +14,9 @@
             <div class="flex-wrap flex-1 d-flex justify-content-between">
                 <div>
                     <div class="pg-subtitle">
-                        Overview
+                        {{ x_('Overview', 'admin') }}
                     </div>
-                    <h5 class="pg-title fs-5">Subcategories Management</h5>
+                    <h5 class="pg-title fs-5">{{ x_('Subcategories Management', 'admin') }}</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -31,7 +31,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Add New Subcategory</span>
+                                <span class="fs-7">{{ x_('Add New Subcategory', 'admin') }}</span>
                             </span>
                         </button>
                     </div>
@@ -50,7 +50,7 @@
                             <circle cx="7" cy="7" r="3"></circle>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">Subcategories</span>
+                    <span class="nav-link-text">{{ x_('Subcategories', 'admin') }}</span>
                 </a>
             </li>
         </ul>

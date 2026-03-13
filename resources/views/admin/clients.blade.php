@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title> BZNSBOOK - Client Management </title>
+    <title> {{ x_('BZNSBOOK - Client Management', 'admin') }} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('admin.main.meta')
 
@@ -50,7 +50,7 @@
                 responsive: true,
                 language: {
                     search: "_INPUT_",
-                    searchPlaceholder: "Search clients..."
+                    searchPlaceholder: "{{ x_('Search clients...', 'clients') }}"
                 }
             });
         });
@@ -61,7 +61,7 @@
                 if ($('.cked:checked').length > 0) {
                     if ($('#deleteAllChecked').length === 0) {
                         $('.dataTables_wrapper .btn-group').append(
-                            '<button class="btn btn-danger" id="deleteAllChecked" onclick="deleteAllChecked()">Delete Selected</button>'
+                            '<button class="btn btn-danger" id="deleteAllChecked" onclick="deleteAllChecked()">{{ x_('Delete Selected', 'admin') }}</button>'
                         );
                     }
                 } else {
@@ -72,7 +72,7 @@
 
         function deleteAllChecked() {
             var ids = [];
-            if (confirm("Are you sure you want to delete the selected clients?")) {
+            if (confirm("{{ x_('Are you sure you want to delete the selected clients?', 'clients') }}")) {
                 $(".cked:checked").each(function(){
                     if($(this).attr('name') == 'checkeds[]'){
                         ids.push($(this).val());
@@ -91,7 +91,7 @@
                         }
                     });
                 } else {
-                    alert("Please select at least one client");
+                    alert("{{ x_('Please select at least one client', 'clients') }}");
                 }
             }
         }

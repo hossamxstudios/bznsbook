@@ -1,13 +1,13 @@
 <div class="ps-md-3 ps-lg-0 mt-md-2">
-    <h1 class="mb-4 h2">My Projects</h1>
+    <h1 class="mb-4 h2">{{ x_('My Projects', 'web') }}</h1>
 
     <div class="mb-4 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <span class="me-2">{{ $projects->total() }} Projects</span>
+            <span class="me-2">{{ $projects->total() }} {{ x_('Projects', 'web') }}</span>
         </div>
         <div>
             <a href="{{ route('client.projects.create') }}" class="btn btn-primary">
-                <i class="bx bx-plus fs-lg me-2"></i>Post New Project
+                <i class="bx bx-plus fs-lg me-2"></i>{{ x_('Post New Project', 'web') }}
             </a>
         </div>
     </div>
@@ -30,22 +30,22 @@
     <ul class="mb-4 nav nav-tabs" id="projectTabs" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all-projects" type="button" role="tab" aria-controls="all-projects" aria-selected="true">
-                All Projects
+                {{ x_('All Projects', 'web') }}
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="active-tab" data-bs-toggle="tab" data-bs-target="#active-projects" type="button" role="tab" aria-controls="active-projects" aria-selected="false">
-                Active
+                {{ x_('Active', 'web') }}
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="awarded-tab" data-bs-toggle="tab" data-bs-target="#awarded-projects" type="button" role="tab" aria-controls="awarded-projects" aria-selected="false">
-                Awarded
+                {{ x_('Awarded', 'web') }}
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed-projects" type="button" role="tab" aria-controls="completed-projects" aria-selected="false">
-                Completed
+                {{ x_('Completed', 'web') }}
             </button>
         </li>
     </ul>
@@ -58,11 +58,11 @@
                     <table class="table align-middle table-hover">
                         <thead class="bg-light">
                             <tr>
-                                <th scope="col">Project</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Budget</th>
-                                <th scope="col">Applications</th>
-                                <th scope="col">Actions</th>
+                                <th scope="col">{{ x_('Project', 'web') }}</th>
+                                <th scope="col">{{ x_('Status', 'web') }}</th>
+                                <th scope="col">{{ x_('Budget', 'web') }}</th>
+                                <th scope="col">{{ x_('Applications', 'web') }}</th>
+                                <th scope="col">{{ x_('Actions', 'web') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -102,7 +102,7 @@
                                         @endphp
                                         <span class="btn btn-primary btn-sm">{{ $totalApplications }}</span>
                                         @if($pendingApplications > 0)
-                                            <span class="btn btn-primary btn-sm ms-1">{{ $pendingApplications }} new</span>
+                                            <span class="btn btn-primary btn-sm ms-1">{{ $pendingApplications }} {{ x_('new', 'web') }}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -122,19 +122,19 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="deleteModalLabel{{ $project->id }}">Confirm Deletion</h5>
+                                                        <h5 class="modal-title" id="deleteModalLabel{{ $project->id }}">{{ x_('Confirm Deletion', 'web') }}</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Are you sure you want to delete the project "{{ $project->name }}"?
-                                                        This action cannot be undone.
+                                                        {{ x_('Are you sure you want to delete the project', 'web') }} "{{ $project->name }}"?
+                                                        {{ x_('This action cannot be undone.', 'web') }}
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'web') }}</button>
                                                         <form action="{{ route('client.projects.delete', $project) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete Project</button>
+                                                            <button type="submit" class="btn btn-danger">{{ x_('Delete Project', 'web') }}</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -152,9 +152,9 @@
             @else
                 <div class="p-4 text-center rounded border">
                     <i class="mb-2 display-6 bx bx-server text-muted"></i>
-                    <p class="mb-3">You haven't posted any projects yet.</p>
+                    <p class="mb-3">{{ x_('You haven\'t posted any projects yet.', 'web') }}</p>
                     <a href="{{ route('client.projects.create') }}" class="btn btn-primary">
-                        <i class="bx bx-plus me-2"></i>Post Your First Project
+                        <i class="bx bx-plus me-2"></i>{{ x_('Post Your First Project', 'web') }}
                     </a>
                 </div>
             @endif
@@ -169,11 +169,11 @@
                     <table class="table align-middle table-hover">
                         <thead class="bg-light">
                             <tr>
-                                <th scope="col">Project</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Budget (EGP)</th>
-                                <th scope="col">Applications</th>
-                                <th scope="col">Actions</th>
+                                <th scope="col">{{ x_('Project', 'web') }}</th>
+                                <th scope="col">{{ x_('Status', 'web') }}</th>
+                                <th scope="col">{{ x_('Budget (EGP)', 'web') }}</th>
+                                <th scope="col">{{ x_('Applications', 'web') }}</th>
+                                <th scope="col">{{ x_('Actions', 'web') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -200,7 +200,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td><span class="badge bg-success">{{ x_('Active', 'web') }}</span></td>
                                     <td>{{ number_format($project->budget_min, 2) }} - {{ number_format($project->budget_max, 2) }}</td>
                                     <td>
                                         @php
@@ -227,18 +227,18 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="deleteModalLabel{{ $project->id }}">Confirm Delete</h5>
+                                                        <h5 class="modal-title" id="deleteModalLabel{{ $project->id }}">{{ x_('Confirm Delete', 'web') }}</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Are you sure you want to delete <strong>{{ $project->name }}</strong>? This action cannot be undone.
+                                                        {{ x_('Are you sure you want to delete', 'web') }} <strong>{{ $project->name }}</strong>? {{ x_('This action cannot be undone.', 'web') }}
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'web') }}</button>
                                                         <form action="{{ route('client.projects.delete', $project) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                            <button type="submit" class="btn btn-danger">{{ x_('Delete', 'web') }}</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -253,7 +253,7 @@
             @else
                 <div class="p-4 text-center rounded border">
                     <i class="mb-2 display-6 bx bx-info-circle text-muted"></i>
-                    <p class="mb-0">You don't have any active projects at the moment.</p>
+                    <p class="mb-0">{{ x_('You don\'t have any active projects at the moment.', 'web') }}</p>
                 </div>
             @endif
         </div>
@@ -275,7 +275,7 @@
                                                 <i class="bx bx-right-arrow-circle text-dark fs-3 ms-2"></i>
                                             </a>
                                         </h2>
-                                        <span class="btn btn-primary btn-sm">Awarded</span>
+                                        <span class="btn btn-primary btn-sm">{{ x_('Awarded', 'web') }}</span>
                                     </div>
                                     <div class="mb-3">
                                         <p class="mb-3 fs-sm text-body"> {{ \Illuminate\Support\Str::limit($project->details, 120) }}</p>
@@ -289,7 +289,7 @@
                                     <div class="mb-3 alert alert-success">
                                         <div class="d-flex align-items-center">
                                             <i class="bx bx-user-check fs-lg me-2"></i>
-                                            <span>Awarded to: <strong>{{ $project->winner?->name }}</strong></span>
+                                            <span>{{ x_('Awarded to:', 'web') }} <strong>{{ $project->winner?->name }}</strong></span>
                                         </div>
                                     </div>
                                     <div class="pt-3 d-flex justify-content-between text-muted border-top">
@@ -299,7 +299,7 @@
                                         </div>
                                         <div>
                                             <a href="{{ route('projects.show', $project->slug) }}" class="btn btn-sm btn-outline-primary">
-                                                <i class="bx bx-show me-1"></i> View Details
+                                                <i class="bx bx-show me-1"></i> {{ x_('View Details', 'web') }}
                                             </a>
                                         </div>
                                     </div>
@@ -311,7 +311,7 @@
             @else
                 <div class="p-4 text-center rounded border">
                     <i class="mb-2 display-6 bx bx-info-circle text-muted"></i>
-                    <p class="mb-0">You don't have any awarded projects at the moment.</p>
+                    <p class="mb-0">{{ x_('You don\'t have any awarded projects at the moment.', 'web') }}</p>
                 </div>
             @endif
         </div>
@@ -334,7 +334,7 @@
                                                 <i class="bx bx-right-arrow-circle text-dark fs-3 ms-2"></i>
                                             </a>
                                         </h2>
-                                        <span class="badge bg-info">Completed</span>
+                                        <span class="badge bg-info">{{ x_('Completed', 'web') }}</span>
                                     </div>
                                     <div class="mb-3">
                                         <p class="mb-3 fs-sm text-body"> {{ \Illuminate\Support\Str::limit($project->details, 120) }}</p>
@@ -348,11 +348,11 @@
                                     <div class="pt-3 d-flex justify-content-between text-muted border-top">
                                         <div class="d-flex align-items-center">
                                             <i class="bx bx-calendar fs-xl me-1"></i>
-                                            Completed: {{ $project->updated_at->format('M d, Y') }}
+                                            {{ x_('Completed:', 'web') }} {{ $project->updated_at->format('M d, Y') }}
                                         </div>
                                         <div>
                                             <a href="{{ route('projects.show', $project->slug) }}" class="btn btn-sm btn-outline-primary">
-                                                <i class="bx bx-show me-1"></i> View Details
+                                                <i class="bx bx-show me-1"></i> {{ x_('View Details', 'web') }}
                                             </a>
                                         </div>
                                     </div>
@@ -364,7 +364,7 @@
             @else
                 <div class="p-4 text-center rounded border">
                     <i class="mb-2 display-6 bx bx-info-circle text-muted"></i>
-                    <p class="mb-0">You don't have any completed projects at the moment.</p>
+                    <p class="mb-0">{{ x_('You don\'t have any completed projects at the moment.', 'web') }}</p>
                 </div>
             @endif
         </div>

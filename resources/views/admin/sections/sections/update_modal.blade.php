@@ -1,46 +1,46 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUpdate{{$section->id}}" aria-labelledby="offcanvasUpdateLabel" style="width:570px;">
     <div class="offcanvas-header" style="background: #474e5d;">
-        <h5 id="offcanvasUpdateLabel" style="color:aliceblue">Update Section</h5>
+        <h5 id="offcanvasUpdateLabel" style="color:aliceblue">{{ x_('Update Section', 'admin') }}</h5>
         <button type="button" class="text-white btn-close"  data-bs-dismiss="offcanvas" aria-label="Close">X</button>
     </div>
     <div class="offcanvas-body">
         <form action="{{ route('sections.update', ['id' => $section->id]) }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
             @csrf
             <div class="mb-3 position-relative">
-                <label for="name" class="form-label">Section Name</label>
+                <label for="name" class="form-label">{{ x_('Section Name', 'admin') }}</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $section->name }}" required>
                 @error('name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @else
-                    <div class="invalid-feedback">Please enter a section name</div>
+                    <div class="invalid-feedback">{{ x_('Please enter a section name', 'admin') }}</div>
                 @enderror
             </div>
             
             <div class="mb-3 position-relative">
-                <label for="icon" class="form-label">Section Icon</label>
+                <label for="icon" class="form-label">{{ x_('Section Icon', 'admin') }}</label>
                 @if($section->getFirstMedia('icons'))
                     <div class="mb-2">
-                        <img src="{{ $section->getFirstMediaUrl('icons') }}" alt="Current Icon" style="max-width: 100px; max-height: 100px;" class="img-thumbnail">
+                        <img src="{{ $section->getFirstMediaUrl('icons') }}" alt="{{ x_('Current Icon', 'admin') }}" style="max-width: 100px; max-height: 100px;" class="img-thumbnail">
                     </div>
                 @endif
                 <input type="file" class="form-control @error('icon') is-invalid @enderror" id="icon" name="icon" accept="image/*">
-                <small class="form-text text-muted">Upload a new icon image to replace the current one (max 2MB)</small>
+                <small class="form-text text-muted">{{ x_('Upload a new icon image to replace the current one (max 2MB)', 'admin') }}</small>
                 @error('icon')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @else
-                    <div class="invalid-feedback">Please select a valid image</div>
+                    <div class="invalid-feedback">{{ x_('Please select a valid image', 'admin') }}</div>
                 @enderror
             </div>
             
             <div class="mb-3 position-relative">
-                <label for="details" class="form-label">Section Details</label>
-                <textarea class="form-control @error('details') is-invalid @enderror" id="details" name="details" rows="3" placeholder="Enter your section details here...">{{ $section->details }}</textarea>
+                <label for="details" class="form-label">{{ x_('Section Details', 'admin') }}</label>
+                <textarea class="form-control @error('details') is-invalid @enderror" id="details" name="details" rows="3" placeholder="{{ x_('Enter your section details here...', 'admin') }}">{{ $section->details }}</textarea>
                 @error('details')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-primary">Update Section</button>
+            <button type="submit" class="btn btn-primary">{{ x_('Update Section', 'admin') }}</button>
         </form>
     </div>
 </div>

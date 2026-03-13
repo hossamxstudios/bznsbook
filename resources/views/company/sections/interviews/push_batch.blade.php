@@ -10,42 +10,42 @@
                 <div class="modal-body">
                     <input type="hidden" name="application_id" value="{{ $application->id }}">
                     <div class="mb-3">
-                        <label class="form-label">Select Batch *</label>
+                        <label class="form-label">{{ x_('Select Batch *', 'general') }}</label>
                         <select class="form-select" name="batch_id" required>
-                            <option value="">Please Select A Batch</option>
+                            <option value="">{{ x_('Please Select A Batch', 'general') }}</option>
                             @foreach ($all_batches as $single_batch)
                                 <option value="{{ $single_batch->id }}">{{ $single_batch->name }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Hiring Date </label>
+                        <label class="form-label">{{ x_('Hiring Date', 'general') }} </label>
                         <input type="date" class="form-control" name="hiring_date">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Starting Date </label>
+                        <label class="form-label">{{ x_('Starting Date', 'general') }} </label>
                         <input type="date" class="form-control" name="starting_date">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Probation Period </label>
+                        <label class="form-label">{{ x_('Probation Period', 'general') }} </label>
                         <input type="number" class="form-control" name="prop_period">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Probation End Date </label>
+                        <label class="form-label">{{ x_('Probation End Date', 'general') }} </label>
                         <input type="date" class="form-control" name="prop_end">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Hiring Salary </label>
+                        <label class="form-label">{{ x_('Hiring Salary', 'general') }} </label>
                         <input type="number" class="form-control" name="hiring_salary">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Batch Notes (if exists)</label>
+                        <label class="form-label">{{ x_('Batch Notes (if exists)', 'general') }}</label>
                         <textarea class="form-control" name="notes" rows="4"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add To Batch</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Close', 'general') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ x_('Add To Batch', 'general') }}</button>
                 </div>
             </form>
         </div>

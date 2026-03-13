@@ -2,7 +2,7 @@
 @include('web.main.html')
 <head>
     <meta charset="utf-8" />
-    <title>Browse Projects | Bzns Book</title>
+    <title>{{ x_('Browse Projects | Bzns Book', 'projects') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('web.main.meta')
 </head>
@@ -15,15 +15,15 @@
             <div class="container py-5">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="mb-4 h2">Browse Projects</h1>
+                        <h1 class="mb-4 h2">{{ x_('Browse Projects', 'projects') }}</h1>
 
                         <div class="mb-4 d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
-                                <span class="me-2">{{ $projects->total() }} Projects Found</span>
+                                <span class="me-2">{{ $projects->total() }} {{ x_('Projects Found', 'projects') }}</span>
                             </div>
                             <div>
                                 <a href="{{ route('client.projects.create') }}" class="btn btn-primary">
-                                    <i class="bx bx-plus fs-lg me-2"></i>Post New Project
+                                    <i class="bx bx-plus fs-lg me-2"></i>{{ x_('Post New Project', 'projects') }}
                                 </a>
                             </div>
                         </div>
@@ -124,9 +124,9 @@
                                 <div class="col-12">
                                     <div class="p-4 text-center rounded border">
                                         <i class="mb-2 display-6 bx bx-server text-muted"></i>
-                                        <p class="mb-3">No projects available at this time.</p>
+                                        <p class="mb-3">{{ x_('No projects available at this time.', 'projects') }}</p>
                                         <a href="{{ route('client.projects.create') }}" class="btn btn-primary">
-                                            <i class="bx bx-plus me-2"></i>Post Your First Project
+                                            <i class="bx bx-plus me-2"></i>{{ x_('Post Your First Project', 'projects') }}
                                         </a>
                                     </div>
                                 </div>

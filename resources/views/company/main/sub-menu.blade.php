@@ -17,7 +17,7 @@
                                             <i class="bi bi-briefcase fs-6"></i>
                                         </span>
                                     </div>
-                                    <span class="fs-6 text-dark fw-medium">ATS Management</span>
+                                    <span class="fs-6 text-dark fw-medium">{{ x_('ATS Management', 'general') }}</span>
                                 </div>
                             </div>
                             <ul class="nav nav-light navbar-nav flex-column">
@@ -27,19 +27,19 @@
                                     <a class="nav-link" href="{{ route('company.candidates.index') }}">
                                         <i class="  bi bi-person-badge fs-5" style="margin-right: 15px;"></i>
 
-                                        <span class="nav-link-text">Candidates</span>
+                                        <span class="nav-link-text">{{ x_('Candidates', 'general') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('jobs.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('company.jobs.index') }}">
                                         <i class="  bi bi-briefcase fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">All Jobs</span>
+                                        <span class="nav-link-text">{{ x_('All Jobs', 'general') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{  request()->url() == route('interviews.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('company.interviews.index') }}">
                                         <i class=" bi bi-calendar2-range fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Interviews</span>
+                                        <span class="nav-link-text">{{ x_('Interviews', 'general') }}</span>
                                     </a>
                                 </li>
 

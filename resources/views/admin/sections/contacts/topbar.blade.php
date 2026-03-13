@@ -12,9 +12,9 @@
             <div class="d-flex flex-wrap justify-content-between flex-1">
                 <div>
                     <div class="pg-subtitle">
-                        Overview
+                        {{ x_('Overview', 'contacts') }}
                     </div>
-                    <h5 class="pg-title fs-5">Contacts Board</h5>
+                    <h5 class="pg-title fs-5">{{ x_('Contacts Board', 'contacts') }}</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -29,7 +29,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Add new Contact</span>
+                                <span class="fs-7">{{ x_('Add new Contact', 'contacts') }}</span>
                             </span>
                         </button>
                         <button class="btn btn-custom btn-white text-primary btn-floating rounded-8 ms-3" data-bs-toggle="modal" data-bs-target="#uploadExcelModal">
@@ -43,7 +43,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Bulk Upload</span>
+                                <span class="fs-7">{{ x_('Bulk Upload', 'contacts') }}</span>
                             </span>
                         </button>
                     </div>
@@ -63,7 +63,7 @@
                             <line x1="7" y1="16" x2="17" y2="16"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">All Contacts</span>
+                    <span class="nav-link-text">{{ x_('All Contacts', 'contacts') }}</span>
                 </a>
             </li>
         </ul>

@@ -2,7 +2,7 @@
 @include('web.main.html')
 <head>
     <meta charset="utf-8" />
-    <title>Edit Project: {{ $project->name }} | Bzns Book</title>
+    <title>{{ x_('Edit Project:', 'projects') }} {{ $project->name }} | Bzns Book</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('web.main.meta')
 </head>

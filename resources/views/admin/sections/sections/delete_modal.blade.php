@@ -2,7 +2,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalgridLabel">Delete the section : {{$section->name}}</h5>
+                    <h5 class="modal-title" id="deleteModalgridLabel">{{ x_('Delete the section', 'admin') }} : {{$section->name}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('sections.destroy', ['id' => $section->id]) }}" method="POST">
@@ -12,10 +12,10 @@
                             <div class="col-xxl-6">
                                 <div>
                                     <input type="hidden" name="id" value="{{ $section->id }}">
-                                    <label for="firstName" class="form-label"> Are you sure?</label>
+                                    <label for="firstName" class="form-label"> {{ x_('Are you sure?', 'admin') }}</label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-danger">submit</button>
+                            <button type="submit" class="btn btn-danger">{{ x_('Submit', 'admin') }}</button>
                         </div><!--end row-->
                     </div>
                 </form>

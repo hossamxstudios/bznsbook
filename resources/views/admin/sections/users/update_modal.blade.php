@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="roleModalgridLabel">Edit User : {{$user->name}}</h5>
+                <h5 class="modal-title" id="roleModalgridLabel">{{ x_('Edit User', 'admin') }} : {{$user->name}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('users.changeRole',['id',$user->id]) }}" method="POST">
@@ -11,18 +11,18 @@
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="name" class="form-label">Name *</label>
+                            <label for="name" class="form-label">{{ x_('Name *', 'admin') }}</label>
                             <input type="text" class="form-control" id="name" name="name" required value="{{ $user->name }}">
                         </div>
                         <div class="col-12">
-                            <label for="email" class="form-label">Email *</label>
+                            <label for="email" class="form-label">{{ x_('Email *', 'admin') }}</label>
                             <input type="email" class="form-control" id="email" name="email" required value="{{ $user->email }}">
                         </div>
                         <div class="col-12">
                             <div>
-                                <label for="role" class="form-label">Select Role</label>
+                                <label for="role" class="form-label">{{ x_('Select Role', 'admin') }}</label>
                                 <select name="role" id="role" class="form-control" required>
-                                    <option value="" >Select a role</option>
+                                    <option value="" >{{ x_('Select a role', 'admin') }}</option>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->name }}" {{ $user->roles->first()?->name == $role->name ? 'selected' : ''}}>{{ $role->name }}</option>
                                     @endforeach
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" class="btn btn-dark">{{ x_('Submit', 'admin') }}</button>
                 </div>
             </form>
         </div>

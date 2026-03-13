@@ -2,7 +2,7 @@
 @include('web.main.html')
 <head>
     <meta charset="utf-8" />
-    <title> Bzns Book | {{ $client->name }} Profile </title>
+    <title> {{ x_('Bzns Book', 'web') }} | {{ $client->name }} {{ x_('Profile', 'web') }} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('web.main.meta')
 </head>
@@ -55,11 +55,11 @@
                                             style="width: 350px; height: 250px; background-color: #fff; overflow: hidden;">
                                             @if (Auth::guard('client')->check() && Auth::guard('client')->user()->hasActiveSubscription())
                                                 <img src="{{ $client->getFirstMediaUrl('profile') ?? asset('assets/img/logo-square.png') }}"
-                                                    alt="Company Logo" class="w-100 h-100" style="object-fit: cover;"
+                                                    alt="{{ x_('Company Logo', 'web') }}" class="w-100 h-100" style="object-fit: cover;"
                                                     onerror="this.src='https://placehold.co/150x150/4733ff/ffffff?text=LOGO'">
                                             @else
                                                 <img src="{{ $client->getFirstMediaUrl('profile') ?? asset('assets/img/logo-square.png') }}"
-                                                    alt="Blurred Company Logo" class="w-100 h-100"
+                                                    alt="{{ x_('Blurred Company Logo', 'web') }}" class="w-100 h-100"
                                                     style="object-fit: cover; filter: blur(8px);"
                                                     onerror="this.src='https://placehold.co/150x150/4733ff/ffffff?text=LOGO'">
                                                 <div class="position-absolute top-50 start-50 translate-middle"
@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="ms-4">
                                             <span
-                                                class="mb-1 d-block text-light text-uppercase small">{{ $client->type ?? 'Business' }}</span>
+                                                class="mb-1 d-block text-light text-uppercase small">{{ $client->type ?? x_('Business', 'web') }}</span>
                                             <h2 class="mb-0 text-light fw-bold">
                                                 @if (Auth::guard('client')->check() && Auth::guard('client')->user()->hasActiveSubscription())
                                                     {{ $client->name }}
@@ -84,18 +84,18 @@
                                                     <i class="bx bxs-circle me-1 {{ $client->last_seen->diffInMinutes() < 5 ? 'text-success' : 'text-white' }}"
                                                         style="font-size: 0.5rem;"></i>
                                                     @if ($client->last_seen->diffInMinutes() < 5)
-                                                        <span class="text-success">Online now</span>
+                                                        <span class="text-success">{{ x_('Online now', 'web') }}</span>
                                                     @elseif ($client->last_seen->isToday())
-                                                        <span>Last seen today at
+                                                        <span>{{ x_('Last seen today at', 'web') }}
                                                             {{ $client->last_seen->format('h:i A') }}</span>
                                                     @elseif ($client->last_seen->isYesterday())
-                                                        <span>Last seen yesterday at
+                                                        <span>{{ x_('Last seen yesterday at', 'web') }}
                                                             {{ $client->last_seen->format('h:i A') }}</span>
                                                     @elseif ($client->last_seen->diffInDays() < 7)
-                                                        <span>Last seen
+                                                        <span>{{ x_('Last seen', 'web') }}
                                                             {{ $client->last_seen->diffForHumans() }}</span>
                                                     @else
-                                                        <span>Last seen on
+                                                        <span>{{ x_('Last seen on', 'web') }}
                                                             {{ $client->last_seen->format('M d, Y') }}</span>
                                                     @endif
                                                 </div>
@@ -103,7 +103,7 @@
                                         </div>
                                     </div>
                                     <p class="mb-4 opacity-70 fs-lg text-light">
-                                        {{ Illuminate\Support\Str::limit($client->bio, 150) ?? 'Helping businesses reach their full potential with our expertise and tailored solutions.' }}
+                                        {{ Illuminate\Support\Str::limit($client->bio, 150) ?? x_('Helping businesses reach their full potential with our expertise and tailored solutions.', 'web') }}
                                     </p>
 
                                     <!-- Client Info & Social Links -->
@@ -127,7 +127,7 @@
                                                             <span
                                                                 class="text-light text-decoration-none me-2">{{ Illuminate\Support\Str::mask($client->website, '*', 5) }}</span>
                                                             <i class="bx bx-lock-alt text-light"
-                                                                data-bs-toggle="tooltip" title="Subscribe to view"></i>
+                                                                data-bs-toggle="tooltip" title="{{ x_('Subscribe to view', 'web') }}"></i>
                                                         </div>
                                                     @endif
                                                 </div>
@@ -209,7 +209,7 @@
                                                 <div class="mb-2 d-flex align-items-center">
                                                     <i class="bx bx-group me-2"></i>
                                                     <span>{{ $client->company_size }}
-                                                        {{ $client->is_company ? 'employees' : 'team members' }}</span>
+                                                        {{ $client->is_company ? x_('employees', 'web') : x_('team members', 'web') }}</span>
                                                 </div>
                                             @endif
 
@@ -217,14 +217,14 @@
                                             @if ($client->founding_year)
                                                 <div class="mb-2 d-flex align-items-center">
                                                     <i class="bx bx-calendar me-2"></i>
-                                                    <span>Est. {{ $client->founding_year }}</span>
+                                                    <span>{{ x_('Est.', 'web') }} {{ $client->founding_year }}</span>
                                                 </div>
                                             @endif
 
                                             <!-- Company Type -->
                                             <div class="d-flex align-items-center">
                                                 <i class="bx bx-building me-2"></i>
-                                                <span>{{ $client->is_company ? 'Company' : 'Individual' }}</span>
+                                                <span>{{ $client->is_company ? x_('Company', 'web') : x_('Individual', 'web') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -240,12 +240,12 @@
             <div class="container">
                 <div class="mb-4 d-flex align-items-center">
                     <i class="bx bx-info-circle fs-2 text-primary me-3"></i>
-                    <h2 class="mb-0 fw-bold">About {{ $client->name }}</h2>
+                    <h2 class="mb-0 fw-bold">{{ x_('About', 'web') }} {{ $client->name }}</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="mb-5">
-                            <p class="mb-4">{{ $client->bio ?? 'No description available yet.' }}</p>
+                            <p class="mb-4">{{ $client->bio ?? x_('No description available yet.', 'web') }}</p>
                             <!-- Company Metrics -->
                             <div class="mb-5 row g-4">
                                 <!-- Team Size -->
@@ -255,7 +255,7 @@
                                             <i class="bx bx-group fs-3 text-primary"></i>
                                         </div>
                                         <h4 class="fs-5 fw-bold">{{ $client->company_size ?? '0' }}</h4>
-                                        <p class="mb-0 text-muted">Team Members</p>
+                                        <p class="mb-0 text-muted">{{ x_('Team Members', 'web') }}</p>
                                     </div>
                                 </div>
 
@@ -265,8 +265,8 @@
                                         <div class="p-3 mb-3 d-inline-block bg-light rounded-circle">
                                             <i class="bx bx-calendar fs-3 text-primary"></i>
                                         </div>
-                                        <h4 class="fs-5 fw-bold">{{ $client->founding_year ?? 'N/A' }}</h4>
-                                        <p class="mb-0 text-muted">Established</p>
+                                        <h4 class="fs-5 fw-bold">{{ $client->founding_year ?? x_('N/A', 'web') }}</h4>
+                                        <p class="mb-0 text-muted">{{ x_('Established', 'web') }}</p>
                                     </div>
                                 </div>
 
@@ -282,14 +282,14 @@
                                                 : 'N/A';
                                         @endphp
                                         <h4 class="fs-5 fw-bold">
-                                            {{ is_numeric($yearsExperience) ? $yearsExperience : 'N/A' }}</h4>
-                                        <p class="mb-0 text-muted">Years Experience</p>
+                                            {{ is_numeric($yearsExperience) ? $yearsExperience : x_('N/A', 'web') }}</h4>
+                                        <p class="mb-0 text-muted">{{ x_('Years Experience', 'web') }}</p>
                                     </div>
                                 </div>
                             </div>
                             <!-- Languages -->
                             <div class="mb-5">
-                                <h4 class="mb-3 fw-bold">Languages</h4>
+                                <h4 class="mb-3 fw-bold">{{ x_('Languages', 'web') }}</h4>
                                 <div class="flex-wrap d-flex">
                                     @if (isset($client->languages) && is_array(json_decode($client->languages)))
                                         @foreach (json_decode($client->languages) as $language)
@@ -297,7 +297,7 @@
                                                 class="px-3 py-2 mb-2 badge bg-light me-2">{{ $language }}</span>
                                         @endforeach
                                     @else
-                                        <span class="px-3 py-2 mb-2 badge bg-light me-2">English</span>
+                                        <span class="px-3 py-2 mb-2 badge bg-light me-2">{{ x_('English', 'web') }}</span>
                                     @endif
                                 </div>
                             </div>
@@ -308,13 +308,13 @@
                     <div class="col-lg-4">
                         <div class="border-0 shadow-sm card">
                             <div class="card-body">
-                                <h4 class="mb-4 fw-bold">Contact Information</h4>
+                                <h4 class="mb-4 fw-bold">{{ x_('Contact Information', 'web') }}</h4>
                                 <ul class="mb-4 list-unstyled">
                                     @if ($client->email)
                                         <li class="mb-3 d-flex">
                                             <i class="mt-1 bx bx-envelope text-primary me-2"></i>
                                             <div>
-                                                <p class="mb-0 fw-medium">Email</p>
+                                                <p class="mb-0 fw-medium">{{ x_('Email', 'web') }}</p>
                                                 @if (Auth::guard('client')->check() && Auth::guard('client')->user()->hasActiveSubscription())
                                                     <a href="mailto:{{ $client->email }}"
                                                         class="text-muted text-decoration-none">{{ $client->email }}</a>
@@ -323,7 +323,7 @@
                                                         <span
                                                             class="text-muted">{{ Illuminate\Support\Str::mask($client->email, '*', 3, 5) }}</span>
                                                         <i class="ms-2 bx bx-lock-alt" data-bs-toggle="tooltip"
-                                                            title="Subscribe to view"></i>
+                                                            title="{{ x_('Subscribe to view', 'web') }}"></i>
                                                     </div>
                                                 @endif
                                             </div>
@@ -334,7 +334,7 @@
                                         <li class="mb-3 d-flex">
                                             <i class="mt-1 bx bx-phone text-primary me-2"></i>
                                             <div>
-                                                <p class="mb-0 fw-medium">Phone</p>
+                                                <p class="mb-0 fw-medium">{{ x_('Phone', 'web') }}</p>
                                                 @if (Auth::guard('client')->check() && Auth::guard('client')->user()->hasActiveSubscription())
                                                     <a href="tel:{{ $client->phone }}"
                                                         class="text-muted text-decoration-none">{{ $client->phone }}</a>
@@ -343,7 +343,7 @@
                                                         <span
                                                             class="text-muted">{{ Illuminate\Support\Str::mask($client->phone, '*', 4, 4) }}</span>
                                                         <i class="ms-2 bx bx-lock-alt" data-bs-toggle="tooltip"
-                                                            title="Subscribe to view"></i>
+                                                            title="{{ x_('Subscribe to view', 'web') }}"></i>
                                                     </div>
                                                 @endif
                                             </div>
@@ -354,7 +354,7 @@
                                         <li class="mb-3 d-flex">
                                             <i class="mt-1 bx bx-map text-primary me-2"></i>
                                             <div>
-                                                <p class="mb-0 fw-medium">Address</p>
+                                                <p class="mb-0 fw-medium">{{ x_('Address', 'web') }}</p>
                                                 @if (Auth::guard('client')->check() && Auth::guard('client')->user()->hasActiveSubscription())
                                                     <p class="mb-0 text-muted">{{ $client->address }}</p>
                                                 @else
@@ -362,7 +362,7 @@
                                                         <span
                                                             class="text-muted">{{ Illuminate\Support\Str::mask($client->address, '*', 5) }}</span>
                                                         <i class="ms-2 bx bx-lock-alt" data-bs-toggle="tooltip"
-                                                            title="Subscribe to view"></i>
+                                                            title="{{ x_('Subscribe to view', 'web') }}"></i>
                                                     </div>
                                                 @endif
                                             </div>
@@ -373,7 +373,7 @@
                                         <li class="d-flex">
                                             <i class="mt-1 bx bx-globe text-primary me-2"></i>
                                             <div>
-                                                <p class="mb-0 fw-medium">Website</p>
+                                                <p class="mb-0 fw-medium">{{ x_('Website', 'web') }}</p>
                                                 @if (Auth::guard('client')->check() && Auth::guard('client')->user()->hasActiveSubscription())
                                                     <a href="{{ $client->website }}" target="_blank"
                                                         class="text-muted text-decoration-none">{{ $client->website }}</a>
@@ -382,7 +382,7 @@
                                                         <span
                                                             class="text-muted">{{ Illuminate\Support\Str::mask($client->website, '*', 7) }}</span>
                                                         <i class="ms-2 bx bx-lock-alt" data-bs-toggle="tooltip"
-                                                            title="Subscribe to view"></i>
+                                                            title="{{ x_('Subscribe to view', 'web') }}"></i>
                                                     </div>
                                                 @endif
                                             </div>
@@ -431,29 +431,29 @@
             <div class="container">
                 <div class="mb-4 d-flex align-items-center">
                     <i class="bx bx-server fs-2 text-primary me-3"></i>
-                    <h2 class="mb-0 fw-bold">Services</h2>
+                    <h2 class="mb-0 fw-bold">{{ x_('Services', 'web') }}</h2>
                 </div>
 
-                <p class="mb-4">{{ count($client->services) }} services offered by {{ $client->name }}</p>
+                <p class="mb-4">{{ count($client->services) }} {{ x_('services offered by', 'web') }} {{ $client->name }}</p>
 
                 <div class="mb-4 rounded shadow bg-light">
                     <!-- Services Table Header -->
                     <div class="py-3 mx-0 row border-bottom bg-light fw-medium">
                         <div class="col-md-4 ps-4">
-                            <strong>Service name</strong>
+                            <strong>{{ x_('Service name', 'web') }}</strong>
                         </div>
                         <div class="col-md-3">
                             <div class="d-flex align-items-center">
-                                <strong>Experience level</strong>
+                                <strong>{{ x_('Experience level', 'web') }}</strong>
                                 <i class="bx bx-info-circle text-muted ms-2" data-bs-toggle="tooltip"
-                                    title="Experience level based on completed projects"></i>
+                                    title="{{ x_('Experience level based on completed projects', 'web') }}"></i>
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <strong>Related reviews</strong>
+                            <strong>{{ x_('Related reviews', 'web') }}</strong>
                         </div>
                         <div class="col-md-3">
-                            <strong>Starting from</strong>
+                            <strong>{{ x_('Starting from', 'web') }}</strong>
                         </div>
                     </div>
 
@@ -531,7 +531,7 @@
                                     </div>
                                     <small
                                         class="text-muted d-block">{{ $service->projects_count ?? rand(3, 16) }}
-                                        works</small>
+                                        {{ x_('works', 'web') }}</small>
                                 </div>
 
                                 <!-- Related Reviews -->
@@ -549,7 +549,7 @@
                                     <div class="d-flex align-items-center justify-content-between">
                                         <span
                                             class="price-badge text-primary">{{ number_format($service->price) }}
-                                            EGP<span class="text-muted">/project</span></span>
+                                            EGP<span class="text-muted">{{ x_('/project', 'web') }}</span></span>
                                         <div>
                                             <!-- Apply button - show to everyone but customize based on login status -->
                                             @if (Auth::guard('client')->check())
@@ -558,15 +558,15 @@
                                                     <button class="btn btn-sm btn-primary me-2"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#applyServiceModal{{ $service->id }}">
-                                                        <i class="bx bx-send me-1"></i> Apply
+                                                        <i class="bx bx-send me-1"></i> {{ x_('Apply', 'web') }}
                                                     </button>
                                                 @endif
                                             @else
                                                 <!-- Not logged in - locked apply button with tooltip -->
                                                 <button class="btn btn-sm btn-primary me-2"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="You must login first to apply for services">
-                                                    <i class="bx bx-lock-alt me-1"></i> Apply
+                                                    title="{{ x_('You must login first to apply for services', 'web') }}">
+                                                    <i class="bx bx-lock-alt me-1"></i> {{ x_('Apply', 'web') }}
                                                 </button>
                                             @endif
                                             <button class="btn btn-sm btn-outline-secondary ms-1 detail-toggle"
@@ -585,14 +585,14 @@
                                 <div class="p-4 bg-light">
                                     <div class="row">
                                         <div class="col-lg-8">
-                                            <h6 class="mb-3 fw-bold">Description</h6>
+                                            <h6 class="mb-3 fw-bold">{{ x_('Description', 'web') }}</h6>
                                             <p class="mb-4 text-muted">
-                                                {{ $service->description ?? 'This service helps businesses improve their performance and reach their goals through professional consultation and implementation.' }}
+                                                {{ $service->description ?? x_('This service helps businesses improve their performance and reach their goals through professional consultation and implementation.', 'web') }}
                                             </p>
 
                                             @if (isset($service->skills) && count($service->skills) > 0)
                                                 <div class="mb-4">
-                                                    <h6 class="mb-2 fw-bold">Skills & Expertise</h6>
+                                                    <h6 class="mb-2 fw-bold">{{ x_('Skills & Expertise', 'web') }}</h6>
                                                     <div class="flex-wrap d-flex">
                                                         @foreach ($service->skills as $skill)
                                                             <span
@@ -603,7 +603,7 @@
                                             @endif
 
                                             <div class="mb-3">
-                                                <h6 class="mb-2 fw-bold">Skill Level</h6>
+                                                <h6 class="mb-2 fw-bold">{{ x_('Skill Level', 'web') }}</h6>
                                                 <div class="d-flex align-items-center">
                                                     <div class="me-3">
                                                         @for ($i = 1; $i <= 5; $i++)
@@ -615,22 +615,21 @@
                                                         @endfor
                                                     </div>
                                                     <span class="small">{{ $service->rating }}/5 -
-                                                        {{ $service->projects_count ?? rand(3, 16) }} successful
-                                                        projects</span>
+                                                        {{ $service->projects_count ?? rand(3, 16) }} {{ x_('successful projects', 'web') }}</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="p-4 rounded shadow-sm bg-light">
-                                                <h6 class="mb-3 fw-bold">Service Details</h6>
+                                                <h6 class="mb-3 fw-bold">{{ x_('Service Details', 'web') }}</h6>
                                                 <div
                                                     class="pb-3 mb-3 border-bottom d-flex justify-content-between">
-                                                    <span class="text-muted">Delivery time:</span>
-                                                    <strong>{{ $service->delivery_time }} days</strong>
+                                                    <span class="text-muted">{{ x_('Delivery time:', 'web') }}</span>
+                                                    <strong>{{ $service->delivery_time }} {{ x_('days', 'web') }}</strong>
                                                 </div>
                                                 <div
                                                     class="pb-3 mb-4 border-bottom d-flex justify-content-between">
-                                                    <span class="text-muted">Price:</span>
+                                                    <span class="text-muted">{{ x_('Price:', 'web') }}</span>
                                                     <strong
                                                         class="text-primary">{{ number_format($service->price) }}
                                                         EGP</strong>
@@ -641,15 +640,15 @@
                                                         <button class="btn btn-primary me-2"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#applyServiceModal{{ $service->id }}">
-                                                            <i class="bx bx-send me-1"></i> Apply for this service
+                                                            <i class="bx bx-send me-1"></i> {{ x_('Apply for this service', 'web') }}
                                                         </button>
                                                     @endif
                                                 @else
                                                     <!-- Not logged in - locked apply button with tooltip -->
                                                     <button class="btn btn-secondary me-2"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="You must login first to apply for services">
-                                                        <i class="bx bx-lock-alt me-1"></i> Apply for this service
+                                                        title="{{ x_('You must login first to apply for services', 'web') }}">
+                                                        <i class="bx bx-lock-alt me-1"></i> {{ x_('Apply for this service', 'web') }}
                                                     </button>
                                                 @endif
                                             </div>
@@ -663,9 +662,9 @@
                             <div class="mb-3">
                                 <i class="opacity-50 bx bx-server fs-1 text-secondary"></i>
                             </div>
-                            <h5>No services available yet</h5>
-                            <p class="mb-4 text-muted">This client hasn't added any services to their profile.</p>
-                            <a href="#contact" class="btn btn-outline-primary">Contact for custom requests</a>
+                            <h5>{{ x_('No services available yet', 'web') }}</h5>
+                            <p class="mb-4 text-muted">{{ x_('This client hasn\'t added any services to their profile.', 'web') }}</p>
+                            <a href="#contact" class="btn btn-outline-primary">{{ x_('Contact for custom requests', 'web') }}</a>
                         </div>
                     @endif
                 </div>
@@ -696,10 +695,10 @@
             <div class="container">
                 <div class="mb-4 d-flex align-items-center">
                     <i class="ri-folder-chart-line fs-2 text-primary me-3"></i>
-                    <h2 class="mb-0 fw-bold">Projects</h2>
+                    <h2 class="mb-0 fw-bold">{{ x_('Projects', 'web') }}</h2>
                 </div>
 
-                <p class="mb-4">{{ count($projects) }} projects posted by {{ $client->name }}</p>
+                <p class="mb-4">{{ count($projects) }} {{ x_('projects posted by', 'web') }} {{ $client->name }}</p>
 
                 @if(count($projects) > 0)
                     <div class="row g-4">
@@ -719,7 +718,7 @@
                                         <div class="mb-3 d-flex justify-content-between align-items-center">
                                             <h5 class="mb-0 card-title fw-bold">{{ $project->name }}</h5>
                                             <span class="badge {{ $project->status === 'active' ? 'bg-success' : 'bg-secondary' }} rounded-pill">
-                                                {{ ucfirst($project->status) }}
+                                                {{ x_(ucfirst($project->status), 'web') }}
                                             </span>
                                         </div>
 
@@ -745,7 +744,7 @@
                                                 <div class="d-flex align-items-center">
                                                     <i class="ri-money-dollar-circle-line text-primary me-2"></i>
                                                     <div>
-                                                        <small class="text-muted d-block">Budget</small>
+                                                        <small class="text-muted d-block">{{ x_('Budget', 'web') }}</small>
                                                         <span>{{ number_format($project->budget_min) }} - {{ number_format($project->budget_max) }} EGP</span>
                                                     </div>
                                                 </div>
@@ -754,8 +753,8 @@
                                                 <div class="d-flex align-items-center">
                                                     <i class="ri-map-pin-line text-primary me-2"></i>
                                                     <div>
-                                                        <small class="text-muted d-block">Location</small>
-                                                        <span>{{ $project->location ?? 'Remote' }}</span>
+                                                        <small class="text-muted d-block">{{ x_('Location', 'web') }}</small>
+                                                        <span>{{ $project->location ?? x_('Remote', 'web') }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -763,8 +762,8 @@
 
                                         <div class="mb-3">
                                             <div class="mb-1 d-flex justify-content-between align-items-center">
-                                                <small>Seat Availability</small>
-                                                <small>{{ $availableSeats }} / {{ $totalSeats }} seats available</small>
+                                                <small>{{ x_('Seat Availability', 'web') }}</small>
+                                                <small>{{ $availableSeats }} / {{ $totalSeats }} {{ x_('seats available', 'web') }}</small>
                                             </div>
                                             <div class="progress" style="height: 6px;">
                                                 <div class="progress-bar bg-primary" role="progressbar"
@@ -779,14 +778,14 @@
                                             <div>
                                                 <small class="text-muted">
                                                     <i class="ri-calendar-line me-1"></i>
-                                                    Posted {{ $project->created_at->diffForHumans() }}
+                                                    {{ x_('Posted', 'web') }} {{ $project->created_at->diffForHumans() }}
                                                 </small>
                                             </div>
                                             <div class="gap-2 d-flex">
                                                 <!-- View Details Button - available for everyone -->
                                                 <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                                     data-bs-target="#projectDetailsModal{{ $project->id }}">
-                                                    <i class="ri-information-line me-1"></i> View Details
+                                                    <i class="ri-information-line me-1"></i> {{ x_('View Details', 'web') }}
                                                 </button>
 
                                                 <!-- Apply button - show to everyone but customize based on login status -->
@@ -797,32 +796,32 @@
                                                                 <!-- Logged in with active subscription - normal apply button -->
                                                                 <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                                                     data-bs-target="#applySeatModal{{ $project->id }}">
-                                                                    <i class="ri-user-add-line me-1"></i> Apply for Seat
+                                                                    <i class="ri-user-add-line me-1"></i> {{ x_('Apply for Seat', 'web') }}
                                                                 </button>
                                                             @else
                                                                 <!-- Logged in but no subscription - subscription required button -->
                                                                 <button class="btn btn-sm btn-warning" data-bs-toggle="tooltip"
-                                                                    data-bs-placement="top" title="You need an active subscription to apply">
-                                                                    <i class="ri-vip-crown-line me-1"></i> Subscription Required
+                                                                    data-bs-placement="top" title="{{ x_('You need an active subscription to apply', 'web') }}">
+                                                                    <i class="ri-vip-crown-line me-1"></i> {{ x_('Subscription Required', 'web') }}
                                                                 </button>
                                                             @endif
                                                         @elseif(!$hasAvailableSeats && $project->status === 'active')
                                                             <!-- No available seats - disabled button -->
                                                             <button class="btn btn-sm btn-secondary" disabled>
-                                                                <i class="ri-user-forbid-line me-1"></i> No Seats Available
+                                                                <i class="ri-user-forbid-line me-1"></i> {{ x_('No Seats Available', 'web') }}
                                                             </button>
                                                         @else
                                                             <!-- Project not active - disabled button -->
                                                             <button class="btn btn-sm btn-secondary" disabled>
-                                                                <i class="ri-close-circle-line me-1"></i> Not Accepting Applications
+                                                                <i class="ri-close-circle-line me-1"></i> {{ x_('Not Accepting Applications', 'web') }}
                                                             </button>
                                                         @endif
                                                     @endif
                                                 @else
                                                     <!-- Not logged in - locked apply button with tooltip -->
                                                     <button class="btn btn-sm btn-primary" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" title="You must login first to apply for project seats">
-                                                        <i class="ri-lock-line me-1"></i> Apply for Seat
+                                                        data-bs-placement="top" title="{{ x_('You must login first to apply for project seats', 'web') }}">
+                                                        <i class="ri-lock-line me-1"></i> {{ x_('Apply for Seat', 'web') }}
                                                     </button>
                                                 @endif
                                             </div>
@@ -836,7 +835,7 @@
                     <div class="border alert alert-light">
                         <div class="d-flex align-items-center">
                             <i class="ri-information-line fs-3 me-3"></i>
-                            <p class="mb-0">{{ $client->name }} hasn't posted any projects yet.</p>
+                            <p class="mb-0">{{ $client->name }} {{ x_('hasn\'t posted any projects yet.', 'web') }}</p>
                         </div>
                     </div>
                 @endif
@@ -848,9 +847,9 @@
             <div class="container">
                 <div class="mb-4 d-flex align-items-center">
                     <i class="bx bx-images fs-2 text-primary me-3"></i>
-                    <h2 class="mb-0 fw-bold">Our Portfolio</h2>
+                    <h2 class="mb-0 fw-bold">{{ x_('Our Portfolio', 'web') }}</h2>
                 </div>
-                <p class="mb-4">{{ count($client->portfolios) }} projects in {{ $client->name }}'s portfolio
+                <p class="mb-4">{{ count($client->portfolios) }} {{ x_('projects in', 'web') }} {{ $client->name }}{{ x_('\'s portfolio', 'web') }}
                 </p>
                 <div class="mb-4 row row-cols-1 row-cols-md-2 g-4">
                     @forelse($client->portfolios as $portfolio)
@@ -883,7 +882,7 @@
                                         {{ $portfolio->name }}
                                     </h3>
                                     @if ($portfolio->client_name)
-                                        <p class="mb-2 fs-sm">Client: {{ $portfolio->client_name }}</p>
+                                        <p class="mb-2 fs-sm">{{ x_('Client:', 'web') }} {{ $portfolio->client_name }}</p>
                                     @endif
 
                                     @if ($portfolio->details)
@@ -903,7 +902,7 @@
                                     @if ($portfolio->project_url)
                                         <a href="{{ $portfolio->project_url }}" target="_blank"
                                             class="mt-2 btn btn-sm btn-primary">
-                                            View Project <i class="bx bx-link-external ms-1"></i>
+                                            {{ x_('View Project', 'web') }} <i class="bx bx-link-external ms-1"></i>
                                         </a>
                                     @endif
                                 </div>
@@ -912,7 +911,7 @@
                                 <div class="py-3 card-footer d-flex align-items-center fs-sm text-muted">
                                     <div class="d-flex align-items-center me-4">
                                         <i class="bx bx-calendar fs-xl me-1"></i>
-                                        {{ $portfolio->date ? \Carbon\Carbon::parse($portfolio->date)->format('M Y') : 'No date' }}
+                                        {{ $portfolio->date ? \Carbon\Carbon::parse($portfolio->date)->format('M Y') : x_('No date', 'web') }}
                                     </div>
                                     @if ($portfolio->location)
                                         <div class="d-flex align-items-center">
@@ -929,11 +928,9 @@
                                 <div class="mb-3">
                                     <i class="opacity-50 bx bx-images fs-1 text-secondary"></i>
                                 </div>
-                                <h5>No portfolio items available yet</h5>
-                                <p class="mb-4 text-muted">This client hasn't added any projects to their
-                                    portfolio.</p>
-                                <a href="#contact" class="btn btn-outline-primary">Request portfolio
-                                    information</a>
+                                <h5>{{ x_('No portfolio items available yet', 'web') }}</h5>
+                                <p class="mb-4 text-muted">{{ x_('This client hasn\'t added any projects to their portfolio.', 'web') }}</p>
+                                <a href="#contact" class="btn btn-outline-primary">{{ x_('Request portfolio information', 'web') }}</a>
                             </div>
                         </div>
                     @endforelse
@@ -951,7 +948,7 @@
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="applyServiceModalLabel{{ $service->id }}">Apply for:
+                            <h5 class="modal-title" id="applyServiceModalLabel{{ $service->id }}">{{ x_('Apply for:', 'web') }}
                                 {{ $service->name }}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
@@ -975,69 +972,61 @@
                                                 EGP</span>
                                         </div>
                                     </div>
-                                    <p class="text-muted">You are applying to {{ $client->name }}'s service. Please
-                                        provide details about your project needs.</p>
+                                    <p class="text-muted">{{ x_('You are applying to', 'web') }} {{ $client->name }}{{ x_('\'s service. Please provide details about your project needs.', 'web') }}</p>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="description{{ $service->id }}" class="form-label">Project
-                                        Description</label>
+                                    <label for="description{{ $service->id }}" class="form-label">{{ x_('Project Description', 'web') }}</label>
                                     <textarea class="form-control" id="description{{ $service->id }}" name="description" rows="4"
-                                        placeholder="Describe your project requirements" required></textarea>
-                                    <div class="form-text">Be specific about what you need to help the service provider
-                                        understand your requirements.</div>
+                                        placeholder="{{ x_('Describe your project requirements', 'web') }}" required></textarea>
+                                    <div class="form-text">{{ x_('Be specific about what you need to help the service provider understand your requirements.', 'web') }}</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label for="budget_min{{ $service->id }}" class="form-label">Minimum Budget
-                                            (EGP)</label>
+                                        <label for="budget_min{{ $service->id }}" class="form-label">{{ x_('Minimum Budget (EGP)', 'web') }}</label>
                                         <input type="number" class="form-control"
                                             id="budget_min{{ $service->id }}" name="budget_min"
-                                            placeholder="Minimum budget" value="{{ $service->price }}"
+                                            placeholder="{{ x_('Minimum budget', 'web') }}" value="{{ $service->price }}"
                                             min="{{ $service->price }}" required>
-                                        <div class="form-text">Starting price is {{ number_format($service->price) }}
-                                            EGP</div>
+                                        <div class="form-text">{{ x_('Starting price is', 'web') }} {{ number_format($service->price) }} EGP</div>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label for="budget_max{{ $service->id }}" class="form-label">Maximum Budget
-                                            (EGP)</label>
+                                        <label for="budget_max{{ $service->id }}" class="form-label">{{ x_('Maximum Budget (EGP)', 'web') }}</label>
                                         <input type="number" class="form-control"
                                             id="budget_max{{ $service->id }}" name="budget_max"
-                                            placeholder="Maximum budget" value="{{ $service->price * 1.5 }}"
+                                            placeholder="{{ x_('Maximum budget', 'web') }}" value="{{ $service->price * 1.5 }}"
                                             min="{{ $service->price }}" required>
-                                        <div class="form-text">Your upper limit for this service</div>
+                                        <div class="form-text">{{ x_('Your upper limit for this service', 'web') }}</div>
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="deadline{{ $service->id }}" class="form-label">Deadline (in
-                                        weeks)</label>
+                                    <label for="deadline{{ $service->id }}" class="form-label">{{ x_('Deadline (in weeks)', 'web') }}</label>
                                     <input type="number" class="form-control" id="deadline{{ $service->id }}"
-                                        name="weeks" placeholder="Number of weeks" value="1" min="1"
+                                        name="weeks" placeholder="{{ x_('Number of weeks', 'web') }}" value="1" min="1"
                                         required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="start_date{{ $service->id }}" class="form-label">Start Date</label>
+                                    <label for="start_date{{ $service->id }}" class="form-label">{{ x_('Start Date', 'web') }}</label>
                                     <input type="date" class="form-control" id="start_date{{ $service->id }}"
                                         name="start_date" min="{{ date('Y-m-d') }}">
-                                    <div class="form-text">When would you like the service provider to start?</div>
+                                    <div class="form-text">{{ x_('When would you like the service provider to start?', 'web') }}</div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="proposal{{ $service->id }}" class="form-label">Attach Proposal
-                                        (Optional)</label>
+                                    <label for="proposal{{ $service->id }}" class="form-label">{{ x_('Attach Proposal (Optional)', 'web') }}</label>
                                     <input type="file" class="form-control" id="proposal{{ $service->id }}"
                                         name="proposal" accept=".pdf,.doc,.docx">
-                                    <div class="form-text">Accepted formats: PDF, DOC, DOCX (Max: 10MB)</div>
+                                    <div class="form-text">{{ x_('Accepted formats: PDF, DOC, DOCX (Max: 10MB)', 'web') }}</div>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancel</button>
+                                    data-bs-dismiss="modal">{{ x_('Cancel', 'web') }}</button>
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="bx bx-send me-2"></i>Submit Application
+                                    <i class="bx bx-send me-2"></i>{{ x_('Submit Application', 'web') }}
                                 </button>
                             </div>
                         </form>
@@ -1082,7 +1071,7 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="applySeatModalLabel{{ $project->id }}">Apply for Project Seat: {{ $project->name }}</h5>
+                                <h5 class="modal-title" id="applySeatModalLabel{{ $project->id }}">{{ x_('Apply for Project Seat:', 'web') }} {{ $project->name }}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <form action="{{ route('projects.apply', $project->id) }}" method="POST" enctype="multipart/form-data">
@@ -1098,69 +1087,69 @@
                                                 <span class="text-primary">{{ number_format($project->budget_min) }} - {{ number_format($project->budget_max) }} EGP</span>
                                             </div>
                                         </div>
-                                        <p class="text-muted">You are applying for a seat in {{ $client->name }}'s project. Please provide details about your qualifications and proposal.</p>
+                                        <p class="text-muted">{{ x_('You are applying for a seat in', 'web') }} {{ $client->name }}{{ x_('\'s project. Please provide details about your qualifications and proposal.', 'web') }}</p>
 
                                         @if(!Auth::guard('client')->check() || !Auth::guard('client')->user()->hasActiveSubscription())
                                             <div class="mt-3 alert alert-warning d-flex align-items-center" role="alert">
                                                 <i class="ri-vip-crown-line me-2 fs-5"></i>
                                                 <div>
-                                                    <strong>Subscription Required:</strong> You need an active subscription to apply for project seats.
-                                                    <a href="{{ route('web.select-plan') }}" class="alert-link">Upgrade now</a> to unlock this feature.
+                                                    <strong>{{ x_('Subscription Required:', 'web') }}</strong> {{ x_('You need an active subscription to apply for project seats.', 'web') }}
+                                                    <a href="{{ route('web.select-plan') }}" class="alert-link">{{ x_('Upgrade now', 'web') }}</a> {{ x_('to unlock this feature.', 'web') }}
                                                 </div>
                                             </div>
                                         @endif
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="motivation{{ $project->id }}" class="form-label">Motivation</label>
+                                        <label for="motivation{{ $project->id }}" class="form-label">{{ x_('Motivation', 'web') }}</label>
                                         <textarea class="form-control" id="motivation{{ $project->id }}" name="motivation" rows="3"
-                                            placeholder="Explain why you're interested in this project and what makes you a good fit" required></textarea>
+                                            placeholder="{{ x_('Explain why you\'re interested in this project and what makes you a good fit', 'web') }}" required></textarea>
                                     </div>
 
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
-                                            <label for="budget_min{{ $project->id }}" class="form-label">Minimum Budget (EGP)</label>
+                                            <label for="budget_min{{ $project->id }}" class="form-label">{{ x_('Minimum Budget (EGP)', 'web') }}</label>
                                             <input type="number" class="form-control" id="budget_min{{ $project->id }}" name="budget_min"
-                                                placeholder="Minimum budget" value="{{ $project->budget_min }}" required>
-                                            <div class="form-text">Your minimum budget requirement for this project</div>
+                                                placeholder="{{ x_('Minimum budget', 'web') }}" value="{{ $project->budget_min }}" required>
+                                            <div class="form-text">{{ x_('Your minimum budget requirement for this project', 'web') }}</div>
                                         </div>
                                         <div class="mb-3 col-md-6">
-                                            <label for="budget_max{{ $project->id }}" class="form-label">Maximum Budget (EGP)</label>
+                                            <label for="budget_max{{ $project->id }}" class="form-label">{{ x_('Maximum Budget (EGP)', 'web') }}</label>
                                             <input type="number" class="form-control" id="budget_max{{ $project->id }}" name="budget_max"
-                                                placeholder="Maximum budget" value="{{ $project->budget_max }}" required>
-                                            <div class="form-text">Your maximum budget expectation for this project</div>
+                                                placeholder="{{ x_('Maximum budget', 'web') }}" value="{{ $project->budget_max }}" required>
+                                            <div class="form-text">{{ x_('Your maximum budget expectation for this project', 'web') }}</div>
                                         </div>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="experience{{ $project->id }}" class="form-label">Relevant Experience</label>
+                                        <label for="experience{{ $project->id }}" class="form-label">{{ x_('Relevant Experience', 'web') }}</label>
                                         <textarea class="form-control" id="experience{{ $project->id }}" name="experience" rows="3"
-                                            placeholder="Describe your relevant experience for this project" required></textarea>
+                                            placeholder="{{ x_('Describe your relevant experience for this project', 'web') }}" required></textarea>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="timeline{{ $project->id }}" class="form-label">Estimated Timeline (in weeks)</label>
+                                        <label for="timeline{{ $project->id }}" class="form-label">{{ x_('Estimated Timeline (in weeks)', 'web') }}</label>
                                         <input type="number" class="form-control" id="timeline{{ $project->id }}"
-                                            name="timeline" placeholder="Number of weeks" value="4" min="1" required>
+                                            name="timeline" placeholder="{{ x_('Number of weeks', 'web') }}" value="4" min="1" required>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="proposal{{ $project->id }}" class="form-label">Upload Proposal</label>
+                                        <label for="proposal{{ $project->id }}" class="form-label">{{ x_('Upload Proposal', 'web') }}</label>
                                         <input type="file" class="form-control" id="proposal{{ $project->id }}"
                                             name="proposal" accept=".pdf,.doc,.docx" required>
-                                        <div class="form-text">Accepted formats: PDF, DOC, DOCX (Max: 10MB)</div>
+                                        <div class="form-text">{{ x_('Accepted formats: PDF, DOC, DOCX (Max: 10MB)', 'web') }}</div>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="notes{{ $project->id }}" class="form-label">Additional Notes</label>
+                                        <label for="notes{{ $project->id }}" class="form-label">{{ x_('Additional Notes', 'web') }}</label>
                                         <textarea class="form-control" id="notes{{ $project->id }}" name="notes" rows="2"
-                                            placeholder="Any additional information you'd like to provide"></textarea>
+                                            placeholder="{{ x_('Any additional information you\'d like to provide', 'web') }}"></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'web') }}</button>
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="ri-user-add-line me-2"></i>Submit Application
+                                        <i class="ri-user-add-line me-2"></i>{{ x_('Submit Application', 'web') }}
                                     </button>
                                 </div>
                             </form>
@@ -1187,11 +1176,11 @@
                                         <div class="mb-2 d-flex justify-content-between align-items-center">
                                             <h4 class="mb-0 modal-title fw-bold">{{ $project->name }}</h4>
                                             <span class="badge {{ $project->status === 'active' ? 'bg-success' : 'bg-secondary' }} rounded-pill fs-6">
-                                                {{ ucfirst($project->status) }}
+                                                {{ x_(ucfirst($project->status), 'web') }}
                                             </span>
                                         </div>
                                         <p class="mb-0 text-white-50">
-                                            <i class="ri-calendar-line me-1"></i> Posted {{ $project->created_at->diffForHumans() }}
+                                            <i class="ri-calendar-line me-1"></i> {{ x_('Posted', 'web') }} {{ $project->created_at->diffForHumans() }}
                                         </p>
                                     </div>
                                 </div>
@@ -1201,7 +1190,7 @@
                             <div class="text-dark modal-header bg-light">
                                 <h5 class="modal-title" id="projectDetailsModalLabel{{ $project->id }}">{{ $project->name }}</h5>
                                 <div>
-                                    <span class="badge bg-dark text-light rounded-pill me-2">{{ ucfirst($project->status) }}</span>
+                                    <span class="badge bg-dark text-light rounded-pill me-2">{{ x_(ucfirst($project->status), 'web') }}</span>
                                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                             </div>
@@ -1211,7 +1200,7 @@
                             <!-- Summary Card -->
                             <div class="mb-4 border-0 shadow-sm card">
                                 <div class="card-body">
-                                    <h5 class="pb-2 mb-3 fw-bold border-bottom">Project Overview</h5>
+                                    <h5 class="pb-2 mb-3 fw-bold border-bottom">{{ x_('Project Overview', 'web') }}</h5>
                                     <p class="text-muted">{{ $project->description }}</p>
 
                                     <!-- Quick Stats -->
@@ -1219,21 +1208,21 @@
                                         <div class="col-md-4">
                                             <div class="p-3 text-center rounded bg-light-primary h-100">
                                                 <i class="mb-2 ri-money-dollar-circle-line fs-3 text-primary"></i>
-                                                <h6 class="mb-1">Budget</h6>
+                                                <h6 class="mb-1">{{ x_('Budget', 'web') }}</h6>
                                                 <p class="mb-0 fw-bold">{{ number_format($project->budget_min) }} - {{ number_format($project->budget_max) }} EGP</p>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="p-3 text-center rounded bg-light-primary h-100">
                                                 <i class="mb-2 ri-map-pin-line fs-3 text-primary"></i>
-                                                <h6 class="mb-1">Location</h6>
-                                                <p class="mb-0 fw-bold">{{ $project->location ?? 'Remote' }}</p>
+                                                <h6 class="mb-1">{{ x_('Location', 'web') }}</h6>
+                                                <p class="mb-0 fw-bold">{{ $project->location ?? x_('Remote', 'web') }}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="p-3 text-center rounded bg-light-primary h-100">
                                                 <i class="mb-2 ri-user-line fs-3 text-primary"></i>
-                                                <h6 class="mb-1">Client</h6>
+                                                <h6 class="mb-1">{{ x_('Client', 'web') }}</h6>
                                                 <p class="mb-0 fw-bold">{{ $client->name }}</p>
                                             </div>
                                         </div>
@@ -1244,7 +1233,7 @@
                             <!-- Seat Availability Card -->
                             <div class="mb-4 border-0 shadow-sm card">
                                 <div class="pb-0 bg-transparent border-0 card-header">
-                                    <h5 class="fw-bold">Seat Availability</h5>
+                                    <h5 class="fw-bold">{{ x_('Seat Availability', 'web') }}</h5>
                                 </div>
                                 <div class="pt-2 card-body">
                                     @php
@@ -1261,25 +1250,25 @@
                                         <div class="mb-2 col-md-4">
                                             <div class="p-3 rounded border">
                                                 <h1 class="mb-0 display-5 fw-bold text-primary">{{ $totalSeats }}</h1>
-                                                <p class="mb-0 text-muted">Total Seats</p>
+                                                <p class="mb-0 text-muted">{{ x_('Total Seats', 'web') }}</p>
                                             </div>
                                         </div>
                                         <div class="mb-2 col-md-4">
                                             <div class="p-3 rounded border">
                                                 <h1 class="mb-0 display-5 fw-bold text-success">{{ $availableSeats }}</h1>
-                                                <p class="mb-0 text-muted">Available</p>
+                                                <p class="mb-0 text-muted">{{ x_('Available', 'web') }}</p>
                                             </div>
                                         </div>
                                         <div class="mb-2 col-md-4">
                                             <div class="p-3 rounded border">
                                                 <h1 class="mb-0 display-5 fw-bold text-secondary">{{ $filledSeats }}</h1>
-                                                <p class="mb-0 text-muted">Filled</p>
+                                                <p class="mb-0 text-muted">{{ x_('Filled', 'web') }}</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="mb-2 d-flex justify-content-between align-items-center">
-                                        <span>Capacity</span>
+                                        <span>{{ x_('Capacity', 'web') }}</span>
                                         <span class="fw-bold">{{ $filledSeats }}/{{ $totalSeats }}</span>
                                     </div>
                                     <div class="progress" style="height: 10px;">
@@ -1295,7 +1284,7 @@
                             <!-- Skills Section -->
                             <div class="mb-4 border-0 shadow-sm card">
                                 <div class="pb-0 bg-transparent border-0 card-header">
-                                    <h5 class="fw-bold">Required Skills</h5>
+                                    <h5 class="fw-bold">{{ x_('Required Skills', 'web') }}</h5>
                                 </div>
                                 <div class="pt-2 card-body">
                                     <div class="flex-wrap gap-2 d-flex">
@@ -1304,7 +1293,7 @@
                                                 <span class="p-2 badge bg-primary text-light fs-6">{{ $skill }}</span>
                                             @endforeach
                                         @else
-                                            <span class="text-muted">No specific skills mentioned</span>
+                                            <span class="text-muted">{{ x_('No specific skills mentioned', 'web') }}</span>
                                         @endif
                                     </div>
                                 </div>
@@ -1313,7 +1302,7 @@
                             <!-- Additional Information -->
                             <div class="mb-4 border-0 shadow-sm card">
                                 <div class="pb-0 bg-transparent border-0 card-header">
-                                    <h5 class="fw-bold">Additional Information</h5>
+                                    <h5 class="fw-bold">{{ x_('Additional Information', 'web') }}</h5>
                                 </div>
                                 <div class="pt-2 card-body">
                                     <div class="row">
@@ -1321,7 +1310,7 @@
                                             <div class="d-flex align-items-center">
                                                 <i class="ri-calendar-check-line text-primary me-2 fs-5"></i>
                                                 <div>
-                                                    <small class="text-muted d-block">Created</small>
+                                                    <small class="text-muted d-block">{{ x_('Created', 'web') }}</small>
                                                     <span class="fw-bold">{{ $project->created_at->format('M d, Y') }}</span>
                                                 </div>
                                             </div>
@@ -1330,7 +1319,7 @@
                                             <div class="d-flex align-items-center">
                                                 <i class="ri-time-line text-primary me-2 fs-5"></i>
                                                 <div>
-                                                    <small class="text-muted d-block">Last Updated</small>
+                                                    <small class="text-muted d-block">{{ x_('Last Updated', 'web') }}</small>
                                                     <span class="fw-bold">{{ $project->updated_at->format('M d, Y') }}</span>
                                                 </div>
                                             </div>
@@ -1345,18 +1334,18 @@
                                     <!-- User has active subscription -->
                                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
                                         data-bs-target="#applySeatModal{{ $project->id }}">
-                                        <i class="ri-user-add-line me-1"></i> Apply for Seat
+                                        <i class="ri-user-add-line me-1"></i> {{ x_('Apply for Seat', 'web') }}
                                     </button>
                                 @else
                                     <!-- User needs subscription -->
                                     <button type="button" class="btn btn-warning" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="You need an active subscription to apply">
-                                        <i class="ri-vip-crown-line me-1"></i> Subscription Required
+                                        data-bs-placement="top" title="{{ x_('You need an active subscription to apply', 'web') }}">
+                                        <i class="ri-vip-crown-line me-1"></i> {{ x_('Subscription Required', 'web') }}
                                     </button>
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">{{ x_('Close', 'web') }}</button>
                                 @endif
                             @else
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Close', 'web') }}</button>
                             @endif
                         </div>
                     </div>

@@ -5,7 +5,7 @@
                 <div class="mb-3 col-md-12 mb-md-4">
                     <div class="mb-0 card rounded-8">
                         <div class="card-header card-header-action">
-                            <h6>Categories
+                            <h6>{{ x_('Categories', 'categories') }}
                                 <span class="badge badge-sm badge-light ms-1">{{$categories->count()}}</span>
                             </h6>
                         </div>
@@ -31,11 +31,11 @@
                                                 <label class="form-check-label" for="customCheck1"></label>
                                             </span></th>
                                             <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Slug</th>
-                                            <th>Details</th>
-                                            <th>Subcategories</th>
-                                            <th>Actions</th>
+                                            <th>{{ x_('Name', 'categories') }}</th>
+                                            <th>{{ x_('Slug', 'categories') }}</th>
+                                            <th>{{ x_('Details', 'categories') }}</th>
+                                            <th>{{ x_('Subcategories', 'categories') }}</th>
+                                            <th>{{ x_('Actions', 'categories') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -52,11 +52,11 @@
                                                 <div class="text-dark">{{ $category->name }}</div>
                                             </td>
                                             <td>{{ $category->slug }}</td>
-                                            <td>{{ $category->details ?? 'N/A' }}</td>
+                                            <td>{{ $category->details ?? x_('N/A', 'admin') }}</td>
                                             <td>{{ $category->subcategories->count() }}</td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit{{ $category->id }}" class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit">
+                                                    <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit{{ $category->id }}" class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="{{ x_('Edit', 'categories') }}">
                                                         <span class="icon"><span class="feather-icon"><i data-feather="edit"></i></span></span>
                                                     </button>
                                                     <button class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover del-button" data-bs-toggle="modal" data-bs-target="#delete_{{ $category->id }}">

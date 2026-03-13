@@ -17,7 +17,7 @@
                                             <i class="bi bi-person-badge fs-6"></i>
                                         </span>
                                     </div>
-                                    <span class="fs-6 text-dark fw-medium">Users Management</span>
+                                    <span class="fs-6 text-dark fw-medium">{{ x_('Users Management', 'sidebar') }}</span>
                                 </div>
                             </div>
 
@@ -25,13 +25,13 @@
                                 <li class="nav-item {{ request()->url() == route('roles.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('roles.index') }}">
                                         <i class="ri-list-check-2 fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Roles</span>
+                                        <span class="nav-link-text">{{ x_('Roles', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('users.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('users.index') }}">
                                         <i class="ri-team-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Users</span>
+                                        <span class="nav-link-text">{{ x_('Users', 'sidebar') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -52,52 +52,52 @@
                                             <span class="feather-icon"><i data-feather="briefcase"></i></span>
                                         </span>
                                     </div>
-                                    <span class="fs-6 text-dark fw-medium">CRM</span>
+                                    <span class="fs-6 text-dark fw-medium">{{ x_('CRM', 'sidebar') }}</span>
                                 </div>
                             </div>
                             <ul class="nav nav-light navbar-nav flex-column">
                                 <li class="nav-item {{ request()->url() == route('admin.home') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('admin.home') }}">
                                         <i class="ri-dashboard-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Dashboard</span>
+                                        <span class="nav-link-text">{{ x_('Dashboard', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('companies.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('companies.index') }}">
                                         <i class="ri-building-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Companies</span>
+                                        <span class="nav-link-text">{{ x_('Companies', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('contacts.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('contacts.index') }}">
                                         <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Contacts</span>
+                                        <span class="nav-link-text">{{ x_('Contacts', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('leads.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('leads.index') }}">
                                         <i class="ri-archive-drawer-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Leads</span>
+                                        <span class="nav-link-text">{{ x_('Leads', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('deals.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('deals.index') }}">
                                         <i class="ri-award-line fs-5" style="margin-right: 15px;"></i>
 
-                                        <span class="nav-link-text">Deals</span>
+                                        <span class="nav-link-text">{{ x_('Deals', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('pipelines.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('pipelines.index') }}">
                                         <i class="ri-filter-2-line fs-5" style="margin-right: 15px;"></i>
 
-                                        <span class="nav-link-text">Pipelines</span>
+                                        <span class="nav-link-text">{{ x_('Pipelines', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('industries.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('industries.index') }}">
                                         <i class="ri-building-2-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Industries</span>
+                                        <span class="nav-link-text">{{ x_('Industries', 'sidebar') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -118,38 +118,44 @@
                                             <i class="bi bi-briefcase fs-6"></i>
                                         </span>
                                     </div>
-                                    <span class="fs-6 text-dark fw-medium">Web Site Management</span>
+                                    <span class="fs-6 text-dark fw-medium">{{ x_('Web Site Management', 'sidebar') }}</span>
                                 </div>
                             </div>
                             <ul class="nav nav-light navbar-nav flex-column">
                                 <li class="nav-item {{ request()->url() == route('sections.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('sections.index') }}">
                                         <i class="ri-folder-shield-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Sections</span>
+                                        <span class="nav-link-text">{{ x_('Sections', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('categories.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('categories.index') }}">
                                         <i class="ri-pie-chart-box-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Categories</span>
+                                        <span class="nav-link-text">{{ x_('Categories', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('subcategories.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('subcategories.index') }}">
                                         <i class="ri-pie-chart-box-fill fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Subcategories</span>
+                                        <span class="nav-link-text">{{ x_('Subcategories', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('topics.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('topics.index') }}">
                                         <i class="ri-chat-new-fill fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Topics</span>
+                                        <span class="nav-link-text">{{ x_('Topics', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('blogs.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('blogs.index') }}">
                                         <i class="ri-article-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Blogs</span>
+                                        <span class="nav-link-text">{{ x_('Blogs', 'sidebar') }}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item {{ request()->routeIs('translations.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('translations.index') }}">
+                                        <i class="ri-translate-2 fs-5" style="margin-right: 15px;"></i>
+                                        <span class="nav-link-text">{{ x_('Translations', 'sidebar') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -170,26 +176,26 @@
                                             <i class="bi bi-briefcase fs-6"></i>
                                         </span>
                                     </div>
-                                    <span class="fs-6 text-dark fw-medium">Client Management</span>
+                                    <span class="fs-6 text-dark fw-medium">{{ x_('Client Management', 'sidebar') }}</span>
                                 </div>
                             </div>
                             <ul class="nav nav-light navbar-nav flex-column">
                                 <li class="nav-item {{ request()->url() == route('clients.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('clients.index') }}">
                                         <i class="ri-user-3-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Clients</span>
+                                        <span class="nav-link-text">{{ x_('Clients', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->routeIs('admin.subscriptions.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('admin.subscriptions.index') }}">
                                         <i class="ri-vip-crown-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Subscriptions</span>
+                                        <span class="nav-link-text">{{ x_('Subscriptions', 'sidebar') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('admin.projects.index') }}">
                                         <i class="ri-briefcase-4-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Projects</span>
+                                        <span class="nav-link-text">{{ x_('Projects', 'sidebar') }}</span>
                                     </a>
                                 </li>
                             </ul>

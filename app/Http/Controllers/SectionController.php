@@ -37,7 +37,7 @@ class SectionController extends Controller
                 ->toMediaCollection('icons');
         }
 
-        return redirect()->back()->with('success', 'Section created successfully.');
+        return redirect()->back()->with('success', x_('Section created successfully.', 'controller'));
     }
 
     public function update(Request $request, $id){
@@ -66,7 +66,7 @@ class SectionController extends Controller
                 ->toMediaCollection('icons');
         }
 
-        return redirect()->back()->with('success', 'Section updated successfully.');
+        return redirect()->back()->with('success', x_('Section updated successfully.', 'controller'));
     }
 
     public function destroy($id){
@@ -76,6 +76,6 @@ class SectionController extends Controller
         $section->clearMediaCollection('icons');
         $section->delete();
 
-        return redirect()->back()->with('success', 'Section deleted successfully.');
+        return redirect()->back()->with('success', x_('Section deleted successfully.', 'controller'));
     }
 }

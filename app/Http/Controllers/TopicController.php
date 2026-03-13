@@ -30,7 +30,7 @@ class TopicController extends Controller
         $topic->slug = Str::slug($request->name);
         $topic->save();
 
-        return redirect()->back()->with('success', 'Topic created successfully.');
+        return redirect()->back()->with('success', x_('Topic created successfully.', 'controller'));
     }
 
     public function update(Request $request, $id){
@@ -49,13 +49,13 @@ class TopicController extends Controller
         $topic->slug = Str::slug($request->name);
         $topic->save();
 
-        return redirect()->back()->with('success', 'Topic updated successfully.');
+        return redirect()->back()->with('success', x_('Topic updated successfully.', 'controller'));
     }
 
     public function destroy($id){
         $topic = Topic::findOrFail($id);
         $topic->delete();
-        
-        return redirect()->back()->with('success', 'Topic deleted successfully.');
+
+        return redirect()->back()->with('success', x_('Topic deleted successfully.', 'controller'));
     }
 }

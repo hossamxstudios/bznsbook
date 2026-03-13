@@ -2,7 +2,7 @@
 @include('web.main.html')
 <head>
     <meta charset="utf-8" />
-    <title> Bzns Book </title>
+    <title> {{ x_('Bzns Book', 'portfolio') }} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('web.main.meta')
 </head>

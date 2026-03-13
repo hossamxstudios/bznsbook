@@ -78,7 +78,7 @@
     function updateStages() {
         const pipelineId = document.getElementById('pipeline_id').value;
         const stageSelect = document.getElementById('stage_id');
-        stageSelect.innerHTML = '<option value="" selected disabled>Select a stage</option>';
+        stageSelect.innerHTML = '<option value="" selected disabled>{{ x_('Select a stage', 'general') }}</option>';
         fetch(`/api/pipelines/${pipelineId}/stages`)
             .then(response => response.json())
             .then(data => {
@@ -96,7 +96,7 @@
         const pipelineId = document.getElementById(`update_pipeline_id_${dealId}`).value;
         const stageSelect = document.getElementById(`update_stage_id_${dealId}`);
         // Clear existing options
-        stageSelect.innerHTML = '<option value="" selected disabled>Select a stage</option>';
+        stageSelect.innerHTML = '<option value="" selected disabled>{{ x_('Select a stage', 'general') }}</option>';
         // Fetch stages for the selected pipeline via AJAX
         fetch(`/api/pipelines/${pipelineId}/stages`)
             .then(response => response.json())

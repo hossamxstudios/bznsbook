@@ -14,7 +14,7 @@
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div style="align-items: center; display: flex; flex-direction: column;">
-                <h1 style="font-size: 30px;">Welcome To BZNSBOOKHr ERP</h1>
+                <h1 style="font-size: 30px;">{{ x_('Welcome To BZNSBOOKHr ERP', 'general') }}</h1>
                 <br>
                 <a href="/">
                     <img src="{{ asset('crmlogo.png') }}" alt="" class="w-48 h-48 fill-current text-gray-500">

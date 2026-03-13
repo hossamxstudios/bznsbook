@@ -14,8 +14,8 @@
                             <h5 style="font-weight: bold; font-size: 1.4em; display:inline-block"> {{ $job->company?->email }} </h5>
                             <p class="text-muted"><i class="bi bi-geo-alt-fill"></i>  {{$job->member?->name }} - {{ $job->member?->email }}  </p>
                             <p class=" mt-1">
-                                <i class="bi bi-funnel-fill" style="font-size: 1em; cursor: pointer;" title="Filter"></i>
-                                <span class="fw-bold">Pipeline :</span>
+                                <i class="bi bi-funnel-fill" style="font-size: 1em; cursor: pointer;" title="{{ x_('Filter', 'general') }}"></i>
+                                <span class="fw-bold">{{ x_('Pipeline :', 'general') }}</span>
                                 {{ $job->pipeline?->name }}
                             </p>
                         </div>
@@ -24,8 +24,8 @@
                                 <i class="bi bi-three-dots-vertical"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Edit</a></li>
-                                <li><a class="dropdown-item" href="#">Delete</a></li>
+                                <li><a class="dropdown-item" href="#">{{ x_('Edit', 'general') }}</a></li>
+                                <li><a class="dropdown-item" href="#">{{ x_('Delete', 'general') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         @foreach ($job->tags as $tag)
                             <span class="badge bg-secondary me-2" style="font-size:12px;">{{ $tag->name }}</span>
                         @endforeach
-                        <a href="#" class="badge bg-danger text-white text-decoration-none" style="font-size:12px;" data-bs-toggle="modal" data-bs-target="#addTag{{$job->id}}">+ Tags</a>
+                        <a href="#" class="badge bg-danger text-white text-decoration-none" style="font-size:12px;" data-bs-toggle="modal" data-bs-target="#addTag{{$job->id}}">{{ x_('+ Tags', 'general') }}</a>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-list-check" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Pipeline</span>
+                        <span class="nav-link-text">{{ x_('Pipeline', 'general') }}</span>
                     </a>
                 </li>
                 <li class="nav-item" style="font-size: 14px;">
@@ -53,7 +53,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-list-check" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Summary</span>
+                        <span class="nav-link-text">{{ x_('Summary', 'general') }}</span>
                     </a>
                 </li>
                 <li class="nav-item" style="font-size: 14px;">
@@ -61,7 +61,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-briefcase" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Candidates</span>
+                        <span class="nav-link-text">{{ x_('Candidates', 'general') }}</span>
                     </a>
                 </li>
                 <li class="nav-item" style="font-size: 14px;">
@@ -69,7 +69,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-briefcase" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Batches</span>
+                        <span class="nav-link-text">{{ x_('Batches', 'general') }}</span>
                     </a>
                 </li>
                 <li class="nav-item" style="font-size: 14px;">
@@ -77,7 +77,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-stickies" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Notes</span>
+                        <span class="nav-link-text">{{ x_('Notes', 'general') }}</span>
                     </a>
                 </li>
                 <li class="nav-item" style="font-size: 14px;">
@@ -85,7 +85,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-stickies" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Attachments</span>
+                        <span class="nav-link-text">{{ x_('Attachments', 'general') }}</span>
                     </a>
                 </li>
             </ul>
@@ -151,33 +151,33 @@
                         <div class="col-md-12">
                             <div class="card shadow-lg">
                                 <div class="card-header">
-                                    <a role="button" data-bs-toggle="collapse" href="#Details{{$job->id}}" aria-expanded="true">Request Details</a>
+                                    <a role="button" data-bs-toggle="collapse" href="#Details{{$job->id}}" aria-expanded="true">{{ x_('Request Details', 'general') }}</a>
                                 </div>
                                 <div id="Details{{$job->id}}" class="collapse show">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-6 mb-2"><strong>Job Type  :</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Job Type  :', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $job->job_type }} </div>
-                                            <div class="col-6 mb-2"><strong>Head Count:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Head Count:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $job->headcount }}</div>
-                                            <div class="col-6 mb-2"><strong>Experience Level:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Experience Level:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $job->level }}</div>
-                                            <div class="col-6 mb-2"><strong>Min Salary:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Min Salary:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $job->min_salary }} {{ $job->currency }} </div>
-                                            <div class="col-6 mb-2"><strong>Max  Salary:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Max  Salary:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $job->max_salary }} {{ $job->currency }} </div>
-                                            <div class="col-6 mb-2"><strong>Salary Frequency :</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Salary Frequency :', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $job->frequency }}</div>
-                                            <div class="col-6 mb-2"><strong>Contract Type :</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Contract Type :', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $job->contract_type }}</div>
-                                            <div class="col-6 mb-2"><strong>Expected Closed At :</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Expected Closed At :', 'general') }}</strong></div>
                                             <div class="col-6 mb-2"> {{ date('Y-m-d', strtotime($job->expected_closed_at)) }}</div>
-                                            <div class="col-6 mb-2"><strong>Job Location:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Job Location:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $job->city }}, {{ $job->country }}</div>
                                             <div class="col-12 mb-2">
                                                 <div class="card shadow-sm">
                                                     <div class="card-header">
-                                                        <strong>Job Description:</strong>
+                                                        <strong>{{ x_('Job Description:', 'general') }}</strong>
                                                     </div>
                                                     <div class="card-body">
                                                         {!! $job->details !!}
@@ -196,11 +196,11 @@
                         <table  class="table nowrap table-advance table-responsive">
                             <thead>
                                 <tr>
-                                    <th>Candidate Name</th>
-                                    <th>Candidate Email</th>
-                                    <th>Match Score</th>
-                                    <th>Match Stage</th>
-                                    <th>Currently Working</th>
+                                    <th>{{ x_('Candidate Name', 'general') }}</th>
+                                    <th>{{ x_('Candidate Email', 'general') }}</th>
+                                    <th>{{ x_('Match Score', 'general') }}</th>
+                                    <th>{{ x_('Match Stage', 'general') }}</th>
+                                    <th>{{ x_('Currently Working', 'general') }}</th>
 
                                 </tr>
                             </thead>
@@ -208,18 +208,18 @@
                                 @foreach ($job->applications as $application)
                                     <tr class="hover-row">
                                         <td style="background: white">
-                                            <a href="#" class="btn btn-link p-0 text-danger"  title="View Details">{{ $application->candidate?->first_name }} {{ $application->candidate?->last_name }}  </a>
+                                            <a href="#" class="btn btn-link p-0 text-danger"  title="{{ x_('View Details', 'general') }}">{{ $application->candidate?->first_name }} {{ $application->candidate?->last_name }}  </a>
                                         </td>
                                         <td>{{ $application->candidate?->email }}</td>
                                         <td>{{ $application?->score }}%</td>
                                         <td>{{ $application?->stage?->name }}</td>
                                         <td>
                                             @if ($application->candidate?->is_working === null)
-                                                <span class="badge badge-sm badge-warning">Unknow</span>
+                                                <span class="badge badge-sm badge-warning">{{ x_('Unknow', 'general') }}</span>
                                             @elseif ($application->candidate?->is_working === 1)
-                                                <span class="badge badge-sm badge-success">Yes</span>
+                                                <span class="badge badge-sm badge-success">{{ x_('Yes', 'general') }}</span>
                                             @else
-                                                <span class="badge badge-sm badge-danger">No</span>
+                                                <span class="badge badge-sm badge-danger">{{ x_('No', 'general') }}</span>
                                             @endif
                                         </td>
                                     </tr>
@@ -232,7 +232,7 @@
                     @if($job->batches->isEmpty())
                         <div class="card shadow-lg">
                             <div class="card-body text-center">
-                                <p class="text-muted">No batches yet.</p>
+                                <p class="text-muted">{{ x_('No batches yet.', 'general') }}</p>
                             </div>
                         </div>
                     @else
@@ -243,14 +243,14 @@
                                     <table class="table nowrap table-advance table-responsive ">
                                         <thead>
                                             <tr>
-                                                <th>Batch Name</th>
-                                                <th>Batch Details</th>
-                                                <th>Batch Size</th>
-                                                <th>No of Candidates attached </th>
-                                                <th>Is Currently Active</th>
-                                                <th>Has Client Accepted</th>
-                                                <th>Is All Candidate Rejected</th>
-                                                <th>Created At</th>
+                                                <th>{{ x_('Batch Name', 'general') }}</th>
+                                                <th>{{ x_('Batch Details', 'general') }}</th>
+                                                <th>{{ x_('Batch Size', 'general') }}</th>
+                                                <th>{{ x_('No of Candidates attached', 'general') }} </th>
+                                                <th>{{ x_('Is Currently Active', 'general') }}</th>
+                                                <th>{{ x_('Has Client Accepted', 'general') }}</th>
+                                                <th>{{ x_('Is All Candidate Rejected', 'general') }}</th>
+                                                <th>{{ x_('Created At', 'general') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -261,23 +261,23 @@
                                                 <td>{{ $batch->batch_candidates?->count() }}</td>
                                                 <td>
                                                     @if ($batch->is_active === 1)
-                                                        <span class="badge badge-sm badge-success">Active </span>
+                                                        <span class="badge badge-sm badge-success">{{ x_('Active', 'general') }} </span>
                                                     @else
-                                                        <span class="badge badge-sm badge-danger">Not Active</span>
+                                                        <span class="badge badge-sm badge-danger">{{ x_('Not Active', 'general') }}</span>
                                                     @endif
                                                 </td>
                                                 <td>
                                                     @if ($batch->is_accepted === 1)
-                                                        <span class="badge badge-sm badge-success">Accepted </span>
+                                                        <span class="badge badge-sm badge-success">{{ x_('Accepted', 'general') }} </span>
                                                     @elseif ($batch->is_accepted === 0)
-                                                        <span class="badge badge-sm badge-danger">Not Accepted</span>
+                                                        <span class="badge badge-sm badge-danger">{{ x_('Not Accepted', 'general') }}</span>
                                                     @else
-                                                        <span class="badge badge-sm badge-warning">Pending</span>
+                                                        <span class="badge badge-sm badge-warning">{{ x_('Pending', 'general') }}</span>
                                                     @endif
                                                 </td>
                                                 <td>
                                                     @if ($batch->is_rejected === 1)
-                                                        <span class="badge badge-sm badge-danger">Rejected </span>
+                                                        <span class="badge badge-sm badge-danger">{{ x_('Rejected', 'general') }} </span>
                                                     @else
                                                         <span class="badge badge-sm badge-warning">NO</span>
                                                     @endif
@@ -294,12 +294,12 @@
                                         <table class="table nowrap table-advance table-responsive">
                                             <thead>
                                                 <tr>
-                                                    <th>Candidate Name</th>
-                                                    <th>Candidate Email</th>
-                                                    <th>Candidate Match Score</th>
-                                                    <th>Candidate Match Stage</th>
-                                                    <th>Is Accepted</th>
-                                                    <th>Actions</th>
+                                                    <th>{{ x_('Candidate Name', 'general') }}</th>
+                                                    <th>{{ x_('Candidate Email', 'general') }}</th>
+                                                    <th>{{ x_('Candidate Match Score', 'general') }}</th>
+                                                    <th>{{ x_('Candidate Match Stage', 'general') }}</th>
+                                                    <th>{{ x_('Is Accepted', 'general') }}</th>
+                                                    <th>{{ x_('Actions', 'general') }}</th>
 
                                                 </tr>
                                             </thead>
@@ -312,23 +312,23 @@
                                                         <td><span class="badge bg-secondary fs-md">{{ $candidate->application?->stage?->name }}</span></td>
                                                         @if ($candidate->application?->is_accepted === 1)
                                                             <td>
-                                                                <span class="badge badge-sm badge-success">Accepted </span>
+                                                                <span class="badge badge-sm badge-success">{{ x_('Accepted', 'general') }} </span>
                                                             </td>
                                                         @elseif ($candidate->application?->is_accepted === 0)
                                                             <td>
-                                                                <span class="badge badge-sm badge-danger">Not Accepted</span>
+                                                                <span class="badge badge-sm badge-danger">{{ x_('Not Accepted', 'general') }}</span>
                                                             </td>
                                                             <td>
                                                             </td>
                                                         @else
                                                             <td>
-                                                                <span class="badge badge-sm badge-warning">Pending</span>
+                                                                <span class="badge badge-sm badge-warning">{{ x_('Pending', 'general') }}</span>
                                                             </td>
                                                             <td>
-                                                                <button class="btn btn-success btn-sm" title="Accept">
+                                                                <button class="btn btn-success btn-sm" title="{{ x_('Accept', 'general') }}">
                                                                     <i class="bi bi-check-circle"></i>
                                                                 </button>
-                                                                <button class="btn btn-danger btn-sm" title="Reject">
+                                                                <button class="btn btn-danger btn-sm" title="{{ x_('Reject', 'general') }}">
                                                                     <i class="bi bi-x-circle"></i>
                                                                 </button>
                                                             </td>
@@ -414,8 +414,8 @@
                                                     <i class="bi bi-three-dots-vertical"></i>
                                                 </button>
                                                 {{-- <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                    <li><a class="dropdown-item" href="#">{{ x_('Edit', 'general') }}</a></li>
+                                                    <li><a class="dropdown-item" href="#">{{ x_('Delete', 'general') }}</a></li>
                                                 </ul> --}}
                                             </div>
                                         </div>

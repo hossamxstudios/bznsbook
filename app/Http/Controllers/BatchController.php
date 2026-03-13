@@ -16,7 +16,7 @@ class BatchController extends Controller
     {
         // Check if authenticated user is project owner or admin
         if (Auth::guard('client')->user()->id !== $project->client_id) {
-            return redirect()->back()->with('error', 'You are not authorized to create batches for this project.');
+            return redirect()->back()->with('error', x_('You are not authorized to create batches for this project.', 'controller'));
         }
 
         // Get the last batch number for this project
@@ -42,7 +42,7 @@ class BatchController extends Controller
             $project->save();
         }
 
-        return redirect()->back()->with('success', 'New batch created successfully.');
+        return redirect()->back()->with('success', x_('New batch created successfully.', 'controller'));
     }
 
     /**
@@ -52,7 +52,7 @@ class BatchController extends Controller
     {
         // Check if authenticated user is project owner or admin
         if (Auth::guard('client')->user()->id !== $batch->client_id) {
-            return redirect()->back()->with('error', 'You are not authorized to update this batch.');
+            return redirect()->back()->with('error', x_('You are not authorized to update this batch.', 'controller'));
         }
 
         $validatedData = $request->validate([
@@ -62,7 +62,7 @@ class BatchController extends Controller
         $batch->is_active = $validatedData['is_active'];
         $batch->save();
 
-        $message = $batch->is_active ? 'Batch activated successfully.' : 'Batch deactivated successfully.';
+        $message = $batch->is_active ? x_('Batch activated successfully.', 'controller') : x_('Batch deactivated successfully.', 'controller');
 
         return redirect()->back()->with('success', $message);
     }
@@ -74,7 +74,7 @@ class BatchController extends Controller
     {
         // Check if authenticated user is project owner
         if (Auth::guard('client')->user()->id !== $project->client_id) {
-            return redirect()->back()->with('error', 'You are not authorized to request batches for this project.');
+            return redirect()->back()->with('error', x_('You are not authorized to request batches for this project.', 'controller'));
         }
 
         // Check if project has a pending batch request
@@ -97,7 +97,7 @@ class BatchController extends Controller
         $batch->is_active = 0; // New requested batches are inactive until approved
         $batch->save();
 
-        return redirect()->back()->with('success', 'Batch request submitted successfully. An admin will review your request.');
+        return redirect()->back()->with('success', x_('Batch request submitted successfully. An admin will review your request.', 'controller'));
     }
 
     /**
@@ -107,12 +107,12 @@ class BatchController extends Controller
     {
         // Check if authenticated user is an admin
         if (!Auth::guard('admin')->user()->is_admin) {
-            return redirect()->back()->with('error', 'Only administrators can approve batch requests.');
+            return redirect()->back()->with('error', x_('Only administrators can approve batch requests.', 'controller'));
         }
 
         $batch->is_active = 1;
         $batch->save();
 
-        return redirect()->back()->with('success', 'Batch request approved successfully.');
+        return redirect()->back()->with('success', x_('Batch request approved successfully.', 'controller'));
     }
 }

@@ -47,7 +47,7 @@
                                             <div class="dropdown-divider"></div>
                                             <form action="{{ route('member.logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="dropdown-item" href="#">Logout </button>
+                                                <button type="submit" class="dropdown-item" href="#">{{ x_('Logout', 'general') }} </button>
                                             </form>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                 <span class="initial-wrap">{{ strtoupper(substr(auth()->user()->name ?? 'U', 0, 1)) }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right w-250p">
-                                <h6 class="dropdown-header">Logged account</h6>
+                                <h6 class="dropdown-header">{{ x_('Logged account', 'general') }}</h6>
                                 <div class="dropdown-item py-2 rounded-3">
                                     <div class="media align-items-center active-user">
                                         <div class="media-head me-2">
@@ -88,7 +88,7 @@
                                             <div class="dropdown-divider"></div>
                                             <form action="{{ route('member.logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="dropdown-item" href="#">Logout </button>
+                                                <button type="submit" class="dropdown-item" href="#">{{ x_('Logout', 'general') }} </button>
                                             </form>
                                         </div>
                                     </div>

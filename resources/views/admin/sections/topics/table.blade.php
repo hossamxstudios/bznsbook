@@ -5,7 +5,7 @@
                 <div class="mb-3 col-md-12 mb-md-4">
                     <div class="mb-0 card rounded-8">
                         <div class="card-header card-header-action">
-                            <h6>Topics
+                            <h6>{{ x_('Topics', 'admin') }}
                                 <span class="badge badge-sm badge-light ms-1">{{$topics->count()}}</span>
                             </h6>
                         </div>
@@ -26,10 +26,10 @@
                                 <table id="datable_2" class="table nowrap w-100">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Slug</th>
-                                            <th>Blogs Count</th>
-                                            <th>Actions</th>
+                                            <th>{{ x_('Name', 'admin') }}</th>
+                                            <th>{{ x_('Slug', 'admin') }}</th>
+                                            <th>{{ x_('Blogs Count', 'admin') }}</th>
+                                            <th>{{ x_('Actions', 'admin') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -47,8 +47,8 @@
                                                     </span>
                                                 </a>
                                                 <div role="menu" class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$topic->id}}">Edit</a>
-                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$topic->id}}">Delete</a>
+                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$topic->id}}">{{ x_('Edit', 'admin') }}</a>
+                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$topic->id}}">{{ x_('Delete', 'admin') }}</a>
                                                 </div>
                                             </td>
                                         </tr>

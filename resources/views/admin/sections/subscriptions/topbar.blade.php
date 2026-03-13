@@ -11,9 +11,9 @@
             <div class="flex-wrap flex-1 d-flex justify-content-between">
                 <div>
                     <div class="pg-subtitle">
-                        Management
+                        {{ x_('Management', 'admin') }}
                     </div>
-                    <h5 class="pg-title fs-5">Subscriptions Board</h5>
+                    <h5 class="pg-title fs-5">{{ x_('Subscriptions Board', 'admin') }}</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -28,7 +28,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Add New Subscription</span>
+                                <span class="fs-7">{{ x_('Add New Subscription', 'admin') }}</span>
                             </span>
                         </button>
                     </div>
@@ -45,7 +45,7 @@
                             <path d="M9 12l2 2l4 -4"></path>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">Active Subscriptions</span>
+                    <span class="nav-link-text">{{ x_('Active Subscriptions', 'admin') }}</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -59,7 +59,7 @@
                             <path d="M17 22l5 -5"></path>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">Expired Subscriptions</span>
+                    <span class="nav-link-text">{{ x_('Expired Subscriptions', 'admin') }}</span>
                 </a>
             </li>
 

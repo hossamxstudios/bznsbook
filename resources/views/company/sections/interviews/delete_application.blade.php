@@ -12,7 +12,7 @@
                         <div class="col-xxl-6">
                             <div>
                                 <input type="hidden" name="id" value="{{ $application->id }}">
-                                <label for="id" class="form-label"> Are you sure?</label>
+                                <label for="id" class="form-label"> {{ x_('Are you sure?', 'general') }}</label>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-danger">submit</button>

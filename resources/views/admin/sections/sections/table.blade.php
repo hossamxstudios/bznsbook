@@ -5,7 +5,7 @@
                 <div class="mb-3 col-md-12 mb-md-4">
                     <div class="mb-0 card rounded-8">
                         <div class="card-header card-header-action">
-                            <h6>Sections
+                            <h6>{{ x_('Sections', 'admin') }}
                                 <span class="badge badge-sm badge-light ms-1">{{$sections->count()}}</span>
                             </h6>
                         </div>
@@ -26,10 +26,10 @@
                                 <table id="datable_2" class="table nowrap w-100">
                                     <thead>
                                         <tr>
-                                            <th>Icon</th>
-                                            <th>Name</th>
-                                            <th>Details</th>
-                                            <th>Actions</th>
+                                            <th>{{ x_('Icon', 'admin') }}</th>
+                                            <th>{{ x_('Name', 'admin') }}</th>
+                                            <th>{{ x_('Details', 'admin') }}</th>
+                                            <th>{{ x_('Actions', 'admin') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -46,7 +46,7 @@
                                             </td>
                                             <td style="background: white">
                                                 {{ $section->name }}
-                                                {{-- <button type="button" class="p-0 btn btn-link view-details-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasShow{{$industry->id}}" title="View Details">
+                                                {{-- <button type="button" class="p-0 btn btn-link view-details-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasShow{{$industry->id}}" title="{{ x_('View Details', 'admin') }}">
                                                     <span class="feather-icon">
                                                         <i data-feather="eye"></i>
                                                     </span>
@@ -60,8 +60,8 @@
                                                     </span>
                                                 </a>
                                                 <div role="menu" class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$section->id}}">Edit</a>
-                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$section->id}}">Delete</a>
+                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$section->id}}">{{ x_('Edit', 'admin') }}</a>
+                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$section->id}}">{{ x_('Delete', 'admin') }}</a>
                                                 </div>
                                             </td>
                                         </tr>

@@ -53,9 +53,9 @@ class SettingController extends Controller{
         $setting->facebook = $request->facebook;
         $setting->instagram = $request->instagram;
         if ($setting->save()) {
-            return redirect()->route('backend.settings')->with('success','Settings updated successfully');
+            return redirect()->route('backend.settings')->with('success', x_('Settings updated successfully', 'controller'));
         }else {
-            return redirect()->route('backend.settings')->with('error','Error updating settings');
+            return redirect()->route('backend.settings')->with('error', x_('Error updating settings', 'controller'));
         }
     }
 

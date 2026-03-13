@@ -92,7 +92,7 @@
             templates: [
             { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
             { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
-            { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+            { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>{{ x_('My List', 'general') }}</h2><ul><li></li><li></li></ul></div>' }
             ],
             template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
             template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
@@ -118,13 +118,13 @@
                         success: function (data) {
                             if (data.length != 0) {
                                 $('select[name="career_id"]').empty();
-                                $('select[name="career_id"]').append('<option value="">Please Select A Career</option>');
+                                $('select[name="career_id"]').append('<option value="">{{ x_('Please Select A Career', 'general') }}</option>');
                                 $.each(data, function (key, value) {
-                                    $('select[name="career_id"]').append('<option value="' + value.id + '">' + value.title + '</option>');
+                                    $('select[name="career_id"]').append('<option value="' + value.id + '">{{ x_('\' + value.title + \'', 'general') }}</option>');
                                 });
                             } else {
                                 $('select[name="career_id"]').empty();
-                                $('select[name="career_id"]').append('<option value="">Please Select A Career</option>');
+                                $('select[name="career_id"]').append('<option value="">{{ x_('Please Select A Career', 'general') }}</option>');
                             }
                         },
                         fail: function (data) {
@@ -142,7 +142,7 @@
                         $('#here').empty();
                         $('#here').append(`
                         <div class="col-6">
-                                <label for="meeting_link" class="form-label">Meeting Link *</label>
+                                <label for="meeting_link" class="form-label">{{ x_('Meeting Link *', 'general') }}</label>
                                 <input type="text" class="form-control" name="meet_link">
                             </div>
                         `);
@@ -150,11 +150,11 @@
                         $('#here').empty();
                         $('#here').append(`
                             <div class="col-6">
-                                <label for="address" class="form-label">Address *</label>
+                                <label for="address" class="form-label">{{ x_('Address *', 'general') }}</label>
                                 <input type="text" class="form-control" name="address">
                             </div>
                             <div class="col-6">
-                                <label for="map_link" class="form-label">Map Link *</label>
+                                <label for="map_link" class="form-label">{{ x_('Map Link *', 'general') }}</label>
                                 <input type="text" class="form-control" name="map_link">
                             </div>
                         `);

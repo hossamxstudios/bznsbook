@@ -1,5 +1,5 @@
 <div class="mb-2 row">
-    <div class="col-5 text-muted">Total Seats:</div>
+    <div class="col-5 text-muted">{{ x_('Total Seats:', 'admin') }}</div>
     <div class="col-7 fw-medium">
         @php
             $totalSeats = 0;
@@ -11,6 +11,6 @@
                 }
             }
         @endphp
-        {{ $totalSeats }} {{ $totalSeats == 1 ? 'seat' : 'seats' }}
+        {{ $totalSeats }} {{ $totalSeats == 1 ? x_('seat', 'admin') : x_('seats', 'admin') }}
     </div>
 </div>

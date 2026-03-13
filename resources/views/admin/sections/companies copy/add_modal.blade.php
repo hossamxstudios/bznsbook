@@ -1,13 +1,13 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAdd" aria-labelledby="offcanvasTopLabel" style="width:570px;">
     <div class="offcanvas-header" >
-        <h5 id="offcanvasAddtLabel">Create company</h5>
+        <h5 id="offcanvasAddtLabel">{{ x_('Create company', 'admin') }}</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" ></button>
     </div>
     <div class="offcanvas-body">
         <form action="{{ route('companies.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="industry" class="form-label">Industry *</label>
+                <label for="industry" class="form-label">{{ x_('Industry *', 'admin') }}</label>
                 <select class="form-control" id="industry_id" name="industry_id" required>
                     @foreach ($industries as $industry)
                         <option value="{{ $industry->id }}">
@@ -17,17 +17,17 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="name" class="form-label">Company Name *</label>
+                <label for="name" class="form-label">{{ x_('Company Name *', 'admin') }}</label>
                 <input type="text" class="form-control" id="name" name="name"  required>
             </div>
             <div class="mb-3">
-                <label for="website" class="form-label">Website *</label>
-                <input type="url" class="form-control" id="website" name="website" placeholder="Enter website URL" >
+                <label for="website" class="form-label">{{ x_('Website *', 'admin') }}</label>
+                <input type="url" class="form-control" id="website" name="website" placeholder="{{ x_('Enter website URL', 'admin') }}" >
             </div>
             <div class="mb-3">
-                <label for="capacity" class="form-label">Headcount *</label>
+                <label for="capacity" class="form-label">{{ x_('Headcount *', 'admin') }}</label>
                 <select class="form-control" id="capacity" name="capacity" required>
-                    <option value="" selected disabled>Select Company Headcount</option>
+                    <option value="" selected disabled>{{ x_('Select Company Headcount', 'admin') }}</option>
                     <option value="1-50">1-50</option>
                     <option value="51-200">51-200</option>
                     <option value="201-500">201-500</option>
@@ -40,28 +40,28 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="source" class="form-label">Source</label>
+                <label for="source" class="form-label">{{ x_('Source', 'admin') }}</label>
                 <select class="form-control" id="source" name="source" required>
-                    <option value="" selected disabled>Select source</option>
-                    <option value="Social media">Social media</option>
-                    <option value="Website">Website</option>
-                    <option value="Meetings">Meetings</option>
-                    <option value="Other">Other</option>
+                    <option value="" selected disabled>{{ x_('Select source', 'admin') }}</option>
+                    <option value="Social media">{{ x_('Social media', 'admin') }}</option>
+                    <option value="Website">{{ x_('Website', 'admin') }}</option>
+                    <option value="Meetings">{{ x_('Meetings', 'admin') }}</option>
+                    <option value="Other">{{ x_('Other', 'admin') }}</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label">{{ x_('Email', 'admin') }}</label>
                 <input type="email" class="form-control" id="email" name="email" >
             </div>
             <div class="mb-3">
-                <label for="decision_maker" class="form-label">Decision Maker</label>
+                <label for="decision_maker" class="form-label">{{ x_('Decision Maker', 'admin') }}</label>
                 <input type="text" class="form-control" id="decision_maker" name="decision_maker" >
             </div>
             <div class="mb-3">
-                <label for="social_media" class="form-label">Linkedin</label>
-                <input type="url" class="form-control" id="social_media" name="social_media" placeholder="Enter Linkedin Link" >
+                <label for="social_media" class="form-label">{{ x_('Linkedin', 'admin') }}</label>
+                <input type="url" class="form-control" id="social_media" name="social_media" placeholder="{{ x_('Enter Linkedin Link', 'admin') }}" >
             </div>
-            <button type="submit" class="btn btn-primary">Add Company</button>
+            <button type="submit" class="btn btn-primary">{{ x_('Add Company', 'admin') }}</button>
         </form>
     </div>
 </div>

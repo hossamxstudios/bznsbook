@@ -5,7 +5,7 @@
                 <div class="row pt-4 pl-4 pr-4 align-items-center">
                     <div class="col-lg-6 ">
                         <h4><span class="counter-value text-warning"> </span> الدخول علي لوحة تحكم السيستم  </h4>
-                        <p class="text-danger pt-2 "> System Dashboard </p>
+                        <p class="text-danger pt-2 "> {{ x_('System Dashboard', 'admin') }} </p>
                         <br>
                         <a href="/owner" class="btn btn-dark w-100"><i class="mdi mdi-login-variant mt-3 fs-xl"></i>  تسجيل دخول</a>
                     </div>
@@ -22,7 +22,7 @@
                 <div class="row pt-4 pl-4 pr-4 align-items-center">
                     <div class="col-lg-6 ">
                         <h4><span class="counter-value text-warning"> </span> الدخول علي لوحة تحكم الابلكيشن  </h4>
-                        <p class="text-warning pt-2">Mobile App Dashboard </p>
+                        <p class="text-warning pt-2">{{ x_('Mobile App Dashboard', 'admin') }} </p>
                         <br>
                         <a href="/backend" class="btn btn-dark w-100"><i class="mdi mdi-login-variant mt-3 fs-xl"></i>  تسجيل دخول</a>
                     </div>

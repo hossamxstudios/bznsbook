@@ -2,7 +2,7 @@
 @include('web.main.html')
 <head>
     <meta charset="utf-8" />
-    <title>Post New Project | Bzns Book</title>
+    <title>{{ x_('Post New Project | Bzns Book', 'projects') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('web.main.meta')
 </head>
@@ -14,7 +14,7 @@
                 <div class="row">
                     @include('web.sections.profile.side')
                     <div class="col-lg-8">
-                        <h1 class="mb-4 h2">Post a New Project</h1>
+                        <h1 class="mb-4 h2">{{ x_('Post a New Project', 'projects') }}</h1>
                         @if(session('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{ session('success') }}

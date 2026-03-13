@@ -1,7 +1,7 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasShow{{$client->id}}" aria-labelledby="offcanvasShowLabel" style="width:1500px;">
     <div class="text-white offcanvas-header bg-dark">
         <h5 id="offcanvasShowLabel text-white" class="mb-0" style="color:white!important">
-            <i class="ri-user-3-line me-2"></i> Client Details
+            <i class="ri-user-3-line me-2"></i> {{ x_('Client Details', 'clients') }}
         </h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -25,23 +25,23 @@
                     <h3 class="mb-0 fw-bold">{{ $client->name }}</h3>
                     <div class="ms-3">
                         @if($client->is_active)
-                            <span class="badge bg-success">Active</span>
+                            <span class="badge bg-success">{{ x_('Active', 'clients') }}</span>
                         @else
-                            <span class="badge bg-danger">Inactive</span>
+                            <span class="badge bg-danger">{{ x_('Inactive', 'clients') }}</span>
                         @endif
 
                         @if($client->is_company)
-                            <span class="badge bg-primary ms-1">Company</span>
+                            <span class="badge bg-primary ms-1">{{ x_('Company', 'clients') }}</span>
                         @else
-                            <span class="badge bg-info ms-1">Individual</span>
+                            <span class="badge bg-info ms-1">{{ x_('Individual', 'clients') }}</span>
                         @endif
 
                         @if($client->hasActiveSubscription())
-                            <span class="badge bg-warning ms-1">Active Subscription</span>
+                            <span class="badge bg-warning ms-1">{{ x_('Active Subscription', 'clients') }}</span>
                         @endif
                     </div>
                 </div>
-                <p class="mb-0 text-muted fs-6">{{ $client->title ?? 'No title provided' }}</p>
+                <p class="mb-0 text-muted fs-6">{{ $client->title ?? x_('No title provided', 'clients') }}</p>
                 <div class="mt-2">
                     @if($client->industry)
                         <span class="badge badge-soft-primary me-1">{{ $client->industry->name }}</span>
@@ -84,42 +84,42 @@
             <ul class="nav nav-tabs nav-line-tabs nav-filled nav-light">
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#info{{$client->id}}">
-                        <i class="ri-information-line me-2"></i>Basic Info
+                        <i class="ri-information-line me-2"></i>{{ x_('Basic Info', 'clients') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#projects{{$client->id}}">
-                        <i class="ri-folder-chart-line me-2"></i>Projects
+                        <i class="ri-folder-chart-line me-2"></i>{{ x_('Projects', 'clients') }}
                         <span class="badge rounded-pill bg-light text-dark ms-1">{{ $client->batches->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#applications{{$client->id}}">
-                        <i class="ri-user-add-line me-2"></i>Applications
+                        <i class="ri-user-add-line me-2"></i>{{ x_('Applications', 'clients') }}
                         <span class="badge rounded-pill bg-light text-dark ms-1">{{ $client->seats->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#services{{$client->id}}">
-                        <i class="ri-service-line me-2"></i>Services
+                        <i class="ri-service-line me-2"></i>{{ x_('Services', 'clients') }}
                         <span class="badge rounded-pill bg-light text-dark ms-1">{{ $client->services->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#portfolio{{$client->id}}">
-                        <i class="ri-gallery-line me-2"></i>Portfolio
+                        <i class="ri-gallery-line me-2"></i>{{ x_('Portfolio', 'clients') }}
                         <span class="badge rounded-pill bg-light text-dark ms-1">{{ $client->portfolios->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#demands{{$client->id}}">
-                        <i class="ri-exchange-dollar-line me-2"></i>Demands
+                        <i class="ri-exchange-dollar-line me-2"></i>{{ x_('Demands', 'clients') }}
                         <span class="badge rounded-pill bg-light text-dark ms-1">{{ $client->from_demands->count() + $client->to_demands->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#subscriptions{{$client->id}}">
-                        <i class="ri-vip-crown-line me-2"></i>Subscriptions
+                        <i class="ri-vip-crown-line me-2"></i>{{ x_('Subscriptions', 'clients') }}
                         <span class="badge rounded-pill bg-light text-dark ms-1">{{ $client->subscriptions->count() }}</span>
                     </a>
                 </li>
@@ -130,55 +130,55 @@
             <div class="tab-pane fade show active" id="info{{$client->id}}">
                 <div class="mb-3 card card-border">
                     <div class="card-header card-header-action">
-                        <h6 class="mb-0"><i class="ri-user-3-line me-2"></i>Basic Information</h6>
+                        <h6 class="mb-0"><i class="ri-user-3-line me-2"></i>{{ x_('Basic Information', 'clients') }}</h6>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Name</label>
+                                <label class="form-label text-muted small">{{ x_('Name', 'clients') }}</label>
                                 <p class="mb-0">{{ $client->name }}</p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Title</label>
-                                <p class="mb-0">{{ $client->title ?? 'N/A' }}</p>
+                                <label class="form-label text-muted small">{{ x_('Title', 'clients') }}</label>
+                                <p class="mb-0">{{ $client->title ?? x_('N/A', 'admin') }}</p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Email</label>
+                                <label class="form-label text-muted small">{{ x_('Email', 'clients') }}</label>
                                 <p class="mb-0">{{ $client->email }}</p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Phone</label>
-                                <p class="mb-0">{{ $client->phone ?? 'N/A' }}</p>
+                                <label class="form-label text-muted small">{{ x_('Phone', 'clients') }}</label>
+                                <p class="mb-0">{{ $client->phone ?? x_('N/A', 'admin') }}</p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Company Size</label>
-                                <p class="mb-0">{{ $client->company_size ?? 'N/A' }}</p>
+                                <label class="form-label text-muted small">{{ x_('Company Size', 'clients') }}</label>
+                                <p class="mb-0">{{ $client->company_size ?? x_('N/A', 'admin') }}</p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Account Created</label>
-                                <p class="mb-0">{{ $client->created_at ? $client->created_at->format('M d, Y') : 'N/A' }}</p>
+                                <label class="form-label text-muted small">{{ x_('Account Created', 'clients') }}</label>
+                                <p class="mb-0">{{ $client->created_at ? $client->created_at->format('M d, Y') : x_('N/A', 'admin') }}</p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Last Seen</label>
-                                <p class="mb-0">{{ $client->last_seen ? $client->last_seen->diffForHumans() : 'Never' }}</p>
+                                <label class="form-label text-muted small">{{ x_('Last Seen', 'clients') }}</label>
+                                <p class="mb-0">{{ $client->last_seen ? $client->last_seen->diffForHumans() : x_('Never', 'clients') }}</p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Status</label>
+                                <label class="form-label text-muted small">{{ x_('Status', 'clients') }}</label>
                                 <p class="mb-0">
                                     @if($client->is_active)
-                                        <span class="badge bg-success">Active</span>
+                                        <span class="badge bg-success">{{ x_('Active', 'clients') }}</span>
                                     @else
-                                        <span class="badge bg-danger">Inactive</span>
+                                        <span class="badge bg-danger">{{ x_('Inactive', 'clients') }}</span>
                                     @endif
 
                                     @if($client->is_verified)
-                                        <span class="badge bg-info ms-1">Verified</span>
+                                        <span class="badge bg-info ms-1">{{ x_('Verified', 'clients') }}</span>
                                     @else
-                                        <span class="badge bg-warning ms-1">Unverified</span>
+                                        <span class="badge bg-warning ms-1">{{ x_('Unverified', 'clients') }}</span>
                                     @endif
 
                                     @if($client->is_decision_maker)
-                                        <span class="badge bg-primary ms-1">Decision Maker</span>
+                                        <span class="badge bg-primary ms-1">{{ x_('Decision Maker', 'clients') }}</span>
                                     @endif
                                 </p>
                             </div>
@@ -188,29 +188,29 @@
 
                 <div class="mb-3 card card-border">
                     <div class="card-header card-header-action">
-                        <h6 class="mb-0"><i class="ri-map-pin-2-line me-2"></i>Address Information</h6>
+                        <h6 class="mb-0"><i class="ri-map-pin-2-line me-2"></i>{{ x_('Address Information', 'clients') }}</h6>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="mb-3 col-sm-12">
-                                <label class="form-label text-muted small">Address</label>
-                                <p class="mb-0">{{ $client->address ?? 'N/A' }}</p>
+                                <label class="form-label text-muted small">{{ x_('Address', 'clients') }}</label>
+                                <p class="mb-0">{{ $client->address ?? x_('N/A', 'admin') }}</p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">City</label>
-                                <p class="mb-0">{{ $client->city ?? 'N/A' }}</p>
+                                <label class="form-label text-muted small">{{ x_('City', 'clients') }}</label>
+                                <p class="mb-0">{{ $client->city ?? x_('N/A', 'admin') }}</p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Country</label>
-                                <p class="mb-0">{{ $client->country ?? 'N/A' }}</p>
+                                <label class="form-label text-muted small">{{ x_('Country', 'clients') }}</label>
+                                <p class="mb-0">{{ $client->country ?? x_('N/A', 'admin') }}</p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Zip/Postal Code</label>
-                                <p class="mb-0">{{ $client->zip ?? 'N/A' }}</p>
+                                <label class="form-label text-muted small">{{ x_('Zip/Postal Code', 'clients') }}</label>
+                                <p class="mb-0">{{ $client->zip ?? x_('N/A', 'admin') }}</p>
                             </div>
                             @if($client->map)
                             <div class="mb-3 col-sm-12">
-                                <label class="form-label text-muted small">Map Location</label>
+                                <label class="form-label text-muted small">{{ x_('Map Location', 'clients') }}</label>
                                 <div class="mt-2 ratio ratio-21x9">
                                     <iframe src="{{ $client->map }}" allowfullscreen></iframe>
                                 </div>
@@ -222,12 +222,12 @@
 
                 <div class="mb-3 card card-border">
                     <div class="card-header card-header-action">
-                        <h6 class="mb-0"><i class="ri-links-line me-2"></i>Social Media & External Links</h6>
+                        <h6 class="mb-0"><i class="ri-links-line me-2"></i>{{ x_('Social Media & External Links', 'clients') }}</h6>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Website</label>
+                                <label class="form-label text-muted small">{{ x_('Website', 'clients') }}</label>
                                 <p class="mb-0">
                                     @if($client->website)
                                         <a href="{{ $client->website }}" target="_blank" class="text-primary">
@@ -235,12 +235,12 @@
                                             <i class="ri-external-link-line ms-1"></i>
                                         </a>
                                     @else
-                                        N/A
+                                        {{ x_('N/A', 'admin') }}
                                     @endif
                                 </p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Facebook</label>
+                                <label class="form-label text-muted small">{{ x_('Facebook', 'clients') }}</label>
                                 <p class="mb-0">
                                     @if($client->facebook)
                                         <a href="{{ $client->facebook }}" target="_blank" class="text-primary">
@@ -248,12 +248,12 @@
                                             <i class="ri-external-link-line ms-1"></i>
                                         </a>
                                     @else
-                                        N/A
+                                        {{ x_('N/A', 'admin') }}
                                     @endif
                                 </p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">LinkedIn</label>
+                                <label class="form-label text-muted small">{{ x_('LinkedIn', 'clients') }}</label>
                                 <p class="mb-0">
                                     @if($client->linkedin)
                                         <a href="{{ $client->linkedin }}" target="_blank" class="text-primary">
@@ -261,12 +261,12 @@
                                             <i class="ri-external-link-line ms-1"></i>
                                         </a>
                                     @else
-                                        N/A
+                                        {{ x_('N/A', 'admin') }}
                                     @endif
                                 </p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">Instagram</label>
+                                <label class="form-label text-muted small">{{ x_('Instagram', 'clients') }}</label>
                                 <p class="mb-0">
                                     @if($client->instagram)
                                         <a href="{{ $client->instagram }}" target="_blank" class="text-primary">
@@ -274,12 +274,12 @@
                                             <i class="ri-external-link-line ms-1"></i>
                                         </a>
                                     @else
-                                        N/A
+                                        {{ x_('N/A', 'admin') }}
                                     @endif
                                 </p>
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label class="form-label text-muted small">YouTube</label>
+                                <label class="form-label text-muted small">{{ x_('YouTube', 'clients') }}</label>
                                 <p class="mb-0">
                                     @if($client->youtube)
                                         <a href="{{ $client->youtube }}" target="_blank" class="text-primary">
@@ -287,7 +287,7 @@
                                             <i class="ri-external-link-line ms-1"></i>
                                         </a>
                                     @else
-                                        N/A
+                                        {{ x_('N/A', 'admin') }}
                                     @endif
                                 </p>
                             </div>
@@ -302,7 +302,7 @@
                     <div class="mb-3 card card-border">
                         <div class="card-header card-header-action">
                             <h6 class="mb-0">
-                                <i class="ri-folder-chart-line me-2"></i>Client Projects
+                                <i class="ri-folder-chart-line me-2"></i>{{ x_('Client Projects', 'clients') }}
                                 <span class="badge bg-primary ms-2">{{ $client->batches->count() }}</span>
                             </h6>
                         </div>
@@ -311,11 +311,11 @@
                                 <table class="table mb-0 table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Project</th>
-                                            <th>Status</th>
-                                            <th>Budget</th>
-                                            <th>Seats</th>
-                                            <th>Created</th>
+                                            <th>{{ x_('Project', 'clients') }}</th>
+                                            <th>{{ x_('Status', 'clients') }}</th>
+                                            <th>{{ x_('Budget', 'clients') }}</th>
+                                            <th>{{ x_('Seats', 'clients') }}</th>
+                                            <th>{{ x_('Created', 'clients') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -340,11 +340,11 @@
                                                 </td>
                                                 <td>
                                                     @if($batch->project->status == 'draft')
-                                                        <span class="badge badge-soft-secondary">Draft</span>
+                                                        <span class="badge badge-soft-secondary">{{ x_('Draft', 'clients') }}</span>
                                                     @elseif($batch->project->status == 'published')
-                                                        <span class="badge badge-soft-success">Published</span>
+                                                        <span class="badge badge-soft-success">{{ x_('Published', 'clients') }}</span>
                                                     @elseif($batch->project->status == 'closed')
-                                                        <span class="badge badge-soft-danger">Closed</span>
+                                                        <span class="badge badge-soft-danger">{{ x_('Closed', 'clients') }}</span>
                                                     @else
                                                         <span class="badge badge-soft-warning">{{ ucfirst($batch->project->status) }}</span>
                                                     @endif
@@ -381,8 +381,8 @@
                                         <i class="ri-folder-chart-line"></i>
                                     </span>
                                 </div>
-                                <h5>No Projects Found</h5>
-                                <p class="mb-0">This client hasn't created any projects yet.</p>
+                                <h5>{{ x_('No Projects Found', 'clients') }}</h5>
+                                <p class="mb-0">{{ x_('This client hasn\'t created any projects yet.', 'clients') }}</p>
                             </div>
                         </div>
                     </div>
@@ -395,7 +395,7 @@
                     <div class="mb-3 card card-border">
                         <div class="card-header card-header-action">
                             <h6 class="mb-0">
-                                <i class="ri-user-add-line me-2"></i>Project Applications
+                                <i class="ri-user-add-line me-2"></i>{{ x_('Project Applications', 'clients') }}
                                 <span class="badge bg-primary ms-2">{{ $client->seats->count() }}</span>
                             </h6>
                         </div>
@@ -404,12 +404,12 @@
                                 <table class="table mb-0 table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Project</th>
-                                            <th>Status</th>
-                                            <th>Budget Offered</th>
-                                            <th>Timeline</th>
-                                            <th>Applied</th>
-                                            <th>Actions</th>
+                                            <th>{{ x_('Project', 'clients') }}</th>
+                                            <th>{{ x_('Status', 'clients') }}</th>
+                                            <th>{{ x_('Budget Offered', 'clients') }}</th>
+                                            <th>{{ x_('Timeline', 'clients') }}</th>
+                                            <th>{{ x_('Applied', 'clients') }}</th>
+                                            <th>{{ x_('Actions', 'clients') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -434,21 +434,21 @@
                                                 </td>
                                                 <td>
                                                     @if($seat->status == 'pending')
-                                                        <span class="badge badge-soft-warning">Pending</span>
+                                                        <span class="badge badge-soft-warning">{{ x_('Pending', 'clients') }}</span>
                                                     @elseif($seat->status == 'approved')
-                                                        <span class="badge badge-soft-success">Approved</span>
+                                                        <span class="badge badge-soft-success">{{ x_('Approved', 'clients') }}</span>
                                                     @elseif($seat->status == 'rejected')
-                                                        <span class="badge badge-soft-danger">Rejected</span>
+                                                        <span class="badge badge-soft-danger">{{ x_('Rejected', 'clients') }}</span>
                                                     @elseif($seat->status == 'cancelled')
-                                                        <span class="badge badge-soft-secondary">Cancelled</span>
+                                                        <span class="badge badge-soft-secondary">{{ x_('Cancelled', 'clients') }}</span>
                                                     @else
                                                         <span class="badge badge-soft-info">{{ ucfirst($seat->status) }}</span>
                                                     @endif
                                                     @if($seat->has_proposal)
-                                                        <span class="badge badge-soft-primary ms-1">Has Proposal</span>
+                                                        <span class="badge badge-soft-primary ms-1">{{ x_('Has Proposal', 'clients') }}</span>
                                                     @endif
                                                     @if($seat->is_contacted)
-                                                        <span class="badge badge-soft-info ms-1">Contacted</span>
+                                                        <span class="badge badge-soft-info ms-1">{{ x_('Contacted', 'clients') }}</span>
                                                     @endif
                                                 </td>
                                                 <td>
@@ -456,17 +456,17 @@
                                                         {{ $seat->budget_min }} - {{ $seat->budget_max }}
                                                     </span>
                                                 </td>
-                                                <td>{{ $seat->timeline }} days</td>
+                                                <td>{{ $seat->timeline }} {{ x_('days', 'clients') }}</td>
                                                 <td>
                                                     <span class="text-muted">{{ $seat->created_at->format('M d, Y') }}</span>
                                                 </td>
                                                 <td>
                                                     @if($seat->hasMedia('proposal'))
-                                                        <a href="{{ $seat->getFirstMediaUrl('proposal') }}" class="btn btn-xs btn-icon btn-soft-success me-1" target="_blank" data-bs-toggle="tooltip" title="Download Proposal">
+                                                        <a href="{{ $seat->getFirstMediaUrl('proposal') }}" class="btn btn-xs btn-icon btn-soft-success me-1" target="_blank" data-bs-toggle="tooltip" title="{{ x_('Download Proposal', 'clients') }}">
                                                             <span class="btn-icon-wrap"><i class="ri-file-download-line"></i></span>
                                                         </a>
                                                     @endif
-                                                    <button type="button" class="btn btn-xs btn-icon btn-soft-primary me-1" data-bs-toggle="tooltip" title="View Project">
+                                                    <button type="button" class="btn btn-xs btn-icon btn-soft-primary me-1" data-bs-toggle="tooltip" title="{{ x_('View Project', 'clients') }}">
                                                         <span class="btn-icon-wrap"><i class="ri-eye-line"></i></span>
                                                     </button>
                                                 </td>
@@ -486,8 +486,8 @@
                                         <i class="ri-user-add-line"></i>
                                     </span>
                                 </div>
-                                <h5>No Applications Found</h5>
-                                <p class="mb-0">This client hasn't applied to any project seats yet.</p>
+                                <h5>{{ x_('No Applications Found', 'clients') }}</h5>
+                                <p class="mb-0">{{ x_('This client hasn\'t applied to any project seats yet.', 'clients') }}</p>
                             </div>
                         </div>
                     </div>
@@ -499,7 +499,7 @@
                     <div class="mb-3 card card-border">
                         <div class="card-header card-header-action">
                             <h6 class="mb-0">
-                                <i class="ri-service-line me-2"></i>Client Services
+                                <i class="ri-service-line me-2"></i>{{ x_('Client Services', 'clients') }}
                                 <span class="badge bg-primary ms-2">{{ $client->services->count() }}</span>
                             </h6>
                         </div>
@@ -518,9 +518,9 @@
                                                 @endif
                                                 <div class="bottom-0 p-2 position-absolute end-0">
                                                     @if($service->is_active)
-                                                        <span class="badge bg-success">Active</span>
+                                                        <span class="badge bg-success">{{ x_('Active', 'clients') }}</span>
                                                     @else
-                                                        <span class="badge bg-danger">Inactive</span>
+                                                        <span class="badge bg-danger">{{ x_('Inactive', 'clients') }}</span>
                                                     @endif
                                                 </div>
                                             </div>
@@ -533,13 +533,13 @@
                                                 </p>
                                                 <div class="mb-2">
                                                     <span class="badge badge-soft-primary me-1">${{ $service->price }}</span>
-                                                    <span class="badge badge-soft-secondary">{{ $service->delivery_time }} days</span>
+                                                    <span class="badge badge-soft-secondary">{{ $service->delivery_time }} {{ x_('days', 'clients') }}</span>
                                                 </div>
                                                 <p class="mb-0 card-text small text-truncate">{{ $service->description }}</p>
                                             </div>
                                             <div class="pt-0 bg-transparent border-0 card-footer">
                                                 <button type="button" class="btn btn-xs btn-soft-primary">
-                                                    <i class="ri-eye-line me-1"></i> View Details
+                                                    <i class="ri-eye-line me-1"></i> {{ x_('View Details', 'clients') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -557,8 +557,8 @@
                                         <i class="ri-service-line"></i>
                                     </span>
                                 </div>
-                                <h5>No Services Found</h5>
-                                <p class="mb-0">This client hasn't created any services yet.</p>
+                                <h5>{{ x_('No Services Found', 'clients') }}</h5>
+                                <p class="mb-0">{{ x_('This client hasn\'t created any services yet.', 'clients') }}</p>
                             </div>
                         </div>
                     </div>
@@ -571,7 +571,7 @@
                     <div class="mb-3 card card-border">
                         <div class="card-header card-header-action">
                             <h6 class="mb-0">
-                                <i class="ri-gallery-line me-2"></i>Client Portfolio
+                                <i class="ri-gallery-line me-2"></i>{{ x_('Client Portfolio', 'clients') }}
                                 <span class="badge bg-primary ms-2">{{ $client->portfolios->count() }}</span>
                             </h6>
                         </div>
@@ -585,18 +585,18 @@
                                                     <div class="carousel-inner">
                                                         @foreach($portfolio->getMedia('portfolio') as $key => $media)
                                                             <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
-                                                                <img src="{{ $media->getUrl() }}" class="d-block w-100" alt="Portfolio Image" style="height: 180px; object-fit: cover;">
+                                                                <img src="{{ $media->getUrl() }}" class="d-block w-100" alt="{{ x_('Portfolio Image', 'clients') }}" style="height: 180px; object-fit: cover;">
                                                             </div>
                                                         @endforeach
                                                     </div>
                                                     @if($portfolio->getMedia('portfolio')->count() > 1)
                                                         <button class="carousel-control-prev" type="button" data-bs-target="#portfolio-carousel-{{ $portfolio->id }}" data-bs-slide="prev">
                                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                            <span class="visually-hidden">Previous</span>
+                                                            <span class="visually-hidden">{{ x_('Previous', 'clients') }}</span>
                                                         </button>
                                                         <button class="carousel-control-next" type="button" data-bs-target="#portfolio-carousel-{{ $portfolio->id }}" data-bs-slide="next">
                                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                            <span class="visually-hidden">Next</span>
+                                                            <span class="visually-hidden">{{ x_('Next', 'clients') }}</span>
                                                         </button>
                                                     @endif
                                                 </div>
@@ -612,7 +612,7 @@
                                                 @if($portfolio->url)
                                                     <p class="mb-2 small">
                                                         <a href="{{ $portfolio->url }}" target="_blank" class="text-primary">
-                                                            <i class="ri-external-link-line me-1"></i>View Project
+                                                            <i class="ri-external-link-line me-1"></i>{{ x_('View Project', 'clients') }}
                                                         </a>
                                                     </p>
                                                 @endif
@@ -633,8 +633,8 @@
                                         <i class="ri-gallery-line"></i>
                                     </span>
                                 </div>
-                                <h5>No Portfolio Items Found</h5>
-                                <p class="mb-0">This client hasn't added any portfolio items yet.</p>
+                                <h5>{{ x_('No Portfolio Items Found', 'clients') }}</h5>
+                                <p class="mb-0">{{ x_('This client hasn\'t added any portfolio items yet.', 'clients') }}</p>
                             </div>
                         </div>
                     </div>
@@ -648,7 +648,7 @@
                         <div class="mb-3 card card-border">
                             <div class="card-header card-header-action">
                                 <h6 class="mb-0">
-                                    <i class="ri-upload-2-line me-2"></i>Sent Demands
+                                    <i class="ri-upload-2-line me-2"></i>{{ x_('Sent Demands', 'clients') }}
                                     <span class="badge bg-primary ms-2">{{ $client->from_demands->count() }}</span>
                                 </h6>
                             </div>
@@ -657,11 +657,11 @@
                                     <table class="table mb-0 table-hover">
                                         <thead>
                                             <tr>
-                                                <th>To</th>
-                                                <th>Title</th>
-                                                <th>Status</th>
-                                                <th>Date</th>
-                                                <th>Actions</th>
+                                                <th>{{ x_('To', 'clients') }}</th>
+                                                <th>{{ x_('Title', 'clients') }}</th>
+                                                <th>{{ x_('Status', 'clients') }}</th>
+                                                <th>{{ x_('Date', 'clients') }}</th>
+                                                <th>{{ x_('Actions', 'clients') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -678,11 +678,11 @@
                                                     <td>{{ $demand->title }}</td>
                                                     <td>
                                                         @if($demand->status == 'pending')
-                                                            <span class="badge badge-soft-warning">Pending</span>
+                                                            <span class="badge badge-soft-warning">{{ x_('Pending', 'clients') }}</span>
                                                         @elseif($demand->status == 'accepted')
-                                                            <span class="badge badge-soft-success">Accepted</span>
+                                                            <span class="badge badge-soft-success">{{ x_('Accepted', 'clients') }}</span>
                                                         @elseif($demand->status == 'rejected')
-                                                            <span class="badge badge-soft-danger">Rejected</span>
+                                                            <span class="badge badge-soft-danger">{{ x_('Rejected', 'clients') }}</span>
                                                         @else
                                                             <span class="badge badge-soft-secondary">{{ ucfirst($demand->status) }}</span>
                                                         @endif
@@ -706,7 +706,7 @@
                         <div class="mb-3 card card-border">
                             <div class="card-header card-header-action">
                                 <h6 class="mb-0">
-                                    <i class="ri-download-2-line me-2"></i>Received Demands
+                                    <i class="ri-download-2-line me-2"></i>{{ x_('Received Demands', 'clients') }}
                                     <span class="badge bg-primary ms-2">{{ $client->to_demands->count() }}</span>
                                 </h6>
                             </div>
@@ -715,11 +715,11 @@
                                     <table class="table mb-0 table-hover">
                                         <thead>
                                             <tr>
-                                                <th>From</th>
-                                                <th>Title</th>
-                                                <th>Status</th>
-                                                <th>Date</th>
-                                                <th>Actions</th>
+                                                <th>{{ x_('From', 'clients') }}</th>
+                                                <th>{{ x_('Title', 'clients') }}</th>
+                                                <th>{{ x_('Status', 'clients') }}</th>
+                                                <th>{{ x_('Date', 'clients') }}</th>
+                                                <th>{{ x_('Actions', 'clients') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -736,11 +736,11 @@
                                                     <td>{{ $demand->title }}</td>
                                                     <td>
                                                         @if($demand->status == 'pending')
-                                                            <span class="badge badge-soft-warning">Pending</span>
+                                                            <span class="badge badge-soft-warning">{{ x_('Pending', 'clients') }}</span>
                                                         @elseif($demand->status == 'accepted')
-                                                            <span class="badge badge-soft-success">Accepted</span>
+                                                            <span class="badge badge-soft-success">{{ x_('Accepted', 'clients') }}</span>
                                                         @elseif($demand->status == 'rejected')
-                                                            <span class="badge badge-soft-danger">Rejected</span>
+                                                            <span class="badge badge-soft-danger">{{ x_('Rejected', 'clients') }}</span>
                                                         @else
                                                             <span class="badge badge-soft-secondary">{{ ucfirst($demand->status) }}</span>
                                                         @endif
@@ -768,8 +768,8 @@
                                         <i class="ri-exchange-dollar-line"></i>
                                     </span>
                                 </div>
-                                <h5>No Demands Found</h5>
-                                <p class="mb-0">This client has no demand activity yet.</p>
+                                <h5>{{ x_('No Demands Found', 'clients') }}</h5>
+                                <p class="mb-0">{{ x_('This client has no demand activity yet.', 'clients') }}</p>
                             </div>
                         </div>
                     </div>
@@ -782,7 +782,7 @@
                     <div class="mb-3 card card-border">
                         <div class="card-header card-header-action">
                             <h6 class="mb-0">
-                                <i class="ri-vip-crown-line me-2"></i>Client Subscriptions
+                                <i class="ri-vip-crown-line me-2"></i>{{ x_('Client Subscriptions', 'clients') }}
                                 <span class="badge bg-primary ms-2">{{ $client->subscriptions->count() }}</span>
                             </h6>
                         </div>
@@ -791,12 +791,12 @@
                                 <table class="table mb-0 table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Plan</th>
-                                            <th>Status</th>
-                                            <th>Payment Status</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
-                                            <th>Amount</th>
+                                            <th>{{ x_('Plan', 'clients') }}</th>
+                                            <th>{{ x_('Status', 'clients') }}</th>
+                                            <th>{{ x_('Payment Status', 'clients') }}</th>
+                                            <th>{{ x_('Start Date', 'clients') }}</th>
+                                            <th>{{ x_('End Date', 'clients') }}</th>
+                                            <th>{{ x_('Amount', 'clients') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -811,29 +811,29 @@
                                                         </div>
                                                         <div>
                                                             {{-- <span class="d-block fw-medium">{{ $subscription->plan->name }}</span> --}}
-                                                            <span class="text-muted small"> days</span>
+                                                            <span class="text-muted small"> {{ x_('days', 'clients') }}</span>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     @if($subscription->is_active && strtotime($subscription->ends_at) > time())
-                                                        <span class="badge badge-soft-success">Active</span>
+                                                        <span class="badge badge-soft-success">{{ x_('Active', 'clients') }}</span>
                                                     @else
-                                                        <span class="badge badge-soft-danger">Inactive</span>
+                                                        <span class="badge badge-soft-danger">{{ x_('Inactive', 'clients') }}</span>
                                                     @endif
                                                 </td>
                                                 <td>
                                                     @if($subscription->is_paid)
-                                                        <span class="badge badge-soft-success">Paid</span>
+                                                        <span class="badge badge-soft-success">{{ x_('Paid', 'clients') }}</span>
                                                     @else
-                                                        <span class="badge badge-soft-warning">Unpaid</span>
+                                                        <span class="badge badge-soft-warning">{{ x_('Unpaid', 'clients') }}</span>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <span class="text-muted">{{ $subscription->starts_at ? date('M d, Y', strtotime($subscription->starts_at)) : 'N/A' }}</span>
+                                                    <span class="text-muted">{{ $subscription->starts_at ? date('M d, Y', strtotime($subscription->starts_at)) : x_('N/A', 'admin') }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-muted">{{ $subscription->ends_at ? date('M d, Y', strtotime($subscription->ends_at)) : 'N/A' }}</span>
+                                                    <span class="text-muted">{{ $subscription->ends_at ? date('M d, Y', strtotime($subscription->ends_at)) : x_('N/A', 'admin') }}</span>
                                                 </td>
                                                 <td>
                                                     <span class="fw-medium">${{ $subscription->amount }}</span>
@@ -854,8 +854,8 @@
                                         <i class="ri-vip-crown-line"></i>
                                     </span>
                                 </div>
-                                <h5>No Subscriptions Found</h5>
-                                <p class="mb-0">This client hasn't subscribed to any plan yet.</p>
+                                <h5>{{ x_('No Subscriptions Found', 'clients') }}</h5>
+                                <p class="mb-0">{{ x_('This client hasn\'t subscribed to any plan yet.', 'clients') }}</p>
                             </div>
                         </div>
                     </div>

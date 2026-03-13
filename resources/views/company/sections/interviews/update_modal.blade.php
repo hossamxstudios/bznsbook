@@ -11,18 +11,18 @@
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="name" class="form-label">Name *</label>
+                            <label for="name" class="form-label">{{ x_('Name *', 'general') }}</label>
                             <input type="text" class="form-control" id="name" name="name" required value="{{ $candidate->name }}">
                         </div>
                         <div class="col-12">
-                            <label for="email" class="form-label">Email *</label>
+                            <label for="email" class="form-label">{{ x_('Email *', 'general') }}</label>
                             <input type="email" class="form-control" id="email" name="email" required value="{{ $candidate->email }}">
                         </div>
                         <div class="col-12">
                             <div>
-                                <label for="role" class="form-label">Select Role</label>
+                                <label for="role" class="form-label">{{ x_('Select Role', 'general') }}</label>
                                 <select name="role" id="role" class="form-control" required>
-                                    <option value="" >Select a role</option>
+                                    <option value="" >{{ x_('Select a role', 'general') }}</option>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->name }}" {{ $candidate->roles->first()?->name == $role->name ? 'selected' : ''}}>{{ $role->name }}</option>
                                     @endforeach
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" class="btn btn-dark">{{ x_('Submit', 'general') }}</button>
                 </div>
             </form>
         </div>

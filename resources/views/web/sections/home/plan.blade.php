@@ -2,14 +2,9 @@
  <section class="container pt-5 pb-5 mb-2 mb-md-4 mb-lg-5 mt-n3 mt-lg-0">
      <div class="pt-5 row pb-md-3">
          <div class="mb-4 col-lg-5 mb-lg-0">
-             <h2 class="mb-4 text-center h1 text-sm-start">Subscribe now to get access to our services</h2>
-             <p class="pb-2 mb-3 pb-lg-4 pb-xl-5">Et, morbi at sagittis vehicula rutrum. Lacus tortor, quam arcu mi et,
-                 at
-                 lectus leo nunc. Mattis cras auctor vel pharetra tempor. Rhoncus pellentesque habitant ac tempor. At
-                 aliquam
-                 euismod est in praesent ornare etiam id. Faucibus libero sit vehicula sed condimentum. Vitae in nam
-                 porttitor rutrum sed aliquam donec sed. Sapien facilisi lectus.</p>
-             <h3 class="mb-4 text-center text-sm-start">Our Plans </h3>
+             <h2 class="mb-4 text-center h1 text-sm-start">{{ x_('Subscribe to Unlock the Full Platform', 'home') }}</h2>
+             <p class="pb-2 mb-3 pb-lg-4 pb-xl-5">{{ x_('Get full access to BznsBook\'s professional ecosystem. Publish unlimited services, create portfolio entries, post and apply to projects, connect with clients, and grow your reputation — all with one subscription.', 'home') }}</p>
+             <h3 class="mb-4 text-center text-sm-start">{{ x_('Choose Your Plan', 'home') }}</h3>
 
              <!-- Pricing -->
              <ul class="list-group">
@@ -24,10 +19,10 @@
                                  d="M18.7781 5.97526C19.1664 5.97526 19.4812 5.66046 19.4812 5.27213C19.4812 4.88381 19.1664 4.56901 18.7781 4.56901C18.3898 4.56901 18.075 4.88381 18.075 5.27213C18.075 5.66046 18.3898 5.97526 18.7781 5.97526Z"
                                  fill="currentColor" />
                          </svg>
-                         <h4 class="mb-0 fs-base fw-semibold text-nowrap ps-1">Monthly</h4>
+                         <h4 class="mb-0 fs-base fw-semibold text-nowrap ps-1">{{ x_('Monthly', 'home') }}</h4>
                      </div>
-                     <h5 class="my-2 text-primary my-sm-0">$65 / Month</h5>
-                     <div class="fs-sm">Billed Monthly</div>
+                     <h5 class="my-2 text-primary my-sm-0">{{ x_('$65 / Month', 'home') }}</h5>
+                     <div class="fs-sm">{{ x_('Billed Monthly', 'home') }}</div>
                  </li>
                  <li class="p-4 list-group-item d-flex flex-column flex-sm-row align-items-center justify-content-between">
                      <div class="d-flex align-items-center">
@@ -37,10 +32,10 @@
                                  d="M18.0225 2.91133C17.2397 2.91133 16.5038 3.21602 15.9507 3.76914C15.3132 4.40664 14.9616 5.25508 14.9616 6.15977V8.98633C14.9616 12.516 13.0772 15.6098 10.26 17.3207H14.2585C18.0225 17.3207 21.0882 14.2598 21.0882 10.491V5.97227C21.0882 4.28945 19.71 2.91133 18.0225 2.91133ZM18.7772 5.97695C18.3882 5.97695 18.0741 5.66289 18.0741 5.27383C18.0741 4.88477 18.3882 4.5707 18.7772 4.5707C19.1663 4.5707 19.4804 4.88477 19.4804 5.27383C19.4804 5.66289 19.1663 5.97695 18.7772 5.97695ZM23.7929 1.71133C23.5163 1.43477 23.071 1.43477 22.7991 1.71133L21.4257 3.08477C20.6054 2.11914 19.3819 1.50977 18.0225 1.50977C16.8647 1.50977 15.7772 1.95977 14.9569 2.78008L0.20535 17.527C0.00378752 17.7285 -0.05715 18.0285 0.0506625 18.291C0.158475 18.5535 0.416288 18.727 0.702225 18.727H5.22097H9.4491L11.8069 21.0848H11.2444C10.8553 21.0848 10.5413 21.3988 10.5413 21.7879C10.5413 22.177 10.8553 22.491 11.2444 22.491H15.7632C16.1522 22.491 16.4663 22.177 16.4663 21.7879C16.4663 21.3988 16.1522 21.0848 15.7632 21.0848H13.7944L11.4366 18.727H14.2585C18.8007 18.727 22.4944 15.0332 22.4944 10.491V5.97227C22.4944 5.39102 22.3819 4.8332 22.1757 4.31758L23.7929 2.70039C24.0694 2.4332 24.0694 1.98789 23.7929 1.71133ZM2.3991 17.3207L13.5554 6.16445V8.98633C13.5554 13.5801 9.81472 17.3207 5.22097 17.3207H2.3991ZM21.0882 10.4957C21.0882 14.2598 18.0272 17.3254 14.2585 17.3254H10.26C13.0772 15.6145 14.9616 12.516 14.9616 8.98633V6.15977C14.9616 5.25508 15.3132 4.40664 15.9507 3.76914C16.5038 3.21602 17.2397 2.91133 18.0225 2.91133C19.71 2.91133 21.0882 4.28477 21.0882 5.97695V10.4957Z"
                                  fill="currentColor" />
                          </svg>
-                         <h4 class="mb-0 fs-base fw-semibold text-nowrap ps-1">Semi Annual</h4>
+                         <h4 class="mb-0 fs-base fw-semibold text-nowrap ps-1">{{ x_('Semi Annual', 'home') }}</h4>
                      </div>
-                     <h5 class="px-3 py-0 my-3 rounded badge bg-light fs-5 fw-bold my-sm-0">$55 / Month</h5>
-                     <div class="fs-sm">Billed Semi Annually</div>
+                     <h5 class="px-3 py-0 my-3 rounded badge bg-light fs-5 fw-bold my-sm-0">{{ x_('$55 / Month', 'home') }}</h5>
+                     <div class="fs-sm">{{ x_('Billed Semi Annually', 'home') }}</div>
                  </li>
                  <li class="p-4 list-group-item d-flex flex-column flex-sm-row align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
@@ -50,10 +45,10 @@
                                 d="M18.0225 2.91133C17.2397 2.91133 16.5038 3.21602 15.9507 3.76914C15.3132 4.40664 14.9616 5.25508 14.9616 6.15977V8.98633C14.9616 12.516 13.0772 15.6098 10.26 17.3207H14.2585C18.0225 17.3207 21.0882 14.2598 21.0882 10.491V5.97227C21.0882 4.28945 19.71 2.91133 18.0225 2.91133ZM18.7772 5.97695C18.3882 5.97695 18.0741 5.66289 18.0741 5.27383C18.0741 4.88477 18.3882 4.5707 18.7772 4.5707C19.1663 4.5707 19.4804 4.88477 19.4804 5.27383C19.4804 5.66289 19.1663 5.97695 18.7772 5.97695ZM23.7929 1.71133C23.5163 1.43477 23.071 1.43477 22.7991 1.71133L21.4257 3.08477C20.6054 2.11914 19.3819 1.50977 18.0225 1.50977C16.8647 1.50977 15.7772 1.95977 14.9569 2.78008L0.20535 17.527C0.00378752 17.7285 -0.05715 18.0285 0.0506625 18.291C0.158475 18.5535 0.416288 18.727 0.702225 18.727H5.22097H9.4491L11.8069 21.0848H11.2444C10.8553 21.0848 10.5413 21.3988 10.5413 21.7879C10.5413 22.177 10.8553 22.491 11.2444 22.491H15.7632C16.1522 22.491 16.4663 22.177 16.4663 21.7879C16.4663 21.3988 16.1522 21.0848 15.7632 21.0848H13.7944L11.4366 18.727H14.2585C18.8007 18.727 22.4944 15.0332 22.4944 10.491V5.97227C22.4944 5.39102 22.3819 4.8332 22.1757 4.31758L23.7929 2.70039C24.0694 2.4332 24.0694 1.98789 23.7929 1.71133ZM2.3991 17.3207L13.5554 6.16445V8.98633C13.5554 13.5801 9.81472 17.3207 5.22097 17.3207H2.3991ZM21.0882 10.4957C21.0882 14.2598 18.0272 17.3254 14.2585 17.3254H10.26C13.0772 15.6145 14.9616 12.516 14.9616 8.98633V6.15977C14.9616 5.25508 15.3132 4.40664 15.9507 3.76914C16.5038 3.21602 17.2397 2.91133 18.0225 2.91133C19.71 2.91133 21.0882 4.28477 21.0882 5.97695V10.4957Z"
                                 fill="currentColor" />
                         </svg>
-                        <h4 class="mb-0 fs-base fw-semibold text-nowrap ps-1">Annual</h4>
+                        <h4 class="mb-0 fs-base fw-semibold text-nowrap ps-1">{{ x_('Annual', 'home') }}</h4>
                     </div>
-                    <h5 class="px-3 py-0 my-3 rounded badge bg-light fs-5 fw-bold my-sm-0">$45 / Month</h5>
-                    <div class="fs-sm">Billed Annually</div>
+                    <h5 class="px-3 py-0 my-3 rounded badge bg-light fs-5 fw-bold my-sm-0">{{ x_('$45 / Month', 'home') }}</h5>
+                    <div class="fs-sm">{{ x_('Billed Annually', 'home') }}</div>
                 </li>
              </ul>
          </div>
@@ -66,17 +61,17 @@
                      <div class="px-md-4 position-relative zindex-5">
                          <div class="d-sm-flex align-items-start justify-content-between">
                              <div class="text-center text-sm-start me-sm-4">
-                                 <div class="mb-2 lead fw-semibold text-light text-uppercase">Exclusive</div>
-                                 <h3 class="h1 text-light">BZNS Book</h3>
+                                 <div class="mb-2 lead fw-semibold text-light text-uppercase">{{ x_('Exclusive', 'home') }}</div>
+                                 <h3 class="h1 text-light">{{ x_('BZNS Book', 'home') }}</h3>
                              </div>
                              <div class="flex-shrink-0 p-4 mx-auto bg-white d-table rounded-3 mx-sm-0">
-                                 <img src="assets/img/landing/conference/qr.png" width="102" alt="QR Code">
+                                 <img src="assets/img/landing/conference/qr.png" width="102" alt="{{ x_('QR Code', 'home') }}">
                              </div>
                          </div>
                          <div class="pt-4 mt-2 d-flex flex-column flex-sm-row align-items-center">
-                             <a href="{{ route('web.select-plan') }}" class="mb-3 btn btn-light btn-lg mb-sm-0 me-sm-3">Subscribe now</a>
+                             <a href="{{ route('web.select-plan') }}" class="mb-3 btn btn-light btn-lg mb-sm-0 me-sm-3">{{ x_('Subscribe now', 'home') }}</a>
                              <div class="d-flex align-items-center">
-                                 <span class="fs-lg text-light me-2">for only</span>
+                                 <span class="fs-lg text-light me-2">{{ x_('for only', 'home') }}</span>
                                  <span class="mb-0 h4 text-light">$50</span>
                              </div>
                          </div>

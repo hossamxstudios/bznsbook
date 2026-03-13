@@ -5,7 +5,7 @@
                 <div class="mb-3 col-md-12 mb-md-4">
                     <div class="mb-0 card rounded-8">
                         <div class="card-header card-header-action">
-                            <h6>Blogs
+                            <h6>{{ x_('Blogs', 'blogs') }}
                                 <span class="badge badge-sm badge-light ms-1">{{$blogs->count()}}</span>
                             </h6>
                         </div>
@@ -31,11 +31,11 @@
                                                 <label class="form-check-label" for="customCheck1"></label>
                                             </span></th>
                                             <th>ID</th>
-                                            <th>Image</th>
-                                            <th>Title</th>
-                                            <th>Sub Title</th>
-                                            <th>Topic</th>
-                                            <th>Actions</th>
+                                            <th>{{ x_('Image', 'blogs') }}</th>
+                                            <th>{{ x_('Title', 'blogs') }}</th>
+                                            <th>{{ x_('Sub Title', 'blogs') }}</th>
+                                            <th>{{ x_('Topic', 'blogs') }}</th>
+                                            <th>{{ x_('Actions', 'blogs') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -67,7 +67,7 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{ $blog->id }}" class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit">
+                                                    <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{ $blog->id }}" class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="{{ x_('Edit', 'blogs') }}">
                                                         <span class="icon"><span class="feather-icon"><i data-feather="edit"></i></span></span>
                                                     </button>
                                                     <button class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover del-button" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{ $blog->id }}">

@@ -26,7 +26,7 @@
                     @endif
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'admin') }}</button>
                     <button type="submit" class="btn {{ $project->is_active ? 'btn-warning' : 'btn-success' }}">
                         {{ $project->is_active ? 'Deactivate' : 'Activate' }}
                     </button>
@@ -65,7 +65,7 @@
                     @endif
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'admin') }}</button>
                     <button type="submit" class="btn {{ $project->is_active ? 'btn-warning' : 'btn-success' }}">
                         {{ $project->is_active ? 'Deactivate' : 'Activate' }}
                     </button>

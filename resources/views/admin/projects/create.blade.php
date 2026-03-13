@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title> BZNSBOOK - Create New Project </title>
+    <title> {{ x_('BZNSBOOK - Create New Project', 'admin-projects') }} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('admin.main.meta')
 </head>
@@ -32,12 +32,12 @@
                                             </span></span>
                                         </div>
                                         <div>
-                                            <h4 class="mb-0">Create New Project</h4>
+                                            <h4 class="mb-0">{{ x_('Create New Project', 'admin-projects') }}</h4>
                                             <nav aria-label="breadcrumb">
                                                 <ol class="breadcrumb  mb-0">
-                                                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Dashboard</a></li>
-                                                    <li class="breadcrumb-item"><a href="{{ route('admin.projects.index') }}">Projects</a></li>
-                                                    <li class="breadcrumb-item active" aria-current="page">Create New</li>
+                                                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">{{ x_('Dashboard', 'admin-projects') }}</a></li>
+                                                    <li class="breadcrumb-item"><a href="{{ route('admin.projects.index') }}">{{ x_('Projects', 'admin-projects') }}</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">{{ x_('Create New', 'admin-projects') }}</li>
                                                 </ol>
                                             </nav>
                                         </div>
@@ -50,23 +50,23 @@
                                     <div class="mb-3 col-md-12 mb-md-4">
                                         <div class="mb-0 card rounded-8">
                                             <div class="card-header card-header-action">
-                                                <h6>Project Information</h6>
+                                                <h6>{{ x_('Project Information', 'admin-projects') }}</h6>
                                             </div>
                                             <div class="card-body">
                                                 <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="row mb-3">
                                                         <div class="col-md-6">
-                                                            <label for="name" class="form-label">Project Name <span class="text-danger">*</span></label>
+                                                            <label for="name" class="form-label">{{ x_('Project Name', 'admin-projects') }} <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
                                                             @error('name')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                             @enderror
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label for="client_id" class="form-label">Client <span class="text-danger">*</span></label>
+                                                            <label for="client_id" class="form-label">{{ x_('Client', 'admin-projects') }} <span class="text-danger">*</span></label>
                                                             <select class="form-select @error('client_id') is-invalid @enderror" id="client_id" name="client_id" required>
-                                                                <option value="">Select Client</option>
+                                                                <option value="">{{ x_('Select Client', 'admin-projects') }}</option>
                                                                 @foreach($clients as $client)
                                                                 <option value="{{ $client->id }}" {{ old('client_id') == $client->id ? 'selected' : '' }}>{{ $client->name }}</option>
                                                                 @endforeach
@@ -78,7 +78,7 @@
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <label for="details" class="form-label">Project Details</label>
+                                                        <label for="details" class="form-label">{{ x_('Project Details', 'admin-projects') }}</label>
                                                         <textarea class="form-control @error('details') is-invalid @enderror" id="details" name="details" rows="4">{{ old('details') }}</textarea>
                                                         @error('details')
                                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -87,14 +87,14 @@
 
                                                     <div class="row mb-3">
                                                         <div class="col-md-6">
-                                                            <label for="budget_min" class="form-label">Minimum Budget ($)</label>
+                                                            <label for="budget_min" class="form-label">{{ x_('Minimum Budget ($)', 'admin-projects') }}</label>
                                                             <input type="number" class="form-control @error('budget_min') is-invalid @enderror" id="budget_min" name="budget_min" value="{{ old('budget_min') }}" step="0.01">
                                                             @error('budget_min')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                             @enderror
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label for="budget_max" class="form-label">Maximum Budget ($)</label>
+                                                            <label for="budget_max" class="form-label">{{ x_('Maximum Budget ($)', 'admin-projects') }}</label>
                                                             <input type="number" class="form-control @error('budget_max') is-invalid @enderror" id="budget_max" name="budget_max" value="{{ old('budget_max') }}" step="0.01">
                                                             @error('budget_max')
                                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -104,20 +104,20 @@
 
                                                     <div class="row mb-3">
                                                         <div class="col-md-6">
-                                                            <label for="location" class="form-label">Location</label>
+                                                            <label for="location" class="form-label">{{ x_('Location', 'admin-projects') }}</label>
                                                             <input type="text" class="form-control @error('location') is-invalid @enderror" id="location" name="location" value="{{ old('location') }}">
                                                             @error('location')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                             @enderror
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
+                                                            <label for="status" class="form-label">{{ x_('Status', 'admin-projects') }} <span class="text-danger">*</span></label>
                                                             <select class="form-select @error('status') is-invalid @enderror" id="status" name="status" required>
-                                                                <option value="pending" {{ old('status') == 'pending' ? 'selected' : '' }}>Pending</option>
-                                                                <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active</option>
-                                                                <option value="awarded" {{ old('status') == 'awarded' ? 'selected' : '' }}>Awarded</option>
-                                                                <option value="completed" {{ old('status') == 'completed' ? 'selected' : '' }}>Completed</option>
-                                                                <option value="cancelled" {{ old('status') == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                                                                <option value="pending" {{ old('status') == 'pending' ? 'selected' : '' }}>{{ x_('Pending', 'admin-projects') }}</option>
+                                                                <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>{{ x_('Active', 'admin-projects') }}</option>
+                                                                <option value="awarded" {{ old('status') == 'awarded' ? 'selected' : '' }}>{{ x_('Awarded', 'admin-projects') }}</option>
+                                                                <option value="completed" {{ old('status') == 'completed' ? 'selected' : '' }}>{{ x_('Completed', 'admin-projects') }}</option>
+                                                                <option value="cancelled" {{ old('status') == 'cancelled' ? 'selected' : '' }}>{{ x_('Cancelled', 'admin-projects') }}</option>
                                                             </select>
                                                             @error('status')
                                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -126,20 +126,20 @@
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <label class="form-label">Skills Required</label>
+                                                        <label class="form-label">{{ x_('Skills Required', 'admin-projects') }}</label>
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <input type="text" class="form-control @error('skills') is-invalid @enderror" id="skills" name="skills" value="{{ old('skills') }}" placeholder="Enter skills separated by commas (e.g., PHP, JavaScript, Design)">
+                                                                <input type="text" class="form-control @error('skills') is-invalid @enderror" id="skills" name="skills" value="{{ old('skills') }}" placeholder="{{ x_('Enter skills separated by commas (e.g., PHP, JavaScript, Design)', 'admin-projects') }}">
                                                                 @error('skills')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                                 @enderror
-                                                                <small class="form-text text-muted">Enter skills separated by commas</small>
+                                                                <small class="form-text text-muted">{{ x_('Enter skills separated by commas', 'admin-projects') }}</small>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <label for="services" class="form-label">Services</label>
+                                                        <label for="services" class="form-label">{{ x_('Services', 'admin-projects') }}</label>
                                                         <select class="form-select @error('services') is-invalid @enderror" id="services" name="services[]" multiple>
                                                             @foreach($services as $service)
                                                             <option value="{{ $service->id }}" {{ (is_array(old('services')) && in_array($service->id, old('services'))) ? 'selected' : '' }}>{{ $service->name }}</option>
@@ -151,26 +151,26 @@
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <label for="is_active" class="form-label">Active Status</label>
+                                                        <label for="is_active" class="form-label">{{ x_('Active Status', 'admin-projects') }}</label>
                                                         <div class="form-check form-switch">
                                                             <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ old('is_active') ? 'checked' : '' }}>
-                                                            <label class="form-check-label" for="is_active">Make project active</label>
+                                                            <label class="form-check-label" for="is_active">{{ x_('Make project active', 'admin-projects') }}</label>
                                                         </div>
-                                                        <small class="form-text text-muted">Active projects are visible to users</small>
+                                                        <small class="form-text text-muted">{{ x_('Active projects are visible to users', 'admin-projects') }}</small>
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <label for="project_image" class="form-label">Project Image</label>
+                                                        <label for="project_image" class="form-label">{{ x_('Project Image', 'admin-projects') }}</label>
                                                         <input type="file" class="form-control @error('project_image') is-invalid @enderror" id="project_image" name="project_image">
                                                         @error('project_image')
                                                         <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
-                                                        <small class="form-text text-muted">Recommended size: 800x600px, Max size: 2MB</small>
+                                                        <small class="form-text text-muted">{{ x_('Recommended size: 800x600px, Max size: 2MB', 'admin-projects') }}</small>
                                                     </div>
 
                                                     <div class="d-flex justify-content-end mt-4">
-                                                        <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary me-2">Cancel</a>
-                                                        <button type="submit" class="btn btn-primary">Create Project</button>
+                                                        <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary me-2">{{ x_('Cancel', 'admin-projects') }}</a>
+                                                        <button type="submit" class="btn btn-primary">{{ x_('Create Project', 'admin-projects') }}</button>
                                                     </div>
                                                 </form>
                                             </div>

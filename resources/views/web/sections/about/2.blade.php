@@ -20,27 +20,27 @@
             <!-- Item -->
             <div class="px-2 swiper-slide border-end-lg">
               <div class="text-center">
-                <img src="assets/img/landing/digital-agency/icons/idea.svg" width="48" alt="Bulb icon" class="mx-auto mb-4 d-block">
-                <h4 class="pb-1 mb-2">Creative Solutions</h4>
-                <p class="mx-auto" style="max-width: 336px;">Sed morbi nulla pulvinar lectus tempor vel euismod accumsan.</p>
+                <img src="assets/img/landing/digital-agency/icons/idea.svg" width="48" alt="{{ x_('Bulb icon', 'about') }}" class="mx-auto mb-4 d-block">
+                <h4 class="pb-1 mb-2">{{ x_('Creative Solutions', 'about') }}</h4>
+                <p class="mx-auto" style="max-width: 336px;">{{ x_('Sed morbi nulla pulvinar lectus tempor vel euismod accumsan.', 'about') }}</p>
               </div>
             </div>
 
             <!-- Item -->
             <div class="px-2 swiper-slide border-end-lg">
               <div class="text-center">
-                <img src="assets/img/landing/digital-agency/icons/award.svg" width="48" alt="Award icon" class="mx-auto mb-4 d-block">
-                <h4 class="pb-1 mb-2">Award Winning</h4>
-                <p class="mx-auto" style="max-width: 336px;">Sit facilisis dolor arcu, fermentum vestibulum arcu elementum imperdiet.</p>
+                <img src="assets/img/landing/digital-agency/icons/award.svg" width="48" alt="{{ x_('Award icon', 'about') }}" class="mx-auto mb-4 d-block">
+                <h4 class="pb-1 mb-2">{{ x_('Award Winning', 'about') }}</h4>
+                <p class="mx-auto" style="max-width: 336px;">{{ x_('Sit facilisis dolor arcu, fermentum vestibulum arcu elementum imperdiet.', 'about') }}</p>
               </div>
             </div>
 
             <!-- Item -->
             <div class="px-2 swiper-slide">
               <div class="text-center">
-                <img src="assets/img/landing/digital-agency/icons/team.svg" width="48" alt="Team icon" class="mx-auto mb-4 d-block">
-                <h4 class="pb-1 mb-2">Team of Professionals</h4>
-                <p class="mx-auto" style="max-width: 336px;">Nam venenatis urna aenean quis feugiat et senectus turpis.</p>
+                <img src="assets/img/landing/digital-agency/icons/team.svg" width="48" alt="{{ x_('Team icon', 'about') }}" class="mx-auto mb-4 d-block">
+                <h4 class="pb-1 mb-2">{{ x_('Team of Professionals', 'about') }}</h4>
+                <p class="mx-auto" style="max-width: 336px;">{{ x_('Nam venenatis urna aenean quis feugiat et senectus turpis.', 'about') }}</p>
               </div>
             </div>
           </div>

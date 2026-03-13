@@ -1,5 +1,5 @@
 <section class="pt-5 position-relative zindex-2 py-lg-4 py-xl-5">
-    <h2 class="text-center pb-md-2">Fast &amp; Easy to Get a Deal</h2>
+    <h2 class="text-center pb-md-2">{{ x_('How BznsBook Works', 'home') }}</h2>
     <div class="container">
         <div class="py-5 row align-items-center justify-content-center my-sm-2 my-xxl-3">
             <div class="pb-4 mb-2 col-10 col-sm-9 col-md-6 pb-md-0 mb-md-0">
@@ -9,19 +9,19 @@
                         <span class="position-absolute start-0 translate-middle-x zindex-1 rounded-circle" style="bottom: 26.6%; width: 25px; height: 25px; background: linear-gradient(90deg, #a2a2a2 0%, #0f0f0f 100%);"></span>
                         <span class="position-absolute top-50 translate-middle-y zindex-1 rounded-circle" style="left: -18.5%; width: 14px; height: 14px; background: linear-gradient(90deg, #a2a2a2 0%, #0f0f0f 100%);"></span>
                         <span class="position-absolute zindex-1 rounded-circle" style="top: 10%; right: -10%; width: 11px; height: 11px; background: linear-gradient(90deg, #a2a2a2 0%, #0f0f0f 100%);"></span>
-                        <img src="assets/img/landing/app-showcase-3/steps/01.png" class="mx-auto d-block" width="500" alt="App screen">
+                        <img src="assets/img/landing/app-showcase-3/steps/01.png" class="mx-auto d-block" width="500" alt="{{ x_('App screen', 'home') }}">
                     </div>
                     <div id="screen-2" class="px-4 swiper-tab rounded-3 px-sm-5 px-md-0" style="background: linear-gradient(124deg, #a2a2a2 2.46%, #0f0f0f 101.25%);">
                         <span class="position-absolute start-0 translate-middle-x zindex-1 rounded-circle" style="bottom: 38.8%; width: 25px; height: 25px; background: linear-gradient(124deg, #a2a2a2 2.46%, #0f0f0f 101.25%);"></span>
                         <span class="position-absolute zindex-1 rounded-circle" style="bottom: 22.5%; left: -14%; width: 14px; height: 14px; background: linear-gradient(124deg, #a2a2a2 2.46%, #0f0f0f 101.25%);"></span>
                         <span class="position-absolute zindex-1 rounded-circle" style="top: 14%; right: -9%; width: 11px; height: 11px; background: linear-gradient(124deg, #a2a2a2 2.46%, #0f0f0f 101.25%);"></span>
-                        <img src="assets/img/landing/app-showcase-3/steps/02.png" class="mx-auto d-block" width="500" alt="App screen">
+                        <img src="assets/img/landing/app-showcase-3/steps/02.png" class="mx-auto d-block" width="500" alt="{{ x_('App screen', 'home') }}">
                     </div>
                     <div id="screen-3" class="px-4 swiper-tab rounded-3 px-sm-5 px-md-0" style="background: linear-gradient(135deg, #a2a2a2 0%, #0f0f0f 100%);">
                         <span class="position-absolute start-0 translate-middle-x zindex-1 rounded-circle" style="bottom: 28%; width: 25px; height: 25px; background: linear-gradient(90deg, #a2a2a2 0%, #0f0f0f 100%);"></span>
                         <span class="mt-4 position-absolute top-50 translate-middle-y zindex-1 rounded-circle" style="left: -16%; width: 14px; height: 14px; background: linear-gradient(90deg, #a2a2a2 0%, #0f0f0f 100%);"></span>
                         <span class="position-absolute zindex-1 rounded-circle" style="top: 8.5%; right: -8.5%; width: 11px; height: 11px; background: linear-gradient(90deg, #a2a2a2 0%, #0f0f0f 100%);"></span>
-                        <img src="assets/img/landing/app-showcase-3/steps/03.png" class="mx-auto d-block" width="500" alt="App screen">
+                        <img src="assets/img/landing/app-showcase-3/steps/03.png" class="mx-auto d-block" width="500" alt="{{ x_('App screen', 'home') }}">
                     </div>
                 </div>
             </div>
@@ -32,59 +32,59 @@
                         data-swiper-options='{"spaceBetween": 30,"loop": true,"tabs": true,"pagination": {  "el": "#stepsPagination",  "type": "fraction"},"navigation": {"prevEl": "#prev-screen","nextEl": "#next-screen"}}'>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" data-swiper-tab="#screen-1">
-                                <div class="pb-1 mb-2 h5 text-primary">Step 1</div>
-                                <h2 class="pb-1 h1">Create account</h2>
+                                <div class="pb-1 mb-2 h5 text-primary">{{ x_('Step 1', 'home') }}</div>
+                                <h2 class="pb-1 h1">{{ x_('Create Your Profile', 'home') }}</h2>
                                 <ul class="mx-auto list-unstyled d-table mx-md-0">
                                     <li class="pb-1 mb-2 d-flex fs-lg text-start">
                                         <i class="bx bx-check text-primary lead pe-1 me-1"
                                             style="margin-top: .125rem;"></i>
-                                        Enter your email and create a password
+                                        {{ x_('Sign up and build your professional profile', 'home') }}
                                     </li>
                                     <li class="pb-1 mb-2 d-flex fs-lg text-start">
                                         <i class="bx bx-check text-primary lead pe-1 me-1"
                                             style="margin-top: .125rem;"></i>
-                                        Check your inbox to find the confirmation email
+                                        {{ x_('Add your skills, company info, and expertise', 'home') }}
                                     </li>
                                     <li class="pb-1 mb-2 d-flex fs-lg text-start">
                                         <i class="bx bx-check text-primary lead pe-1 me-1"
                                             style="margin-top: .125rem;"></i>
-                                        Follow the steps described in the email
+                                        {{ x_('Choose a subscription plan that fits your needs', 'home') }}
                                     </li>
                                 </ul>
                             </div>
                             <div class="swiper-slide" data-swiper-tab="#screen-2">
-                                <div class="pb-1 mb-2 h5 text-primary">Step 2</div>
-                                <h2 class="pb-1 h1">Make A Subscription</h2>
+                                <div class="pb-1 mb-2 h5 text-primary">{{ x_('Step 2', 'home') }}</div>
+                                <h2 class="pb-1 h1">{{ x_('Showcase Your Work', 'home') }}</h2>
                                 <ul class="mx-auto list-unstyled d-table mx-md-0">
                                     <li class="pb-1 mb-2 d-flex fs-lg text-start">
                                         <i class="bx bx-check text-primary lead pe-1 me-1" style="margin-top: .125rem;"></i>
-                                        Subscribe to a plan
+                                        {{ x_('Publish the services you offer', 'home') }}
                                     </li>
                                     <li class="pb-1 mb-2 d-flex fs-lg text-start">
                                         <i class="bx bx-check text-primary lead pe-1 me-1" style="margin-top: .125rem;"></i>
-                                        Pay for the subscription
+                                        {{ x_('Upload portfolio entries with images and case studies', 'home') }}
                                     </li>
                                     <li class="pb-1 mb-2 d-flex fs-lg text-start">
                                         <i class="bx bx-check text-primary lead pe-1 me-1" style="margin-top: .125rem;"></i>
-                                        Wait for the activation
+                                        {{ x_('Post or apply to projects in the marketplace', 'home') }}
                                     </li>
                                 </ul>
                             </div>
                             <div class="swiper-slide" data-swiper-tab="#screen-3">
-                                <div class="pb-1 mb-2 h5 text-primary">Step 3</div>
-                                <h2 class="pb-1 h1">Get the Deal</h2>
+                                <div class="pb-1 mb-2 h5 text-primary">{{ x_('Step 3', 'home') }}</div>
+                                <h2 class="pb-1 h1">{{ x_('Connect &amp; Collaborate', 'home') }}</h2>
                                 <ul class="mx-auto list-unstyled d-table mx-md-0">
                                     <li class="pb-1 mb-2 d-flex fs-lg text-start">
                                         <i class="bx bx-check text-primary lead pe-1 me-1" style="margin-top: .125rem;"></i>
-                                        Specify the desired method of obtaining a card
+                                        {{ x_('Receive service requests and project proposals', 'home') }}
                                     </li>
                                     <li class="pb-1 mb-2 d-flex fs-lg text-start">
                                         <i class="bx bx-check text-primary lead pe-1 me-1" style="margin-top: .125rem;"></i>
-                                        Receive the card within 1-2 business days
+                                        {{ x_('Review applicants and choose the right partner', 'home') }}
                                     </li>
                                     <li class="pb-1 mb-2 d-flex fs-lg text-start">
                                         <i class="bx bx-check text-primary lead pe-1 me-1" style="margin-top: .125rem;"></i>
-                                        Start managing your finances
+                                        {{ x_('Collaborate, deliver, and grow your reputation', 'home') }}
                                     </li>
                                 </ul>
                             </div>

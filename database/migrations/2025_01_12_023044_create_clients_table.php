@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('zip')->nullable();
-            $table->string('map')->nullable();
+            $table->text('map')->nullable();
             $table->string('website')->nullable();
             $table->string('facebook')->nullable();
             $table->string('linkedin')->nullable();
@@ -34,6 +34,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(0);
             $table->boolean('is_decision_maker')->default(1);
             $table->boolean('is_verified')->default(0);
+            $table->dateTime('last_seen')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->softDeletes();
