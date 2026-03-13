@@ -199,6 +199,15 @@ class TerminalController extends Controller
             $process = new Process($cmd);
             $process->setWorkingDirectory(base_path());
             $process->setTimeout(300); // 5 minutes max
+
+            // Set environment variables required on cPanel / shared hosting
+            $home = getenv('HOME') ?: ('/home/' . get_current_user());
+            $process->setEnv([
+                'HOME'          => $home,
+                'COMPOSER_HOME' => $home . '/.composer',
+                'PATH'          => getenv('PATH') ?: '/usr/local/bin:/usr/bin:/bin',
+            ]);
+
             $process->run();
 
             $output = $process->getOutput() . $process->getErrorOutput();
