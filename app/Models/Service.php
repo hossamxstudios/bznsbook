@@ -30,9 +30,30 @@ class Service extends Model
         return $this->hasMany(Demand::class);
     }
 
-    protected $casts = [
-        'skills' => 'array',
-    ];
+    public function getSkillsAttribute($value): array
+    {
+        if (is_array($value)) {
+            return $value;
+        }
+
+        if (empty($value)) {
+            return [];
+        }
+
+        // Try JSON decode first
+        $decoded = json_decode($value, true);
+        if (is_array($decoded)) {
+            return $decoded;
+        }
+
+        // Fallback: comma-separated string
+        return array_map('trim', explode(',', $value));
+    }
+
+    public function setSkillsAttribute($value): void
+    {
+        $this->attributes['skills'] = is_array($value) ? json_encode($value) : $value;
+    }
 
 
 }

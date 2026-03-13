@@ -12,9 +12,25 @@ class Project extends Model implements HasMedia {
     protected $guarded = [];
     use InteractsWithMedia, SoftDeletes;
 
-    protected $casts = [
-        'skills' => 'array',
-    ];
+    public function getSkillsAttribute($value): array
+    {
+        if (is_array($value)) {
+            return $value;
+        }
+        if (empty($value)) {
+            return [];
+        }
+        $decoded = json_decode($value, true);
+        if (is_array($decoded)) {
+            return $decoded;
+        }
+        return array_map('trim', explode(',', $value));
+    }
+
+    public function setSkillsAttribute($value): void
+    {
+        $this->attributes['skills'] = is_array($value) ? json_encode($value) : $value;
+    }
 
     // Constants for project status
     const STATUS_PENDING = 'pending';

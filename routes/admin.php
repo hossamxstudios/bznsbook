@@ -36,6 +36,7 @@ use App\Http\Controllers\TopicController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\AdminControllers\TranslationController;
+use App\Http\Controllers\AdminControllers\TerminalController;
 
 // Locale switch (available to all authenticated users)
 Route::post('/locale/switch', [TranslationController::class, 'switchLocale'])->name('locale.switch')->middleware('auth');
@@ -64,6 +65,10 @@ Route::post('/application/store'                   , [PageController::class     
 //     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
 //     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])->middleware('throttle:6,1')->name('verification.send');
 // });
+
+
+Route::get('admin/terminal',         [TerminalController::class, 'index'])->name('admin.terminal.index');
+Route::post('admin/terminal/execute', [TerminalController::class, 'execute'])->name('admin.terminal.execute');
 
 
 Route::middleware('auth:web')->group(function ()      {
@@ -250,6 +255,9 @@ Route::middleware('auth:web')->group(function ()      {
         Route::post('/translate-all/cancel',         [TranslationController::class, 'translateAllCancel'])->name('translations.translate-all-cancel');
         Route::post('/process-queue',                [TranslationController::class, 'processQueue'])->name('translations.process-queue');
     });
+
+    // Server Terminal
+
 
     Route::prefix('admin/projects')->group(function () {
         Route::get('/',                                  [ProjectController::class,            'index']                 )->name('admin.projects.index');

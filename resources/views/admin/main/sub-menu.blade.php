@@ -158,6 +158,12 @@
                                         <span class="nav-link-text">{{ x_('Translations', 'sidebar') }}</span>
                                     </a>
                                 </li>
+                                <li class="nav-item {{ request()->routeIs('admin.terminal.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('admin.terminal.index') }}">
+                                        <i class="bi bi-terminal fs-5" style="margin-right: 15px;"></i>
+                                        <span class="nav-link-text">Terminal</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
