@@ -5,7 +5,7 @@
                 <div class="col-md-12 mb-md-4 mb-3">
                     <div class="card rounded-8 mb-0">
                         <div class="card-header card-header-action">
-                            <h6>Industries
+                            <h6>{{ x_('Industries', 'admin') }}
                                 <span class="badge badge-sm badge-light ms-1">{{$industries->count()}}</span>
                             </h6>
                         </div>
@@ -14,9 +14,9 @@
                                 <table id="datable_2" class="table nowrap w-100">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>&nbsp;</th>
-                                            <th>Is Active</th>
+                                            <th>{{ x_('Name', 'admin') }}</th>
+                                            <th>{{ x_('&nbsp;', 'admin') }}</th>
+                                            <th>{{ x_('Is Active', 'admin') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -24,7 +24,7 @@
                                         <tr class="hover-row">
                                             <td style="background: white">
                                                 {{ $industry->name }}
-                                                {{-- <button type="button" class="btn btn-link p-0 view-details-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasShow{{$industry->id}}" title="View Details">
+                                                {{-- <button type="button" class="btn btn-link p-0 view-details-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasShow{{$industry->id}}" title="{{ x_('View Details', 'admin') }}">
                                                     <span class="feather-icon">
                                                         <i data-feather="eye"></i>
                                                     </span>
@@ -37,11 +37,11 @@
                                                     </span>
                                                 </a>
                                                 <div role="menu" class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$industry->id}}">Edit</a>
-                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$industry->id}}">Delete</a>
+                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$industry->id}}">{{ x_('Edit', 'admin') }}</a>
+                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$industry->id}}">{{ x_('Delete', 'admin') }}</a>
                                                 </div>
                                             </td>
-                                            <td>{{ $industry->is_active ? 'Yes' : 'No'}}</td>
+                                            <td>{{ $industry->is_active ? x_('Yes', 'admin') : x_('No', 'admin') }}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

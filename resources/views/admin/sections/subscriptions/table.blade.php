@@ -5,7 +5,7 @@
                 <div class="mb-3 col-md-12 mb-md-4">
                     <div class="mb-0 card rounded-8">
                         <div class="card-header card-header-action">
-                            <h6>Active Subscriptions
+                            <h6>{{ x_('Active Subscriptions', 'admin') }}
                                 <span class="badge badge-sm badge-light ms-1">{{ $active_subscriptions->count() }}</span>
                             </h6>
                         </div>
@@ -27,13 +27,13 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Client</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
-                                            <th>Price</th>
-                                            <th>Billing Cycle</th>
-                                            <th>Payment Status</th>
-                                            <th>Actions</th>
+                                            <th>{{ x_('Client', 'admin') }}</th>
+                                            <th>{{ x_('Start Date', 'admin') }}</th>
+                                            <th>{{ x_('End Date', 'admin') }}</th>
+                                            <th>{{ x_('Price', 'admin') }}</th>
+                                            <th>{{ x_('Billing Cycle', 'admin') }}</th>
+                                            <th>{{ x_('Payment Status', 'admin') }}</th>
+                                            <th>{{ x_('Actions', 'admin') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -46,7 +46,7 @@
                                                             @if ($subscription->client->getFirstMediaUrl('profile'))
                                                                 <div class="avatar avatar-xs me-2">
                                                                     <img src="{{ $subscription->client->getFirstMediaUrl('profile') }}"
-                                                                        alt="client avatar"
+                                                                        alt="{{ x_('client avatar', 'admin') }}"
                                                                         class="avatar-img rounded-circle">
                                                                 </div>
                                                             @else
@@ -58,7 +58,7 @@
                                                             <div>{{ $subscription->client->name }}</div>
                                                         </div>
                                                     @else
-                                                        <span class="text-muted">No client assigned</span>
+                                                        <span class="text-muted">{{ x_('No client assigned', 'admin') }}</span>
                                                     @endif
                                                 </td>
                                                 <td>{{ \Carbon\Carbon::parse($subscription->starts_at)->format('M d, Y') }}
@@ -72,15 +72,15 @@
                                                 <td>{{ ucfirst($subscription->billing_cycle) }}</td>
                                                 <td>
                                                     @if ($subscription->is_paid)
-                                                        <span class="badge badge-soft-success">Paid</span>
+                                                        <span class="badge badge-soft-success">{{ x_('Paid', 'admin') }}</span>
                                                     @else
-                                                        <span class="badge badge-soft-danger">Unpaid</span>
+                                                        <span class="badge badge-soft-danger">{{ x_('Unpaid', 'admin') }}</span>
                                                     @endif
                                                 </td>
                                                 <td>
                                                     <div class="d-flex">
                                                         @if ($subscription->is_paid == 0)
-                                                            <button type="button" class="btn btn-icon btn-sm btn-flush-dark btn-rounded flush-soft-hover" data-bs-toggle="modal" data-bs-target="#togglePaidModal{{ $subscription->id }}" title="Mark as Paid">
+                                                            <button type="button" class="btn btn-icon btn-sm btn-flush-dark btn-rounded flush-soft-hover" data-bs-toggle="modal" data-bs-target="#togglePaidModal{{ $subscription->id }}" title="{{ x_('Mark as Paid', 'admin') }}">
                                                                 <span class="icon">
                                                                     <span class="feather-icon">
                                                                         <i data-feather="check-circle" class="text-success"></i>
@@ -93,7 +93,7 @@
                                                             class="btn btn-icon btn-sm btn-flush-dark btn-rounded flush-soft-hover ms-1"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#expireModal{{ $subscription->id }}"
-                                                            title="Expire Subscription">
+                                                            title="{{ x_('Expire Subscription', 'admin') }}">
                                                             <span class="icon">
                                                                 <span class="feather-icon">
                                                                     <i data-feather="clock" class="text-warning"></i>
@@ -116,10 +116,10 @@
                                                             <div class="dropdown-menu dropdown-menu-end">
                                                                 <a class="dropdown-item" href="#"
                                                                     data-bs-toggle="modal"
-                                                                    data-bs-target="#editModal{{ $subscription->id }}">Edit</a>
+                                                                    data-bs-target="#editModal{{ $subscription->id }}">{{ x_('Edit', 'admin') }}</a>
                                                                 <a class="dropdown-item" href="#"
                                                                     data-bs-toggle="modal"
-                                                                    data-bs-target="#deleteModal{{ $subscription->id }}">Delete</a>
+                                                                    data-bs-target="#deleteModal{{ $subscription->id }}">{{ x_('Delete', 'admin') }}</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -141,7 +141,7 @@
                 <div class="mb-3 col-md-12 mb-md-4">
                     <div class="mb-0 card rounded-8">
                         <div class="card-header card-header-action">
-                            <h6>Expired Subscriptions
+                            <h6>{{ x_('Expired Subscriptions', 'admin') }}
                                 <span
                                     class="badge badge-sm badge-light ms-1">{{ $expired_subscriptions->count() }}</span>
                             </h6>
@@ -152,13 +152,13 @@
                                     <thead style="min-width: 100%!important;">
                                         <tr style="min-width: 100%!important;">
                                             <th>ID</th>
-                                            <th>Client</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
-                                            <th>Price</th>
-                                            <th>Billing Cycle</th>
-                                            <th>Payment Status</th>
-                                            <th>Actions</th>
+                                            <th>{{ x_('Client', 'admin') }}</th>
+                                            <th>{{ x_('Start Date', 'admin') }}</th>
+                                            <th>{{ x_('End Date', 'admin') }}</th>
+                                            <th>{{ x_('Price', 'admin') }}</th>
+                                            <th>{{ x_('Billing Cycle', 'admin') }}</th>
+                                            <th>{{ x_('Payment Status', 'admin') }}</th>
+                                            <th>{{ x_('Actions', 'admin') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -170,7 +170,7 @@
                                                         <div class="d-flex align-items-center">
                                                             @if ($subscription->client->getFirstMediaUrl('profile'))
                                                                 <div class="avatar avatar-xs me-2">
-                                                                     <img src="{{ $subscription->client->getFirstMediaUrl('profile') }}"  alt="client avatar" class="avatar-img rounded-circle">
+                                                                     <img src="{{ $subscription->client->getFirstMediaUrl('profile') }}"  alt="{{ x_('client avatar', 'admin') }}" class="avatar-img rounded-circle">
                                                                 </div>
                                                             @else
                                                                 <div
@@ -182,7 +182,7 @@
                                                             <div>{{ $subscription->client->name }}</div>
                                                         </div>
                                                     @else
-                                                        <span class="text-muted">No client assigned</span>
+                                                        <span class="text-muted">{{ x_('No client assigned', 'admin') }}</span>
                                                     @endif
                                                 </td>
                                                 <td>{{ \Carbon\Carbon::parse($subscription->starts_at)->format('M d, Y') }}
@@ -196,15 +196,15 @@
                                                 <td>{{ ucfirst($subscription->billing_cycle) }}</td>
                                                 <td>
                                                     @if ($subscription->is_paid)
-                                                        <span class="badge badge-soft-success">Paid</span>
+                                                        <span class="badge badge-soft-success">{{ x_('Paid', 'admin') }}</span>
                                                     @else
-                                                        <span class="badge badge-soft-danger">Unpaid</span>
+                                                        <span class="badge badge-soft-danger">{{ x_('Unpaid', 'admin') }}</span>
                                                     @endif
                                                 </td>
                                                 <td>
                                                     <div class="d-flex">
                                                         @if ($subscription->is_paid == 0)
-                                                            <button type="button" class="btn btn-icon btn-sm btn-flush-dark btn-rounded flush-soft-hover" data-bs-toggle="modal" data-bs-target="#togglePaidModal{{ $subscription->id }}" title="Mark as Paid">
+                                                            <button type="button" class="btn btn-icon btn-sm btn-flush-dark btn-rounded flush-soft-hover" data-bs-toggle="modal" data-bs-target="#togglePaidModal{{ $subscription->id }}" title="{{ x_('Mark as Paid', 'admin') }}">
                                                                 <span class="icon">
                                                                     <span class="feather-icon">
                                                                         <i data-feather="check-circle"
@@ -214,7 +214,7 @@
                                                             </button>
                                                         @endif
                                                         <!-- Activate Subscription Button -->
-                                                        <button type="button" class="btn btn-icon btn-sm btn-flush-dark btn-rounded flush-soft-hover ms-1" data-bs-toggle="modal" data-bs-target="#activateModal{{ $subscription->id }}" title="Activate Subscription">
+                                                        <button type="button" class="btn btn-icon btn-sm btn-flush-dark btn-rounded flush-soft-hover ms-1" data-bs-toggle="modal" data-bs-target="#activateModal{{ $subscription->id }}" title="{{ x_('Activate Subscription', 'admin') }}">
                                                             <span class="icon">
                                                                 <span class="feather-icon">
                                                                     <i data-feather="refresh-cw"
@@ -232,8 +232,8 @@
                                                                 </span>
                                                             </button>
                                                             <div class="dropdown-menu dropdown-menu-end">
-                                                                 <a class="dropdown-item" href="#" data-bs-toggle="modal"data-bs-target="#editModal{{ $subscription->id }}">Edit</a>
-                                                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $subscription->id }}">Delete</a>
+                                                                 <a class="dropdown-item" href="#" data-bs-toggle="modal"data-bs-target="#editModal{{ $subscription->id }}">{{ x_('Edit', 'admin') }}</a>
+                                                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $subscription->id }}">{{ x_('Delete', 'admin') }}</a>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -22,7 +22,7 @@ class IndustryController extends Controller
         $Industry->name         = $request->name;
         $Industry->is_active    = $request->is_active ?1:0;
         $Industry->save();
-        return redirect()->back()->with('success', 'Industry created successfully.');
+        return redirect()->back()->with('success', x_('Industry created successfully.', 'controller'));
     }
 
     public function update(Request $request,$id){
@@ -30,12 +30,12 @@ class IndustryController extends Controller
         $Industry->name      = $request->name;
         $Industry->is_active = $request->is_active ?1:0;
         $Industry->save();
-        return redirect()->back()->with('success', 'Industry updated successfully.');
+        return redirect()->back()->with('success', x_('Industry updated successfully.', 'controller'));
     }
 
     public function destroy($id){
         $Industry            = Industry::findOrFail($id);
         $Industry->delete();
-        return redirect()->back()->with('success', 'Industry deleted successfully.');
+        return redirect()->back()->with('success', x_('Industry deleted successfully.', 'controller'));
     }
 }

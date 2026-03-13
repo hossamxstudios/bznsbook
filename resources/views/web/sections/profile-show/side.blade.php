@@ -11,7 +11,7 @@
         <form action="{{ route('client.picture.update') }}" method="POST" enctype="multipart/form-data" id="profile-picture-form">
           @csrf
           <input type="file" name="profile_picture" id="profile-picture-input" class="visually-hidden" accept="image/*">
-          <button type="button" id="change-picture-btn" class="bottom-0 mt-4 bg-white border shadow-sm btn btn-icon btn-light btn-sm rounded-circle position-absolute end-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Change picture" aria-label="Change picture">
+          <button type="button" id="change-picture-btn" class="bottom-0 mt-4 bg-white border shadow-sm btn btn-icon btn-light btn-sm rounded-circle position-absolute end-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ x_('Change picture', 'web') }}" aria-label="Change picture">
             <i class="bx bx-refresh"></i>
           </button>
         </form>
@@ -20,33 +20,33 @@
       <p class="pb-3 mb-3">{{ auth('client')->user()->email }}</p>
       <button type="button" class="mb-3 btn btn-secondary w-100 d-md-none mt-n2" data-bs-toggle="collapse" data-bs-target="#account-menu">
         <i class="bx bxs-user-detail fs-xl me-2"></i>
-        Account menu
+        {{ x_('Account menu', 'web') }}
         <i class="bx bx-chevron-down fs-lg ms-1"></i>
       </button>
       <div id="account-menu" class="list-group list-group-flush collapse d-md-block">
         <a href="/profile" class="list-group-item list-group-item-action d-flex align-items-center @if(request()->is('profile')) active @endif">
           <i class="opacity-60 bx bx-cog fs-xl me-2"></i>
-          Account Details
+          {{ x_('Account Details', 'web') }}
         </a>
         <a href="/profile/portfolio" class="list-group-item list-group-item-action d-flex align-items-center @if(request()->is('profile/portfolio')) active @endif">
             <i class="opacity-60 bx bx-collection fs-xl me-2"></i>
-            My Portfolio
+            {{ x_('My Portfolio', 'web') }}
           </a>
         <a href="/profile/projects" class="list-group-item list-group-item-action d-flex align-items-center @if(request()->is('profile/projects')) active @endif">
           <i class="opacity-60 bx bx-lock-alt fs-xl me-2"></i>
-          Applied Projects
+          {{ x_('Applied Projects', 'web') }}
         </a>
         <a href="/profile/project-requests" class="list-group-item list-group-item-action d-flex align-items-center @if(request()->is('profile/project-requests')) active @endif">
             <i class="opacity-60 bx bx-chat fs-xl me-2"></i>
-            Project Requests
+            {{ x_('Project Requests', 'web') }}
         </a>
         <a href="/profile/material" class="list-group-item list-group-item-action d-flex align-items-center @if(request()->is('profile/material')) active @endif">
             <i class="opacity-60 bx bx-bookmark fs-xl me-2"></i>
-            My References Material
+            {{ x_('My References Material', 'web') }}
         </a>
         <a href="/profile/subscription" class="list-group-item list-group-item-action d-flex align-items-center @if(request()->is('profile/subscription')) active @endif">
             <i class="opacity-60 bx bx-credit-card-front fs-xl me-2"></i>
-            My Subscription
+            {{ x_('My Subscription', 'web') }}
         </a>
         {{-- <a href="account-security.html" class="list-group-item list-group-item-action d-flex align-items-center">
           <i class="opacity-60 bx bx-lock-alt fs-xl me-2"></i>
@@ -76,7 +76,7 @@
           @csrf
           <button type="submit" class="bg-transparent border-0 list-group-item list-group-item-action d-flex align-items-center w-100 text-start">
             <i class="opacity-60 bx bx-log-out fs-xl me-2"></i>
-            Sign Out
+            {{ x_('Sign Out', 'web') }}
           </button>
         </form>
       </div>

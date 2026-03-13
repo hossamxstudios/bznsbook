@@ -89,7 +89,7 @@
                 if ($('.cked:checked').length > 0) {
                     if ($('#deleteAllChecked').length === 0) {
                         $('.dataTables_wrapper .btn-group').append(
-                            '<button class="btn btn-primary" id="deleteAllChecked" onclick="deleteAllChecked()">Delete</button>'
+                            '<button class="btn btn-primary" id="deleteAllChecked" onclick="deleteAllChecked()">{{ x_('Delete', 'general') }}</button>'
                         );
                     }
                 } else {

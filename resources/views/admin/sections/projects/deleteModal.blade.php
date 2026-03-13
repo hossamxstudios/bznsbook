@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModal{{ $project->id }}Label">Delete Project</h5>
+                <h5 class="modal-title" id="deleteModal{{ $project->id }}Label">{{ x_('Delete Project', 'admin') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
@@ -11,13 +11,13 @@
                 <div class="modal-body">
                     <div class="alert alert-danger">
                         <i class="bi bi-exclamation-triangle"></i>
-                        <strong>Warning:</strong> This action cannot be undone. All project data will be permanently deleted.
+                        <strong>{{ x_('Warning:', 'admin') }}</strong> {{ x_('This action cannot be undone. All project data will be permanently deleted.', 'admin') }}
                     </div>
-                    <p>Are you sure you want to delete the project "<strong>{{ $project->name }}</strong>"?</p>
+                    <p>{{ x_('Are you sure you want to delete the project "', 'admin') }}<strong>{{ $project->name }}</strong>"?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-danger">Delete Project</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'admin') }}</button>
+                    <button type="submit" class="btn btn-danger">{{ x_('Delete Project', 'admin') }}</button>
                 </div>
             </form>
         </div>
@@ -30,7 +30,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModal{{ $project->id }}Label">Delete Project</h5>
+                <h5 class="modal-title" id="deleteModal{{ $project->id }}Label">{{ x_('Delete Project', 'admin') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
@@ -38,13 +38,13 @@
                 <div class="modal-body">
                     <div class="alert alert-danger">
                         <i class="bi bi-exclamation-triangle"></i>
-                        <strong>Warning:</strong> This action cannot be undone. All project data will be permanently deleted.
+                        <strong>{{ x_('Warning:', 'admin') }}</strong> {{ x_('This action cannot be undone. All project data will be permanently deleted.', 'admin') }}
                     </div>
-                    <p>Are you sure you want to delete the project "<strong>{{ $project->name }}</strong>"?</p>
+                    <p>{{ x_('Are you sure you want to delete the project "', 'admin') }}<strong>{{ $project->name }}</strong>"?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-danger">Delete Project</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'admin') }}</button>
+                    <button type="submit" class="btn btn-danger">{{ x_('Delete Project', 'admin') }}</button>
                 </div>
             </form>
         </div>

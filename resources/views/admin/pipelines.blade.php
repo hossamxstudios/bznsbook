@@ -55,13 +55,13 @@
                 <div class="row align-items-center stage-row mb-3" id="stage-row-${childCounter}">
                     <div class="col-4">
                         <input type="hidden" name="stages[stage${childCounter}][id]" value="id${childCounter}" required>
-                        <input type="text" name="stages[stage${childCounter}][name]" class="form-control" placeholder="Stage Name" required>
+                        <input type="text" name="stages[stage${childCounter}][name]" class="form-control" placeholder="{{ x_('Stage Name', 'admin') }}" required>
                     </div>
                     <div class="col-4">
                         <input type="number" name="stages[stage${childCounter}][percentage]" class="form-control" placeholder="%" min="0" max="100" required>
                     </div>
                     <div class="col-2 text  -end">
-                        <input type="number" name="stages[stage${childCounter}][place]" class="form-control" placeholder="arrange" required>
+                        <input type="number" name="stages[stage${childCounter}][place]" class="form-control" placeholder="{{ x_('Arrange', 'pipelines') }}" required>
 
                     </div>
                     <div class="col-2 text  -end">

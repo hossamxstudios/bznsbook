@@ -2,7 +2,7 @@
 @include('web.main.html')
 <head>
     <meta charset="utf-8" />
-    <title>My Services - Bzns Book</title>
+    <title>{{ x_('My Services - Bzns Book', 'web') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('web.main.meta')
 </head>
@@ -17,9 +17,9 @@
                 <div class="col-md-8 mb-lg-4 pt-md-5 mt-n3 mt-md-0">
                     <div class="ps-md-3 ps-lg-0 mt-md-2">
                         <div class="mb-4 d-flex align-items-center justify-content-between">
-                            <h1 class="mb-0 h2 pt-xl-1">My Services</h1>
+                            <h1 class="mb-0 h2 pt-xl-1">{{ x_('My Services', 'web') }}</h1>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">
-                                <i class="bx bx-plus fs-lg me-2"></i>Add Service
+                                <i class="bx bx-plus fs-lg me-2"></i>{{ x_('Add Service', 'web') }}
                             </button>
                         </div>
                         @if(session('success'))
@@ -61,20 +61,20 @@
                                                     <ul class="dropdown-menu">
                                                         <li>
                                                             <a href="{{ route('client.services.show', $service->id) }}" class="dropdown-item">
-                                                                <i class="bx bx-show me-2"></i> View Details
+                                                                <i class="bx bx-show me-2"></i> {{ x_('View Details', 'web') }}
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <button class="dropdown-item edit-service-btn" data-bs-toggle="modal" data-bs-target="#editServiceModal{{ $service->id }}">
-                                                                <i class="bx bx-edit me-2"></i> Edit
+                                                                <i class="bx bx-edit me-2"></i> {{ x_('Edit', 'web') }}
                                                             </button>
                                                         </li>
                                                         <li>
                                                             <form action="{{ route('client.services.delete') }}" method="POST" class="d-inline">
                                                                 @csrf
                                                                 <input type="hidden" name="service_id" value="{{ $service->id }}">
-                                                                <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Are you sure you want to delete this service?')">
-                                                                    <i class="bx bx-trash me-2"></i> Delete
+                                                                <button type="submit" class="dropdown-item text-danger" onclick="return confirm('{{ x_("Are you sure you want to delete this service?", "web") }}')">
+                                                                    <i class="bx bx-trash me-2"></i> {{ x_('Delete', 'web') }}
                                                                 </button>
                                                             </form>
                                                         </li>
@@ -87,7 +87,7 @@
                                                 @if($service->details)
                                                     <p class="mb-3 fs-sm text-body">{{ \Illuminate\Support\Str::limit($service->details, 120) }}</p>
                                                 @else
-                                                    <p class="mb-3 fs-sm text-muted">No description available</p>
+                                                    <p class="mb-3 fs-sm text-muted">{{ x_('No description available', 'web') }}</p>
                                                 @endif
 
                                                 <!-- Price -->
@@ -116,14 +116,14 @@
                                                     @if($service->years_experience)
                                                         <div class="d-flex align-items-center me-4">
                                                             <i class="bx bx-time fs-xl me-1"></i>
-                                                            {{ $service->years_experience }} years exp.
+                                                            {{ $service->years_experience }} {{ x_('years exp.', 'web') }}
                                                         </div>
                                                     @endif
 
                                                     @if($service->subcategories->count() > 0)
                                                         <div class="d-flex align-items-center">
                                                             <i class="bx bx-category fs-xl me-1"></i>
-                                                            {{ $service->subcategories->count() }} categories
+                                                            {{ $service->subcategories->count() }} {{ x_('categories', 'web') }}
                                                         </div>
                                                     @endif
                                                 </div>
@@ -135,9 +135,9 @@
                                 <div class="col-12">
                                     <div class="p-4 text-center rounded border">
                                         <i class="mb-2 display-6 bx bx-server text-muted"></i>
-                                        <p class="mb-3">You haven't added any services yet.</p>
+                                        <p class="mb-3">{{ x_('You haven\'t added any services yet.', 'web') }}</p>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">
-                                            <i class="bx bx-plus me-2"></i>Add Your First Service
+                                            <i class="bx bx-plus me-2"></i>{{ x_('Add Your First Service', 'web') }}
                                         </button>
                                     </div>
                                 </div>
@@ -159,14 +159,14 @@
                 <form action="{{ route('client.services.store') }}" method="POST">
                     @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addServiceModalLabel">Add Service</h5>
+                        <h5 class="modal-title" id="addServiceModalLabel">{{ x_('Add Service', 'web') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <!-- Basic Info Section -->
-                        <h6 class="mb-3 fw-bold">Basic Information</h6>
+                        <h6 class="mb-3 fw-bold">{{ x_('Basic Information', 'web') }}</h6>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Service Name</label>
+                            <label for="name" class="form-label">{{ x_('Service Name', 'web') }}</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
                             @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -174,24 +174,24 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="details" class="form-label">Details</label>
+                            <label for="details" class="form-label">{{ x_('Details', 'web') }}</label>
                             <textarea class="form-control @error('details') is-invalid @enderror" id="details" name="details" rows="3">{{ old('details') }}</textarea>
                             @error('details')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                            <small class="text-muted">This will be stored in the 'details' field</small>
+                            <small class="text-muted">{{ x_('This will be stored in the \'details\' field', 'web') }}</small>
                         </div>
 
                         <div class="mb-3 row">
                             <div class="col-md-6">
-                                <label for="price" class="form-label">Price (EGP)</label>
+                                <label for="price" class="form-label">{{ x_('Price (EGP)', 'web') }}</label>
                                 <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price') }}">
                                 @error('price')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="years_experience" class="form-label">Years of Experience</label>
+                                <label for="years_experience" class="form-label">{{ x_('Years of Experience', 'web') }}</label>
                                 <input type="number" class="form-control @error('years_experience') is-invalid @enderror" id="years_experience" name="years_experience" value="{{ old('years_experience') }}">
                                 @error('years_experience')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -199,24 +199,24 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="level" class="form-label">Skill Level (1-10 stars)</label>
+                            <label for="level" class="form-label">{{ x_('Skill Level (1-10 stars)', 'web') }}</label>
                             <div class="my-rating-1 d-flex rating rating-lg"></div>
                             <!-- Hidden input to store the star rating value -->
                             <input type="hidden" name="level" id="level">
-                            <small class="text-muted">Click on the stars to set your expertise level</small>
+                            <small class="text-muted">{{ x_('Click on the stars to set your expertise level', 'web') }}</small>
                         </div>
 
                         <div class="mb-3">
-                            <label for="skills" class="form-label">Skills (press Enter after each skill)</label>
+                            <label for="skills" class="form-label">{{ x_('Skills (press Enter after each skill)', 'web') }}</label>
                             <select class="select2 taging" name="skills[]" multiple style="width:100%;" >
                             </select>
-                            <small class="text-muted">Enter skills related to this service  <strong style="color:red;">then click enter</strong> (e.g. WordPress, JavaScript, Marketing)</small>
+                            <small class="text-muted">{{ x_('Enter skills related to this service', 'web') }}  <strong style="color:red;">{{ x_('then click enter', 'web') }}</strong> {{ x_('(e.g. WordPress, JavaScript, Marketing)', 'web') }}</small>
                         </div>
 
                         <!-- Subcategories Section -->
-                        <h6 class="mb-3 fw-bold">Subcategories</h6>
+                        <h6 class="mb-3 fw-bold">{{ x_('Subcategories', 'web') }}</h6>
                         <div class="mb-3">
-                            <label class="form-label">Select Subcategories</label>
+                            <label class="form-label">{{ x_('Select Subcategories', 'web') }}</label>
                             <select class="select2" name="subcategories[]" multiple style="width: 100%;">
                                 @foreach($subcategories as $subcategory)
                                     <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
@@ -225,8 +225,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Add Service</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'web') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ x_('Add Service', 'web') }}</button>
                     </div>
                 </form>
             </div>
@@ -240,15 +240,15 @@
                     <form id="editServiceForm" action="{{ route('client.services.update') }}" method="POST">
                         @csrf
                         <div class="modal-header">
-                            <h5 class="modal-title" id="editServiceModalLabel">Edit Service</h5>
+                            <h5 class="modal-title" id="editServiceModalLabel">{{ x_('Edit Service', 'web') }}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <!-- Basic Info Section -->
-                            <h6 class="mb-3 fw-bold">Basic Information</h6>
+                            <h6 class="mb-3 fw-bold">{{ x_('Basic Information', 'web') }}</h6>
                             <input type="hidden" name="id" value="{{ $service->id }}">
                             <div class="mb-3">
-                                <label for="edit_name" class="form-label">Service Name</label>
+                                <label for="edit_name" class="form-label">{{ x_('Service Name', 'web') }}</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="edit_name" name="name" required value="{{ $service->name }}">
                                 @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -256,24 +256,24 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="edit_description" class="form-label">Details</label>
+                                <label for="edit_description" class="form-label">{{ x_('Details', 'web') }}</label>
                                 <textarea class="form-control @error('description') is-invalid @enderror" id="edit_description" name="details" rows="3">{{ $service->details }}</textarea>
                                 @error('description')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                                <small class="text-muted">This will be stored in the 'details' field</small>
+                                <small class="text-muted">{{ x_('This will be stored in the \'details\' field', 'web') }}</small>
                             </div>
 
                             <div class="mb-3 row">
                                 <div class="col-md-6">
-                                    <label for="edit_price" class="form-label">Price (EGP)</label>
+                                    <label for="edit_price" class="form-label">{{ x_('Price (EGP)', 'web') }}</label>
                                     <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="edit_price" name="price" value="{{ $service->price }}">
                                     @error('price')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="edit_years_experience" class="form-label">Years of Experience</label>
+                                    <label for="edit_years_experience" class="form-label">{{ x_('Years of Experience', 'web') }}</label>
                                     <input type="number" class="form-control @error('years_experience') is-invalid @enderror" id="edit_years_experience" name="years_experience" value="{{ $service->years_experience }}">
                                     @error('years_experience')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -282,25 +282,25 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="edit_level" class="form-label">Skill Level (1-10 stars)</label>
+                                <label for="edit_level" class="form-label">{{ x_('Skill Level (1-10 stars)', 'web') }}</label>
                                 <div class="my-rating-edit d-flex rating rating-lg" data-rating="{{ $service->level }}"></div>
                                 <!-- Hidden input to store the star rating value -->
                                 <input type="hidden" name="level" class="edit_level" value="{{ $service->level }}">
-                                <small class="text-muted">Click on the stars to set your expertise level</small>
+                                <small class="text-muted">{{ x_('Click on the stars to set your expertise level', 'web') }}</small>
                             </div>
                             <div class="mb-3">
-                                <label for="skills" class="form-label">Skills (press Enter after each skill)</label>
+                                <label for="skills" class="form-label">{{ x_('Skills (press Enter after each skill)', 'web') }}</label>
                                 <select class="select2 taging" name="skills[]" multiple style="width:100%;" >
                                     @foreach($service->skills ?? [] as $skill)
                                         <option value="{{ $skill }}" selected>{{ $skill }}</option>
                                     @endforeach
                                 </select>
-                                <small class="text-muted">Enter skills related to this service  <strong style="color:red;">then click enter</strong> (e.g. WordPress, JavaScript, Marketing)</small>
+                                <small class="text-muted">{{ x_('Enter skills related to this service', 'web') }}  <strong style="color:red;">{{ x_('then click enter', 'web') }}</strong> {{ x_('(e.g. WordPress, JavaScript, Marketing)', 'web') }}</small>
                             </div>
                             <!-- Subcategories Section -->
-                            <h6 class="mb-3 fw-bold">Subcategories</h6>
+                            <h6 class="mb-3 fw-bold">{{ x_('Subcategories', 'web') }}</h6>
                             <div class="mb-3">
-                                <label class="form-label">Select Subcategories</label>
+                                <label class="form-label">{{ x_('Select Subcategories', 'web') }}</label>
                                 <select class="select2 form-control bg-light" name="subcategories[]" multiple style="width:100%;">
                                     @foreach($subcategories as $subcategory)
                                         <option value="{{ $subcategory->id }}" {{ in_array($subcategory->id, $service->subcategories->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $subcategory->name }}</option>
@@ -309,8 +309,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Update Service</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'web') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ x_('Update Service', 'web') }}</button>
                         </div>
                     </form>
                 </div>
@@ -371,7 +371,7 @@
             // Handle delete confirmation
             document.querySelectorAll('.delete-form').forEach(form => {
                 form.addEventListener('submit', function(e) {
-                    if (!confirm('Are you sure you want to delete this service? This action cannot be undone.')) {
+                    if (!confirm('{{ x_("Are you sure you want to delete this service? This action cannot be undone.", "web") }}')) {
                         e.preventDefault();
                     }
                 });

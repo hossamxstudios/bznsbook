@@ -1,6 +1,6 @@
 
             <div class="col-lg-8">
-                <h1 class="mb-4 h2">Edit Project</h1>
+                <h1 class="mb-4 h2">{{ x_('Edit Project', 'web') }}</h1>
 
                 @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -23,10 +23,10 @@
                             @method('PUT')
 
                             <!-- Basic Information -->
-                            <h3 class="mb-4 h4">Basic Information</h3>
+                            <h3 class="mb-4 h4">{{ x_('Basic Information', 'web') }}</h3>
 
                             <div class="mb-4">
-                                <label for="name" class="form-label">Project Title</label>
+                                <label for="name" class="form-label">{{ x_('Project Title', 'web') }}</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $project->name) }}" required>
                                 @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -34,16 +34,16 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="details" class="form-label">Brief Description</label>
+                                <label for="details" class="form-label">{{ x_('Brief Description', 'web') }}</label>
                                 <textarea class="form-control @error('details') is-invalid @enderror" id="details" name="details" rows="3">{{ old('details', $project->details) }}</textarea>
                                 @error('details')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                                <small class="text-muted">Provide a short summary of your project (200-300 characters)</small>
+                                <small class="text-muted">{{ x_('Provide a short summary of your project (200-300 characters)', 'web') }}</small>
                             </div>
 
                             <div class="mb-4">
-                                <label for="more_details" class="form-label">Detailed Description</label>
+                                <label for="more_details" class="form-label">{{ x_('Detailed Description', 'web') }}</label>
                                 <textarea class="form-control @error('more_details') is-invalid @enderror" id="more_details" name="more_details" rows="6">{{ old('more_details', $project->more_details) }}</textarea>
                                 @error('more_details')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -52,14 +52,14 @@
 
                             <div class="mb-4 row">
                                 <div class="col-md-6">
-                                    <label for="budget_min" class="form-label">Minimum Budget (EGP)</label>
+                                    <label for="budget_min" class="form-label">{{ x_('Minimum Budget (EGP)', 'web') }}</label>
                                     <input type="number" step="0.01" class="form-control @error('budget_min') is-invalid @enderror" id="budget_min" name="budget_min" value="{{ old('budget_min', $project->budget_min) }}">
                                     @error('budget_min')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="budget_max" class="form-label">Maximum Budget (EGP)</label>
+                                    <label for="budget_max" class="form-label">{{ x_('Maximum Budget (EGP)', 'web') }}</label>
                                     <input type="number" step="0.01" class="form-control @error('budget_max') is-invalid @enderror" id="budget_max" name="budget_max" value="{{ old('budget_max', $project->budget_max) }}">
                                     @error('budget_max')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -68,28 +68,28 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="location" class="form-label">Location</label>
+                                <label for="location" class="form-label">{{ x_('Location', 'web') }}</label>
                                 <input type="text" class="form-control @error('location') is-invalid @enderror" id="location" name="location" value="{{ old('location', $project->location) }}">
                                 @error('location')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                                <small class="text-muted">Specify if the project requires a specific location</small>
+                                <small class="text-muted">{{ x_('Specify if the project requires a specific location', 'web') }}</small>
                             </div>
 
                             <!-- Skills Section -->
                             <div class="mb-4">
-                                <label for="skills" class="form-label">Required Skills (press Enter after each skill)</label>
+                                <label for="skills" class="form-label">{{ x_('Required Skills (press Enter after each skill)', 'web') }}</label>
                                 <div class="skills-input-container">
-                                    <input type="text" class="form-control skills-input" id="skills-input" placeholder="Add skills...">
+                                    <input type="text" class="form-control skills-input" id="skills-input" placeholder="{{ x_('Add skills...', 'web') }}">
                                     <div class="mt-2 skills-tags" id="skills-tags"></div>
                                     <input type="hidden" name="skills" id="skills-hidden">
                                 </div>
-                                <small class="text-muted">Enter skills required for this project (e.g. WordPress, JavaScript, Marketing)</small>
+                                <small class="text-muted">{{ x_('Enter skills required for this project (e.g. WordPress, JavaScript, Marketing)', 'web') }}</small>
                             </div>
 
                             <!-- Services Section -->
                             <div class="mb-4">
-                                <label class="form-label">Related Services</label>
+                                <label class="form-label">{{ x_('Related Services', 'web') }}</label>
                                 <div class="row g-3">
                                     @foreach($services as $service)
                                         <div class="col-md-4">
@@ -107,7 +107,7 @@
 
                             <!-- Project Image -->
                             <div class="mb-4">
-                                <label for="image" class="form-label">Project Image</label>
+                                <label for="image" class="form-label">{{ x_('Project Image', 'web') }}</label>
                                 @if($project->hasMedia('projects'))
                                     <div class="mb-2">
                                         <img src="{{ $project->getFirstMediaUrl('projects') }}" alt="{{ $project->name }}" class="img-thumbnail" style="max-height: 200px;">
@@ -117,13 +117,13 @@
                                 @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                                <small class="text-muted">Optional: Upload a new image to replace the current one</small>
+                                <small class="text-muted">{{ x_('Optional: Upload a new image to replace the current one', 'web') }}</small>
                             </div>
 
                             <div class="mt-4 d-flex justify-content-end">
-                                <a href="{{ route('client.projects.show', $project) }}" class="btn btn-outline-secondary me-2">Cancel</a>
+                                <a href="{{ route('client.projects.show', $project) }}" class="btn btn-outline-secondary me-2">{{ x_('Cancel', 'web') }}</a>
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="bx bx-save me-2"></i>Save Changes
+                                    <i class="bx bx-save me-2"></i>{{ x_('Save Changes', 'web') }}
                                 </button>
                             </div>
                         </form>

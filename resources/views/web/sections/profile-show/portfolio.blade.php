@@ -39,9 +39,9 @@
 <div class="col-md-8 mb-lg-4 pt-md-5 mt-n3 mt-md-0">
     <div class="ps-md-3 ps-lg-0 mt-md-2">
         <div class="mb-4 d-flex align-items-center justify-content-between">
-            <h1 class="mb-0 h2 pt-xl-1">My Portfolio</h1>
+            <h1 class="mb-0 h2 pt-xl-1">{{ x_('My Portfolio', 'web') }}</h1>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPortfolioModal">
-                <i class="bx bx-plus fs-lg me-2"></i>Add Portfolio Item
+                <i class="bx bx-plus fs-lg me-2"></i>{{ x_('Add Portfolio Item', 'web') }}
             </button>
         </div>
 
@@ -89,7 +89,7 @@
                                         data-expertise="{{ json_encode($portfolio->expertise) }}"
                                         data-bs-toggle="tooltip"
                                         data-bs-placement="left"
-                                        title="Edit">
+                                        title="{{ x_('Edit', 'web') }}">
                                     <i class="bx bx-edit"></i>
                                 </button>
 
@@ -100,7 +100,7 @@
                                     <button type="submit" class="bg-white border-white btn btn-icon btn-light btn-sm rounded-circle"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="left"
-                                            title="Delete">
+                                            title="{{ x_('Delete', 'web') }}">
                                         <i class="bx bx-trash"></i>
                                     </button>
                                 </form>
@@ -122,10 +122,10 @@
                                 <a href="{{ route('client.portfolio.show', $portfolio->id) }}">{{ $portfolio->name }}</a>
                             </h3>
                             @if($portfolio->client_name)
-                                <p class="mb-2 fs-sm">Client: {{ $portfolio->client_name }}</p>
+                                <p class="mb-2 fs-sm">{{ x_('Client:', 'web') }} {{ $portfolio->client_name }}</p>
                             @endif
                             @if($portfolio->type)
-                                <p class="mb-0 fw-semibold text-primary">type :{{ $portfolio->type }}</p>
+                                <p class="mb-0 fw-semibold text-primary">{{ x_('type:', 'web') }} {{ $portfolio->type }}</p>
                             @endif
                         </div>
 
@@ -133,7 +133,7 @@
                         <div class="py-4 card-footer d-flex align-items-center fs-sm text-muted">
                             <div class="d-flex align-items-center me-4">
                                 <i class="bx bx-calendar fs-xl me-1"></i>
-                                {{ $portfolio->date ? \Carbon\Carbon::parse($portfolio->date)->format('M Y') : 'No date' }}
+                                {{ $portfolio->date ? \Carbon\Carbon::parse($portfolio->date)->format('M Y') : x_('No date', 'web') }}
                             </div>
                             @if($portfolio->location)
                             <div class="d-flex align-items-center">
@@ -147,7 +147,7 @@
             @empty
                 <div class="col-12">
                     <div class="alert alert-info">
-                        You don't have any portfolio items yet. Add your first project to showcase your work!
+                        {{ x_("You don't have any portfolio items yet. Add your first project to showcase your work!", 'web') }}
                     </div>
                 </div>
             @endforelse
@@ -162,23 +162,23 @@
             <form action="{{ route('client.portfolio.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addPortfolioModalLabel">Add Portfolio Item</h5>
+                    <h5 class="modal-title" id="addPortfolioModalLabel">{{ x_('Add Portfolio Item', 'web') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Basic Info Section -->
-                    <h6 class="mb-3 fw-bold">Basic Information</h6>
+                    <h6 class="mb-3 fw-bold">{{ x_('Basic Information', 'web') }}</h6>
                     <div class="mb-3 row">
                         <div class="col-md-6">
-                            <label for="name" class="form-label">Project Name <span class="text-danger">*</span></label>
+                            <label for="name" class="form-label">{{ x_('Project Name', 'web') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" required>
                             @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-md-6">
-                            <label for="client_name" class="form-label">Client Name</label>
-                            <input type="text" class="form-control @error('client_name') is-invalid @enderror" id="client_name" name="client_name" placeholder="Client or company name">
+                            <label for="client_name" class="form-label">{{ x_('Client Name', 'web') }}</label>
+                            <input type="text" class="form-control @error('client_name') is-invalid @enderror" id="client_name" name="client_name" placeholder="{{ x_('Client or company name', 'web') }}">
                             @error('client_name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -187,22 +187,22 @@
 
                     <div class="mb-3 row">
                         <div class="col-md-4">
-                            <label for="type" class="form-label">Project Type</label>
-                            <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type" placeholder="e.g., Web, Mobile, Design">
+                            <label for="type" class="form-label">{{ x_('Project Type', 'web') }}</label>
+                            <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type" placeholder="{{ x_('e.g., Web, Mobile, Design', 'web') }}">
                             @error('type')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-md-4">
-                            <label for="date" class="form-label">Project Date</label>
+                            <label for="date" class="form-label">{{ x_('Project Date', 'web') }}</label>
                             <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date">
                             @error('date')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-md-4">
-                            <label for="location" class="form-label">Location</label>
-                            <input type="text" class="form-control @error('location') is-invalid @enderror" id="location" name="location" placeholder="Project location">
+                            <label for="location" class="form-label">{{ x_('Location', 'web') }}</label>
+                            <input type="text" class="form-control @error('location') is-invalid @enderror" id="location" name="location" placeholder="{{ x_('Project location', 'web') }}">
                             @error('location')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -210,7 +210,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="project_url" class="form-label">Project URL</label>
+                        <label for="project_url" class="form-label">{{ x_('Project URL', 'web') }}</label>
                         <input type="url" class="form-control @error('project_url') is-invalid @enderror" id="project_url" name="project_url" placeholder="https://">
                         @error('project_url')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -218,44 +218,44 @@
                     </div>
 
                     <!-- Project Details Section -->
-                    <h6 class="mt-4 mb-3 fw-bold">Project Details</h6>
+                    <h6 class="mt-4 mb-3 fw-bold">{{ x_('Project Details', 'web') }}</h6>
                     <div class="mb-3">
-                        <label for="details" class="form-label">Project Details</label>
-                        <textarea class="form-control @error('details') is-invalid @enderror" id="details" name="details" rows="3" placeholder="Describe your project"></textarea>
+                        <label for="details" class="form-label">{{ x_('Project Details', 'web') }}</label>
+                        <textarea class="form-control @error('details') is-invalid @enderror" id="details" name="details" rows="3" placeholder="{{ x_('Describe your project', 'web') }}"></textarea>
                         @error('details')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="challenge" class="form-label">Project Challenge</label>
-                        <textarea class="form-control @error('challenge') is-invalid @enderror" id="challenge" name="challenge" rows="2" placeholder="Describe the challenges faced during this project"></textarea>
+                        <label for="challenge" class="form-label">{{ x_('Project Challenge', 'web') }}</label>
+                        <textarea class="form-control @error('challenge') is-invalid @enderror" id="challenge" name="challenge" rows="2" placeholder="{{ x_('Describe the challenges faced during this project', 'web') }}"></textarea>
                         @error('challenge')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="solution" class="form-label">Project Solution</label>
-                        <textarea class="form-control @error('solution') is-invalid @enderror" id="solution" name="solution" rows="2" placeholder="Describe the solutions you implemented"></textarea>
+                        <label for="solution" class="form-label">{{ x_('Project Solution', 'web') }}</label>
+                        <textarea class="form-control @error('solution') is-invalid @enderror" id="solution" name="solution" rows="2" placeholder="{{ x_('Describe the solutions you implemented', 'web') }}"></textarea>
                         @error('solution')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Areas of Expertise</label>
+                        <label class="form-label">{{ x_('Areas of Expertise', 'web') }}</label>
                         <div id="expertise-container">
                             <div class="mb-2 input-group">
-                                <input type="text" class="form-control" name="expertise[]" placeholder="E.g., Web Design">
+                                <input type="text" class="form-control" name="expertise[]" placeholder="{{ x_('E.g., Web Design', 'web') }}">
                                 <button type="button" class="btn btn-success add-expertise"><i class="bx bx-plus"></i></button>
                             </div>
                         </div>
                         @error('expertise')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
-                        <div class="form-text">Add multiple areas of expertise by clicking the plus button.</div>
+                        <div class="form-text">{{ x_('Add multiple areas of expertise by clicking the plus button.', 'web') }}</div>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Services Used</label>
+                        <label class="form-label">{{ x_('Services Used', 'web') }}</label>
                         <div class="row row-cols-1 row-cols-md-3 g-3">
                             @forelse($services as $service)
                                 <div class="col">
@@ -270,7 +270,7 @@
                                 <div class="col-12">
                                     <div class="mb-0 alert alert-info">
                                         <i class="bx bx-info-circle me-1"></i>
-                                        You don't have any services defined yet. To associate services with your portfolio, please create services first.
+                                        {{ x_("You don't have any services defined yet. To associate services with your portfolio, please create services first.", 'web') }}
                                     </div>
                                 </div>
                             @endforelse
@@ -280,17 +280,17 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="image" class="form-label">Project Image</label>
+                        <label for="image" class="form-label">{{ x_('Project Image', 'web') }}</label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" accept="image/*">
-                        <div class="form-text">Upload a featured image for your project (max 5MB).</div>
+                        <div class="form-text">{{ x_('Upload a featured image for your project (max 5MB).', 'web') }}</div>
                         @error('image')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Add Portfolio Item</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'web') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ x_('Add Portfolio Item', 'web') }}</button>
                 </div>
             </form>
         </div>
@@ -305,68 +305,68 @@
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editPortfolioModalLabel">Edit Portfolio Item</h5>
+                    <h5 class="modal-title" id="editPortfolioModalLabel">{{ x_('Edit Portfolio Item', 'web') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Basic Info Section -->
-                    <h6 class="mb-3 fw-bold">Basic Information</h6>
+                    <h6 class="mb-3 fw-bold">{{ x_('Basic Information', 'web') }}</h6>
                     <div class="mb-3 row">
                         <div class="col-md-6">
-                            <label for="edit_name" class="form-label">Project Name <span class="text-danger">*</span></label>
+                            <label for="edit_name" class="form-label">{{ x_('Project Name', 'web') }} <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="edit_name" name="name" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="edit_client_name" class="form-label">Client Name</label>
-                            <input type="text" class="form-control" id="edit_client_name" name="client_name" placeholder="Client or company name">
+                            <label for="edit_client_name" class="form-label">{{ x_('Client Name', 'web') }}</label>
+                            <input type="text" class="form-control" id="edit_client_name" name="client_name" placeholder="{{ x_('Client or company name', 'web') }}">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <div class="col-md-4">
-                            <label for="edit_type" class="form-label">Project Type</label>
-                            <input type="text" class="form-control" id="edit_type" name="type" placeholder="e.g., Web, Mobile, Design">
+                            <label for="edit_type" class="form-label">{{ x_('Project Type', 'web') }}</label>
+                            <input type="text" class="form-control" id="edit_type" name="type" placeholder="{{ x_('e.g., Web, Mobile, Design', 'web') }}">
                         </div>
                         <div class="col-md-4">
-                            <label for="edit_date" class="form-label">Project Date</label>
+                            <label for="edit_date" class="form-label">{{ x_('Project Date', 'web') }}</label>
                             <input type="date" class="form-control" id="edit_date" name="date">
                         </div>
                         <div class="col-md-4">
-                            <label for="edit_location" class="form-label">Location</label>
-                            <input type="text" class="form-control" id="edit_location" name="location" placeholder="Project location">
+                            <label for="edit_location" class="form-label">{{ x_('Location', 'web') }}</label>
+                            <input type="text" class="form-control" id="edit_location" name="location" placeholder="{{ x_('Project location', 'web') }}">
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="edit_project_url" class="form-label">Project URL</label>
+                        <label for="edit_project_url" class="form-label">{{ x_('Project URL', 'web') }}</label>
                         <input type="url" class="form-control" id="edit_project_url" name="project_url" placeholder="https://">
                     </div>
 
                     <!-- Project Details Section -->
-                    <h6 class="mt-4 mb-3 fw-bold">Project Details</h6>
+                    <h6 class="mt-4 mb-3 fw-bold">{{ x_('Project Details', 'web') }}</h6>
                     <div class="mb-3">
-                        <label for="edit_details" class="form-label">Project Details</label>
-                        <textarea class="form-control" id="edit_details" name="details" rows="3" placeholder="Describe your project"></textarea>
+                        <label for="edit_details" class="form-label">{{ x_('Project Details', 'web') }}</label>
+                        <textarea class="form-control" id="edit_details" name="details" rows="3" placeholder="{{ x_('Describe your project', 'web') }}"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_challenge" class="form-label">Project Challenge</label>
-                        <textarea class="form-control" id="edit_challenge" name="challenge" rows="2" placeholder="Describe the challenges faced during this project"></textarea>
+                        <label for="edit_challenge" class="form-label">{{ x_('Project Challenge', 'web') }}</label>
+                        <textarea class="form-control" id="edit_challenge" name="challenge" rows="2" placeholder="{{ x_('Describe the challenges faced during this project', 'web') }}"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_solution" class="form-label">Project Solution</label>
-                        <textarea class="form-control" id="edit_solution" name="solution" rows="2" placeholder="Describe the solutions you implemented"></textarea>
+                        <label for="edit_solution" class="form-label">{{ x_('Project Solution', 'web') }}</label>
+                        <textarea class="form-control" id="edit_solution" name="solution" rows="2" placeholder="{{ x_('Describe the solutions you implemented', 'web') }}"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Areas of Expertise</label>
+                        <label class="form-label">{{ x_('Areas of Expertise', 'web') }}</label>
                         <div id="edit-expertise-container">
                             <!-- Expertise fields will be dynamically added here via JavaScript -->
                         </div>
-                        <button type="button" class="mt-2 btn btn-sm btn-success" id="edit-add-expertise-btn"><i class="bx bx-plus"></i> Add Another Expertise</button>
-                        <div class="mt-1 form-text">Add multiple areas of expertise by clicking the plus button.</div>
+                        <button type="button" class="mt-2 btn btn-sm btn-success" id="edit-add-expertise-btn"><i class="bx bx-plus"></i> {{ x_('Add Another Expertise', 'web') }}</button>
+                        <div class="mt-1 form-text">{{ x_('Add multiple areas of expertise by clicking the plus button.', 'web') }}</div>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Services Used</label>
+                        <label class="form-label">{{ x_('Services Used', 'web') }}</label>
                         <div class="row row-cols-1 row-cols-md-3 g-3">
                             @forelse($services as $service)
                                 <div class="col">
@@ -381,21 +381,21 @@
                                 <div class="col-12">
                                     <div class="mb-0 alert alert-info">
                                         <i class="bx bx-info-circle me-1"></i>
-                                        You don't have any services defined yet. To associate services with your portfolio, please create services first.
+                                        {{ x_("You don't have any services defined yet. To associate services with your portfolio, please create services first.", 'web') }}
                                     </div>
                                 </div>
                             @endforelse
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_image" class="form-label">Project Image</label>
+                        <label for="edit_image" class="form-label">{{ x_('Project Image', 'web') }}</label>
                         <input type="file" class="form-control" id="edit_image" name="image" accept="image/*">
-                        <div class="form-text">Upload a new image to replace the current one (max 5MB). Leave empty to keep the current image.</div>
+                        <div class="form-text">{{ x_('Upload a new image to replace the current one (max 5MB). Leave empty to keep the current image.', 'web') }}</div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Update Portfolio Item</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'web') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ x_('Update Portfolio Item', 'web') }}</button>
                 </div>
             </form>
         </div>
@@ -410,7 +410,7 @@
         deleteForms.forEach(form => {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                if (confirm('Are you sure you want to delete this portfolio item? This action cannot be undone.')) {
+                if (confirm('{{ x_("Are you sure you want to delete this portfolio item? This action cannot be undone.", "web") }}')) {
                     this.submit();
                 }
             });
@@ -422,7 +422,7 @@
             const newRow = document.createElement('div');
             newRow.className = 'input-group mb-2';
             newRow.innerHTML = `
-                <input type="text" class="form-control" name="expertise[]" placeholder="E.g., Web Design">
+                <input type="text" class="form-control" name="expertise[]" placeholder="{{ x_('E.g., Web Design', 'web') }}">
                 <button type="button" class="btn btn-danger remove-expertise"><i class="bx bx-minus"></i></button>
             `;
             container.appendChild(newRow);
@@ -439,7 +439,7 @@
             const newRow = document.createElement('div');
             newRow.className = 'input-group mb-2';
             newRow.innerHTML = `
-                <input type="text" class="form-control" name="expertise[]" placeholder="E.g., Web Design">
+                <input type="text" class="form-control" name="expertise[]" placeholder="{{ x_('E.g., Web Design', 'web') }}">
                 <button type="button" class="btn btn-danger remove-edit-expertise"><i class="bx bx-minus"></i></button>
             `;
             expertiseContainer.appendChild(newRow);
@@ -501,7 +501,7 @@
                         const newRow = document.createElement('div');
                         newRow.className = 'input-group mb-2';
                         newRow.innerHTML = `
-                            <input type="text" class="form-control" name="expertise[]" value="${item}" placeholder="E.g., Web Design">
+                            <input type="text" class="form-control" name="expertise[]" value="${item}" placeholder="{{ x_('E.g., Web Design', 'web') }}">
                             ${index === 0 ?
                             `<button type="button" class="btn btn-success add-edit-expertise"><i class="bx bx-plus"></i></button>` :
                             `<button type="button" class="btn btn-danger remove-edit-expertise"><i class="bx bx-minus"></i></button>`}
@@ -513,7 +513,7 @@
                     const newRow = document.createElement('div');
                     newRow.className = 'input-group mb-2';
                     newRow.innerHTML = `
-                        <input type="text" class="form-control" name="expertise[]" placeholder="E.g., Web Design">
+                        <input type="text" class="form-control" name="expertise[]" placeholder="{{ x_('E.g., Web Design', 'web') }}">
                         <button type="button" class="btn btn-success add-edit-expertise"><i class="bx bx-plus"></i></button>
                     `;
                     expertiseContainer.appendChild(newRow);
@@ -525,7 +525,7 @@
                         const newRow = document.createElement('div');
                         newRow.className = 'input-group mb-2';
                         newRow.innerHTML = `
-                            <input type="text" class="form-control" name="expertise[]" placeholder="E.g., Web Design">
+                            <input type="text" class="form-control" name="expertise[]" placeholder="{{ x_('E.g., Web Design', 'web') }}">
                             <button type="button" class="btn btn-danger remove-edit-expertise"><i class="bx bx-minus"></i></button>
                         `;
                         expertiseContainer.appendChild(newRow);

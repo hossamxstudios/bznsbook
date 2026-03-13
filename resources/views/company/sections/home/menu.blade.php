@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$requests}}"></span> </h4>
-                <p class="text-muted">Requests</p>
+                <p class="text-muted">{{ x_('Requests', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0">
                 <div class="progress-bar bg-danger" style="width: 100%"></div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$leads}}"></span> </h4>
-                <p class="text-muted">Leads</p>
+                <p class="text-muted">{{ x_('Leads', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0">
                 <div class="progress-bar bg-black" style="width: 100%"></div>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$contacts}}"></span></h4>
-                <p class="text-muted">Contacts</p>
+                <p class="text-muted">{{ x_('Contacts', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0">
                 <div class="progress-bar bg-danger" style="width: 100%"></div>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$companies}}"></span></h4>
-                <p class="text-muted">Companies</p>
+                <p class="text-muted">{{ x_('Companies', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0">
                 <div class="progress-bar bg-black" style="width: 100%"></div>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$deals}}"></span></h4>
-                <p class="text-muted">Deals</p>
+                <p class="text-muted">{{ x_('Deals', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0">
                 <div class="progress-bar bg-danger" style="width: 100%"></div>
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$plans}}"></span> </h4>
-                <p class="text-muted "> Plans</p>
+                <p class="text-muted "> {{ x_('Plans', 'general') }}</p>
 
             </div>
             <div class="progress progress-sm rounded-0">
@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$features}}"></span> </h4>
-                <p class="text-muted "> Features</p>
+                <p class="text-muted "> {{ x_('Features', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                 <div class="progress-bar bg-secondary" style="width: 100%"></div>
@@ -127,7 +127,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$supscriptions}}"></span></h4>
-                <p class="text-muted "> Supscriptions</p>
+                <p class="text-muted "> {{ x_('Supscriptions', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0">
                 <div class="progress-bar bg-danger" style="width: 100%"></div>
@@ -143,7 +143,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$partners}}"></span></h4>
-                <p class="text-muted "> Registered Companies</p>
+                <p class="text-muted "> {{ x_('Registered Companies', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                 <div class="progress-bar bg-secondary" style="width: 100%"></div>
@@ -159,7 +159,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$members}}"></span></h4>
-                <p class="text-muted "> HRs</p>
+                <p class="text-muted "> {{ x_('HRs', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0">
                 <div class="progress-bar bg-danger" style="width: 100%"></div>
@@ -179,7 +179,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$trainees}}"></span> </h4>
-                <p class="text-muted "> Trainees</p>
+                <p class="text-muted "> {{ x_('Trainees', 'general') }}</p>
 
             </div>
             <div class="progress progress-sm rounded-0">
@@ -196,7 +196,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$instructors}}"></span> </h4>
-                <p class="text-muted "> Instructors</p>
+                <p class="text-muted "> {{ x_('Instructors', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                 <div class="progress-bar bg-secondary" style="width: 100%"></div>
@@ -212,7 +212,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$courses}}"></span></h4>
-                <p class="text-muted "> Courses</p>
+                <p class="text-muted "> {{ x_('Courses', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0">
                 <div class="progress-bar bg-danger" style="width: 100%"></div>
@@ -245,7 +245,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$enrollments}}"></span></h4>
-                <p class="text-muted "> Enrollments</p>
+                <p class="text-muted "> {{ x_('Enrollments', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0">
                 <div class="progress-bar bg-danger" style="width: 100%"></div>
@@ -265,7 +265,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$joins}}"></span> </h4>
-                <p class="text-muted "> In Class Enrollments </p>
+                <p class="text-muted "> {{ x_('In Class Enrollments', 'general') }} </p>
 
             </div>
             <div class="progress progress-sm rounded-0">
@@ -282,7 +282,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$activeEnrollments}}"></span> </h4>
-                <p class="text-muted "> Active Enrollments</p>
+                <p class="text-muted "> {{ x_('Active Enrollments', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                 <div class="progress-bar bg-secondary" style="width: 100%"></div>
@@ -298,7 +298,7 @@
                     </div>
                 </div>
                 <h4><span class="counter-value" data-target="{{$passdEnrollments}}"></span></h4>
-                <p class="text-muted "> Passd Enrollments</p>
+                <p class="text-muted "> {{ x_('Passd Enrollments', 'general') }}</p>
             </div>
             <div class="progress progress-sm rounded-0">
                 <div class="progress-bar bg-danger" style="width: 100%"></div>

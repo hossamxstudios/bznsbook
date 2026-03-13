@@ -27,17 +27,17 @@ class SeatController extends Controller
 
         // Check if the client already applied
         if ($project->clientHasApplied(Auth::guard('client')->user()->id)) {
-            return redirect()->back()->with('error', 'You have already applied for this project.');
+            return redirect()->back()->with('error', x_('You have already applied for this project.', 'controller'));
         }
-        
+
         // Check if the client has an active subscription
         if (!Auth::guard('client')->user()->hasActiveSubscription()) {
-            return redirect()->back()->with('error', 'You need an active subscription to apply for project seats.');
+            return redirect()->back()->with('error', x_('You need an active subscription to apply for project seats.', 'controller'));
         }
 
         // Check if the project is accepting applications
         if ($project->status !== Project::STATUS_ACTIVE) {
-            return redirect()->back()->with('error', 'This project is not accepting applications at this time.');
+            return redirect()->back()->with('error', x_('This project is not accepting applications at this time.', 'controller'));
         }
 
         // Find an active batch with available seats
@@ -45,7 +45,7 @@ class SeatController extends Controller
             return $batch->hasAvailableSeats();
         });
         if (!$batch) {
-            return redirect()->back()->with('error', 'No available seats in current batches for this project.');
+            return redirect()->back()->with('error', x_('No available seats in current batches for this project.', 'controller'));
         }
 
         // Create a seat for this client
@@ -70,7 +70,7 @@ class SeatController extends Controller
                 ->toMediaCollection('proposals');
         }
 
-        return redirect()->back()->with('success', 'You have successfully applied for this project.');
+        return redirect()->back()->with('success', x_('You have successfully applied for this project.', 'controller'));
     }
 
     /**
@@ -112,7 +112,7 @@ class SeatController extends Controller
 
         $seat->save();
 
-        return redirect()->back()->with('success', 'Application status updated successfully.');
+        return redirect()->back()->with('success', x_('Application status updated successfully.', 'controller'));
     }
 
     /**
@@ -122,22 +122,22 @@ class SeatController extends Controller
     {
         // Check if the authenticated user owns this application
         if (Auth::guard('client')->user()->id !== $seat->client_id) {
-            return redirect()->back()->with('error', 'You are not authorized to cancel this application.');
+            return redirect()->back()->with('error', x_('You are not authorized to cancel this application.', 'controller'));
         }
-        
+
         // Check if the client has an active subscription
         if (!Auth::guard('client')->user()->hasActiveSubscription()) {
-            return redirect()->back()->with('error', 'You need an active subscription to cancel this application.');
+            return redirect()->back()->with('error', x_('You need an active subscription to cancel this application.', 'controller'));
         }
 
         // Check if the application can be cancelled
         if ($seat->is_accepted || $seat->is_rejected) {
-            return redirect()->back()->with('error', 'This application cannot be cancelled.');
+            return redirect()->back()->with('error', x_('This application cannot be cancelled.', 'controller'));
         }
 
         $seat->delete();
 
-        return redirect()->back()->with('success', 'Your application has been cancelled.');
+        return redirect()->back()->with('success', x_('Your application has been cancelled.', 'controller'));
     }
 
     /**
@@ -147,12 +147,12 @@ class SeatController extends Controller
     {
         // Check if the seat belongs to the authenticated client
         if (Auth::guard('client')->user()->id !== $seat->client_id) {
-            return redirect()->back()->with('error', 'You are not authorized to upload a proposal for this seat.');
+            return redirect()->back()->with('error', x_('You are not authorized to upload a proposal for this seat.', 'controller'));
         }
-        
+
         // Check if the client has an active subscription
         if (!Auth::guard('client')->user()->hasActiveSubscription()) {
-            return redirect()->back()->with('error', 'You need an active subscription to upload a proposal.');
+            return redirect()->back()->with('error', x_('You need an active subscription to upload a proposal.', 'controller'));
         }
 
         // Validate the request
@@ -184,7 +184,7 @@ class SeatController extends Controller
 
         $seat->save();
 
-        return redirect()->back()->with('success', 'Proposal uploaded successfully.');
+        return redirect()->back()->with('success', x_('Proposal uploaded successfully.', 'controller'));
     }
 
     /**
@@ -194,12 +194,12 @@ class SeatController extends Controller
     {
         // Check if the seat belongs to the authenticated client
         if (Auth::guard('client')->user()->id !== $seat->client_id) {
-            return redirect()->back()->with('error', 'You are not authorized to mark this seat as contacted.');
+            return redirect()->back()->with('error', x_('You are not authorized to mark this seat as contacted.', 'controller'));
         }
-        
+
         // Check if the client has an active subscription
         if (!Auth::guard('client')->user()->hasActiveSubscription()) {
-            return redirect()->back()->with('error', 'You need an active subscription to mark this seat as contacted.');
+            return redirect()->back()->with('error', x_('You need an active subscription to mark this seat as contacted.', 'controller'));
         }
 
         // Update seat status
@@ -208,6 +208,6 @@ class SeatController extends Controller
         $seat->contacted_at = now();
         $seat->save();
 
-        return redirect()->back()->with('success', 'Seat marked as contacted successfully.');
+        return redirect()->back()->with('success', x_('Seat marked as contacted successfully.', 'controller'));
     }
 }

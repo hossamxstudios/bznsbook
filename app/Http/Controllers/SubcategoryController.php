@@ -39,7 +39,7 @@ class SubcategoryController extends Controller
         ]);
 
         return redirect()->route('subcategories.index')
-            ->with('success', 'Subcategory created successfully.');
+            ->with('success', x_('Subcategory created successfully.', 'controller'));
     }
 
     public function update(Request $request, $id)
@@ -66,7 +66,7 @@ class SubcategoryController extends Controller
         ]);
 
         return redirect()->route('subcategories.index')
-            ->with('success', 'Subcategory updated successfully.');
+            ->with('success', x_('Subcategory updated successfully.', 'controller'));
     }
 
     public function destroy($id)
@@ -76,12 +76,12 @@ class SubcategoryController extends Controller
         // Check if the subcategory has any clients
         if ($subcategory->clients()->count() > 0) {
             return redirect()->route('subcategories.index')
-                ->with('error', 'Cannot delete subcategory because it has associated clients.');
+                ->with('error', x_('Cannot delete subcategory because it has associated clients.', 'controller'));
         }
 
         $subcategory->delete();
 
         return redirect()->route('subcategories.index')
-            ->with('success', 'Subcategory deleted successfully.');
+            ->with('success', x_('Subcategory deleted successfully.', 'controller'));
     }
 }

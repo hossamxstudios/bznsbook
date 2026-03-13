@@ -19,15 +19,15 @@
                                                     <input type="checkbox" class="form-check-input form-check-theme check-select-all cked" id="customCheck1">
                                                 </span>
                                             </th>
-                                            <th>Company Name</th>
-                                            <th>Email</th>
-                                            <th>Decision Maker</th>
-                                            <th>Industry</th>
-                                            <th>Headcount</th>
-                                            <th>Domain</th>
-                                            <th>Linkedin</th>
-                                            <th>Source</th>
-                                            <th>Create Date</th>
+                                            <th>{{ x_('Company Name', 'general') }}</th>
+                                            <th>{{ x_('Email', 'general') }}</th>
+                                            <th>{{ x_('Decision Maker', 'general') }}</th>
+                                            <th>{{ x_('Industry', 'general') }}</th>
+                                            <th>{{ x_('Headcount', 'general') }}</th>
+                                            <th>{{ x_('Domain', 'general') }}</th>
+                                            <th>{{ x_('Linkedin', 'general') }}</th>
+                                            <th>{{ x_('Source', 'general') }}</th>
+                                            <th>{{ x_('Create Date', 'general') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -37,7 +37,7 @@
                                                 <input type="checkbox" name="checkeds[]" value="{{ $company->id }}" class="cked form-check-input" id="chk_sel_3"> #{{ $company->id }}
                                             </td>
                                             <td style="background: white">
-                                                <button type="button" class="btn btn-link p-0 view-details-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasShow{{$company->id}}" title="View Details">
+                                                <button type="button" class="btn btn-link p-0 view-details-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasShow{{$company->id}}" title="{{ x_('View Details', 'general') }}">
                                                     {{ $company->name }}
                                                 </button>
                                                 <a class="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover dropdown-toggle no-caret" href="#" data-bs-toggle="dropdown" style="margin-left: 30px;">
@@ -46,8 +46,8 @@
                                                     </span>
                                                 </a>
                                                 <div role="menu" class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$company->id}}">Edit</a>
-                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$company->id}}">Delete</a>
+                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$company->id}}">{{ x_('Edit', 'general') }}</a>
+                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$company->id}}">{{ x_('Delete', 'general') }}</a>
                                                 </div>
                                             </td>
                                             <td>{{ $company->email?? 'N/A' }}</td>
@@ -57,7 +57,7 @@
                                             <td><a href="{{ $company->website }}" target="_blank">{{ $company->website ?? 'N/A' }}</a></td>
                                             <td>
                                                 @if($company->social_media)
-                                                    <a href="{{ $company->social_media }}" target="_blank">Linkedin</a>
+                                                    <a href="{{ $company->social_media }}" target="_blank">{{ x_('Linkedin', 'general') }}</a>
                                                 @else
                                                     N/A
                                                 @endif

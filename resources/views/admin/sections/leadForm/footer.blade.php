@@ -2,10 +2,10 @@
     <footer class="container-xxl footer">
         <div class="row h-auto">
             <div class="col-xl-4">
-                <p class="footer-text"><span class="copy-text">BZNSBOOKHR © 2025 All rights reserved.</span> <a href="#" class="" target="_blank">Privacy Policy</a> </p>
+                <p class="footer-text"><span class="copy-text">{{ x_('BZNSBOOKHR © 2025 All rights reserved.', 'admin') }}</span> <a href="#" class="" target="_blank">{{ x_('Privacy Policy', 'admin') }}</a> </p>
             </div>
             <div class="col-xl-4 d-flex justify-content-center align-items-center">
-                <h6 class="px-3 m-0"><span class="copy-text">Powered By   </h6>
+                <h6 class="px-3 m-0"><span class="copy-text">{{ x_('Powered By', 'admin') }}   </h6>
                 <img class="brand-img d-inline-block img-fluid py-2" style="width: 152px" src="{{ URL::asset('crmlogo.png') }}" alt="brand" />
             </div>
             <div class="col-xl-4">

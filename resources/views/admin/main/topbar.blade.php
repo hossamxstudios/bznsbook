@@ -21,10 +21,32 @@
                     <div class="d-flex flex-wrap justify-content-between flex-1">
                         <div>
                             <div class="pg-subtitle">
-                                Analytics
+                                {{ x_('Analytics', 'topbar') }}
                             </div>
                         </div>
-                        <div class="pg-header-action-wrap position-relative">
+                        <div class="pg-header-action-wrap position-relative d-flex align-items-center gap-2">
+                            {{-- Locale Switcher --}}
+                            @auth
+                            <div class="dropdown">
+                                <a href="#" class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover dropdown-toggle no-caret" data-bs-toggle="dropdown">
+                                    <span class="icon"><i data-feather="globe"></i></span>
+                                    <span class="badge badge-sm badge-soft-primary ms-1" style="font-size:10px;">{{ strtoupper(app()->getLocale()) }}</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" style="min-width:160px;">
+                                    <h6 class="dropdown-header">{{ x_('Language', 'topbar') }}</h6>
+                                    @php $allLocales = array_merge(['en' => 'English'], function_exists('active_locales') ? active_locales() : []); @endphp
+                                    @foreach($allLocales as $code => $name)
+                                    <form action="{{ route('locale.switch') }}" method="POST" class="d-inline">
+                                        @csrf
+                                        <input type="hidden" name="locale" value="{{ $code }}">
+                                        <button type="submit" class="dropdown-item {{ app()->getLocale() === $code ? 'active' : '' }}">
+                                            {{ $name }} <small class="text-muted">({{ $code }})</small>
+                                        </button>
+                                    </form>
+                                    @endforeach
+                                </div>
+                            </div>
+                            @endauth
                             <form action="/" method="GET" id="dateFilterForm">
                                 <div class="input-group w-300p d-md-flex d-none">
                                     <span class="input-affix-wrapper">
@@ -50,7 +72,7 @@
                                     <line x1="4" y1="20" x2="18" y2="20"></line>
                                 </svg>
                             </span></span>
-                            <span class="nav-link-text">Overview</span>
+                            <span class="nav-link-text">{{ x_('Overview', 'topbar') }}</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -63,7 +85,7 @@
                                     <circle cx="14.5" cy="7.5" r="4.5"></circle>
                                 </svg>
                             </span></span>
-                            <span class="nav-link-text">Analytics</span>
+                            <span class="nav-link-text">{{ x_('Analytics', 'topbar') }}</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -79,7 +101,7 @@
                                     <circle cx="8.5" cy="15.5" r="4.5"></circle>
                                 </svg>
                             </span></span>
-                            <span class="nav-link-text">Operations</span>
+                            <span class="nav-link-text">{{ x_('Operations', 'topbar') }}</span>
                         </a>
                     </li>
                 </ul>

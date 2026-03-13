@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalgridLabel">Delete Topic</h5>
+                <h5 class="modal-title" id="deleteModalgridLabel">{{ x_('Delete Topic', 'admin') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -11,15 +11,15 @@
                     <div class="icon-box">
                         <i class="ri-delete-bin-line"></i>
                     </div>
-                    <h5>Are you sure you want to delete this topic?</h5>
-                    <p class="text-danger mb-0">This will also delete all associated blogs!</p>
+                    <h5>{{ x_('Are you sure you want to delete this topic?', 'admin') }}</h5>
+                    <p class="text-danger mb-0">{{ x_('This will also delete all associated blogs!', 'admin') }}</p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'admin') }}</button>
                 <form action="{{ route('topics.destroy', ['id' => $topic->id]) }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">{{ x_('Delete', 'admin') }}</button>
                 </form>
             </div>
         </div>

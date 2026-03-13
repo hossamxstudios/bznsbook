@@ -5,7 +5,7 @@
                 <div class="col-md-12 mb-md-4 mb-3">
                     <div class="card rounded-8 mb-0">
                         <div class="card-header card-header-action">
-                            <h6>Pipelines
+                            <h6>{{ x_('Pipelines', 'pipelines') }}
                                 <span class="badge badge-sm badge-light ms-1">{{$pipelines->count()}}</span>
                             </h6>
                         </div>
@@ -14,17 +14,17 @@
                                 <table id="datable_2" class="table nowrap w-100">
                                     <thead >
                                         <tr>
-                                            <th>Pipeline Name</th>
-                                            <th>&nbsp;</th>
-                                            <th>Pipeline Type</th>
-                                            <th>Pipeline Stages</th>
+                                            <th>{{ x_('Pipeline Name', 'pipelines') }}</th>
+                                            <th>{{ x_('&nbsp;', 'pipelines') }}</th>
+                                            <th>{{ x_('Pipeline Type', 'pipelines') }}</th>
+                                            <th>{{ x_('Pipeline Stages', 'pipelines') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($pipelines as $pipeline)
                                         <tr class="hover-row">
                                             <td style="background: white">
-                                                <button type="button" class="btn btn-link p-0 view-details-btn" onclick="window.location.href='{{ route('deals.show', ['id' => $pipeline->id]) }}'" title="View Details">
+                                                <button type="button" class="btn btn-link p-0 view-details-btn" onclick="window.location.href='{{ route('deals.show', ['id' => $pipeline->id]) }}'" title="{{ x_('View Details', 'pipelines') }}">
                                                     {{ $pipeline->name }}
                                                 </button>
                                             </td>
@@ -35,8 +35,8 @@
                                                     </span>
                                                 </a>
                                                 <div role="menu" class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{ $pipeline->id }}">Edit</a>
-                                                    <a class="dropdown-item delete-tasklist" href="#"  data-bs-toggle="modal" data-bs-target="#deleteModalPipeline{{ $pipeline->id }}">Delete</a>
+                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{ $pipeline->id }}">{{ x_('Edit', 'pipelines') }}</a>
+                                                    <a class="dropdown-item delete-tasklist" href="#"  data-bs-toggle="modal" data-bs-target="#deleteModalPipeline{{ $pipeline->id }}">{{ x_('Delete', 'pipelines') }}</a>
                                                 </div>
                                             </td>
                                             <td>{{ $pipeline->type }}</td>

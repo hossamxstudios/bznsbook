@@ -1,22 +1,22 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUpdate{{$topic->id}}" aria-labelledby="offcanvasUpdateLabel" style="width:570px;">
     <div class="offcanvas-header" style="background: #474e5d;">
-        <h5 id="offcanvasUpdateLabel" style="color:aliceblue">Update Topic</h5>
+        <h5 id="offcanvasUpdateLabel" style="color:aliceblue">{{ x_('Update Topic', 'admin') }}</h5>
         <button type="button" class="text-white btn-close" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
     </div>
     <div class="offcanvas-body">
         <form action="{{ route('topics.update', ['id' => $topic->id]) }}" method="POST" class="needs-validation" novalidate>
             @csrf
             <div class="mb-3 position-relative">
-                <label for="name" class="form-label">Topic Name</label>
+                <label for="name" class="form-label">{{ x_('Topic Name', 'admin') }}</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $topic->name }}" required>
                 @error('name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @else
-                    <div class="invalid-feedback">Please enter a topic name</div>
+                    <div class="invalid-feedback">{{ x_('Please enter a topic name', 'admin') }}</div>
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-primary">Update Topic</button>
+            <button type="submit" class="btn btn-primary">{{ x_('Update Topic', 'admin') }}</button>
         </form>
     </div>
 </div>

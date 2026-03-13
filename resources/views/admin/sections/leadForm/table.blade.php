@@ -5,287 +5,287 @@
                 <div class="col-md-12 mb-md-4 mb-3">
                     <div class="card rounded-8 mb-0">
                         <div class="card-header card-header-action">
-                            <h6>Submit Form</h6>
+                            <h6>{{ x_('Submit Form', 'admin') }}</h6>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('admin.leadForm.apply') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="name" class="form-label"> Name *</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter first name" required>
+                                        <label for="name" class="form-label"> {{ x_('Name *', 'admin') }}</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="{{ x_('Enter first name', 'admin') }}" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="phone" class="form-label">Phone *</label>
+                                        <label for="phone" class="form-label">{{ x_('Phone *', 'admin') }}</label>
                                         <div class="input-group">
                                             <select class="form-select" id="country_code" name="country_code" required style="max-width: 140px;">
-                                                <option value="93">Afghanistan (+93)</option>
-                                                <option value="355">Albania (+355)</option>
-                                                <option value="213">Algeria (+213)</option>
-                                                <option value="1684">American Samoa (+1684)</option>
-                                                <option value="376">Andorra (+376)</option>
-                                                <option value="244">Angola (+244)</option>
-                                                <option value="1264">Anguilla (+1264)</option>
-                                                <option value="672">Antarctica (+672)</option>
-                                                <option value="1268">Antigua and Barbuda (+1268)</option>
-                                                <option value="54">Argentina (+54)</option>
-                                                <option value="374">Armenia (+374)</option>
-                                                <option value="297">Aruba (+297)</option>
-                                                <option value="61">Australia (+61)</option>
-                                                <option value="43">Austria (+43)</option>
-                                                <option value="994">Azerbaijan (+994)</option>
-                                                <option value="1242">Bahamas (+1242)</option>
-                                                <option value="973">Bahrain (+973)</option>
-                                                <option value="880">Bangladesh (+880)</option>
-                                                <option value="1246">Barbados (+1246)</option>
-                                                <option value="375">Belarus (+375)</option>
-                                                <option value="32">Belgium (+32)</option>
-                                                <option value="501">Belize (+501)</option>
-                                                <option value="229">Benin (+229)</option>
-                                                <option value="1441">Bermuda (+1441)</option>
-                                                <option value="975">Bhutan (+975)</option>
-                                                <option value="591">Bolivia (+591)</option>
-                                                <option value="387">Bosnia and Herzegovina (+387)</option>
-                                                <option value="267">Botswana (+267)</option>
-                                                <option value="55">Brazil (+55)</option>
-                                                <option value="246">British Indian Ocean Territory (+246)</option>
-                                                <option value="1284">British Virgin Islands (+1284)</option>
-                                                <option value="673">Brunei (+673)</option>
-                                                <option value="359">Bulgaria (+359)</option>
-                                                <option value="226">Burkina Faso (+226)</option>
-                                                <option value="257">Burundi (+257)</option>
-                                                <option value="855">Cambodia (+855)</option>
-                                                <option value="237">Cameroon (+237)</option>
-                                                <option value="1">Canada (+1)</option>
-                                                <option value="238">Cape Verde (+238)</option>
-                                                <option value="1345">Cayman Islands (+1345)</option>
-                                                <option value="236">Central African Republic (+236)</option>
-                                                <option value="235">Chad (+235)</option>
-                                                <option value="56">Chile (+56)</option>
-                                                <option value="86">China (+86)</option>
-                                                <option value="61">Christmas Island (+61)</option>
-                                                <option value="61">Cocos Islands (+61)</option>
-                                                <option value="57">Colombia (+57)</option>
-                                                <option value="269">Comoros (+269)</option>
-                                                <option value="682">Cook Islands (+682)</option>
-                                                <option value="506">Costa Rica (+506)</option>
-                                                <option value="385">Croatia (+385)</option>
-                                                <option value="53">Cuba (+53)</option>
-                                                <option value="599">Curacao (+599)</option>
-                                                <option value="357">Cyprus (+357)</option>
-                                                <option value="420">Czech Republic (+420)</option>
-                                                <option value="243">Democratic Republic of the Congo (+243)</option>
-                                                <option value="45">Denmark (+45)</option>
-                                                <option value="253">Djibouti (+253)</option>
-                                                <option value="1767">Dominica (+1767)</option>
-                                                <option value="1809">Dominican Republic (+1809)</option>
-                                                <option value="670">East Timor (+670)</option>
-                                                <option value="593">Ecuador (+593)</option>
-                                                <option value="20" selected>Egypt (+20)</option>
-                                                <option value="503">El Salvador (+503)</option>
-                                                <option value="240">Equatorial Guinea (+240)</option>
-                                                <option value="291">Eritrea (+291)</option>
-                                                <option value="372">Estonia (+372)</option>
-                                                <option value="251">Ethiopia (+251)</option>
-                                                <option value="500">Falkland Islands (+500)</option>
-                                                <option value="298">Faroe Islands (+298)</option>
-                                                <option value="679">Fiji (+679)</option>
-                                                <option value="358">Finland (+358)</option>
-                                                <option value="33">France (+33)</option>
-                                                <option value="689">French Polynesia (+689)</option>
-                                                <option value="241">Gabon (+241)</option>
-                                                <option value="220">Gambia (+220)</option>
-                                                <option value="995">Georgia (+995)</option>
-                                                <option value="49">Germany (+49)</option>
-                                                <option value="233">Ghana (+233)</option>
-                                                <option value="350">Gibraltar (+350)</option>
-                                                <option value="30">Greece (+30)</option>
-                                                <option value="299">Greenland (+299)</option>
-                                                <option value="1473">Grenada (+1473)</option>
-                                                <option value="1671">Guam (+1671)</option>
-                                                <option value="502">Guatemala (+502)</option>
-                                                <option value="44-1481">Guernsey (+44-1481)</option>
-                                                <option value="224">Guinea (+224)</option>
-                                                <option value="245">Guinea-Bissau (+245)</option>
-                                                <option value="592">Guyana (+592)</option>
-                                                <option value="509">Haiti (+509)</option>
-                                                <option value="504">Honduras (+504)</option>
-                                                <option value="852">Hong Kong (+852)</option>
-                                                <option value="36">Hungary (+36)</option>
-                                                <option value="354">Iceland (+354)</option>
-                                                <option value="91">India (+91)</option>
-                                                <option value="62">Indonesia (+62)</option>
-                                                <option value="98">Iran (+98)</option>
-                                                <option value="964">Iraq (+964)</option>
-                                                <option value="353">Ireland (+353)</option>
-                                                <option value="44-1624">Isle of Man (+44-1624)</option>
-                                                <option value="972">Israel (+972)</option>
-                                                <option value="39">Italy (+39)</option>
-                                                <option value="225">Ivory Coast (+225)</option>
-                                                <option value="1876">Jamaica (+1876)</option>
-                                                <option value="81">Japan (+81)</option>
-                                                <option value="44-1534">Jersey (+44-1534)</option>
-                                                <option value="962">Jordan (+962)</option>
-                                                <option value="7">Kazakhstan (+7)</option>
-                                                <option value="254">Kenya (+254)</option>
-                                                <option value="686">Kiribati (+686)</option>
-                                                <option value="383">Kosovo (+383)</option>
-                                                <option value="965">Kuwait (+965)</option>
-                                                <option value="996">Kyrgyzstan (+996)</option>
-                                                <option value="856">Laos (+856)</option>
-                                                <option value="371">Latvia (+371)</option>
-                                                <option value="961">Lebanon (+961)</option>
-                                                <option value="266">Lesotho (+266)</option>
-                                                <option value="231">Liberia (+231)</option>
-                                                <option value="218">Libya (+218)</option>
-                                                <option value="423">Liechtenstein (+423)</option>
-                                                <option value="370">Lithuania (+370)</option>
-                                                <option value="352">Luxembourg (+352)</option>
-                                                <option value="853">Macau (+853)</option>
-                                                <option value="389">Macedonia (+389)</option>
-                                                <option value="261">Madagascar (+261)</option>
-                                                <option value="265">Malawi (+265)</option>
-                                                <option value="60">Malaysia (+60)</option>
-                                                <option value="960">Maldives (+960)</option>
-                                                <option value="223">Mali (+223)</option>
-                                                <option value="356">Malta (+356)</option>
-                                                <option value="692">Marshall Islands (+692)</option>
-                                                <option value="222">Mauritania (+222)</option>
-                                                <option value="230">Mauritius (+230)</option>
-                                                <option value="262">Mayotte (+262)</option>
-                                                <option value="52">Mexico (+52)</option>
-                                                <option value="691">Micronesia (+691)</option>
-                                                <option value="373">Moldova (+373)</option>
-                                                <option value="377">Monaco (+377)</option>
-                                                <option value="976">Mongolia (+976)</option>
-                                                <option value="382">Montenegro (+382)</option>
-                                                <option value="1664">Montserrat (+1664)</option>
-                                                <option value="212">Morocco (+212)</option>
-                                                <option value="258">Mozambique (+258)</option>
-                                                <option value="95">Myanmar (+95)</option>
-                                                <option value="264">Namibia (+264)</option>
-                                                <option value="674">Nauru (+674)</option>
-                                                <option value="977">Nepal (+977)</option>
-                                                <option value="31">Netherlands (+31)</option>
-                                                <option value="599">Netherlands Antilles (+599)</option>
-                                                <option value="687">New Caledonia (+687)</option>
-                                                <option value="64">New Zealand (+64)</option>
-                                                <option value="505">Nicaragua (+505)</option>
-                                                <option value="227">Niger (+227)</option>
-                                                <option value="234">Nigeria (+234)</option>
-                                                <option value="683">Niue (+683)</option>
-                                                <option value="850">North Korea (+850)</option>
-                                                <option value="1670">Northern Mariana Islands (+1670)</option>
-                                                <option value="47">Norway (+47)</option>
-                                                <option value="968">Oman (+968)</option>
-                                                <option value="92">Pakistan (+92)</option>
-                                                <option value="680">Palau (+680)</option>
-                                                <option value="970">Palestine (+970)</option>
-                                                <option value="507">Panama (+507)</option>
-                                                <option value="675">Papua New Guinea (+675)</option>
-                                                <option value="595">Paraguay (+595)</option>
-                                                <option value="51">Peru (+51)</option>
-                                                <option value="63">Philippines (+63)</option>
-                                                <option value="64">Pitcairn (+64)</option>
-                                                <option value="48">Poland (+48)</option>
-                                                <option value="351">Portugal (+351)</option>
-                                                <option value="1787">Puerto Rico (+1787)</option>
-                                                <option value="974">Qatar (+974)</option>
-                                                <option value="242">Republic of the Congo (+242)</option>
-                                                <option value="262">Reunion (+262)</option>
-                                                <option value="40">Romania (+40)</option>
-                                                <option value="7">Russia (+7)</option>
-                                                <option value="250">Rwanda (+250)</option>
-                                                <option value="590">Saint Barthelemy (+590)</option>
-                                                <option value="290">Saint Helena (+290)</option>
-                                                <option value="1869">Saint Kitts and Nevis (+1869)</option>
-                                                <option value="1758">Saint Lucia (+1758)</option>
-                                                <option value="590">Saint Martin (+590)</option>
-                                                <option value="508">Saint Pierre and Miquelon (+508)</option>
-                                                <option value="1784">Saint Vincent and the Grenadines (+1784)</option>
-                                                <option value="685">Samoa (+685)</option>
-                                                <option value="378">San Marino (+378)</option>
-                                                <option value="239">Sao Tome and Principe (+239)</option>
-                                                <option value="966">Saudi Arabia (+966)</option>
-                                                <option value="221">Senegal (+221)</option>
-                                                <option value="381">Serbia (+381)</option>
-                                                <option value="248">Seychelles (+248)</option>
-                                                <option value="232">Sierra Leone (+232)</option>
-                                                <option value="65">Singapore (+65)</option>
-                                                <option value="1721">Sint Maarten (+1721)</option>
-                                                <option value="421">Slovakia (+421)</option>
-                                                <option value="386">Slovenia (+386)</option>
-                                                <option value="677">Solomon Islands (+677)</option>
-                                                <option value="252">Somalia (+252)</option>
-                                                <option value="27">South Africa (+27)</option>
-                                                <option value="82">South Korea (+82)</option>
-                                                <option value="211">South Sudan (+211)</option>
-                                                <option value="34">Spain (+34)</option>
-                                                <option value="94">Sri Lanka (+94)</option>
-                                                <option value="249">Sudan (+249)</option>
-                                                <option value="597">Suriname (+597)</option>
-                                                <option value="47">Svalbard and Jan Mayen (+47)</option>
-                                                <option value="268">Swaziland (+268)</option>
-                                                <option value="46">Sweden (+46)</option>
-                                                <option value="41">Switzerland (+41)</option>
-                                                <option value="963">Syria (+963)</option>
-                                                <option value="886">Taiwan (+886)</option>
-                                                <option value="992">Tajikistan (+992)</option>
-                                                <option value="255">Tanzania (+255)</option>
-                                                <option value="66">Thailand (+66)</option>
-                                                <option value="228">Togo (+228)</option>
-                                                <option value="690">Tokelau (+690)</option>
-                                                <option value="676">Tonga (+676)</option>
-                                                <option value="1868">Trinidad and Tobago (+1868)</option>
-                                                <option value="216">Tunisia (+216)</option>
-                                                <option value="90">Turkey (+90)</option>
-                                                <option value="993">Turkmenistan (+993)</option>
-                                                <option value="1649">Turks and Caicos Islands (+1649)</option>
-                                                <option value="688">Tuvalu (+688)</option>
-                                                <option value="1340">U.S. Virgin Islands (+1340)</option>
-                                                <option value="256">Uganda (+256)</option>
-                                                <option value="380">Ukraine (+380)</option>
-                                                <option value="971">United Arab Emirates (+971)</option>
-                                                <option value="44">United Kingdom (+44)</option>
-                                                <option value="1">United States (+1)</option>
-                                                <option value="598">Uruguay (+598)</option>
-                                                <option value="998">Uzbekistan (+998)</option>
-                                                <option value="678">Vanuatu (+678)</option>
-                                                <option value="379">Vatican (+379)</option>
-                                                <option value="58">Venezuela (+58)</option>
-                                                <option value="84">Vietnam (+84)</option>
-                                                <option value="681">Wallis and Futuna (+681)</option>
-                                                <option value="212">Western Sahara (+212)</option>
-                                                <option value="967">Yemen (+967)</option>
-                                                <option value="260">Zambia (+260)</option>
-                                                <option value="263">Zimbabwe (+263)</option>
+                                                <option value="93">{{ x_('Afghanistan (+93)', 'admin') }}</option>
+                                                <option value="355">{{ x_('Albania (+355)', 'admin') }}</option>
+                                                <option value="213">{{ x_('Algeria (+213)', 'admin') }}</option>
+                                                <option value="1684">{{ x_('American Samoa (+1684)', 'admin') }}</option>
+                                                <option value="376">{{ x_('Andorra (+376)', 'admin') }}</option>
+                                                <option value="244">{{ x_('Angola (+244)', 'admin') }}</option>
+                                                <option value="1264">{{ x_('Anguilla (+1264)', 'admin') }}</option>
+                                                <option value="672">{{ x_('Antarctica (+672)', 'admin') }}</option>
+                                                <option value="1268">{{ x_('Antigua and Barbuda (+1268)', 'admin') }}</option>
+                                                <option value="54">{{ x_('Argentina (+54)', 'admin') }}</option>
+                                                <option value="374">{{ x_('Armenia (+374)', 'admin') }}</option>
+                                                <option value="297">{{ x_('Aruba (+297)', 'admin') }}</option>
+                                                <option value="61">{{ x_('Australia (+61)', 'admin') }}</option>
+                                                <option value="43">{{ x_('Austria (+43)', 'admin') }}</option>
+                                                <option value="994">{{ x_('Azerbaijan (+994)', 'admin') }}</option>
+                                                <option value="1242">{{ x_('Bahamas (+1242)', 'admin') }}</option>
+                                                <option value="973">{{ x_('Bahrain (+973)', 'admin') }}</option>
+                                                <option value="880">{{ x_('Bangladesh (+880)', 'admin') }}</option>
+                                                <option value="1246">{{ x_('Barbados (+1246)', 'admin') }}</option>
+                                                <option value="375">{{ x_('Belarus (+375)', 'admin') }}</option>
+                                                <option value="32">{{ x_('Belgium (+32)', 'admin') }}</option>
+                                                <option value="501">{{ x_('Belize (+501)', 'admin') }}</option>
+                                                <option value="229">{{ x_('Benin (+229)', 'admin') }}</option>
+                                                <option value="1441">{{ x_('Bermuda (+1441)', 'admin') }}</option>
+                                                <option value="975">{{ x_('Bhutan (+975)', 'admin') }}</option>
+                                                <option value="591">{{ x_('Bolivia (+591)', 'admin') }}</option>
+                                                <option value="387">{{ x_('Bosnia and Herzegovina (+387)', 'admin') }}</option>
+                                                <option value="267">{{ x_('Botswana (+267)', 'admin') }}</option>
+                                                <option value="55">{{ x_('Brazil (+55)', 'admin') }}</option>
+                                                <option value="246">{{ x_('British Indian Ocean Territory (+246)', 'admin') }}</option>
+                                                <option value="1284">{{ x_('British Virgin Islands (+1284)', 'admin') }}</option>
+                                                <option value="673">{{ x_('Brunei (+673)', 'admin') }}</option>
+                                                <option value="359">{{ x_('Bulgaria (+359)', 'admin') }}</option>
+                                                <option value="226">{{ x_('Burkina Faso (+226)', 'admin') }}</option>
+                                                <option value="257">{{ x_('Burundi (+257)', 'admin') }}</option>
+                                                <option value="855">{{ x_('Cambodia (+855)', 'admin') }}</option>
+                                                <option value="237">{{ x_('Cameroon (+237)', 'admin') }}</option>
+                                                <option value="1">{{ x_('Canada (+1)', 'admin') }}</option>
+                                                <option value="238">{{ x_('Cape Verde (+238)', 'admin') }}</option>
+                                                <option value="1345">{{ x_('Cayman Islands (+1345)', 'admin') }}</option>
+                                                <option value="236">{{ x_('Central African Republic (+236)', 'admin') }}</option>
+                                                <option value="235">{{ x_('Chad (+235)', 'admin') }}</option>
+                                                <option value="56">{{ x_('Chile (+56)', 'admin') }}</option>
+                                                <option value="86">{{ x_('China (+86)', 'admin') }}</option>
+                                                <option value="61">{{ x_('Christmas Island (+61)', 'admin') }}</option>
+                                                <option value="61">{{ x_('Cocos Islands (+61)', 'admin') }}</option>
+                                                <option value="57">{{ x_('Colombia (+57)', 'admin') }}</option>
+                                                <option value="269">{{ x_('Comoros (+269)', 'admin') }}</option>
+                                                <option value="682">{{ x_('Cook Islands (+682)', 'admin') }}</option>
+                                                <option value="506">{{ x_('Costa Rica (+506)', 'admin') }}</option>
+                                                <option value="385">{{ x_('Croatia (+385)', 'admin') }}</option>
+                                                <option value="53">{{ x_('Cuba (+53)', 'admin') }}</option>
+                                                <option value="599">{{ x_('Curacao (+599)', 'admin') }}</option>
+                                                <option value="357">{{ x_('Cyprus (+357)', 'admin') }}</option>
+                                                <option value="420">{{ x_('Czech Republic (+420)', 'admin') }}</option>
+                                                <option value="243">{{ x_('Democratic Republic of the Congo (+243)', 'admin') }}</option>
+                                                <option value="45">{{ x_('Denmark (+45)', 'admin') }}</option>
+                                                <option value="253">{{ x_('Djibouti (+253)', 'admin') }}</option>
+                                                <option value="1767">{{ x_('Dominica (+1767)', 'admin') }}</option>
+                                                <option value="1809">{{ x_('Dominican Republic (+1809)', 'admin') }}</option>
+                                                <option value="670">{{ x_('East Timor (+670)', 'admin') }}</option>
+                                                <option value="593">{{ x_('Ecuador (+593)', 'admin') }}</option>
+                                                <option value="20" selected>{{ x_('Egypt (+20)', 'admin') }}</option>
+                                                <option value="503">{{ x_('El Salvador (+503)', 'admin') }}</option>
+                                                <option value="240">{{ x_('Equatorial Guinea (+240)', 'admin') }}</option>
+                                                <option value="291">{{ x_('Eritrea (+291)', 'admin') }}</option>
+                                                <option value="372">{{ x_('Estonia (+372)', 'admin') }}</option>
+                                                <option value="251">{{ x_('Ethiopia (+251)', 'admin') }}</option>
+                                                <option value="500">{{ x_('Falkland Islands (+500)', 'admin') }}</option>
+                                                <option value="298">{{ x_('Faroe Islands (+298)', 'admin') }}</option>
+                                                <option value="679">{{ x_('Fiji (+679)', 'admin') }}</option>
+                                                <option value="358">{{ x_('Finland (+358)', 'admin') }}</option>
+                                                <option value="33">{{ x_('France (+33)', 'admin') }}</option>
+                                                <option value="689">{{ x_('French Polynesia (+689)', 'admin') }}</option>
+                                                <option value="241">{{ x_('Gabon (+241)', 'admin') }}</option>
+                                                <option value="220">{{ x_('Gambia (+220)', 'admin') }}</option>
+                                                <option value="995">{{ x_('Georgia (+995)', 'admin') }}</option>
+                                                <option value="49">{{ x_('Germany (+49)', 'admin') }}</option>
+                                                <option value="233">{{ x_('Ghana (+233)', 'admin') }}</option>
+                                                <option value="350">{{ x_('Gibraltar (+350)', 'admin') }}</option>
+                                                <option value="30">{{ x_('Greece (+30)', 'admin') }}</option>
+                                                <option value="299">{{ x_('Greenland (+299)', 'admin') }}</option>
+                                                <option value="1473">{{ x_('Grenada (+1473)', 'admin') }}</option>
+                                                <option value="1671">{{ x_('Guam (+1671)', 'admin') }}</option>
+                                                <option value="502">{{ x_('Guatemala (+502)', 'admin') }}</option>
+                                                <option value="44-1481">{{ x_('Guernsey (+44-1481)', 'admin') }}</option>
+                                                <option value="224">{{ x_('Guinea (+224)', 'admin') }}</option>
+                                                <option value="245">{{ x_('Guinea-Bissau (+245)', 'admin') }}</option>
+                                                <option value="592">{{ x_('Guyana (+592)', 'admin') }}</option>
+                                                <option value="509">{{ x_('Haiti (+509)', 'admin') }}</option>
+                                                <option value="504">{{ x_('Honduras (+504)', 'admin') }}</option>
+                                                <option value="852">{{ x_('Hong Kong (+852)', 'admin') }}</option>
+                                                <option value="36">{{ x_('Hungary (+36)', 'admin') }}</option>
+                                                <option value="354">{{ x_('Iceland (+354)', 'admin') }}</option>
+                                                <option value="91">{{ x_('India (+91)', 'admin') }}</option>
+                                                <option value="62">{{ x_('Indonesia (+62)', 'admin') }}</option>
+                                                <option value="98">{{ x_('Iran (+98)', 'admin') }}</option>
+                                                <option value="964">{{ x_('Iraq (+964)', 'admin') }}</option>
+                                                <option value="353">{{ x_('Ireland (+353)', 'admin') }}</option>
+                                                <option value="44-1624">{{ x_('Isle of Man (+44-1624)', 'admin') }}</option>
+                                                <option value="972">{{ x_('Israel (+972)', 'admin') }}</option>
+                                                <option value="39">{{ x_('Italy (+39)', 'admin') }}</option>
+                                                <option value="225">{{ x_('Ivory Coast (+225)', 'admin') }}</option>
+                                                <option value="1876">{{ x_('Jamaica (+1876)', 'admin') }}</option>
+                                                <option value="81">{{ x_('Japan (+81)', 'admin') }}</option>
+                                                <option value="44-1534">{{ x_('Jersey (+44-1534)', 'admin') }}</option>
+                                                <option value="962">{{ x_('Jordan (+962)', 'admin') }}</option>
+                                                <option value="7">{{ x_('Kazakhstan (+7)', 'admin') }}</option>
+                                                <option value="254">{{ x_('Kenya (+254)', 'admin') }}</option>
+                                                <option value="686">{{ x_('Kiribati (+686)', 'admin') }}</option>
+                                                <option value="383">{{ x_('Kosovo (+383)', 'admin') }}</option>
+                                                <option value="965">{{ x_('Kuwait (+965)', 'admin') }}</option>
+                                                <option value="996">{{ x_('Kyrgyzstan (+996)', 'admin') }}</option>
+                                                <option value="856">{{ x_('Laos (+856)', 'admin') }}</option>
+                                                <option value="371">{{ x_('Latvia (+371)', 'admin') }}</option>
+                                                <option value="961">{{ x_('Lebanon (+961)', 'admin') }}</option>
+                                                <option value="266">{{ x_('Lesotho (+266)', 'admin') }}</option>
+                                                <option value="231">{{ x_('Liberia (+231)', 'admin') }}</option>
+                                                <option value="218">{{ x_('Libya (+218)', 'admin') }}</option>
+                                                <option value="423">{{ x_('Liechtenstein (+423)', 'admin') }}</option>
+                                                <option value="370">{{ x_('Lithuania (+370)', 'admin') }}</option>
+                                                <option value="352">{{ x_('Luxembourg (+352)', 'admin') }}</option>
+                                                <option value="853">{{ x_('Macau (+853)', 'admin') }}</option>
+                                                <option value="389">{{ x_('Macedonia (+389)', 'admin') }}</option>
+                                                <option value="261">{{ x_('Madagascar (+261)', 'admin') }}</option>
+                                                <option value="265">{{ x_('Malawi (+265)', 'admin') }}</option>
+                                                <option value="60">{{ x_('Malaysia (+60)', 'admin') }}</option>
+                                                <option value="960">{{ x_('Maldives (+960)', 'admin') }}</option>
+                                                <option value="223">{{ x_('Mali (+223)', 'admin') }}</option>
+                                                <option value="356">{{ x_('Malta (+356)', 'admin') }}</option>
+                                                <option value="692">{{ x_('Marshall Islands (+692)', 'admin') }}</option>
+                                                <option value="222">{{ x_('Mauritania (+222)', 'admin') }}</option>
+                                                <option value="230">{{ x_('Mauritius (+230)', 'admin') }}</option>
+                                                <option value="262">{{ x_('Mayotte (+262)', 'admin') }}</option>
+                                                <option value="52">{{ x_('Mexico (+52)', 'admin') }}</option>
+                                                <option value="691">{{ x_('Micronesia (+691)', 'admin') }}</option>
+                                                <option value="373">{{ x_('Moldova (+373)', 'admin') }}</option>
+                                                <option value="377">{{ x_('Monaco (+377)', 'admin') }}</option>
+                                                <option value="976">{{ x_('Mongolia (+976)', 'admin') }}</option>
+                                                <option value="382">{{ x_('Montenegro (+382)', 'admin') }}</option>
+                                                <option value="1664">{{ x_('Montserrat (+1664)', 'admin') }}</option>
+                                                <option value="212">{{ x_('Morocco (+212)', 'admin') }}</option>
+                                                <option value="258">{{ x_('Mozambique (+258)', 'admin') }}</option>
+                                                <option value="95">{{ x_('Myanmar (+95)', 'admin') }}</option>
+                                                <option value="264">{{ x_('Namibia (+264)', 'admin') }}</option>
+                                                <option value="674">{{ x_('Nauru (+674)', 'admin') }}</option>
+                                                <option value="977">{{ x_('Nepal (+977)', 'admin') }}</option>
+                                                <option value="31">{{ x_('Netherlands (+31)', 'admin') }}</option>
+                                                <option value="599">{{ x_('Netherlands Antilles (+599)', 'admin') }}</option>
+                                                <option value="687">{{ x_('New Caledonia (+687)', 'admin') }}</option>
+                                                <option value="64">{{ x_('New Zealand (+64)', 'admin') }}</option>
+                                                <option value="505">{{ x_('Nicaragua (+505)', 'admin') }}</option>
+                                                <option value="227">{{ x_('Niger (+227)', 'admin') }}</option>
+                                                <option value="234">{{ x_('Nigeria (+234)', 'admin') }}</option>
+                                                <option value="683">{{ x_('Niue (+683)', 'admin') }}</option>
+                                                <option value="850">{{ x_('North Korea (+850)', 'admin') }}</option>
+                                                <option value="1670">{{ x_('Northern Mariana Islands (+1670)', 'admin') }}</option>
+                                                <option value="47">{{ x_('Norway (+47)', 'admin') }}</option>
+                                                <option value="968">{{ x_('Oman (+968)', 'admin') }}</option>
+                                                <option value="92">{{ x_('Pakistan (+92)', 'admin') }}</option>
+                                                <option value="680">{{ x_('Palau (+680)', 'admin') }}</option>
+                                                <option value="970">{{ x_('Palestine (+970)', 'admin') }}</option>
+                                                <option value="507">{{ x_('Panama (+507)', 'admin') }}</option>
+                                                <option value="675">{{ x_('Papua New Guinea (+675)', 'admin') }}</option>
+                                                <option value="595">{{ x_('Paraguay (+595)', 'admin') }}</option>
+                                                <option value="51">{{ x_('Peru (+51)', 'admin') }}</option>
+                                                <option value="63">{{ x_('Philippines (+63)', 'admin') }}</option>
+                                                <option value="64">{{ x_('Pitcairn (+64)', 'admin') }}</option>
+                                                <option value="48">{{ x_('Poland (+48)', 'admin') }}</option>
+                                                <option value="351">{{ x_('Portugal (+351)', 'admin') }}</option>
+                                                <option value="1787">{{ x_('Puerto Rico (+1787)', 'admin') }}</option>
+                                                <option value="974">{{ x_('Qatar (+974)', 'admin') }}</option>
+                                                <option value="242">{{ x_('Republic of the Congo (+242)', 'admin') }}</option>
+                                                <option value="262">{{ x_('Reunion (+262)', 'admin') }}</option>
+                                                <option value="40">{{ x_('Romania (+40)', 'admin') }}</option>
+                                                <option value="7">{{ x_('Russia (+7)', 'admin') }}</option>
+                                                <option value="250">{{ x_('Rwanda (+250)', 'admin') }}</option>
+                                                <option value="590">{{ x_('Saint Barthelemy (+590)', 'admin') }}</option>
+                                                <option value="290">{{ x_('Saint Helena (+290)', 'admin') }}</option>
+                                                <option value="1869">{{ x_('Saint Kitts and Nevis (+1869)', 'admin') }}</option>
+                                                <option value="1758">{{ x_('Saint Lucia (+1758)', 'admin') }}</option>
+                                                <option value="590">{{ x_('Saint Martin (+590)', 'admin') }}</option>
+                                                <option value="508">{{ x_('Saint Pierre and Miquelon (+508)', 'admin') }}</option>
+                                                <option value="1784">{{ x_('Saint Vincent and the Grenadines (+1784)', 'admin') }}</option>
+                                                <option value="685">{{ x_('Samoa (+685)', 'admin') }}</option>
+                                                <option value="378">{{ x_('San Marino (+378)', 'admin') }}</option>
+                                                <option value="239">{{ x_('Sao Tome and Principe (+239)', 'admin') }}</option>
+                                                <option value="966">{{ x_('Saudi Arabia (+966)', 'admin') }}</option>
+                                                <option value="221">{{ x_('Senegal (+221)', 'admin') }}</option>
+                                                <option value="381">{{ x_('Serbia (+381)', 'admin') }}</option>
+                                                <option value="248">{{ x_('Seychelles (+248)', 'admin') }}</option>
+                                                <option value="232">{{ x_('Sierra Leone (+232)', 'admin') }}</option>
+                                                <option value="65">{{ x_('Singapore (+65)', 'admin') }}</option>
+                                                <option value="1721">{{ x_('Sint Maarten (+1721)', 'admin') }}</option>
+                                                <option value="421">{{ x_('Slovakia (+421)', 'admin') }}</option>
+                                                <option value="386">{{ x_('Slovenia (+386)', 'admin') }}</option>
+                                                <option value="677">{{ x_('Solomon Islands (+677)', 'admin') }}</option>
+                                                <option value="252">{{ x_('Somalia (+252)', 'admin') }}</option>
+                                                <option value="27">{{ x_('South Africa (+27)', 'admin') }}</option>
+                                                <option value="82">{{ x_('South Korea (+82)', 'admin') }}</option>
+                                                <option value="211">{{ x_('South Sudan (+211)', 'admin') }}</option>
+                                                <option value="34">{{ x_('Spain (+34)', 'admin') }}</option>
+                                                <option value="94">{{ x_('Sri Lanka (+94)', 'admin') }}</option>
+                                                <option value="249">{{ x_('Sudan (+249)', 'admin') }}</option>
+                                                <option value="597">{{ x_('Suriname (+597)', 'admin') }}</option>
+                                                <option value="47">{{ x_('Svalbard and Jan Mayen (+47)', 'admin') }}</option>
+                                                <option value="268">{{ x_('Swaziland (+268)', 'admin') }}</option>
+                                                <option value="46">{{ x_('Sweden (+46)', 'admin') }}</option>
+                                                <option value="41">{{ x_('Switzerland (+41)', 'admin') }}</option>
+                                                <option value="963">{{ x_('Syria (+963)', 'admin') }}</option>
+                                                <option value="886">{{ x_('Taiwan (+886)', 'admin') }}</option>
+                                                <option value="992">{{ x_('Tajikistan (+992)', 'admin') }}</option>
+                                                <option value="255">{{ x_('Tanzania (+255)', 'admin') }}</option>
+                                                <option value="66">{{ x_('Thailand (+66)', 'admin') }}</option>
+                                                <option value="228">{{ x_('Togo (+228)', 'admin') }}</option>
+                                                <option value="690">{{ x_('Tokelau (+690)', 'admin') }}</option>
+                                                <option value="676">{{ x_('Tonga (+676)', 'admin') }}</option>
+                                                <option value="1868">{{ x_('Trinidad and Tobago (+1868)', 'admin') }}</option>
+                                                <option value="216">{{ x_('Tunisia (+216)', 'admin') }}</option>
+                                                <option value="90">{{ x_('Turkey (+90)', 'admin') }}</option>
+                                                <option value="993">{{ x_('Turkmenistan (+993)', 'admin') }}</option>
+                                                <option value="1649">{{ x_('Turks and Caicos Islands (+1649)', 'admin') }}</option>
+                                                <option value="688">{{ x_('Tuvalu (+688)', 'admin') }}</option>
+                                                <option value="1340">{{ x_('U.S. Virgin Islands (+1340)', 'admin') }}</option>
+                                                <option value="256">{{ x_('Uganda (+256)', 'admin') }}</option>
+                                                <option value="380">{{ x_('Ukraine (+380)', 'admin') }}</option>
+                                                <option value="971">{{ x_('United Arab Emirates (+971)', 'admin') }}</option>
+                                                <option value="44">{{ x_('United Kingdom (+44)', 'admin') }}</option>
+                                                <option value="1">{{ x_('United States (+1)', 'admin') }}</option>
+                                                <option value="598">{{ x_('Uruguay (+598)', 'admin') }}</option>
+                                                <option value="998">{{ x_('Uzbekistan (+998)', 'admin') }}</option>
+                                                <option value="678">{{ x_('Vanuatu (+678)', 'admin') }}</option>
+                                                <option value="379">{{ x_('Vatican (+379)', 'admin') }}</option>
+                                                <option value="58">{{ x_('Venezuela (+58)', 'admin') }}</option>
+                                                <option value="84">{{ x_('Vietnam (+84)', 'admin') }}</option>
+                                                <option value="681">{{ x_('Wallis and Futuna (+681)', 'admin') }}</option>
+                                                <option value="212">{{ x_('Western Sahara (+212)', 'admin') }}</option>
+                                                <option value="967">{{ x_('Yemen (+967)', 'admin') }}</option>
+                                                <option value="260">{{ x_('Zambia (+260)', 'admin') }}</option>
+                                                <option value="263">{{ x_('Zimbabwe (+263)', 'admin') }}</option>
                                             </select>
-                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter contact phone" required>
+                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="{{ x_('Enter contact phone', 'admin') }}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="email" class="form-label">Phone *</label>
-                                        <input type="text" class="form-control" id="email" name="phone" placeholder="Enter contact phone" required>
+                                        <label for="email" class="form-label">{{ x_('Phone *', 'admin') }}</label>
+                                        <input type="text" class="form-control" id="email" name="phone" placeholder="{{ x_('Enter contact phone', 'admin') }}" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="email" class="form-label"> Email *</label>
-                                        <input type="email" class="form-control" id="email" name="personal_email" placeholder="Enter email" required>
+                                        <label for="email" class="form-label"> {{ x_('Email *', 'admin') }}</label>
+                                        <input type="email" class="form-control" id="email" name="personal_email" placeholder="{{ x_('Enter email', 'admin') }}" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="current_company" class="form-label">Job Title  *</label>
-                                        <input type="text" class="form-control" name="job_title" placeholder="Enter Job title" required>
+                                        <label for="current_company" class="form-label">{{ x_('Job Title  *', 'admin') }}</label>
+                                        <input type="text" class="form-control" name="job_title" placeholder="{{ x_('Enter Job title', 'admin') }}" required>
                                     </div>
                                     <div class="col-md-6  mb-3">
-                                        <label for="current_position" class="form-label">Company Name </label>
-                                        <input type="text" class="form-control" name="company_name" placeholder="Enter Company Name" >
+                                        <label for="current_position" class="form-label">{{ x_('Company Name', 'admin') }} </label>
+                                        <input type="text" class="form-control" name="company_name" placeholder="{{ x_('Enter Company Name', 'admin') }}" >
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="company_website" class="form-label">Company Website </label>
-                                        <input type="text" class="form-control" name="company_website" placeholder="Enter Company Website" >
+                                        <label for="company_website" class="form-label">{{ x_('Company Website', 'admin') }} </label>
+                                        <input type="text" class="form-control" name="company_website" placeholder="{{ x_('Enter Company Website', 'admin') }}" >
                                     </div>
 
                                     <div class="col-md-12 mb-3">
-                                        <label for="services" class="form-label">Which services are you interested in? *</label>
+                                        <label for="services" class="form-label">{{ x_('Which services are you interested in? *', 'admin') }}</label>
                                         @foreach ($services as $service )
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="id{{ $service->id }}" name="services[]" value="{{ $service->id }}">
@@ -295,7 +295,7 @@
 
                                     </div>
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary">Apply</button>
+                                        <button type="submit" class="btn btn-primary">{{ x_('Apply', 'admin') }}</button>
                                     </div>
                                 </div>
 

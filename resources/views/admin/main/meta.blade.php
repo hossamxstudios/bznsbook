@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BZNS BOOK</title>
+<title>{{ x_('BZNS BOOK', 'admin-layout') }}</title>
 {{-- <meta name="description" content="Project management Dashboard Template with reusable and flexible components for your SaaS web applications by hencework. Based on Bootstrap."> --}}
 <!-- Favicon -->
 <link rel="shortcut icon" href="{{ URL::asset('icon.png') }}">
@@ -25,6 +25,30 @@
 <link href="{{ URL::asset('dist/css/styles.css') }}" rel="stylesheet" type="text/css">
 
 <link href="{{ URL::asset('vendors/@sweetalert2/theme-bootstrap-4/bootstrap-4.min.css') }}" rel="stylesheet" type="text/css">
+@if(str_starts_with(app()->getLocale(), 'ar'))
+<link href="{{ asset('dist/css/rtl.css') }}" rel="stylesheet" type="text/css">
+@endif
+
+@php
+    $jsTranslations = [
+        'Success'              => function_exists('x_') ? x_('Success', 'js') : 'Success',
+        'Error'                => function_exists('x_') ? x_('Error', 'js') : 'Error',
+        'Warning'              => function_exists('x_') ? x_('Warning', 'js') : 'Warning',
+        'Info'                 => function_exists('x_') ? x_('Info', 'js') : 'Info',
+        'Just now'             => function_exists('x_') ? x_('Just now', 'js') : 'Just now',
+        'Something went wrong' => function_exists('x_') ? x_('Something went wrong', 'js') : 'Something went wrong',
+        'Session expired'      => function_exists('x_') ? x_('Session expired', 'js') : 'Session expired',
+        'No permission'        => function_exists('x_') ? x_('No permission', 'js') : 'No permission',
+        'Network error'        => function_exists('x_') ? x_('Network error', 'js') : 'Network error',
+    ];
+@endphp
+<script>
+    window.__translations = @json($jsTranslations);
+    window.__ = function(key, fallback) {
+        return (window.__translations && window.__translations[key]) || fallback || key;
+    };
+</script>
+
 <style>
     /* .dataTables_scroll{
         height: 67vh;

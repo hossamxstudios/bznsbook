@@ -5,12 +5,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h5 class="mb-4">Update Stage</h5>
+                <h5 class="mb-4">{{ x_('Update Stage', 'pipelines') }}</h5>
                 <form>
                     <div class="row gx-3">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="form-label">Name</label>
+                                <label class="form-label">{{ x_('Name', 'pipelines') }}</label>
                                 <input class="form-control" type="text">
                             </div>
                         </div>
@@ -18,8 +18,8 @@
                 </form>
             </div>
             <div class="modal-footer align-items-center">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary btn-edit-tasklist" >Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Cancel', 'pipelines') }}</button>
+                <button type="button" class="btn btn-primary btn-edit-tasklist" >{{ x_('Save', 'pipelines') }}</button>
             </div>
         </div>
     </div>

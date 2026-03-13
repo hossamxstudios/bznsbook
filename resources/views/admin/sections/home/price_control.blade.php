@@ -9,7 +9,7 @@
                         <div class="col-sm-12 col-xs-12" style="padding-left:23%;">
                             <div class="input-group">
 
-                                <input type="number" step="0.001" name="price" class="form-control" placeholder="Enter gold price " required value="{{ $carat?->price }}">
+                                <input type="number" step="0.001" name="price" class="form-control" placeholder="{{ x_('Enter gold price', 'admin') }}" required value="{{ $carat?->price }}">
                                 <input type="hidden" class="form-control" name="id" value="{{$carat?->id}}">
                                 <button type="submit" class="btn btn-warning"> تغيير</button>
                             </div>
@@ -30,7 +30,7 @@
                         <div class="col-sm-12 col-xs-12" style="padding-left:23%;">
                             <div class="input-group">
                                 <input type="hidden" class="form-control" name="id" value="{{$currency?->id}}">
-                                <input type="number" step="0.001" name="price" class="form-control" placeholder="Enter currency name" required value="{{ $currency?->price }}">
+                                <input type="number" step="0.001" name="price" class="form-control" placeholder="{{ x_('Enter currency name', 'admin') }}" required value="{{ $currency?->price }}">
                                 <button class="btn btn-success" type="button" id="inputGroupFileAddon04">تغيير </button>
                             </div>
                         </div>

@@ -1,15 +1,15 @@
 <nav class="container py-4 mb-lg-2 mt-lg-3" aria-label="breadcrumb">
     <ol class="mb-0 breadcrumb">
-        <li class="breadcrumb-item"><a href="/"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page"> Companies</li>
-        <li class="breadcrumb-item active" aria-current="page"> Web Development</li>
+        <li class="breadcrumb-item"><a href="/"><i class="bx bx-home-alt fs-lg me-1"></i>{{ x_('Home', 'companies') }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page"> {{ x_('Companies', 'companies') }}</li>
+        <li class="breadcrumb-item active" aria-current="page"> {{ x_('Web Development', 'companies') }}</li>
     </ol>
 </nav>
 <!-- Page title + Filters -->
 <section class="container pb-3 d-md-flex align-items-center justify-content-between">
-    <h1 class="text-nowrap mb-md-4 pe-md-5">Our Partners</h1>
+    <h1 class="text-nowrap mb-md-4 pe-md-5">{{ x_('Our Partners', 'companies') }}</h1>
     <nav class="overflow-auto">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit expedita similique adipisci eius.</p>
+        <p>{{ x_('Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit expedita similique adipisci eius.', 'companies') }}</p>
     </nav>
 </section>
 <!-- Portfolio grid -->
@@ -29,7 +29,7 @@
                             @else
                                 <div class="position-relative">
                                     <img src="{{ $client->getFirstMediaUrl('profile') }}" class="mx-auto card-img-top"
-                                        alt="Blurred logo"
+                                        alt="{{ x_('Blurred logo', 'companies') }}"
                                         style="max-height: 150px; object-fit: contain; filter: blur(6px);">
                                     <div class="position-absolute top-50 start-50 translate-middle" style="z-index: 1;">
                                         <i class="bx bx-lock-alt fs-3 text-dark"></i>
@@ -48,10 +48,10 @@
                             @if ($client->industry)
                                 <span class="badge fs-sm text-nav bg-secondary text-decoration-none">{{ $client->industry }}</span>
                             @else
-                                <span class="badge fs-sm text-nav bg-secondary text-decoration-none">Business</span>
+                                <span class="badge fs-sm text-nav bg-secondary text-decoration-none">{{ x_('Business', 'companies') }}</span>
                             @endif
                             @if ($client->years_of_experience)
-                                <span class="fs-sm text-body-secondary">{{ $client->years_of_experience }} years</span>
+                                <span class="fs-sm text-body-secondary">{{ $client->years_of_experience }} {{ x_('years', 'companies') }}</span>
                             @endif
                         </div>
                         <h3 class="mb-0 h5">
@@ -78,7 +78,7 @@
                                     @else
                                         <div class="position-relative">
                                             <img src="{{ $client->getFirstMediaUrl('profile') }}"
-                                                class="rounded-circle me-3" width="48" alt="Blurred Profile"
+                                                class="rounded-circle me-3" width="48" alt="{{ x_('Blurred Profile', 'companies') }}"
                                                 style="filter: blur(4px);">
                                             <div class="position-absolute top-50 start-50 translate-middle"
                                                 style="z-index: 1;">
@@ -100,27 +100,27 @@
                                             {{ Illuminate\Support\Str::mask($client->name, '*', 3, strlen($client->name) - 4) }}
                                         @endif
                                     </span>
-                                    <div class="fs-sm text-body-secondary">{{ $client->title ?? 'Member' }}</div>
+                                    <div class="fs-sm text-body-secondary">{{ $client->title ?? x_('Member', 'companies') }}</div>
                                     @if ($client->last_seen)
                                         <div class="fs-xs text-success d-flex align-items-center">
                                             <i class="bx bxs-circle me-1" style="font-size: 0.5rem;"></i>
                                             @if ($client->last_seen->diffInMinutes()  < 5)
-                                                <span>Online now</span>
+                                                <span>{{ x_('Online now', 'companies') }}</span>
                                             @elseif ($client->last_seen->isToday())
-                                                <span>Last seen today at {{ $client->last_seen->format('h:i A') }}</span>
+                                                <span>{{ x_('Last seen today at', 'companies') }} {{ $client->last_seen->format('h:i A') }}</span>
                                             @elseif ($client->last_seen->isYesterday())
-                                                <span>Last seen yesterday at {{ $client->last_seen->format('h:i A') }}</span>
+                                                <span>{{ x_('Last seen yesterday at', 'companies') }} {{ $client->last_seen->format('h:i A') }}</span>
                                             @elseif ($client->last_seen->diffInDays() < 7)
-                                                <span>Last seen {{ $client->last_seen->diffForHumans() }}</span>
+                                                <span>{{ x_('Last seen', 'companies') }} {{ $client->last_seen->diffForHumans() }}</span>
                                             @else
-                                                <span>Last seen on {{ $client->last_seen->format('M d, Y') }}</span>
+                                                <span>{{ x_('Last seen on', 'companies') }} {{ $client->last_seen->format('M d, Y') }}</span>
                                             @endif
                                         </div>
                                     @endif
                                 </div>
                             </div>
                             <a href="{{ route('client.profile.show', $client->id) }}" class="px-3 btn btn-sm"
-                                style="background-color: #3e3e3e; color: white;">View Profile</a>
+                                style="background-color: #3e3e3e; color: white;">{{ x_('View Profile', 'companies') }}</a>
                         </div>
                     </div>
                 </article>

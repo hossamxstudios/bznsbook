@@ -14,11 +14,11 @@
                 </span></span>
             </div>
             <div>
-                <h4 class="mb-0">Projects</h4>
+                <h4 class="mb-0">{{ x_('Projects', 'admin') }}</h4>
                 <nav aria-label="breadcrumb">
                     <ol class="mb-0 breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">{{ x_('Dashboard', 'admin') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ x_('Projects', 'admin') }}</li>
                     </ol>
                 </nav>
             </div>
@@ -34,7 +34,7 @@
                         <path d="M9 12l2 2l4 -4"></path>
                     </svg>
                 </span></span>
-                <span class="nav-link-text">Active Projects</span>
+                <span class="nav-link-text">{{ x_('Active Projects', 'admin') }}</span>
             </a>
         </li>
         <li class="nav-item">
@@ -47,7 +47,7 @@
                         <path d="M15 19l2 2l4 -4"></path>
                     </svg>
                 </span></span>
-                <span class="nav-link-text">Completed Projects</span>
+                <span class="nav-link-text">{{ x_('Completed Projects', 'admin') }}</span>
             </a>
         </li>
     </ul>

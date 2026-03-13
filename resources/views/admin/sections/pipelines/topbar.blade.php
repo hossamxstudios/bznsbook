@@ -12,9 +12,9 @@
             <div class="d-flex flex-wrap justify-content-between flex-1">
                 <div>
                     <div class="pg-subtitle">
-                        Overview
+                        {{ x_('Overview', 'pipelines') }}
                     </div>
-                    <h5 class="pg-title fs-5">Pipeline Boards</h5>
+                    <h5 class="pg-title fs-5">{{ x_('Pipeline Boards', 'pipelines') }}</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -29,7 +29,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Add new Pipeline</span>
+                                <span class="fs-7">{{ x_('Add new Pipeline', 'pipelines') }}</span>
                             </span>
                         </button>
                     </div>
@@ -49,7 +49,7 @@
                             <line x1="7" y1="16" x2="17" y2="16"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">All Pipelines</span>
+                    <span class="nav-link-text">{{ x_('All Pipelines', 'pipelines') }}</span>
                 </a>
             </li>
         </ul>

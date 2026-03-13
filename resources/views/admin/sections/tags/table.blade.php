@@ -5,7 +5,7 @@
                 <div class="col-md-12 mb-md-4 mb-3">
                     <div class="card rounded-8 mb-0">
                         <div class="card-header card-header-action">
-                            <h6>Tags
+                            <h6>{{ x_('Tags', 'admin') }}
                                 <span class="badge badge-sm badge-light ms-1">{{$tags->count()}}</span>
                             </h6>
                         </div>
@@ -14,9 +14,9 @@
                                 <table id="datable_2" class="table nowrap w-100">
                                     <thead>
                                         <tr>
-                                            <th>Tag Name</th>
-                                            <th>Tag Type</th>
-                                            <th>Created Date</th>
+                                            <th>{{ x_('Tag Name', 'admin') }}</th>
+                                            <th>{{ x_('Tag Type', 'admin') }}</th>
+                                            <th>{{ x_('Created Date', 'admin') }}</th>
 
                                         </tr>
                                     </thead>
@@ -30,8 +30,8 @@
                                                     </span>
                                                 </a>
                                                 <div role="menu" class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$tag->id}}">Edit</a>
-                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$tag->id}}">Delete</a>
+                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$tag->id}}">{{ x_('Edit', 'admin') }}</a>
+                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$tag->id}}">{{ x_('Delete', 'admin') }}</a>
                                                 </div>
                                             </td>
                                             <td>{{ $tag->type }}</td>

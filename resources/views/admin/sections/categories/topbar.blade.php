@@ -14,9 +14,9 @@
             <div class="flex-wrap flex-1 d-flex justify-content-between">
                 <div>
                     <div class="pg-subtitle">
-                        Overview
+                        {{ x_('Overview', 'categories') }}
                     </div>
-                    <h5 class="pg-title fs-5">Categories Management</h5>
+                    <h5 class="pg-title fs-5">{{ x_('Categories Management', 'categories') }}</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -31,7 +31,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Add New Category</span>
+                                <span class="fs-7">{{ x_('Add New Category', 'categories') }}</span>
                             </span>
                         </button>
                     </div>
@@ -50,7 +50,7 @@
                             <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">Categories</span>
+                    <span class="nav-link-text">{{ x_('Categories', 'categories') }}</span>
                 </a>
             </li>
         </ul>

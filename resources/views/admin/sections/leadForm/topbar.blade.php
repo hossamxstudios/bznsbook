@@ -8,7 +8,7 @@
                     </a>
                 </div>
                 <div>
-                    <h1 class="pg-title fs-2 text-center pt-1"> Contact Form</h1>
+                    <h1 class="pg-title fs-2 text-center pt-1"> {{ x_('Contact Form', 'admin') }}</h1>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">

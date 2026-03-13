@@ -9,6 +9,6 @@
             </a>
           </div>
           <span class="top-0 bg-black position-absolute start-0 w-100 h-100 opacity-35"></span>
-          <img src="assets/img/landing/digital-agency/cover.jpg" class="d-block w-100" alt="Cover image">
+          <img src="assets/img/landing/digital-agency/cover.jpg" class="d-block w-100" alt="{{ x_('Cover image', 'about') }}">
         </div>
       </section>

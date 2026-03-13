@@ -63,7 +63,7 @@ class ServiceController extends Controller
         if ($request->has('subcategories')) {
             $service->subcategories()->attach($request->subcategories);
         }
-        return redirect()->route('client.services')->with('success', 'Service created successfully!');
+        return redirect()->route('client.services')->with('success', x_('Service created successfully!', 'controller'));
     }
 
     /**
@@ -117,7 +117,7 @@ class ServiceController extends Controller
         } else {
             $service->subcategories()->detach();
         }
-        return redirect()->route('client.services')->with('success', 'Service updated successfully!');
+        return redirect()->route('client.services')->with('success', x_('Service updated successfully!', 'controller'));
     }
 
     /**
@@ -132,6 +132,6 @@ class ServiceController extends Controller
         // Detach subcategories before deleting
         $service->subcategories()->detach();
         $service->delete();
-        return redirect()->route('client.services')->with('success', 'Service deleted successfully!');
+        return redirect()->route('client.services')->with('success', x_('Service deleted successfully!', 'controller'));
     }
 }

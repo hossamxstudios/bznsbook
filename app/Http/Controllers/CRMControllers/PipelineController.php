@@ -29,7 +29,7 @@ class PipelineController extends Controller {
                 $stage->save();
             }
         }
-        return redirect()->back()->with('success', 'Pipeline created successfully!');
+        return redirect()->back()->with('success', x_('Pipeline created successfully!', 'controller'));
     }
 
     public function update(Request $request, $id){
@@ -60,7 +60,7 @@ class PipelineController extends Controller {
         //     Stage::whereIn('id', $stagesToDelete)->delete();
         // }
         // Redirect back with success message
-        return redirect()->back()->with('success', 'Pipeline updated successfully!');
+        return redirect()->back()->with('success', x_('Pipeline updated successfully!', 'controller'));
     }
 
 

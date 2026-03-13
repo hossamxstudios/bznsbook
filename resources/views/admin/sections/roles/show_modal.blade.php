@@ -14,13 +14,13 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#permission{{$role->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="check-circle"></i></span></span>
-                        <span class="nav-link-text">Permissions</span>
+                        <span class="nav-link-text">{{ x_('Permissions', 'roles') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#user{{$role->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Users</span>
+                        <span class="nav-link-text">{{ x_('Users', 'roles') }}</span>
                     </a>
                 </li>
 
@@ -30,7 +30,7 @@
                     <div class="card">
                         @foreach ($role->permissions as $permission)
                             <div class="card-header">
-                                <a role="button" data-bs-toggle="collapse" href="#permission_11{{$permission->id}}" aria-expanded="true">{{ $permission->title ?? 'Unknown permission' }}</a>
+                                <a role="button" data-bs-toggle="collapse" href="#permission_11{{$permission->id}}" aria-expanded="true">{{ $permission->title ?? x_('Unknown permission', 'roles') }}</a>
                             </div>
                             <div id="permission_11{{$permission->id}}" class="collapse show">
                                 <div class="card-body">
@@ -45,7 +45,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="media-body " style="padding-bottom: 0;">
-                                                    <p> <span class="text-dark ">{{ $permission->details ?? 'Unknown permission' }}</span></p>
+                                                    <p> <span class="text-dark ">{{ $permission->details ?? x_('Unknown permission', 'roles') }}</span></p>
                                                 </div>
                                             </div>
                                         </li>
@@ -74,7 +74,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="media-body " style="padding-bottom: 0;">
-                                                    <p> <span class="text-dark">{{ $user->name ?? 'Unknown User' }}</span></p>
+                                                    <p> <span class="text-dark">{{ $user->name ?? x_('Unknown User', 'roles') }}</span></p>
                                                 </div>
                                             </div>
                                         </li>

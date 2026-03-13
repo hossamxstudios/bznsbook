@@ -20,7 +20,7 @@
                             <p class="text-muted mb-0"><i class="bi bi-geo-alt-fill"></i>  {{ $candidate->city }},  {{ $candidate->country }}</p>
                         </div>
                         <div class="flex-grow-1 px-3">
-                            <a href="{{ $candidate->getMedia('cv')->first()?->getUrl() }}" target="_blank" class="btn btn-link p-0" title="View CV">
+                            <a href="{{ $candidate->getMedia('cv')->first()?->getUrl() }}" target="_blank" class="btn btn-link p-0" title="{{ x_('View CV', 'general') }}">
                                 <div class="badge-icon badge-circle badge-icon-sm text-gray">
                                     <div class="badge-icon-wrap">
                                         <i data-feather="download"></i>
@@ -37,7 +37,7 @@
                         @foreach ($candidate->tags as $tag)
                             <span class="badge bg-secondary me-2" style="font-size:12px;">{{ $tag->name }}</span>
                         @endforeach
-                        <a href="#" class="badge bg-danger text-white text-decoration-none" style="font-size:12px;" data-bs-toggle="modal" data-bs-target="#addTag{{$candidate->id}}">+ Tags</a>
+                        <a href="#" class="badge bg-danger text-white text-decoration-none" style="font-size:12px;" data-bs-toggle="modal" data-bs-target="#addTag{{$candidate->id}}">{{ x_('+ Tags', 'general') }}</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-list-check" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Summary</span>
+                        <span class="nav-link-text">{{ x_('Summary', 'general') }}</span>
                     </a>
                 </li>
                 <li class="nav-item" style="font-size: 14px;">
@@ -66,7 +66,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-stickies" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Notes</span>
+                        <span class="nav-link-text">{{ x_('Notes', 'general') }}</span>
                     </a>
                 </li>
                 <li class="nav-item" style="font-size: 14px;">
@@ -74,7 +74,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-stickies" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Attachments</span>
+                        <span class="nav-link-text">{{ x_('Attachments', 'general') }}</span>
                     </a>
                 </li>
 
@@ -85,30 +85,30 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <a role="button" data-bs-toggle="collapse" href="#Details{{$candidate->id}}" aria-expanded="true">Candidate Details</a>
+                                    <a role="button" data-bs-toggle="collapse" href="#Details{{$candidate->id}}" aria-expanded="true">{{ x_('Candidate Details', 'general') }}</a>
                                 </div>
                                 <div id="Details{{$candidate->id}}" class="collapse show">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-6 mb-2"><strong>Candidate Full Name:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Candidate Full Name:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $candidate->first_name }} {{ $candidate->last_name }}</div>
-                                            <div class="col-6 mb-2"><strong>Gender:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Gender:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $candidate->gender }}</div>
-                                            <div class="col-6 mb-2"><strong>University:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('University:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $candidate->university }}</div>
-                                            <div class="col-6 mb-2"><strong>Major:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Major:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $candidate->major }}</div>
-                                            <div class="col-6 mb-2"><strong>Current Position:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Current Position:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $candidate->current_position }} | {{ $candidate->current_company }} </div>
-                                            <div class="col-6 mb-2"><strong>Candidate Location:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Candidate Location:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $candidate->city }}, {{ $candidate->country }}</div>
-                                            <div class="col-6 mb-2"><strong>Birthdate:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Birthdate:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ date('d-M-Y', strtotime($candidate->birthdate)) }}</div>
-                                            <div class="col-6 mb-2"><strong>Candidate Address:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Candidate Address:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $candidate->address }}</div>
-                                            <div class="col-6 mb-2"><strong>Candidate Email Address:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Candidate Email Address:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2 d-flex align-items-center">{{ $candidate->email }}</div>
-                                            <div class="col-6 mb-2"><strong>Candidate Phone Number:</strong></div>
+                                            <div class="col-6 mb-2"><strong>{{ x_('Candidate Phone Number:', 'general') }}</strong></div>
                                             <div class="col-6 mb-2">{{ $candidate->phone }}</div>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                             </div>
                             <div class="card shadow-sm mb-3">
                                 <div class="card-header d-flex justify-content-between align-items-center bg-light">
-                                    <a role="button" data-bs-toggle="collapse" href="#Experience{{$candidate->id}}" aria-expanded="true">Experience</a>
+                                    <a role="button" data-bs-toggle="collapse" href="#Experience{{$candidate->id}}" aria-expanded="true">{{ x_('Experience', 'general') }}</a>
                                 </div>
                                 <div id="Experience{{$candidate->id}}" class="collapse show">
                                     <div class="card-body">
@@ -150,7 +150,7 @@
                         <div class="col-md-6">
                             <div class="card shadow-sm">
                                 <div class="card-header d-flex justify-content-between align-items-center bg-light">
-                                    <a role="button" data-bs-toggle="collapse" href="#skills{{$candidate->id}}" aria-expanded="true">Skills</a>
+                                    <a role="button" data-bs-toggle="collapse" href="#skills{{$candidate->id}}" aria-expanded="true">{{ x_('Skills', 'general') }}</a>
                                 </div>
                                 <div id="skills{{$candidate->id}}" class="collapse show">
                                     <div class="card-body">
@@ -166,22 +166,22 @@
                             </div>
                             <div class="card shadow-sm mb-3">
                                 <div class="card-header">
-                                    <a role="button" data-bs-toggle="collapse" href="#Additional{{$candidate->id}}" aria-expanded="true">Additional Information </a>
+                                    <a role="button" data-bs-toggle="collapse" href="#Additional{{$candidate->id}}" aria-expanded="true">{{ x_('Additional Information', 'general') }} </a>
                                 </div>
                                 <div id="Additional{{$candidate->id}}" class="collapse show">
                                     <div class="card-body">
                                         <div class="row mb-2">
-                                            <div class="col-6 mb-3"><strong>Graduation Date:</strong></div>
+                                            <div class="col-6 mb-3"><strong>{{ x_('Graduation Date:', 'general') }}</strong></div>
                                             <div class="col-6 mb-3 text-end">{{ $candidate->grade_year  }}</div>
-                                            <div class="col-6 mb-3"><strong>Years of Experience:</strong></div>
+                                            <div class="col-6 mb-3"><strong>{{ x_('Years of Experience:', 'general') }}</strong></div>
                                             <div class="col-6 mb-3 text-end">{{ $candidate->exp_years . ' Years' }}</div>
-                                            <div class="col-6 mb-3"><strong>Current Salary:</strong></div>
+                                            <div class="col-6 mb-3"><strong>{{ x_('Current Salary:', 'general') }}</strong></div>
                                             <div class="col-6 mb-3 text-end">{{ $candidate->current_salary }} EGP</div>
-                                            <div class="col-6 mb-3"><strong>Notice Period:</strong></div>
+                                            <div class="col-6 mb-3"><strong>{{ x_('Notice Period:', 'general') }}</strong></div>
                                             <div class="col-6 mb-3 text-end">{{ $candidate->notice_period .' Days' }}</div>
-                                            <div class="col-6 mb-3"> <strong>Expected Salary:</strong> </div>
+                                            <div class="col-6 mb-3"> <strong>{{ x_('Expected Salary:', 'general') }}</strong> </div>
                                             <div class="col-6 mb-3 text-end"> {{ $candidate->expected_salary }} EGP</div>
-                                            <div class="col-6 mb-3"><strong>Languages:</strong></div>
+                                            <div class="col-6 mb-3"><strong>{{ x_('Languages:', 'general') }}</strong></div>
                                             @php ( $languages =  explode(',', $candidate->languages)) @endphp
                                             <div class="col-6 text-end">
                                                 @if ( $languages =  explode(',', $candidate->languages))
@@ -192,13 +192,13 @@
                                                     + Add
                                                 @endif
                                             </div>
-                                            <div class="col-6 mb-3"><strong>LinkedIn:</strong></div>
+                                            <div class="col-6 mb-3"><strong>{{ x_('LinkedIn:', 'general') }}</strong></div>
                                             <div class="col-6 mb-3 text-end">
                                                 @if ($candidate->linkedin)
-                                                    <a href="{{ $candidate->linkedin }}" target="_blank" class="text-decoration-none">View Profile</a>
+                                                    <a href="{{ $candidate->linkedin }}" target="_blank" class="text-decoration-none">{{ x_('View Profile', 'general') }}</a>
                                                 @endif
                                             </div>
-                                            <div class="col-6 mb-3"><strong>Source:</strong></div>
+                                            <div class="col-6 mb-3"><strong>{{ x_('Source:', 'general') }}</strong></div>
                                             <div class="col-6 mb-3 text-end">{{ $candidate->source }}</div>
                                         </div>
                                     </div>
@@ -213,17 +213,17 @@
                     @else
                         <div class="card shadow-sm">
                             <div class="card-header">
-                                <h5 class="card-title">Upload CV</h5>
+                                <h5 class="card-title">{{ x_('Upload CV', 'general') }}</h5>
                             </div>
                             <div class="card-body">
                                 <form action="{{ route('cv.upload', $candidate->id) }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
                                         <input type="hidden" name="candidate_id" value="{{ $candidate->id }}">
-                                        <label for="cv" class="form-label">Upload CV</label>
+                                        <label for="cv" class="form-label">{{ x_('Upload CV', 'general') }}</label>
                                         <input type="file" class="form-control" id="cv" name="cv" required accept=".pdf">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">{{ x_('Submit', 'general') }}</button>
                                 </form>
                             </div>
                         </div>
@@ -259,8 +259,8 @@
                                         <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     {{-- <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                                        <li><a class="dropdown-item" href="#">{{ x_('Edit', 'general') }}</a></li>
+                                        <li><a class="dropdown-item" href="#">{{ x_('Delete', 'general') }}</a></li>
                                     </ul> --}}
                                 </div>
                             </div>
@@ -302,8 +302,8 @@
                                                     <i class="bi bi-three-dots-vertical"></i>
                                                 </button>
                                                 {{-- <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                    <li><a class="dropdown-item" href="#">{{ x_('Edit', 'general') }}</a></li>
+                                                    <li><a class="dropdown-item" href="#">{{ x_('Delete', 'general') }}</a></li>
                                                 </ul> --}}
                                             </div>
                                         </div>

@@ -58,7 +58,7 @@ class PortfolioController extends Controller
             $portfolio->addMedia($request->file('image'))->toMediaCollection('portfolio');
         }
 
-        return redirect()->route('client.portfolio')->with('success', 'Portfolio item added successfully!');
+        return redirect()->route('client.portfolio')->with('success', x_('Portfolio item added successfully!', 'controller'));
     }
 
     public function update(Request $request, $id){
@@ -100,7 +100,7 @@ class PortfolioController extends Controller
             $portfolio->clearMediaCollection('portfolio');
             $portfolio->addMedia($request->file('image'))->toMediaCollection('portfolio');
         }
-        return redirect()->route('client.portfolio')->with('success', 'Portfolio item updated successfully!');
+        return redirect()->route('client.portfolio')->with('success', x_('Portfolio item updated successfully!', 'controller'));
     }
 
     public function destroy($id)
@@ -108,7 +108,7 @@ class PortfolioController extends Controller
         $user = auth('client')->user();
         $portfolio = $user->portfolios()->findOrFail($id);
         $portfolio->delete();
-        return redirect()->route('client.portfolio')->with('success', 'Portfolio item deleted successfully!');
+        return redirect()->route('client.portfolio')->with('success', x_('Portfolio item deleted successfully!', 'controller'));
     }
 
     public function show($id)

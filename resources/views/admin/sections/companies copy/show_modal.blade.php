@@ -32,7 +32,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <p>Add Activity Log</p>
+                        <p>{{ x_('Add Activity Log', 'admin') }}</p>
                     </button>
                     <div class="dropdown-menu p-3" style="width: 400px;">
                         <form action="{{ route('logs.store') }}" method="post">
@@ -41,25 +41,25 @@
                             <input type="hidden" name="loggable_id" value="{{ $company->id }}">
                             <input type="hidden" name="loggable_type" value="App\Models\Company">
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logTitle">Title</label>
+                                <label class="form-label" for="logTitle">{{ x_('Title', 'admin') }}</label>
                                 <select class="form-control" id="title" name="title" required>
-                                    <option value="" selected disabled>Select a type</option>
-                                    <option value="Phone Called">Phone Called </option>
-                                    <option value="Sent Email">Sent Email</option>
-                                    <option value="Online meeting ">Online meeting </option>
-                                    <option value="Personal meeting ">Personal meeting </option>
-                                    <option value="Contacted by Whatsapp ">Contacted by Whatsapp </option>
+                                    <option value="" selected disabled>{{ x_('Select a type', 'admin') }}</option>
+                                    <option value="Phone Called">{{ x_('Phone Called', 'admin') }} </option>
+                                    <option value="Sent Email">{{ x_('Sent Email', 'admin') }}</option>
+                                    <option value="Online meeting ">{{ x_('Online meeting', 'admin') }} </option>
+                                    <option value="Personal meeting ">{{ x_('Personal meeting', 'admin') }} </option>
+                                    <option value="Contacted by Whatsapp ">{{ x_('Contacted by Whatsapp', 'admin') }} </option>
                                 </select>
                             </div>
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logDetails">Details</label>
-                                <textarea class="form-control" id="logDetails" name="details" rows="3" placeholder="Enter details here..." required></textarea>
+                                <label class="form-label" for="logDetails">{{ x_('Details', 'admin') }}</label>
+                                <textarea class="form-control" id="logDetails" name="details" rows="3" placeholder="{{ x_('Enter details here...', 'admin') }}" required></textarea>
                             </div>
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logDate">Log Date</label>
+                                <label class="form-label" for="logDate">{{ x_('Log Date', 'admin') }}</label>
                                 <input type="date" class="form-control" id="logDate" name="log_date" >
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Save Log</button>
+                            <button type="submit" class="btn btn-primary btn-sm">{{ x_('Save Log', 'admin') }}</button>
                         </form>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <p>Add Note</p>
+                        <p>{{ x_('Add Note', 'admin') }}</p>
                     </button>
                     <div class="dropdown-menu p-3" style="width: 400px;">
                         <form action="{{ route('notes.store') }}" method="post">
@@ -88,10 +88,10 @@
                             <input type="hidden" name="notable_id" value="{{ $company->id }}">
                             <input type="hidden" name="notable_type" value="App\Models\Company">
                             <div class="form-group mb-2">
-                                <label class="form-label" for="noteDetails">Note Details</label>
-                                <textarea class="form-control" id="note-details" name="details" rows="3" placeholder="Enter your note here..."></textarea>
+                                <label class="form-label" for="noteDetails">{{ x_('Note Details', 'admin') }}</label>
+                                <textarea class="form-control" id="note-details" name="details" rows="3" placeholder="{{ x_('Enter your note here...', 'admin') }}"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Save Note</button>
+                            <button type="submit" class="btn btn-primary btn-sm">{{ x_('Save Note', 'admin') }}</button>
                         </form>
                     </div>
                 </div>
@@ -102,19 +102,19 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#activity{{$company->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="check-circle"></i></span></span>
-                        <span class="nav-link-text">Activity Log</span>
+                        <span class="nav-link-text">{{ x_('Activity Log', 'admin') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#nots{{$company->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Nots</span>
+                        <span class="nav-link-text">{{ x_('Nots', 'admin') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#contacts{{$company->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Contacts</span>
+                        <span class="nav-link-text">{{ x_('Contacts', 'admin') }}</span>
                     </a>
                 </li>
             </ul>

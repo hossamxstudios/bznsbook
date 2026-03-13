@@ -92,7 +92,7 @@ class LeadController extends Controller {
             }
             return redirect()->back();
         }
-        return redirect()->back()->with('error', 'Something went wrong');
+        return redirect()->back()->with('error', x_('Something went wrong', 'controller'));
     }
 
     public function update(Request $request, $id){
@@ -191,7 +191,7 @@ class LeadController extends Controller {
             $log->log_date      = now();
             $log->save();
         }
-        return redirect()->back()->with('success', 'Company assigned successfully!');
+        return redirect()->back()->with('success', x_('Company assigned successfully!', 'controller'));
     }
 
     public function assignContact(Request $request, $id)
@@ -208,7 +208,7 @@ class LeadController extends Controller {
             $log->log_date      = now();
             $log->save();
         }
-        return redirect()->back()->with('success', 'Contact assigned successfully!');
+        return redirect()->back()->with('success', x_('Contact assigned successfully!', 'controller'));
     }
 
     public function getStages($pipelineId)

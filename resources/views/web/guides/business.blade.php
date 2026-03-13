@@ -2,7 +2,7 @@
 @include('web.main.html')
 <head>
     <meta charset="utf-8" />
-    <title>Business Growth Strategy Guide | Bzns</title>
+    <title>{{ x_('Business Growth Strategy Guide | Bzns', 'guides') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('web.main.meta')
     <style>
@@ -151,9 +151,9 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="text-center col-lg-8">
-                        <span class="bg-white featured-badge text-dark">PREMIUM BUSINESS GUIDE</span>
-                        <h1 class="guide-title">Ultimate Business Growth Strategy Guide 2025</h1>
-                        <p class="guide-subtitle">Master proven strategies to scale your business, optimize operations, and increase revenue in today's competitive market</p>
+                        <span class="bg-white featured-badge text-dark">{{ x_('PREMIUM BUSINESS GUIDE', 'guides') }}</span>
+                        <h1 class="guide-title">{{ x_('Ultimate Business Growth Strategy Guide 2025', 'guides') }}</h1>
+                        <p class="guide-subtitle">{{ x_('Master proven strategies to scale your business, optimize operations, and increase revenue in today\'s competitive market', 'guides') }}</p>
                     </div>
                 </div>
             </div>
@@ -166,48 +166,48 @@
                     <div class="col-lg-8">
                         <!-- Introduction - Always Visible Content -->
                         <div class="content-block content-visible">
-                            <h1 class="guide-title">Business Growth Strategy Guide</h1>
+                            <h1 class="guide-title">{{ x_('Business Growth Strategy Guide', 'guides') }}</h1>
                             <p class="lead">
-                                Discover proven frameworks and data-driven approaches to scale your business effectively in today's competitive market.
+                                {{ x_('Discover proven frameworks and data-driven approaches to scale your business effectively in today\'s competitive market.', 'guides') }}
                             </p>
                         </div>
 
                         <!-- International Trade Websites Section -->
                         <div class="content-block">
-                            <h2 class="section-title">International Trade Data Websites</h2>
-                            <p>Access these valuable resources to gain data-driven insights for your international business decisions.</p>
-                            
+                            <h2 class="section-title">{{ x_('International Trade Data Websites', 'guides') }}</h2>
+                            <p>{{ x_('Access these valuable resources to gain data-driven insights for your international business decisions.', 'guides') }}</p>
+
                             @if(auth('client')->check() && auth('client')->user()->hasActiveSubscription())
                                 <div class="row mb-4">
                                     <div class="col-md-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="https://iccwbo.org" target="_blank" rel="noopener">International Chamber of Commerce (ICC)</a></h5>
+                                                <h5 class="card-title"><a href="https://iccwbo.org" target="_blank" rel="noopener">{{ x_('International Chamber of Commerce (ICC)', 'guides') }}</a></h5>
                                                 <div class="small mb-2">
-                                                    <span class="badge bg-light text-dark me-2">🏛️ Est. 1919</span>
-                                                    <span class="badge bg-light text-dark">📍 Paris, France</span>
+                                                    <span class="badge bg-light text-dark me-2">{{ x_('🏛️ Est. 1919', 'guides') }}</span>
+                                                    <span class="badge bg-light text-dark">{{ x_('📍 Paris, France', 'guides') }}</span>
                                                 </div>
-                                                <p class="card-text">Sets global standards including Incoterms®, provides arbitration services, and shapes global trade policy.</p>
-                                                <h6>Key Resources:</h6>
+                                                <p class="card-text">{{ x_('Sets global standards including Incoterms®, provides arbitration services, and shapes global trade policy.', 'guides') }}</p>
+                                                <h6>{{ x_('Key Resources:', 'guides') }}</h6>
                                                 <ul class="list-styled">
-                                                    <li>Incoterms® 2020 Guide</li>
-                                                    <li>Arbitration and dispute resolution</li>
-                                                    <li>Trade news and reports</li>
+                                                    <li>{{ x_('Incoterms® 2020 Guide', 'guides') }}</li>
+                                                    <li>{{ x_('Arbitration and dispute resolution', 'guides') }}</li>
+                                                    <li>{{ x_('Trade news and reports', 'guides') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="https://comtrade.un.org" target="_blank" rel="noopener">UN Comtrade Database</a></h5>
-                                                <p class="card-text">Comprehensive database with export and import data for more than 170 countries worldwide.</p>
-                                                <h6>Features:</h6>
+                                                <h5 class="card-title"><a href="https://comtrade.un.org" target="_blank" rel="noopener">{{ x_('UN Comtrade Database', 'guides') }}</a></h5>
+                                                <p class="card-text">{{ x_('Comprehensive database with export and import data for more than 170 countries worldwide.', 'guides') }}</p>
+                                                <h6>{{ x_('Features:', 'guides') }}</h6>
                                                 <ul class="list-styled">
-                                                    <li>Filter by country, year, HS code</li>
-                                                    <li>Download detailed trade statistics</li>
-                                                    <li>Generate custom trade reports</li>
+                                                    <li>{{ x_('Filter by country, year, HS code', 'guides') }}</li>
+                                                    <li>{{ x_('Download detailed trade statistics', 'guides') }}</li>
+                                                    <li>{{ x_('Generate custom trade reports', 'guides') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -218,161 +218,161 @@
                                     <div class="col-md-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="https://www.trademap.org" target="_blank" rel="noopener">Trade Map (ITC)</a></h5>
-                                                <p class="card-text">Provides detailed analysis of international trade flows by country and product category.</p>
-                                                <h6>Features:</h6>
+                                                <h5 class="card-title"><a href="https://www.trademap.org" target="_blank" rel="noopener">{{ x_('Trade Map (ITC)', 'guides') }}</a></h5>
+                                                <p class="card-text">{{ x_('Provides detailed analysis of international trade flows by country and product category.', 'guides') }}</p>
+                                                <h6>{{ x_('Features:', 'guides') }}</h6>
                                                 <ul class="list-styled">
-                                                    <li>Visual charts and trends</li>
-                                                    <li>Competitor analysis</li>
-                                                    <li>Target market identification</li>
+                                                    <li>{{ x_('Visual charts and trends', 'guides') }}</li>
+                                                    <li>{{ x_('Competitor analysis', 'guides') }}</li>
+                                                    <li>{{ x_('Target market identification', 'guides') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="https://wits.worldbank.org" target="_blank" rel="noopener">World Integrated Trade Solution</a></h5>
-                                                <p class="card-text">World Bank tool in collaboration with WTO and UNCTAD offering comprehensive trade analysis.</p>
-                                                <h6>Features:</h6>
+                                                <h5 class="card-title"><a href="https://wits.worldbank.org" target="_blank" rel="noopener">{{ x_('World Integrated Trade Solution', 'guides') }}</a></h5>
+                                                <p class="card-text">{{ x_('World Bank tool in collaboration with WTO and UNCTAD offering comprehensive trade analysis.', 'guides') }}</p>
+                                                <h6>{{ x_('Features:', 'guides') }}</h6>
                                                 <ul class="list-styled">
-                                                    <li>Cross-country comparisons</li>
-                                                    <li>HS Code metadata</li>
-                                                    <li>Advanced trade analysis tools</li>
+                                                    <li>{{ x_('Cross-country comparisons', 'guides') }}</li>
+                                                    <li>{{ x_('HS Code metadata', 'guides') }}</li>
+                                                    <li>{{ x_('Advanced trade analysis tools', 'guides') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <h4 class="mt-4">Additional Data Resources</h4>
+
+                                <h4 class="mt-4">{{ x_('Additional Data Resources', 'guides') }}</h4>
                                 <div class="row mb-4">
                                     <div class="col-md-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <h5 class="card-title"><a href="https://oec.world" target="_blank" rel="noopener">OEC.world</a></h5>
-                                                <p class="card-text">Interactive visualization of global trade flows with beautiful graphical representations.</p>
-                                                <h6>Features:</h6>
+                                                <p class="card-text">{{ x_('Interactive visualization of global trade flows with beautiful graphical representations.', 'guides') }}</p>
+                                                <h6>{{ x_('Features:', 'guides') }}</h6>
                                                 <ul class="list-styled">
-                                                    <li>Visual country trade maps</li>
-                                                    <li>Easy to understand charts</li>
-                                                    <li>Comprehensive country comparisons</li>
+                                                    <li>{{ x_('Visual country trade maps', 'guides') }}</li>
+                                                    <li>{{ x_('Easy to understand charts', 'guides') }}</li>
+                                                    <li>{{ x_('Comprehensive country comparisons', 'guides') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="https://www.wto.org" target="_blank" rel="noopener">World Trade Organization</a></h5>
-                                                <p class="card-text">Official source for global trade regulations, disputes and statistical reports.</p>
-                                                <h6>Resources:</h6>
+                                                <h5 class="card-title"><a href="https://www.wto.org" target="_blank" rel="noopener">{{ x_('World Trade Organization', 'guides') }}</a></h5>
+                                                <p class="card-text">{{ x_('Official source for global trade regulations, disputes and statistical reports.', 'guides') }}</p>
+                                                <h6>{{ x_('Resources:', 'guides') }}</h6>
                                                 <ul class="list-styled">
-                                                    <li>Annual trade reports</li>
-                                                    <li>Quarterly statistics</li>
-                                                    <li>Trade policy reviews</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row mb-4">
-                                    <div class="col-md-6 mb-3">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener">Eurostat</a></h5>
-                                                <p class="card-text">Comprehensive foreign trade data for European Union countries and markets.</p>
-                                                <h6>Useful for:</h6>
-                                                <ul class="list-styled">
-                                                    <li>EU market entry analysis</li>
-                                                    <li>European trade flows</li>
-                                                    <li>Statistical business reports</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-6 mb-3">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><a href="https://www.statista.com" target="_blank" rel="noopener">Statista</a></h5>
-                                                <p class="card-text">Subscription-based database with comprehensive charts and indicators on global trade.</p>
-                                                <h6>Content:</h6>
-                                                <ul class="list-styled">
-                                                    <li>Statistical reports and infographics</li>
-                                                    <li>Market forecasts and outlooks</li>
-                                                    <li>Industry-specific trade data</li>
+                                                    <li>{{ x_('Annual trade reports', 'guides') }}</li>
+                                                    <li>{{ x_('Quarterly statistics', 'guides') }}</li>
+                                                    <li>{{ x_('Trade policy reviews', 'guides') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row mb-4">
                                     <div class="col-md-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="https://www.tridge.com" target="_blank" rel="noopener">Tridge</a></h5>
-                                                <p class="card-text">Global platform connecting buyers and suppliers in agriculture and food industries.</p>
-                                                <h6>Key Features:</h6>
+                                                <h5 class="card-title"><a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener">{{ x_('Eurostat', 'guides') }}</a></h5>
+                                                <p class="card-text">{{ x_('Comprehensive foreign trade data for European Union countries and markets.', 'guides') }}</p>
+                                                <h6>{{ x_('Useful for:', 'guides') }}</h6>
                                                 <ul class="list-styled">
-                                                    <li>Daily and weekly price data</li>
-                                                    <li>Import and export trends</li>
-                                                    <li>Global trade flow visualizations</li>
+                                                    <li>{{ x_('EU market entry analysis', 'guides') }}</li>
+                                                    <li>{{ x_('European trade flows', 'guides') }}</li>
+                                                    <li>{{ x_('Statistical business reports', 'guides') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="https://www.hscode.org" target="_blank" rel="noopener">HS Code Lookup</a></h5>
-                                                <p class="card-text">Search tool for finding the correct customs classification code for any product.</p>
-                                                <h6>Benefits:</h6>
+                                                <h5 class="card-title"><a href="https://www.statista.com" target="_blank" rel="noopener">{{ x_('Statista', 'guides') }}</a></h5>
+                                                <p class="card-text">{{ x_('Subscription-based database with comprehensive charts and indicators on global trade.', 'guides') }}</p>
+                                                <h6>{{ x_('Content:', 'guides') }}</h6>
                                                 <ul class="list-styled">
-                                                    <li>Accurate product classification</li>
-                                                    <li>Avoid customs delays</li>
-                                                    <li>Determine applicable duties</li>
+                                                    <li>{{ x_('Statistical reports and infographics', 'guides') }}</li>
+                                                    <li>{{ x_('Market forecasts and outlooks', 'guides') }}</li>
+                                                    <li>{{ x_('Industry-specific trade data', 'guides') }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><a href="https://www.tridge.com" target="_blank" rel="noopener">{{ x_('Tridge', 'guides') }}</a></h5>
+                                                <p class="card-text">{{ x_('Global platform connecting buyers and suppliers in agriculture and food industries.', 'guides') }}</p>
+                                                <h6>{{ x_('Key Features:', 'guides') }}</h6>
+                                                <ul class="list-styled">
+                                                    <li>{{ x_('Daily and weekly price data', 'guides') }}</li>
+                                                    <li>{{ x_('Import and export trends', 'guides') }}</li>
+                                                    <li>{{ x_('Global trade flow visualizations', 'guides') }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><a href="https://www.hscode.org" target="_blank" rel="noopener">{{ x_('HS Code Lookup', 'guides') }}</a></h5>
+                                                <p class="card-text">{{ x_('Search tool for finding the correct customs classification code for any product.', 'guides') }}</p>
+                                                <h6>{{ x_('Benefits:', 'guides') }}</h6>
+                                                <ul class="list-styled">
+                                                    <li>{{ x_('Accurate product classification', 'guides') }}</li>
+                                                    <li>{{ x_('Avoid customs delays', 'guides') }}</li>
+                                                    <li>{{ x_('Determine applicable duties', 'guides') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             @endif
-                                
-                                <h4 class="mt-4">Shipping & Logistics Resources</h4>
+
+                                <h4 class="mt-4">{{ x_('Shipping & Logistics Resources', 'guides') }}</h4>
                                 <div class="row mb-4">
                                     <div class="col-md-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <h5 class="card-title"><a href="https://www.track-trace.com" target="_blank" rel="noopener">Track-Trace.com</a></h5>
-                                                <p class="card-text">Free service for tracking international shipments across multiple carriers.</p>
-                                                <h6>Supports:</h6>
+                                                <p class="card-text">{{ x_('Free service for tracking international shipments across multiple carriers.', 'guides') }}</p>
+                                                <h6>{{ x_('Supports:', 'guides') }}</h6>
                                                 <ul class="list-styled">
-                                                    <li>Postal services (USPS, China Post, etc.)</li>
-                                                    <li>Commercial couriers (FedEx, UPS, DHL)</li>
-                                                    <li>Container tracking for sea freight</li>
-                                                    <li>Air cargo tracking via AWB numbers</li>
+                                                    <li>{{ x_('Postal services (USPS, China Post, etc.)', 'guides') }}</li>
+                                                    <li>{{ x_('Commercial couriers (FedEx, UPS, DHL)', 'guides') }}</li>
+                                                    <li>{{ x_('Container tracking for sea freight', 'guides') }}</li>
+                                                    <li>{{ x_('Air cargo tracking via AWB numbers', 'guides') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-6 mb-3">
                                         <div class="card h-100">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="https://www.sgs.com" target="_blank" rel="noopener">SGS Inspection Services</a></h5>
-                                                <p class="card-text">Provides inspection and verification services for international goods shipments.</p>
-                                                <h6>Services:</h6>
+                                                <h5 class="card-title"><a href="https://www.sgs.com" target="_blank" rel="noopener">{{ x_('SGS Inspection Services', 'guides') }}</a></h5>
+                                                <p class="card-text">{{ x_('Provides inspection and verification services for international goods shipments.', 'guides') }}</p>
+                                                <h6>{{ x_('Services:', 'guides') }}</h6>
                                                 <ul class="list-styled">
-                                                    <li>Pre-shipment inspection</li>
-                                                    <li>Quality control verification</li>
-                                                    <li>Compliance with agreements</li>
-                                                    <li>Dispute resolution support</li>
+                                                    <li>{{ x_('Pre-shipment inspection', 'guides') }}</li>
+                                                    <li>{{ x_('Quality control verification', 'guides') }}</li>
+                                                    <li>{{ x_('Compliance with agreements', 'guides') }}</li>
+                                                    <li>{{ x_('Dispute resolution support', 'guides') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -380,47 +380,47 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Business Growth Section - Title Visible -->
                         <div class="content-block">
-                            <h2 class="section-title">Key Growth Strategies for 2025</h2>
-                            
+                            <h2 class="section-title">{{ x_('Key Growth Strategies for 2025', 'guides') }}</h2>
+
                             @if(auth('client')->check() && auth('client')->user()->hasActiveSubscription())
                             <!-- Full content for subscribers -->
                             <p>
-                                The business landscape of 2025 presents unique challenges and opportunities driven by technological advancement, changing consumer behaviors, and economic shifts. Organizations that thrive will be those that successfully implement the following strategic frameworks:
+                                {{ x_('The business landscape of 2025 presents unique challenges and opportunities driven by technological advancement, changing consumer behaviors, and economic shifts. Organizations that thrive will be those that successfully implement the following strategic frameworks:', 'guides') }}
                             </p>
 
-                            <h3>1. Market Penetration and Expansion</h3>
+                            <h3>{{ x_('1. Market Penetration and Expansion', 'guides') }}</h3>
                             <p>
-                                Deepening your presence in existing markets often represents the lowest-risk growth path. Consider these approaches:
+                                {{ x_('Deepening your presence in existing markets often represents the lowest-risk growth path. Consider these approaches:', 'guides') }}
                             </p>
                             <div class="highlight-box">
-                                <p><strong>Case Study:</strong> How Company XYZ increased market share by 32% in 12 months through targeted micro-segmentation and personalized marketing automation.</p>
+                                <p><strong>{{ x_('Case Study:', 'guides') }}</strong> {{ x_('How Company XYZ increased market share by 32% in 12 months through targeted micro-segmentation and personalized marketing automation.', 'guides') }}</p>
                             </div>
 
-                            <h3>2. Digital Transformation Strategy</h3>
+                            <h3>{{ x_('2. Digital Transformation Strategy', 'guides') }}</h3>
                             <p>
-                                Digital transformation isn't just about adopting new technologies—it's about reimagining business processes and customer experiences. A successful digital transformation strategy includes:
+                                {{ x_('Digital transformation isn\'t just about adopting new technologies—it\'s about reimagining business processes and customer experiences. A successful digital transformation strategy includes:', 'guides') }}
                             </p>
                             <ul class="list-styled">
-                                <li>Comprehensive audit of current technology infrastructure and capabilities</li>
-                                <li>Clear prioritization of initiatives based on business impact and implementation feasibility</li>
-                                <li>Development of digital-first customer journeys that enhance satisfaction and loyalty</li>
-                                <li>Implementation of data analytics frameworks to enable data-driven decision making</li>
-                                <li>Cultural transformation to foster innovation and agility across the organization</li>
+                                <li>{{ x_('Comprehensive audit of current technology infrastructure and capabilities', 'guides') }}</li>
+                                <li>{{ x_('Clear prioritization of initiatives based on business impact and implementation feasibility', 'guides') }}</li>
+                                <li>{{ x_('Development of digital-first customer journeys that enhance satisfaction and loyalty', 'guides') }}</li>
+                                <li>{{ x_('Implementation of data analytics frameworks to enable data-driven decision making', 'guides') }}</li>
+                                <li>{{ x_('Cultural transformation to foster innovation and agility across the organization', 'guides') }}</li>
                             </ul>
 
-                            <h3>3. Operational Excellence</h3>
+                            <h3>{{ x_('3. Operational Excellence', 'guides') }}</h3>
                             <p>
-                                Streamlining operations is essential for scaling efficiently. Focus on these areas:
+                                {{ x_('Streamlining operations is essential for scaling efficiently. Focus on these areas:', 'guides') }}
                             </p>
                             <ul class="list-styled">
-                                <li>Process standardization and documentation</li>
-                                <li>Strategic automation of repetitive tasks</li>
-                                <li>Implementation of continuous improvement methodologies</li>
-                                <li>Development of key performance indicators aligned with strategic objectives</li>
-                                <li>Regular review cycles to identify and address operational bottlenecks</li>
+                                <li>{{ x_('Process standardization and documentation', 'guides') }}</li>
+                                <li>{{ x_('Strategic automation of repetitive tasks', 'guides') }}</li>
+                                <li>{{ x_('Implementation of continuous improvement methodologies', 'guides') }}</li>
+                                <li>{{ x_('Development of key performance indicators aligned with strategic objectives', 'guides') }}</li>
+                                <li>{{ x_('Regular review cycles to identify and address operational bottlenecks', 'guides') }}</li>
                             </ul>
                             </div>
                         @endif
@@ -431,18 +431,18 @@
                         <div class="content-overlay" style="padding-top: 500px !important;">
                             <div class="subscribe-card" style="transform: translateY(0) !important;">
                                 <div class="mb-3">
-                                    <span class="mb-2 badge bg-warning text-dark">Premium Content</span>
-                                    <h3 class="mb-2">Business Growth Expertise</h3>
-                                    <p>Unlock complete access to our business growth guide including:</p>
+                                    <span class="mb-2 badge bg-warning text-dark">{{ x_('Premium Content', 'guides') }}</span>
+                                    <h3 class="mb-2">{{ x_('Business Growth Expertise', 'guides') }}</h3>
+                                    <p>{{ x_('Unlock complete access to our business growth guide including:', 'guides') }}</p>
                                 </div>
                                 <ul class="list-unstyled text-start">
-                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> Full growth strategy frameworks</li>
-                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> Market expansion tactics</li>
-                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> Digital transformation roadmaps</li>
-                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> Operational excellence best practices</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ x_('Full growth strategy frameworks', 'guides') }}</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ x_('Market expansion tactics', 'guides') }}</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ x_('Digital transformation roadmaps', 'guides') }}</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ x_('Operational excellence best practices', 'guides') }}</li>
                                 </ul>
                                 <div class="mt-3">
-                                    <a href="{{ route('web.select-plan') }}" class="subscribe-btn">Subscribe Now</a>
+                                    <a href="{{ route('web.select-plan') }}" class="subscribe-btn">{{ x_('Subscribe Now', 'guides') }}</a>
                                 </div>
                             </div>
                         </div>

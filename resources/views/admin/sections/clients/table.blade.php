@@ -11,14 +11,14 @@
                                     <thead>
                                         <tr>
                                             <th>#ID</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Location</th>
-                                            <th>Company Size</th>
-                                            <th>Status</th>
-                                            <th>Created</th>
-                                            <th>Actions</th>
+                                            <th>{{ x_('Name', 'clients') }}</th>
+                                            <th>{{ x_('Email', 'clients') }}</th>
+                                            <th>{{ x_('Phone', 'clients') }}</th>
+                                            <th>{{ x_('Location', 'clients') }}</th>
+                                            <th>{{ x_('Company Size', 'clients') }}</th>
+                                            <th>{{ x_('Status', 'clients') }}</th>
+                                            <th>{{ x_('Created', 'clients') }}</th>
+                                            <th>{{ x_('Actions', 'clients') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -56,7 +56,7 @@
                                                 <td>{{ $client->company_size ?: '-' }}</td>
                                                 <td>
                                                     <span class="badge bg-{{ $client->is_active ? 'success' : 'danger' }}-light-5 text-{{ $client->is_active ? 'success' : 'danger' }}">
-                                                        {{ $client->is_active ? 'Active' : 'Inactive' }}
+                                                        {{ $client->is_active ? x_('Active', 'clients') : x_('Inactive', 'clients') }}
                                                     </span>
                                                 </td>
                                                 <td>{{ $client->created_at->format('M d, Y') }}</td>
@@ -115,15 +115,15 @@
             "order": [[ 1, "desc" ]], // Sort by ID descending
             "language": {
                 "search": "",
-                "searchPlaceholder": "Search clients...",
+                "searchPlaceholder": "{{ x_('Search clients...', 'clients') }}",
                 "paginate": {
                     "next": '<i class="ri-arrow-right-s-line"></i>',
                     "previous": '<i class="ri-arrow-left-s-line"></i>'
                 },
-                "info": "Showing _START_ to _END_ of _TOTAL_ clients",
-                "infoEmpty": "Showing 0 to 0 of 0 clients",
-                "infoFiltered": "(filtered from _MAX_ total clients)",
-                "lengthMenu": "Show _MENU_ clients per page"
+                "info": "{{ x_('Showing _START_ to _END_ of _TOTAL_ clients', 'clients') }}",
+                "infoEmpty": "{{ x_('Showing 0 to 0 of 0 clients', 'clients') }}",
+                "infoFiltered": "{{ x_('(filtered from _MAX_ total clients)', 'clients') }}",
+                "lengthMenu": "{{ x_('Show _MENU_ clients per page', 'clients') }}"
             },
             "dom": '<"top d-flex justify-content-between"lf>rt<"bottom d-flex justify-content-between"ip><"clear">'
         });

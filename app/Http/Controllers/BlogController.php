@@ -45,7 +45,7 @@ class BlogController extends Controller
                 ->toMediaCollection('images');
         }
 
-        return redirect()->back()->with('success', 'Blog created successfully.');
+        return redirect()->back()->with('success', x_('Blog created successfully.', 'controller'));
     }
 
     public function update(Request $request, $id){
@@ -79,16 +79,16 @@ class BlogController extends Controller
                 ->toMediaCollection('images');
         }
 
-        return redirect()->back()->with('success', 'Blog updated successfully.');
+        return redirect()->back()->with('success', x_('Blog updated successfully.', 'controller'));
     }
 
     public function destroy($id){
         $blog = Blog::findOrFail($id);
-        
+
         // Clear media before deleting
         $blog->clearMediaCollection('images');
         $blog->delete();
-        
-        return redirect()->back()->with('success', 'Blog deleted successfully.');
+
+        return redirect()->back()->with('success', x_('Blog deleted successfully.', 'controller'));
     }
 }

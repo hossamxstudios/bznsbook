@@ -12,9 +12,9 @@
             <div class="flex-wrap flex-1 d-flex justify-content-between">
                 <div>
                     <div class="pg-subtitle">
-                        Overview
+                        {{ x_('Overview', 'blogs') }}
                     </div>
-                    <h5 class="pg-title fs-5">Blogs Board</h5>
+                    <h5 class="pg-title fs-5">{{ x_('Blogs Board', 'blogs') }}</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -29,7 +29,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Add New Blog</span>
+                                <span class="fs-7">{{ x_('Add New Blog', 'blogs') }}</span>
                             </span>
                         </button>
                     </div>
@@ -49,7 +49,7 @@
                             <line x1="7" y1="16" x2="17" y2="16"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">All Blogs</span>
+                    <span class="nav-link-text">{{ x_('All Blogs', 'blogs') }}</span>
                 </a>
             </li>
             {{-- <li class="nav-item">
@@ -63,7 +63,7 @@
                             <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">Team Members</span>
+                    <span class="nav-link-text">{{ x_('Team Members', 'blogs') }}</span>
                 </a>
             </li> --}}
         </ul>

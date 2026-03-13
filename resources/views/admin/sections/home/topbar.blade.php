@@ -7,7 +7,7 @@
             </div>
             <div class="d-flex flex-wrap justify-content-between flex-1">
 
-                <div class="pg-subtitle">Analytics</div>
+                <div class="pg-subtitle">{{ x_('Analytics', 'admin') }}</div>
 
                 <div class="pg-header-action-wrap position-relative">
                     <div class="input-group">
@@ -15,7 +15,7 @@
 
                             <span class="input-prefix"><i class="ri-filter-2-line fs-5"></i></span>
                             <select id="pipeline_select" class="form-select" onchange="redirectToPipeline()">
-                                <option selected disabled value="">All Pipeline</option>
+                                <option selected disabled value="">{{ x_('All Pipeline', 'admin') }}</option>
                                 @if (isset($pipeline))
                                     <option selected disabled value="{{ $pipeline->id }}"> {{ $pipeline->name }}</option>
                                 @else
@@ -55,7 +55,7 @@
                             <line x1="4" y1="20" x2="18" y2="20"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">Overview</span>
+                    <span class="nav-link-text">{{ x_('Overview', 'admin') }}</span>
                 </a>
             </li>
         </ul>
@@ -73,14 +73,14 @@
             <form action="/" method="GET" id="dateFilterForm">
                 <div class="d-flex flex-wrap justify-content-between flex-1">
                     <div class="d-flex align-items-center">
-                        <h5 class="pg-title fs-5 mb-0 d-flex align-items-center">Dashboard<span class="d-flex task-star marked ms-2"><span class="feather-icon"></span></span></h5>
+                        <h5 class="pg-title fs-5 mb-0 d-flex align-items-center">{{ x_('Dashboard', 'admin') }}<span class="d-flex task-star marked ms-2"><span class="feather-icon"></span></span></h5>
                         <div class="ms-3 d-xl-flex d-none">
                             <div class="input-group">
                                 <span class="input-affix-wrapper">
                                     <select id="pipeline_select" class="form-select" name="pipeline_select" onchange="submitForm()">
                                         <option selected value="all" {{
                                                      $pipeline_select == 'all' ? 'selected' : ''
-                                            }}>All Pipeline</option>
+                                            }}>{{ x_('All Pipeline', 'admin') }}</option>
                                         @foreach ($pipelines as $pipeline)
                                             <option value="{{ $pipeline->id }}" {{
                                                     $pipeline_select == $pipeline->id ? 'selected' : ''
@@ -105,10 +105,10 @@
                         </div>
                     </div>
                     {{-- <div class="pg-header-action-wrap position-relative">
-                        <span style="padding: 0 8px 0 0;">New Deal</span>
+                        <span style="padding: 0 8px 0 0;">{{ x_('New Deal', 'admin') }}</span>
                         <div class="d-flex ms-auto align-items-center">
                             <div class="avatar-group avatar-group-overlapped d-xl-flex d-none me-3">
-                                <div class="avatar avatar-icon  avatar-rounded cursor-pointer"  data-bs-placement="top" title="" data-bs-original-title="Add new deal" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdd">
+                                <div class="avatar avatar-icon  avatar-rounded cursor-pointer"  data-bs-placement="top" title="" data-bs-original-title="{{ x_('Add new deal', 'admin') }}" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdd">
                                     <span class="initial-wrap bg-white text-primary shadow-xl fs-5" style="cursor: pointer;">
                                         <span class="svg-icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -136,7 +136,7 @@
                             <line x1="12" y1="4" x2="12" y2="20"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">Overview</span>
+                    <span class="nav-link-text">{{ x_('Overview', 'admin') }}</span>
                 </a>
             </li>
         </ul>

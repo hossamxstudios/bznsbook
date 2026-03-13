@@ -14,17 +14,17 @@
                             </span>
                         </div>
                         <div class="flex-grow-1 px-3">
-                            <h5 style="font-weight: bold; font-size: 1.4em; display:inline-block">Candidate: <span class="fw-normal fs-6">{{ $interview->candidate?->email }}</span> </h5>
-                            <p class="text-muted"><i class="bi bi-geo-alt-fill"></i> Meeting Type: <span class="fw-bolder fs-6"> {{$interview->meeting_type }}</span></p>
-                            <p class="text-muted"><i class="bi bi-calendar-event"></i> Interview Type: <span class="fw-bolder fs-6">{{ $interview->interview_type }}</span></p>
+                            <h5 style="font-weight: bold; font-size: 1.4em; display:inline-block">{{ x_('Candidate:', 'general') }} <span class="fw-normal fs-6">{{ $interview->candidate?->email }}</span> </h5>
+                            <p class="text-muted"><i class="bi bi-geo-alt-fill"></i> {{ x_('Meeting Type:', 'general') }} <span class="fw-bolder fs-6"> {{$interview->meeting_type }}</span></p>
+                            <p class="text-muted"><i class="bi bi-calendar-event"></i> {{ x_('Interview Type:', 'general') }} <span class="fw-bolder fs-6">{{ $interview->interview_type }}</span></p>
                         </div>
                         <div class="dropdown">
                             <button class="btn btn-link text-muted" data-bs-toggle="dropdown">
                                 <i class="bi bi-three-dots-vertical"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Edit</a></li>
-                                <li><a class="dropdown-item" href="#">Delete</a></li>
+                                <li><a class="dropdown-item" href="#">{{ x_('Edit', 'general') }}</a></li>
+                                <li><a class="dropdown-item" href="#">{{ x_('Delete', 'general') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-list-check" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Summary</span>
+                        <span class="nav-link-text">{{ x_('Summary', 'general') }}</span>
                     </a>
                 </li>
                 <li class="nav-item" style="font-size: 14px;">
@@ -46,7 +46,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-briefcase" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Candidate Info</span>
+                        <span class="nav-link-text">{{ x_('Candidate Info', 'general') }}</span>
                     </a>
                 </li>
                 <li class="nav-item" style="font-size: 14px;">
@@ -54,7 +54,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-stickies" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Notes</span>
+                        <span class="nav-link-text">{{ x_('Notes', 'general') }}</span>
                     </a>
                 </li>
                 <li class="nav-item" style="font-size: 14px;">
@@ -62,7 +62,7 @@
                         <span class="nav-icon-wrap">
                             <i class="bi bi-stickies" style="font-size: 12px;"></i>
                         </span>
-                        <span class="nav-link-text">Attachments</span>
+                        <span class="nav-link-text">{{ x_('Attachments', 'general') }}</span>
                     </a>
                 </li>
             </ul>
@@ -72,57 +72,57 @@
                         <div class="col-md-12">
                             <div class="card shadow-lg">
                                 <div class="card-header">
-                                    <a role="button" data-bs-toggle="collapse" href="#Details{{$interview->id}}" aria-expanded="true">Request Details</a>
+                                    <a role="button" data-bs-toggle="collapse" href="#Details{{$interview->id}}" aria-expanded="true">{{ x_('Request Details', 'general') }}</a>
                                 </div>
                                 <div id="Details{{$interview->id}}" class="collapse show">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-5 mb-2"><strong>Job Name :</strong></div>
+                                            <div class="col-5 mb-2"><strong>{{ x_('Job Name :', 'general') }}</strong></div>
                                             <div class="col-7 mb-2">{{$interview->job?->title}} </div>
-                                            <div class="col-5 mb-2"><strong>Company Name:</strong></div>
+                                            <div class="col-5 mb-2"><strong>{{ x_('Company Name:', 'general') }}</strong></div>
                                             <div class="col-7 mb-2">{{ $interview->company?->name }}</div>
-                                            <div class="col-5 mb-2"><strong>Company Website:</strong></div>
+                                            <div class="col-5 mb-2"><strong>{{ x_('Company Website:', 'general') }}</strong></div>
                                             <div class="col-7 mb-2">{{ $interview->company?->website }}</div>
 
 
-                                            <div class="col-5 mb-2"><strong>Meeting Info :</strong></div>
+                                            <div class="col-5 mb-2"><strong>{{ x_('Meeting Info :', 'general') }}</strong></div>
                                             <div class="col-7 mb-2">
                                                 @if ($interview->meeting_type == 'On Site')
-                                                    <span class="fw-bold">Meeting: </span> {{ $interview->meeting_type }}
+                                                    <span class="fw-bold">{{ x_('Meeting:', 'general') }} </span> {{ $interview->meeting_type }}
                                                     <hr class="m-2 p-0" style="border-color:red;">
-                                                    <span class="fw-bold">Address: </span> {{ $interview->address }}
+                                                    <span class="fw-bold">{{ x_('Address:', 'general') }} </span> {{ $interview->address }}
                                                     <hr class="m-2 p-0" style="border-color:red;">
-                                                    <span class="fw-bold">Map Link:</span> <a href="{{ $interview->map_link }}" target="_blank">Click Here</a>
+                                                    <span class="fw-bold">{{ x_('Map Link:', 'general') }}</span> <a href="{{ $interview->map_link }}" target="_blank">{{ x_('Click Here', 'general') }}</a>
                                                 @else
-                                                    <span class="fw-bold">Meeting: </span> {{ $interview->meeting_type }}
+                                                    <span class="fw-bold">{{ x_('Meeting:', 'general') }} </span> {{ $interview->meeting_type }}
                                                     <hr class="m-2 p-0" style="border-color:red;">
-                                                    <span class="fw-bold">Meeting Link: </span> <a href="{{ $interview->meet_link }}" target="_blank">Click Here</a>
+                                                    <span class="fw-bold">{{ x_('Meeting Link:', 'general') }} </span> <a href="{{ $interview->meet_link }}" target="_blank">{{ x_('Click Here', 'general') }}</a>
                                                 @endif
                                             </div>
-                                            <div class="col-5 mb-2"><strong>Did Candidate Attend ?</strong></div>
+                                            <div class="col-5 mb-2"><strong>{{ x_('Did Candidate Attend ?', 'general') }}</strong></div>
                                             <div class="col-7 mb-2">
                                                 @if ($interview->is_attended === 1)
-                                                    <span class="badge badge-success">Attended</span>
+                                                    <span class="badge badge-success">{{ x_('Attended', 'general') }}</span>
                                                 @elseif ($interview->is_attended === 0)
-                                                    <span class="badge badge-danger">Not Attended</span>
+                                                    <span class="badge badge-danger">{{ x_('Not Attended', 'general') }}</span>
                                                 @else
-                                                    <span class="badge badge-warning">Pending</span>
+                                                    <span class="badge badge-warning">{{ x_('Pending', 'general') }}</span>
                                                 @endif
                                              </div>
-                                            <div class="col-5 mb-2"><strong>Has Candidate Passed ?</strong></div>
+                                            <div class="col-5 mb-2"><strong>{{ x_('Has Candidate Passed ?', 'general') }}</strong></div>
                                             <div class="col-7 mb-2">
                                                 @if ($interview->is_passed === 1)
-                                                    <span class="badge badge-success">Passed</span>
+                                                    <span class="badge badge-success">{{ x_('Passed', 'general') }}</span>
                                                 @elseif ($interview->is_passed === 0)
-                                                    <span class="badge badge-danger">Not Passed</span>
+                                                    <span class="badge badge-danger">{{ x_('Not Passed', 'general') }}</span>
                                                 @else
-                                                    <span class="badge badge-warning">Pending</span>
+                                                    <span class="badge badge-warning">{{ x_('Pending', 'general') }}</span>
                                                 @endif
                                             </div>
                                             <div class="col-12 mb-2">
                                                 <div class="card shadow-sm">
                                                     <div class="card-header">
-                                                        <strong>interview Description:</strong>
+                                                        <strong>{{ x_('interview Description:', 'general') }}</strong>
                                                     </div>
                                                     <div class="card-body">
                                                         {!! $interview->details !!}
@@ -142,29 +142,29 @@
                             <table  class="table nowrap table-advance table-responsive">
                                 <thead>
                                     <tr>
-                                        <th>Candidate Name</th>
-                                        <th>Candidate Email</th>
-                                        <th>Match Score</th>
-                                        <th>Match Stage</th>
-                                        <th>Currently Working</th>
+                                        <th>{{ x_('Candidate Name', 'general') }}</th>
+                                        <th>{{ x_('Candidate Email', 'general') }}</th>
+                                        <th>{{ x_('Match Score', 'general') }}</th>
+                                        <th>{{ x_('Match Stage', 'general') }}</th>
+                                        <th>{{ x_('Currently Working', 'general') }}</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="hover-row">
                                         <td style="background: white">
-                                            <a href="#" class="btn btn-link p-0 text-danger"  title="View Details">{{ $interview->candidate?->first_name }} {{ $interview->candidate?->last_name }}  </a>
+                                            <a href="#" class="btn btn-link p-0 text-danger"  title="{{ x_('View Details', 'general') }}">{{ $interview->candidate?->first_name }} {{ $interview->candidate?->last_name }}  </a>
                                         </td>
                                         <td>{{ $interview->candidate?->email }}</td>
                                         <td>{{ $interview->application?->score }}%</td>
                                         <td>{{ $interview->application?->stage?->name }}</td>
                                         <td>
                                             @if ($interview->application->candidate?->is_working === null)
-                                                <span class="badge badge-sm badge-warning">Unknow</span>
+                                                <span class="badge badge-sm badge-warning">{{ x_('Unknow', 'general') }}</span>
                                             @elseif ($interview->application->candidate?->is_working === 1)
-                                                <span class="badge badge-sm badge-success">Yes</span>
+                                                <span class="badge badge-sm badge-success">{{ x_('Yes', 'general') }}</span>
                                             @else
-                                                <span class="badge badge-sm badge-danger">No</span>
+                                                <span class="badge badge-sm badge-danger">{{ x_('No', 'general') }}</span>
                                             @endif
                                         </td>
                                     </tr>
@@ -175,7 +175,7 @@
                     </div>
                     <div class="card shadow-lg mb-3" style="height: 85vh;">
                         <div class="card-header">
-                            <h5 class="card-title">Candidate CV</h5>
+                            <h5 class="card-title">{{ x_('Candidate CV', 'general') }}</h5>
                         </div>
                         <div class="card-body" style="height: 100vh;">
                             <iframe src="{{ $interview->candidate?->getMedia('cv')->first()?->getUrl() }}" style="width: 100%; height: 100%;" frameborder="0"></iframe>
@@ -212,8 +212,8 @@
                                         <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     {{-- <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                                        <li><a class="dropdown-item" href="#">{{ x_('Edit', 'general') }}</a></li>
+                                        <li><a class="dropdown-item" href="#">{{ x_('Delete', 'general') }}</a></li>
                                     </ul> --}}
                                 </div>
                             </div>
@@ -259,8 +259,8 @@
                                                     <i class="bi bi-three-dots-vertical"></i>
                                                 </button>
                                                 {{-- <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                    <li><a class="dropdown-item" href="#">{{ x_('Edit', 'general') }}</a></li>
+                                                    <li><a class="dropdown-item" href="#">{{ x_('Delete', 'general') }}</a></li>
                                                 </ul> --}}
                                             </div>
                                         </div>

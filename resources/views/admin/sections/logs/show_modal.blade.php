@@ -13,7 +13,7 @@
         </div>
 
         <div class="mb-3">
-            <p >Stage: <span style="color: red">{{ $deal->stage->name }}</span></p>
+            <p >{{ x_('Stage:', 'admin') }} <span style="color: red">{{ $deal->stage->name }}</span></p>
         </div>
         <div class="mb-3">
             <p >Closed Date: {{ $deal->closed_at }}</p>
@@ -31,7 +31,7 @@
                         </g>
                     </svg>
                 </div>
-                <p >Add Note</p>
+                <p >{{ x_('Add Note', 'admin') }}</p>
             </div>
             <div class="col-3">
                 <div class="badge-icon badge-circle badge-icon-sm text-gray">
@@ -45,7 +45,7 @@
                         </g>
                     </svg>
                 </div>
-                <p> Assign Company</p>
+                <p> {{ x_('Assign Company', 'admin') }}</p>
             </div>
             <div class="col-3">
                 <div class="badge-icon badge-circle badge-icon-sm text-gray">
@@ -59,7 +59,7 @@
                         </g>
                     </svg>
                 </div>
-                <p> Assign Contact</p>
+                <p> {{ x_('Assign Contact', 'admin') }}</p>
             </div>
             <div class="col-3">
                 <div class="badge-icon badge-circle badge-icon-sm text-gray">
@@ -73,7 +73,7 @@
                         </g>
                     </svg>
                 </div>
-                <p >Add Activity</p>
+                <p >{{ x_('Add Activity', 'admin') }}</p>
             </div>
         </div>
 
@@ -82,13 +82,13 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#tab_block_12">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="check-circle"></i></span></span>
-                        <span class="nav-link-text">Activity Log</span>
+                        <span class="nav-link-text">{{ x_('Activity Log', 'admin') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#tab_block_22">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Nots</span>
+                        <span class="nav-link-text">{{ x_('Nots', 'admin') }}</span>
                     </a>
                 </li>
             </ul>
@@ -96,7 +96,7 @@
                 <div class="tab-pane fade show active" id="tab_block_12">
                     <div class="card">
                         <div class="card-header">
-                            <a role="button" data-bs-toggle="collapse" href="#activity_11" aria-expanded="true">Today</a>
+                            <a role="button" data-bs-toggle="collapse" href="#activity_11" aria-expanded="true">{{ x_('Today', 'admin') }}</a>
                         </div>
                         <div id="activity_11" class="collapse show">
                             <div class="card-body">
@@ -109,8 +109,8 @@
                                                 </div>
                                             </div>
                                             <div class="media-body">
-                                                <p><span class="text-dark">Hencework</span> on Documentation link is working now - <a href="#" class="link-url"><u>https://hencework.com/theme/zapped</u></a></p>
-                                                <div class="last-activity-time">Oct 15, 2021, 12:34 PM</div>
+                                                <p><span class="text-dark">{{ x_('Hencework', 'admin') }}</span> {{ x_('on Documentation link is working now -', 'admin') }} <a href="#" class="link-url"><u>https://hencework.com/theme/zapped</u></a></p>
+                                                <div class="last-activity-time">{{ x_('Oct 15, 2021, 12:34 PM', 'admin') }}</div>
                                             </div>
                                         </div>
                                     </li>
@@ -122,8 +122,8 @@
                                                 </div>
                                             </div>
                                             <div class="media-body">
-                                                <p><span class="text-dark">Morgan Fregman</span> completed react conversion of <a href="#" class="link-default"><u>components</u></a></p>
-                                                <div class="last-activity-time">Sep 16, 2021, 4:54 PM</div>
+                                                <p><span class="text-dark">{{ x_('Morgan Fregman', 'admin') }}</span> {{ x_('completed react conversion of', 'admin') }} <a href="#" class="link-default"><u>components</u></a></p>
+                                                <div class="last-activity-time">{{ x_('Sep 16, 2021, 4:54 PM', 'admin') }}</div>
                                             </div>
                                         </div>
                                     </li>
@@ -135,8 +135,8 @@
                                                 </div>
                                             </div>
                                             <div class="media-body">
-                                                <p><span class="text-dark">Jimmy Carry</span>completed side bar menu on <a href="#" class="link-default"><u>elements</u></a></p>
-                                                <div class="last-activity-time">Sep 10, 2021, 10:13 AM</div>
+                                                <p><span class="text-dark">{{ x_('Jimmy Carry', 'admin') }}</span>{{ x_('completed side bar menu on', 'admin') }} <a href="#" class="link-default"><u>elements</u></a></p>
+                                                <div class="last-activity-time">{{ x_('Sep 10, 2021, 10:13 AM', 'admin') }}</div>
                                             </div>
                                         </div>
                                     </li>
@@ -148,8 +148,8 @@
                                                 </div>
                                             </div>
                                             <div class="media-body">
-                                                <p><span class="text-dark">Charlie Chaplin</span> deleted empty cards on <a href="#" class="link-default"><u>completed</u></a></p>
-                                                <div class="last-activity-time">Sep 10, 2021, 10:13 AM</div>
+                                                <p><span class="text-dark">{{ x_('Charlie Chaplin', 'admin') }}</span> {{ x_('deleted empty cards on', 'admin') }} <a href="#" class="link-default"><u>completed</u></a></p>
+                                                <div class="last-activity-time">{{ x_('Sep 10, 2021, 10:13 AM', 'admin') }}</div>
                                             </div>
                                         </div>
                                     </li>
@@ -158,7 +158,7 @@
                         </div>
                     </div>                </div>
                 <div class="tab-pane fade" id="tab_block_22">
-                    <p>iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+                    <p>{{ x_('iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven\'t heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.', 'admin') }}</p>
                 </div>
             </div>
         </div>

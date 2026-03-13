@@ -35,7 +35,7 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->route('categories.index')
-            ->with('success', 'Category created successfully.');
+            ->with('success', x_('Category created successfully.', 'controller'));
     }
 
     public function update(Request $request, $id)
@@ -60,7 +60,7 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->route('categories.index')
-            ->with('success', 'Category updated successfully.');
+            ->with('success', x_('Category updated successfully.', 'controller'));
     }
 
     public function destroy($id)
@@ -70,12 +70,12 @@ class CategoryController extends Controller
         // Check if the category has any subcategories
         if ($category->subcategories()->count() > 0) {
             return redirect()->route('categories.index')
-                ->with('error', 'Cannot delete category because it has associated subcategories.');
+                ->with('error', x_('Cannot delete category because it has associated subcategories.', 'controller'));
         }
 
         $category->delete();
 
         return redirect()->route('categories.index')
-            ->with('success', 'Category deleted successfully.');
+            ->with('success', x_('Category deleted successfully.', 'controller'));
     }
 }

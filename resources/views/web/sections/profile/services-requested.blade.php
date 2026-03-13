@@ -1,16 +1,16 @@
 <div class="col-md-8 offset-lg-1 mb-lg-4 pt-md-5 mt-n3 mt-md-0">
     <div class="ps-md-3 ps-lg-0 mt-md-2">
         <div class="mb-4 d-flex align-items-center justify-content-between">
-            <h1 class="mb-0 h2 pt-xl-1">Services You Requested</h1>
+            <h1 class="mb-0 h2 pt-xl-1">{{ x_('Services You Requested', 'web') }}</h1>
         </div>
 
         <!-- Services Requested List -->
         <div class="mb-4 border-0 shadow-sm card">
             <div class="bg-transparent card-header d-flex align-items-center justify-content-between">
-                <h5 class="mb-0">Your Service Requests</h5>
+                <h5 class="mb-0">{{ x_('Your Service Requests', 'web') }}</h5>
                 <a href="{{ route('pages.companies') }}" class="btn btn-sm btn-primary">
                     <i class="bx bx-plus-circle me-1"></i>
-                    Find Services
+                    {{ x_('Find Services', 'web') }}
                 </a>
             </div>
             <div class="p-0 card-body">
@@ -19,12 +19,12 @@
                     <table class="table mb-0">
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Service</th>
-                                <th>Provider</th>
-                                <th>Budget</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th>{{ x_('Date', 'web') }}</th>
+                                <th>{{ x_('Service', 'web') }}</th>
+                                <th>{{ x_('Provider', 'web') }}</th>
+                                <th>{{ x_('Budget', 'web') }}</th>
+                                <th>{{ x_('Status', 'web') }}</th>
+                                <th>{{ x_('Actions', 'web') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,9 +35,9 @@
                                     <div class="d-flex align-items-center">
                                         <div>
                                             <h6 class="mb-0">{{ $demand->service->name }}
-                                                <i class="text-primary bx bx-file-blank" title="Proposal Attached"></i>ff
+                                                <i class="text-primary bx bx-file-blank" title="{{ x_('Proposal Attached', 'web') }}"></i>ff
                                                 @if($demand->getFirstMedia('proposal'))
-                                                <i class="text-primary bx bx-file-blank" title="Proposal Attached"></i>
+                                                <i class="text-primary bx bx-file-blank" title="{{ x_('Proposal Attached', 'web') }}"></i>
                                                 @endif
                                             </h6>
                                         </div>
@@ -61,20 +61,20 @@
                                     @elseif($demand->budget_min)
                                         ${{ number_format($demand->budget_min, 0) }}+
                                     @elseif($demand->budget_max)
-                                        Up to ${{ number_format($demand->budget_max, 0) }}
+                                        {{ x_('Up to', 'web') }} ${{ number_format($demand->budget_max, 0) }}
                                     @else
-                                        Not specified
+                                        {{ x_('Not specified', 'web') }}
                                     @endif
                                 </td>
                                 <td>
                                     @if($demand->is_completed)
-                                        <span class="badge bg-success">Completed</span>
+                                        <span class="badge bg-success">{{ x_('Completed', 'web') }}</span>
                                     @elseif($demand->is_accepted)
-                                        <span class="badge bg-primary">Accepted</span>
+                                        <span class="badge bg-primary">{{ x_('Accepted', 'web') }}</span>
                                     @elseif($demand->is_rejected)
-                                        <span class="badge bg-danger">Rejected</span>
+                                        <span class="badge bg-danger">{{ x_('Rejected', 'web') }}</span>
                                     @else
-                                        <span class="badge bg-warning text-dark">Pending</span>
+                                        <span class="badge bg-warning text-dark">{{ x_('Pending', 'web') }}</span>
                                     @endif
                                 </td>
                                 <td>
@@ -85,7 +85,7 @@
                                         @if($demand->is_accepted && !$demand->is_completed)
                                         <form action="{{ route('client.services.demand.complete', $demand->id) }}" method="POST" class="d-inline">
                                             @csrf
-                                            <button type="submit" class="btn btn-sm btn-outline-success" onclick="return confirm('Mark this service as completed?')">
+                                            <button type="submit" class="btn btn-sm btn-outline-success" onclick="return confirm('{{ x_('Mark this service as completed?', 'web') }}')">
                                                 <i class="bx bx-check-circle"></i>
                                             </button>
                                         </form>
@@ -107,10 +107,10 @@
                         <div class="p-3 mx-auto mb-3 bg-light rounded-circle text-muted" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
                             <i class="bx bx-briefcase fs-1"></i>
                         </div>
-                        <h4>No Service Requests Found</h4>
-                        <p class="text-muted">You haven't requested any services yet.</p>
+                        <h4>{{ x_('No Service Requests Found', 'web') }}</h4>
+                        <p class="text-muted">{{ x_('You haven\'t requested any services yet.', 'web') }}</p>
                         <a href="{{ route('pages.companies') }}" class="btn btn-primary">
-                            <i class="bx bx-search me-2"></i>Find Services
+                            <i class="bx bx-search me-2"></i>{{ x_('Find Services', 'web') }}
                         </a>
                     </div>
                 </div>

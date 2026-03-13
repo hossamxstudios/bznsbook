@@ -30,7 +30,7 @@ class CompanyController extends Controller {
         $log->details       = 'Sections updated: ' . implode(', ', $request->sections);
         $log->log_date      = now();
         $log->save();
-        return redirect()->back()->with('success', 'Company sections updated successfully');
+        return redirect()->back()->with('success', x_('Company sections updated successfully', 'controller'));
     }
 
     public function index(){
@@ -171,10 +171,10 @@ class CompanyController extends Controller {
             if (Storage::exists($filePath)) {
                 Storage::delete($filePath);
             }
-            return redirect()->back()->with('success', "contacts imported successfully! Total records: $rowCount");
+            return redirect()->back()->with('success', x_('Contacts imported successfully!', 'controller') . ' ' . x_('Total records:', 'controller') . ' ' . $rowCount);
         } catch (\Exception $e) {
             FacadesLog::error('Error importing contacts: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Error importing data: ' . $e->getMessage());
+            return redirect()->back()->with('error', x_('Error importing data:', 'controller') . ' ' . $e->getMessage());
         }
     }
 

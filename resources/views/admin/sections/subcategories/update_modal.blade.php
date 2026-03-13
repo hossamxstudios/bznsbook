@@ -8,19 +8,19 @@
             @csrf
             <div class="row gx-3">
                 <div class="col-sm-12 form-group position-relative mb-3">
-                    <label class="form-label">Name</label>
+                    <label class="form-label">{{ x_('Name', 'admin') }}</label>
                     <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" value="{{ $subcategory->name }}" required/>
                     @error('name')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @else
-                        <div class="invalid-feedback">Please enter a subcategory name</div>
+                        <div class="invalid-feedback">{{ x_('Please enter a subcategory name', 'admin') }}</div>
                     @enderror
                 </div>
                 
                 <div class="col-sm-12 form-group position-relative mb-3">
-                    <label class="form-label">Category</label>
+                    <label class="form-label">{{ x_('Category', 'admin') }}</label>
                     <select class="form-select @error('category_id') is-invalid @enderror" name="category_id" required>
-                        <option value="">Select a category</option>
+                        <option value="">{{ x_('Select a category', 'admin') }}</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}" {{ $subcategory->category_id == $category->id ? 'selected' : '' }}>
                                 {{ $category->name }}
@@ -30,19 +30,19 @@
                     @error('category_id')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @else
-                        <div class="invalid-feedback">Please select a category</div>
+                        <div class="invalid-feedback">{{ x_('Please select a category', 'admin') }}</div>
                     @enderror
                 </div>
                 
                 <div class="col-sm-12 form-group position-relative mb-3">
-                    <label class="form-label">Details</label>
+                    <label class="form-label">{{ x_('Details', 'admin') }}</label>
                     <textarea class="form-control @error('details') is-invalid @enderror" name="details" rows="3">{{ $subcategory->details }}</textarea>
                     @error('details')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary mt-4">Update</button>
+            <button type="submit" class="btn btn-primary mt-4">{{ x_('Update', 'admin') }}</button>
         </form>
     </div>
 </div>

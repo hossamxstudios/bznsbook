@@ -102,7 +102,7 @@ class ProjectController extends Controller
         if ($request->hasFile('image')) {
             $project->addMediaFromRequest('image')->toMediaCollection('projects');
         }
-        return redirect()->route('client.projects.index')->with('success', 'Project created successfully! The first batch has been automatically created.');
+        return redirect()->route('client.projects.index')->with('success', x_('Project created successfully! The first batch has been automatically created.', 'controller'));
     }
     /**
      * Show edit form for a project
@@ -112,7 +112,7 @@ class ProjectController extends Controller
     public function edit(Project $project){
         // Check if user is authorized to edit this project
         if ($project->client_id !== Auth::user('client')->id ) {
-            abort(403, 'Unauthorized action.');
+            abort(403, x_('Unauthorized action.', 'controller'));
         }
         $services = Service::all();
         $selectedServices = $project->services->pluck('id')->toArray();
@@ -142,7 +142,7 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project){
         // Check if authenticated user is project owner
         if (Auth::user('client')->id !== $project->client_id) {
-            return redirect()->back()->with('error', 'You are not authorized to update this project.');
+            return redirect()->back()->with('error', x_('You are not authorized to update this project.', 'controller'));
         }
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
@@ -178,7 +178,7 @@ class ProjectController extends Controller
             $project->clearMediaCollection('projects');
             $project->addMediaFromRequest('image')->toMediaCollection('projects');
         }
-        return redirect()->route('client.projects.show', $project)->with('success', 'Project updated successfully.');
+        return redirect()->route('client.projects.show', $project)->with('success', x_('Project updated successfully.', 'controller'));
     }
     /**
      * Update the project status.
@@ -186,7 +186,7 @@ class ProjectController extends Controller
     public function updateStatus(Request $request, Project $project){
         // Check if authenticated user is project owner or admin
         if (Auth::user('client')->id !== $project->client_id) {
-            return redirect()->back()->with('error', 'You are not authorized to update this project status.');
+            return redirect()->back()->with('error', x_('You are not authorized to update this project status.', 'controller'));
         }
 
         $validatedData = $request->validate([
@@ -210,7 +210,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect()->back()->with('success', 'Project status updated successfully.');
+        return redirect()->back()->with('success', x_('Project status updated successfully.', 'controller'));
     }
 
     /**
@@ -219,19 +219,19 @@ class ProjectController extends Controller
     public function destroy(Project $project){
         // Check if authenticated user is project owner or admin
         if (Auth::user('client')->id !== $project->client_id && !Auth::user()->is_admin) {
-            return redirect()->back()->with('error', 'You are not authorized to delete this project.');
+            return redirect()->back()->with('error', x_('You are not authorized to delete this project.', 'controller'));
         }
 
         // Check if project can be deleted (e.g., no accepted applications)
         if ($project->status === Project::STATUS_AWARDED) {
-            return redirect()->back()->with('error', 'Cannot delete a project that has been awarded.');
+            return redirect()->back()->with('error', x_('Cannot delete a project that has been awarded.', 'controller'));
         }
 
         // Delete the project (this will cascade to batches and seats)
         $project->delete();
 
         return redirect()->route('client.projects.index')
-            ->with('success', 'Project deleted successfully.');
+            ->with('success', x_('Project deleted successfully.', 'controller'));
     }
 
     /**
@@ -240,12 +240,12 @@ class ProjectController extends Controller
     public function selectWinner(Request $request, Project $project, Seat $seat){
         // Check if authenticated user is project owner or admin
         if (Auth::user('client')->id !== $project->client_id) {
-            return redirect()->back()->with('error', 'You are not authorized to select a winner for this project.');
+            return redirect()->back()->with('error', x_('You are not authorized to select a winner for this project.', 'controller'));
         }
 
         // Check if the seat belongs to this project
         if ($seat->batch->project_id !== $project->id) {
-            return redirect()->back()->with('error', 'Invalid seat selection.');
+            return redirect()->back()->with('error', x_('Invalid seat selection.', 'controller'));
         }
 
         // Update project winner
@@ -266,6 +266,6 @@ class ProjectController extends Controller
             'is_rejected' => 1
         ]);
 
-        return redirect()->back()->with('success', 'Winner selected successfully.');
+        return redirect()->back()->with('success', x_('Winner selected successfully.', 'controller'));
     }
 }

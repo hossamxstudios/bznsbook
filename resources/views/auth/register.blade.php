@@ -27,33 +27,33 @@
                                                     </a>
                                                 </div>
                                                 <div class="mb-4 text-center">
-                                                    <h4>Sign Up your account</h4>
+                                                    <h4>{{ x_('Sign Up your account', 'general') }}</h4>
                                                 </div>
                                                 <div class="row gx-3">
                                                     <div class="form-group col-lg-12">
                                                         <div class="form-label-group">
-                                                            <label> Full Name</label>
+                                                            <label> {{ x_('Full Name', 'general') }}</label>
                                                         </div>
-                                                        <input class="form-control" placeholder="Enter Full Name" value="" type="text" name="name" :value="old('name')">
+                                                        <input class="form-control" placeholder="{{ x_('Enter Full Name', 'general') }}" value="" type="text" name="name" :value="old('name')">
                                                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                                     </div>
                                                     <div class="form-group col-lg-12">
                                                         <div class="form-label-group">
-                                                            <label>Email</label>
+                                                            <label>{{ x_('Email', 'general') }}</label>
                                                         </div>
-                                                        <input class="form-control" placeholder="Enter username or email ID" value="" type="text" name="email" :value="old('email')">
+                                                        <input class="form-control" placeholder="{{ x_('Enter username or email ID', 'general') }}" value="" type="text" name="email" :value="old('email')">
                                                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                                     </div>
                                                     <div class="form-group col-lg-12">
                                                         <div class="form-label-group">
-                                                            <label>Password</label>
+                                                            <label>{{ x_('Password', 'general') }}</label>
                                                         </div>
                                                         <div class="input-group password-check">
                                                             <span class="input-affix-wrapper affix-wth-text">
-                                                                <input class="form-control" placeholder="Enter your password" value="" type="password"  name="password" required autocomplete="current-password" />
+                                                                <input class="form-control" placeholder="{{ x_('Enter your password', 'general') }}" value="" type="password"  name="password" required autocomplete="current-password" />
                                                                 <a href="#" class="input-suffix text-primary text-uppercase fs-8 fw-medium">
-                                                                    <span>Show</span>
-                                                                    <span class="d-none">Hide</span>
+                                                                    <span>{{ x_('Show', 'general') }}</span>
+                                                                    <span class="d-none">{{ x_('Hide', 'general') }}</span>
                                                                 </a>
                                                             </span>
                                                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -61,21 +61,21 @@
                                                     </div>
                                                     <div class="form-group col-lg-12">
                                                         <div class="form-label-group">
-                                                            <label>Confirm Password</label>
+                                                            <label>{{ x_('Confirm Password', 'general') }}</label>
                                                         </div>
                                                         <div class="input-group password-check">
                                                             <span class="input-affix-wrapper affix-wth-text">
-                                                                <input class="form-control" placeholder="Confirm your password" value="" type="password"  name="password_confirmation" required  />
+                                                                <input class="form-control" placeholder="{{ x_('Confirm your password', 'general') }}" value="" type="password"  name="password_confirmation" required  />
                                                                 <a href="#" class="input-suffix text-primary text-uppercase fs-8 fw-medium">
-                                                                    <span>Show</span>
-                                                                    <span class="d-none">Hide</span>
+                                                                    <span>{{ x_('Show', 'general') }}</span>
+                                                                    <span class="d-none">{{ x_('Hide', 'general') }}</span>
                                                                 </a>
                                                             </span>
                                                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary btn-uppercase btn-block">Regiser</a>
+                                                <button type="submit" class="btn btn-primary btn-uppercase btn-block">{{ x_('Regiser', 'general') }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                             <footer class="container-xxl footer">
                                 <div class="row">
                                     <div class="text-center col-xl-8">
-                                        <p class="pb-0 footer-text"><span class="copy-text">BZNSBOOKHr © 2025 All rights reserved.</span> <a href="#" class="">Privacy Policy</a><span class="footer-link-sep">|</span><a href="#" class="">T&amp;C</a><span class="footer-link-sep">|</span><a href="#" class="">System Status</a></p>
+                                        <p class="pb-0 footer-text"><span class="copy-text">{{ x_('BZNSBOOKHr © 2025 All rights reserved.', 'general') }}</span> <a href="#" class="">{{ x_('Privacy Policy', 'general') }}</a><span class="footer-link-sep">|</span><a href="#" class="">{{ x_('T&amp;C', 'general') }}</a><span class="footer-link-sep">|</span><a href="#" class="">{{ x_('System Status', 'general') }}</a></p>
                                     </div>
                                 </div>
                             </footer>
@@ -96,7 +96,7 @@
                         <div class="py-8 text-center auth-content flex-column">
                             <div class="row">
                                 <div class="mx-auto col-xxl-7 col-xl-8 col-lg-11">
-                                    <h2 class="mb-4">Meet all new BZNSBOOKHR ERP</h2>
+                                    <h2 class="mb-4">{{ x_('Meet all new BZNSBOOKHR ERP', 'general') }}</h2>
                                 </div>
                             </div>
                             <img src={{ asset("dist/img/login.png") }} class="mt-7 img-fluid w-sm-50" alt="login">

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('client_id')->constrained('clients')->onDelete('cascade');
             $table->date('starts_at');
             $table->date('ends_at');
+            $table->addColumn('float', 'price', ['nullable' => true, 'unsigned' => false]);
             $table->string('billing_cycle'); // monthly, yearly
             $table->boolean('is_active')->default(0);
             $table->boolean('is_paid')->default(0);

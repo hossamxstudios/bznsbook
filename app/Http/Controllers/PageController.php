@@ -10,7 +10,6 @@ use App\Models\Pipeline;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Client;
-use App\Models\Section;
 use App\Models\Category;
 use App\Models\Service;
 
@@ -110,15 +109,14 @@ class PageController extends Controller{
             $lead->services()->attach($request->services);
         }
         if($lead->save()){
-            return back()->with('success', 'Lead has been submitted successfully');
+            return back()->with('success', x_('Lead has been submitted successfully', 'controller'));
         }
-        return back()->with('error', 'An error occurred while submitting your lead');
+        return back()->with('error', x_('An error occurred while submitting your lead', 'controller'));
 
     }
 
     public function homePage(){
-        $services = Section::all();
-        return view('web.home', compact('services'));
+        return view('web.home');
     }
 
     public function pricingPage(){
@@ -181,6 +179,14 @@ class PageController extends Controller{
 
     public function selectPlan(){
         return view('web.select-plan');
+    }
+
+    public function privacyPage(){
+        return view('web.privacy');
+    }
+
+    public function termsPage(){
+        return view('web.terms');
     }
 
 }

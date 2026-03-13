@@ -87,7 +87,7 @@
                 if ($('.cked:checked').length > 0) {
                     if ($('#deleteAllChecked').length === 0) {
                         $('.dataTables_wrapper .btn-group').append(
-                            '<button class="btn btn-primary" id="deleteAllChecked" onclick="deleteAllChecked()">Delete</button>'
+                            '<button class="btn btn-primary" id="deleteAllChecked" onclick="deleteAllChecked()">{{ x_('Delete', 'admin') }}</button>'
                         );
                     }
                 } else {
@@ -97,7 +97,7 @@
         });
         function deleteAllChecked() {
             var ids = [];
-            if (confirm("Are you sure you want to delete this records?")) {
+            if (confirm("{{ x_('Are you sure you want to delete this records?', 'admin') }}")) {
                 $(".cked:checked").each(function(){
                     // check if the input name is checkeds[]
                     if($(this).attr('name') == 'checkeds[]'){
@@ -118,7 +118,7 @@
                         }
                     });
                 } else {
-                    alert("Please select atleast one checkbox");
+                    alert("{{ x_('Please select atleast one checkbox', 'admin') }}");
                 }
             }
         }

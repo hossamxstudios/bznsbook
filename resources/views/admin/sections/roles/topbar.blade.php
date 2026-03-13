@@ -15,8 +15,8 @@
             </div>
             <div class="d-flex flex-wrap justify-content-between flex-1">
                 <div>
-                    <div class="pg-subtitle">Overview </div>
-                    <h5 class="pg-title fs-5">Roles Board</h5>
+                    <div class="pg-subtitle">{{ x_('Overview', 'roles') }} </div>
+                    <h5 class="pg-title fs-5">{{ x_('Roles Board', 'roles') }}</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -31,7 +31,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Add New Role</span>
+                                <span class="fs-7">{{ x_('Add New Role', 'roles') }}</span>
                             </span>
                         </button>
                     </div>
@@ -51,7 +51,7 @@
                             <line x1="7" y1="16" x2="17" y2="16"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">All Roles</span>
+                    <span class="nav-link-text">{{ x_('All Roles', 'roles') }}</span>
                 </a>
             </li>
         </ul>

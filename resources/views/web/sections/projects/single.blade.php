@@ -1,6 +1,6 @@
 {{-- back to projects --}}
 <a href="{{ route('client.projects.index') }}" class="mb-4 btn btn-primary">
-    <i class="bx bx-arrow-back me-1"></i> Back to Projects
+    <i class="bx bx-arrow-back me-1"></i> {{ x_('Back to Projects', 'web') }}
 </a>
 
 <div class="mb-4 border-0 shadow-sm card">
@@ -25,7 +25,7 @@
         <!-- Project Status Timeline - Enhanced UI with Brand Colors -->
         <div class="p-4 mb-4 border shadow-sm rounded-3 bg-light {{ $project->status == 'cancelled' ? 'opacity-50' : '' }}">
             <h5 class="mb-3 d-flex align-items-center">
-                <i class="bx bx-stats me-2 fs-4" style="color: #3e3e3e;"></i> Project Timeline
+                <i class="bx bx-stats me-2 fs-4" style="color: #3e3e3e;"></i> {{ x_('Project Timeline', 'web') }}
                 <span class="px-3 py-2 ms-auto badge {{ $project->status == 'cancelled' ? 'bg-danger' : 'bg-dark' }}">
                     <i class="bx {{ $project->status == 'pending' ? 'bx-time' : ($project->status == 'active' ? 'bx-pulse' : ($project->status == 'awarded' ? 'bx-trophy' : ($project->status == 'cancelled' ? 'bx-x-circle' : 'bx-check-circle'))) }} me-1"></i>
                     {{ ucfirst($project->status) }}
@@ -84,7 +84,7 @@
                             </span>
                         @else
                             <span class="badge small" style="background-color: #f0f0f0; color: #6c757d">
-                                Upcoming
+                                {{ x_('Upcoming', 'web') }}
                             </span>
                         @endif
                     </div>
@@ -97,25 +97,25 @@
                         <i class="bx {{ $statusIcons[$currentStatusIndex] }}" style="color: {{ $currentColor }}; font-size: 1.5rem;"></i>
                     </div>
                     <div>
-                        <h6 class="mb-1">{{ ucfirst($project->status) }} Status</h6>
+                        <h6 class="mb-1">{{ ucfirst($project->status) }} {{ x_('Status', 'web') }}</h6>
                         <p class="mb-0">
                             @if($project->status == 'active')
-                                This project is open for applications. Freelancers can submit their proposals.
+                                {{ x_('This project is open for applications. Freelancers can submit their proposals.', 'web') }}
                                 @if($project->batches->isNotEmpty())
-                                    <br><span style="font-weight: 500;">{{ $project->getAllSeats()->count() }} applications received so far.</span>
+                                    <br><span style="font-weight: 500;">{{ $project->getAllSeats()->count() }} {{ x_('applications received so far.', 'web') }}</span>
                                 @endif
                             @elseif($project->status == 'awarded')
-                                <span style="font-weight: 500;">This project has been awarded to
+                                <span style="font-weight: 500;">{{ x_('This project has been awarded to', 'web') }}
                                     @if($project->winner)
                                         <a href="#winner-section" class="text-decoration-none" style="color: {{ $mainColor }};">{{ $project->winner->name }}</a>
                                     @else
-                                        a freelancer
+                                        {{ x_('a freelancer', 'web') }}
                                     @endif
-                                </span> and is currently in progress.
+                                </span> {{ x_('and is currently in progress.', 'web') }}
                             @elseif($project->status == 'completed')
-                                <span class="" style="font-weight: 500;">Congratulations!</span> This project has been successfully completed on {{ $project->updated_at->format('M d, Y') }}.
+                                <span class="" style="font-weight: 500;">{{ x_('Congratulations!', 'web') }}</span> {{ x_('This project has been successfully completed on', 'web') }} {{ $project->updated_at->format('M d, Y') }}.
                             @elseif($project->status == 'cancelled')
-                                <span style="font-weight: 500;" class="text-danger">This project has been cancelled</span> on {{ $project->updated_at->format('M d, Y') }} and is no longer accepting applications.
+                                <span style="font-weight: 500;" class="text-danger">{{ x_('This project has been cancelled', 'web') }}</span> {{ x_('on', 'web') }} {{ $project->updated_at->format('M d, Y') }} {{ x_('and is no longer accepting applications.', 'web') }}
                             @endif
                         </p>
                     </div>
@@ -126,7 +126,7 @@
                 <div class="mt-3 d-flex justify-content-end">
                     @if($project->status == 'active')
                         <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#viewApplicationsModal" style="border-color: {{ $mainColor }}; color: {{ $mainColor }};">
-                            <i class="bx bx-user-check me-1"></i> View Applications ({{ $project->getAllSeats()->count() }})
+                            <i class="bx bx-user-check me-1"></i> {{ x_('View Applications', 'web') }} ({{ $project->getAllSeats()->count() }})
                         </button>
 
                         <!-- View Applications Modal -->
@@ -134,7 +134,7 @@
                             <div class="modal-dialog modal-lg modal-dialog-scrollable">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="viewApplicationsModalLabel">Project Applications</h5>
+                                        <h5 class="modal-title" id="viewApplicationsModalLabel">{{ x_('Project Applications', 'web') }}</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -146,8 +146,8 @@
                                                             <i class="bx bx-info-circle fs-1 text-body-secondary"></i>
                                                         </div>
                                                         <div>
-                                                            <h6 class="mb-1">Project: {{ $project->name }}</h6>
-                                                            <p class="mb-0">All applications across all batches are shown below.</p>
+                                                            <h6 class="mb-1">{{ x_('Project:', 'web') }} {{ $project->name }}</h6>
+                                                            <p class="mb-0">{{ x_('All applications across all batches are shown below.', 'web') }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -159,20 +159,20 @@
                                                 <div class="mb-3">
                                                     <i class="bx bx-search fs-1 text-body-secondary"></i>
                                                 </div>
-                                                <h5>No Applications Yet</h5>
-                                                <p class="text-body-secondary">This project hasn't received any applications yet.</p>
+                                                <h5>{{ x_('No Applications Yet', 'web') }}</h5>
+                                                <p class="text-body-secondary">{{ x_('This project hasn\'t received any applications yet.', 'web') }}</p>
                                             </div>
                                         @else
                                             <div class="table-responsive">
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>Applicant</th>
-                                                            <th>Batch</th>
-                                                            <th>Budget Range</th>
-                                                            <th>Status</th>
-                                                            <th>Applied On</th>
-                                                            <th class="text-end">Actions</th>
+                                                            <th>{{ x_('Applicant', 'web') }}</th>
+                                                            <th>{{ x_('Batch', 'web') }}</th>
+                                                            <th>{{ x_('Budget Range', 'web') }}</th>
+                                                            <th>{{ x_('Status', 'web') }}</th>
+                                                            <th>{{ x_('Applied On', 'web') }}</th>
+                                                            <th class="text-end">{{ x_('Actions', 'web') }}</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -215,7 +215,7 @@
                                                                 </td>
                                                                 <td class="text-end">
                                                                     <button type="button" class="btn btn-sm" style="border-color: #3e3e3e; color: #3e3e3e;" data-bs-toggle="modal" data-bs-target="#actionModal-{{ $seat->id }}" data-bs-dismiss="modal">
-                                                                        <i class="bx bx-dots-horizontal-rounded me-1"></i> Actions
+                                                                        <i class="bx bx-dots-horizontal-rounded me-1"></i> {{ x_('Actions', 'web') }}
                                                                     </button>
                                                                 </td>
                                                             </tr>
@@ -226,7 +226,7 @@
                                         @endif
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ x_('Close', 'web') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -236,8 +236,8 @@
                             @csrf
                             @method('PATCH')
                             <input type="hidden" name="status" value="completed">
-                            <button type="submit" class="btn btn-sm" style="border-color: #3e3e3e; color: #3e3e3e;" onclick="return confirm('Are you sure you want to mark this project as completed?')">
-                                <i class="bx bx-check-circle me-1"></i> Mark as Completed
+                            <button type="submit" class="btn btn-sm" style="border-color: #3e3e3e; color: #3e3e3e;" onclick="return confirm('{{ x_("Are you sure you want to mark this project as completed?", "web") }}')">
+                                <i class="bx bx-check-circle me-1"></i> {{ x_('Mark as Completed', 'web') }}
                             </button>
                         </form>
                     @endif
@@ -247,7 +247,7 @@
         <div class="mb-4 d-flex">
             <div class="d-flex align-items-center me-4">
                 <i class="bx bx-user fs-xl me-1"></i>
-                Posted by: <strong class="ms-1">{{ $project->client->name }}</strong>
+                {{ x_('Posted by:', 'web') }} <strong class="ms-1">{{ $project->client->name }}</strong>
             </div>
 
             <div class="d-flex align-items-center">
@@ -277,7 +277,7 @@
         <!-- Skills tags -->
         @if(is_array($project->skills) && count($project->skills) > 0)
             <div class="mb-4">
-                <h4 class="mb-3 h5">Required Skills</h4>
+                <h4 class="mb-3 h5">{{ x_('Required Skills', 'web') }}</h4>
                 <div class="flex-wrap gap-2 d-flex">
                     @foreach($project->skills as $skill)
                         <span class="px-3 py-2 badge btn btn-primary">
@@ -289,12 +289,12 @@
         @endif
         @if(!$project->skills)
             <div class="alert alert-light">
-                <i class="bx bx-info-circle me-2"></i> No skills required for this project.
+                <i class="bx bx-info-circle me-2"></i> {{ x_('No skills required for this project.', 'web') }}
             </div>
         @endif
         <!-- Project Description -->
         <div class="mb-4">
-            <h4 class="mb-3 h5">Project Description</h4>
+            <h4 class="mb-3 h5">{{ x_('Project Description', 'web') }}</h4>
             @if($project->details)
                 <p class="mb-4 lead">{{ $project->details }}</p>
             @endif
@@ -304,14 +304,14 @@
                 </div>
             @else
                 <div class="alert alert-light">
-                    <i class="bx bx-info-circle me-2"></i> No detailed description provided for this project.
+                    <i class="bx bx-info-circle me-2"></i> {{ x_('No detailed description provided for this project.', 'web') }}
                 </div>
             @endif
         </div>
         <!-- Services Section -->
         @if($project->services->count() > 0)
             <div class="mb-4">
-                <h4 class="mb-3 h5">Related Services</h4>
+                <h4 class="mb-3 h5">{{ x_('Related Services', 'web') }}</h4>
                 <div class="flex-wrap gap-2 d-flex">
                     @foreach($project->services as $service)
                         <span class="px-3 py-2 btn btn-primary">
@@ -323,16 +323,16 @@
         @endif
         @if($project->services->count() == 0)
             <div class="alert alert-light">
-                <i class="bx bx-info-circle me-2"></i> No services related to this project.
+                <i class="bx bx-info-circle me-2"></i> {{ x_('No services related to this project.', 'web') }}
             </div>
         @endif
         <div class="pt-4 mt-4 d-flex border-top">
             <a href="{{ route('client.projects.edit', $project) }}" class="btn btn-outline-secondary me-2">
-                <i class="bx bx-edit me-1"></i> Edit Project
+                <i class="bx bx-edit me-1"></i> {{ x_('Edit Project', 'web') }}
             </a>
             <div class="dropdown me-2">
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="statusDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bx bx-transfer me-1"></i> Update Status
+                    <i class="bx bx-transfer me-1"></i> {{ x_('Update Status', 'web') }}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="statusDropdown">
                     @foreach(['active', 'awarded', 'completed', 'cancelled'] as $status)
@@ -343,7 +343,7 @@
                                     @method('PATCH')
                                     <input type="hidden" name="status" value="{{ $status }}">
                                     <button type="submit" class="dropdown-item">
-                                        Set as {{ ucfirst($status) }}
+                                        {{ x_('Set as', 'web') }} {{ ucfirst($status) }}
                                     </button>
                                 </form>
                             </li>
@@ -354,24 +354,24 @@
             <form action="{{ route('client.projects.delete', $project) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this project?')">
-                    <i class="bx bx-trash me-1"></i> Delete
+                <button type="submit" class="btn btn-outline-danger" onclick="return confirm('{{ x_("Are you sure you want to delete this project?", "web") }}')">
+                    <i class="bx bx-trash me-1"></i> {{ x_('Delete', 'web') }}
                 </button>
             </form>
         </div>
         {{-- @auth
             @if(Auth::user('client') && Auth::user('client')->id !== $project->client_id && !$hasApplied && $project->status === 'active')
                 <div class="pt-4 mt-4 border-top">
-                    <h4 class="mb-3 h5">Apply for this Project</h4>
+                    <h4 class="mb-3 h5">{{ x_('Apply for this Project', 'web') }}</h4>
                     <form action="{{ route('client.apply', $project) }}" method="POST">
                         @csrf
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label for="budget_min" class="form-label">Your Minimum Budget (EGP)</label>
+                                <label for="budget_min" class="form-label">{{ x_('Your Minimum Budget (EGP)', 'web') }}</label>
                                 <input type="number" step="0.01" class="form-control" id="budget_min" name="budget_min" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="budget_max" class="form-label">Your Maximum Budget (EGP)</label>
+                                <label for="budget_max" class="form-label">{{ x_('Your Maximum Budget (EGP)', 'web') }}</label>
                                 <input type="number" step="0.01" class="form-control" id="budget_max" name="budget_max" required>
                             </div>
                             <div class="col-12">
@@ -384,11 +384,11 @@
                 </div>
             @elseif($hasApplied && $clientApplication)
                 <div class="pt-4 mt-4 border-top">
-                    <h4 class="mb-3 h5">Your Application</h4>
+                    <h4 class="mb-3 h5">{{ x_('Your Application', 'web') }}</h4>
                     <div class="alert alert-info">
-                        <p><strong>Status:</strong> {!! $clientApplication->status_badge !!}</p>
-                        <p><strong>Budget Range:</strong> {{ number_format($clientApplication->budget_min, 2) }} - {{ number_format($clientApplication->budget_max, 2) }} EGP</p>
-                        <p><strong>Applied:</strong> {{ $clientApplication->created_at->diffForHumans() }}</p>
+                        <p><strong>{{ x_('Status:', 'web') }}</strong> {!! $clientApplication->status_badge !!}</p>
+                        <p><strong>{{ x_('Budget Range:', 'web') }}</strong> {{ number_format($clientApplication->budget_min, 2) }} - {{ number_format($clientApplication->budget_max, 2) }} EGP</p>
+                        <p><strong>{{ x_('Applied:', 'web') }}</strong> {{ $clientApplication->created_at->diffForHumans() }}</p>
 
                         @if(!$clientApplication->is_accepted && !$clientApplication->is_rejected)
                             <form action="{{ route('client.seats.cancel', $clientApplication) }}" method="POST" class="mt-3">
@@ -418,7 +418,7 @@
                                  style="width: 40px; height: 40px; background-color: #3e3e3e;">
                                 <i class="text-light bx bx-layer-plus fs-5"></i>
                             </div>
-                            <h4 class="mb-0 h5">Project Batches & Applications</h4>
+                            <h4 class="mb-0 h5">{{ x_('Project Batches & Applications', 'web') }}</h4>
                         </div>
                     </div>
                 </div>
@@ -441,10 +441,10 @@
                                                     <h6 class="mb-0 fw-semibold">{{ $batch->name }}</h6>
                                                     <div class="mt-1 d-flex align-items-center">
                                                         <span class="badge" style="background-color: {{ $batch->is_active ? '#3e3e3e' : '#6c757d' }}; font-weight: 400;">
-                                                            {{ $batch->is_active ? 'Active' : 'Inactive' }}
+                                                            {{ $batch->is_active ? x_('Active', 'web') : x_('Inactive', 'web') }}
                                                         </span>
                                                         <span class="ms-2 small">
-                                                            <i class="bx bx-user-check me-1"></i>{{ $batch->seats->count() }} / {{ \App\Models\Batch::MAX_SEATS }} applications
+                                                            <i class="bx bx-user-check me-1"></i>{{ $batch->seats->count() }} / {{ \App\Models\Batch::MAX_SEATS }} {{ x_('applications', 'web') }}
                                                         </span>
                                                         <span class="ms-2 small">
                                                             <i class="bx bx-calendar me-1"></i>{{ $batch->created_at->format('M d, Y') }}
@@ -465,7 +465,7 @@
                                                         @method('PUT')
                                                         <input type="hidden" name="is_active" value="{{ $batch->is_active ? 0 : 1 }}">
                                                         <button type="submit" class="dropdown-item">
-                                                            <i class="bx {{ $batch->is_active ? 'bx-pause' : 'bx-play' }} me-2"></i> {{ $batch->is_active ? 'Deactivate' : 'Activate' }}
+                                                            <i class="bx {{ $batch->is_active ? 'bx-pause' : 'bx-play' }} me-2"></i> {{ $batch->is_active ? x_('Deactivate', 'web') : x_('Activate', 'web') }}
                                                         </button>
                                                     </form>
                                                 </li>
@@ -478,7 +478,7 @@
                                     <div class="p-0 border-top">
                                         @if($batch->seats->isEmpty())
                                             <div class="p-4 text-center">
-                                                <p class="mb-0 text-body-secondary"><i class="bx bx-info-circle me-1"></i> No applications have been received for this batch yet.</p>
+                                                <p class="mb-0 text-body-secondary"><i class="bx bx-info-circle me-1"></i> {{ x_('No applications have been received for this batch yet.', 'web') }}</p>
                                             </div>
                                         @else
                                             <div class="applications-container">
@@ -622,11 +622,11 @@
                                                 <table class="applications-table">
                                                     <thead>
                                                         <tr>
-                                                            <th>Applicant</th>
-                                                            <th>Budget (EGP)</th>
-                                                            <th>Status</th>
-                                                            <th>Applied On</th>
-                                                            <th class="text-end">Actions</th>
+                                                            <th>{{ x_('Applicant', 'web') }}</th>
+                                                            <th>{{ x_('Budget (EGP)', 'web') }}</th>
+                                                            <th>{{ x_('Status', 'web') }}</th>
+                                                            <th>{{ x_('Applied On', 'web') }}</th>
+                                                            <th class="text-end">{{ x_('Actions', 'web') }}</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -664,7 +664,7 @@
                                                                 </td>
                                                                 <td class="text-end">
                                                                     <button type="button" class="btn btn-sm" style="border-color: #3e3e3e; color: #3e3e3e;" data-bs-toggle="modal" data-bs-target="#actionModal-{{ $seat->id }}">
-                                                                        <i class="bx bx-dots-horizontal-rounded me-1"></i> Actions
+                                                                        <i class="bx bx-dots-horizontal-rounded me-1"></i> {{ x_('Actions', 'web') }}
                                                                     </button>
 
                                                                     <!-- Action Modal -->
@@ -672,7 +672,7 @@
                                                                         <div class="modal-dialog modal-dialog-centered">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="actionModalLabel-{{ $seat->id }}">Application Actions</h5>
+                                                                                    <h5 class="modal-title" id="actionModalLabel-{{ $seat->id }}">{{ x_('Application Actions', 'web') }}</h5>
                                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                 </div>
                                                                                 <div class="modal-body">
@@ -691,7 +691,7 @@
                                                                                     </div>
 
                                                                                     <div class="mb-3">
-                                                                                        <h6 class="mb-2">Current Status</h6>
+                                                                                        <h6 class="mb-2">{{ x_('Current Status', 'web') }}</h6>
                                                                                         @php
                                                                                             $statusColors = [
                                                                                                 'pending' => '#f0ad4e',
@@ -708,16 +708,16 @@
                                                                                     </div>
 
                                                                                     <div class="mb-3">
-                                                                                        <h6 class="mb-2">Budget Range</h6>
+                                                                                        <h6 class="mb-2">{{ x_('Budget Range', 'web') }}</h6>
                                                                                         <p class="mb-0 fw-medium">{{ number_format($seat->budget_min, 2) }} - {{ number_format($seat->budget_max, 2) }} EGP</p>
                                                                                     </div>
 
                                                                                     <div class="mb-3">
-                                                                                        <h6 class="mb-2">Applied On</h6>
+                                                                                        <h6 class="mb-2">{{ x_('Applied On', 'web') }}</h6>
                                                                                         <p class="mb-0 text-body-secondary">{{ $seat->created_at->format('M d, Y') }}</p>
                                                                                     </div>
 
-                                                                                    <h6 class="mt-4 mb-2">Available Actions</h6>
+                                                                                    <h6 class="mt-4 mb-2">{{ x_('Available Actions', 'web') }}</h6>
                                                                                     <div class="list-group">
                                                                                         @foreach(['pending', 'contacted', 'proposal', 'accepted', 'rejected'] as $status)
                                                                                             @if($seat->status !== $status)
@@ -726,7 +726,7 @@
                                                                                                     @method('PATCH')
                                                                                                     <input type="hidden" name="status" value="{{ $status }}">
                                                                                                     <button type="submit" class="list-group-item list-group-item-action">
-                                                                                                        <i class="bx bx-transfer-alt me-2"></i> Set as {{ ucfirst($status) }}
+                                                                                                        <i class="bx bx-transfer-alt me-2"></i> {{ x_('Set as', 'web') }} {{ ucfirst($status) }}
                                                                                                     </button>
                                                                                                 </form>
                                                                                             @endif
@@ -738,7 +738,7 @@
                                                                                             <form action="{{ route('client.projects.select-winner', ['project' => $project->id, 'seat' => $seat->id]) }}" method="POST">
                                                                                                 @csrf
                                                                                                 <button type="submit" class="btn w-100" style="background-color: #3e3e3e; color: white;">
-                                                                                                    <i class="bx bx-trophy me-2"></i> Select as Winner
+                                                                                                    <i class="bx bx-trophy me-2"></i> {{ x_('Select as Winner', 'web') }}
                                                                                                 </button>
                                                                                             </form>
                                                                                         </div>
@@ -766,7 +766,7 @@
         @if($project->hasWinner())
             <div id="winner-section" class="mb-4 border-0 shadow-sm card">
                 <div class="pt-4 pb-0 bg-transparent border-0 card-header">
-                    <h4 class="mb-0 h5 text-primary">Selected Freelancer</h4>
+                    <h4 class="mb-0 h5 text-primary">{{ x_('Selected Freelancer', 'web') }}</h4>
                 </div>
                 <div class="card-body">
                     <div class="mb-3 d-flex align-items-center">
@@ -779,11 +779,11 @@
                         @endif
                         <div>
                             <h5 class="mb-1">{{ $project->winner->name }}</h5>
-                            <p class="mb-0 text-body-secondary small">Selected on {{ $project->updated_at->format('M d, Y') }}</p>
+                            <p class="mb-0 text-body-secondary small">{{ x_('Selected on', 'web') }} {{ $project->updated_at->format('M d, Y') }}</p>
                         </div>
                     </div>
                     <div class="alert alert-success">
-                        <i class="bx bx-check-circle me-1"></i> This project has been awarded to a freelancer.
+                        <i class="bx bx-check-circle me-1"></i> {{ x_('This project has been awarded to a freelancer.', 'web') }}
                     </div>
                 </div>
             </div>

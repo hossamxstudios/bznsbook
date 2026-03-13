@@ -2,17 +2,17 @@
     <!-- Header with breadcrumb and back button -->
     <div class="mb-4 d-flex justify-content-between align-items-center">
         <div>
-            <h4 class="mb-2 fw-bold">Portfolio Details</h4>
+            <h4 class="mb-2 fw-bold">{{ x_('Portfolio Details', 'web') }}</h4>
             <nav aria-label="breadcrumb">
                 <ol class="mb-0 breadcrumb">
-                    <li class="breadcrumb-item"><a href="/profile"><i class="bx bx-home-alt me-1"></i>Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('client.portfolio') }}">Portfolio</a></li>
+                    <li class="breadcrumb-item"><a href="/profile"><i class="bx bx-home-alt me-1"></i>{{ x_('Dashboard', 'web') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('client.portfolio') }}">{{ x_('Portfolio', 'web') }}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{  \Illuminate\Support\Str::limit($portfolio->name, 30) }}</li>
                 </ol>
             </nav>
         </div>
         <a href="{{ route('client.portfolio') }}" class="shadow-sm btn btn-primary portfolio-action-btn">
-            <i class="bx bx-arrow-back me-2"></i> Back to Portfolio
+            <i class="bx bx-arrow-back me-2"></i> {{ x_('Back to Portfolio', 'web') }}
         </a>
     </div>
 
@@ -50,7 +50,7 @@
                         <div class="mb-3 portfolio-meta d-flex align-items-center">
                             <div class="me-2 text-primary"><i class="bx bx-user fs-5"></i></div>
                             <div>
-                                <div class="text-muted small">Client</div>
+                                <div class="text-muted small">{{ x_('Client', 'web') }}</div>
                                 <div class="fw-medium">{{ $portfolio->client_name }}</div>
                             </div>
                         </div>
@@ -60,9 +60,9 @@
                         <div class="portfolio-meta d-flex align-items-center">
                             <div class="me-2 text-primary"><i class="bx bx-link-external fs-5"></i></div>
                             <div>
-                                <div class="text-muted small">Project URL</div>
+                                <div class="text-muted small">{{ x_('Project URL', 'web') }}</div>
                                 <a href="{{ $portfolio->project_url }}" target="_blank" rel="noopener noreferrer" class="text-primary fw-medium">
-                                    Visit Website
+                                    {{ x_('Visit Website', 'web') }}
                                 </a>
                             </div>
                         </div>
@@ -80,9 +80,9 @@
                 <img src="{{ $portfolio->getFirstMedia('portfolio')->getUrl() }}" alt="{{ $portfolio->name }}" class="img-fluid w-100" style="max-height: 400px; object-fit: cover;">
                 <div class="bottom-0 p-3 position-absolute start-0 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h2 class="mb-0 text-white h5">Project Showcase</h2>
+                        <h2 class="mb-0 text-white h5">{{ x_('Project Showcase', 'web') }}</h2>
                         <a href="{{ $portfolio->getFirstMedia('portfolio')->getUrl() }}" target="_blank" class="btn btn-sm btn-light">
-                            <i class="bx bx-fullscreen"></i> View Full Size
+                            <i class="bx bx-fullscreen"></i> {{ x_('View Full Size', 'web') }}
                         </a>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
             <div class="py-5 bg-light d-flex align-items-center justify-content-center" style="height: 300px;">
                 <div class="text-center">
                     <i class="mb-3 bx bx-image-alt display-1 text-muted"></i>
-                    <p class="mb-0 text-muted">No project image available</p>
+                    <p class="mb-0 text-muted">{{ x_('No project image available', 'web') }}</p>
                     <button type="button" class="mt-3 btn btn-sm btn-primary edit-portfolio"
                         data-bs-toggle="modal"
                         data-bs-target="#editPortfolioModal"
@@ -106,7 +106,7 @@
                         data-project-url="{{ $portfolio->project_url }}"
                         data-location="{{ $portfolio->location }}"
                         data-expertise="{{ json_encode($portfolio->expertise) }}">
-                        <i class="bx bx-plus-circle me-1"></i> Add Project Image
+                        <i class="bx bx-plus-circle me-1"></i> {{ x_('Add Project Image', 'web') }}
                     </button>
                 </div>
             </div>
@@ -116,7 +116,7 @@
     <!-- Project Details and Description -->
     <div class="mb-4 border-0 shadow-sm card bg-light">
         <div class="py-3 bg-light d-flex justify-content-between align-items-center">
-            <h3 class="mb-0 h5"><i class="bx bx-info-circle text-primary me-2"></i> Project Details</h3>
+            <h3 class="mb-0 h5"><i class="bx bx-info-circle text-primary me-2"></i> {{ x_('Project Details', 'web') }}</h3>
             <div class="gap-2 d-flex">
                 <button type="button" class="btn btn-sm btn-primary edit-portfolio"
                     data-bs-toggle="modal"
@@ -132,13 +132,13 @@
                     data-project-url="{{ $portfolio->project_url }}"
                     data-location="{{ $portfolio->location }}"
                     data-expertise="{{ json_encode($portfolio->expertise) }}">
-                    <i class="bx bx-edit me-1"></i> Edit
+                    <i class="bx bx-edit me-1"></i> {{ x_('Edit', 'web') }}
                 </button>
                 <form action="{{ route('client.portfolio.delete', $portfolio->id) }}" method="POST" class="d-inline delete-form">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-sm btn-outline-danger">
-                        <i class="bx bx-trash me-1"></i> Delete
+                        <i class="bx bx-trash me-1"></i> {{ x_('Delete', 'web') }}
                     </button>
                 </form>
             </div>
@@ -148,7 +148,7 @@
                 <p class="mb-4 lead">{{ $portfolio->details }}</p>
             @else
                 <div class="mb-4 border alert alert-light">
-                    <i class="bx bx-info-circle me-2"></i> No detailed description provided for this project.
+                    <i class="bx bx-info-circle me-2"></i> {{ x_('No detailed description provided for this project.', 'web') }}
                 </div>
             @endif
 
@@ -163,7 +163,7 @@
                                         <i class="bx bx-bolt-circle"></i>
                                     </span>
                                 </div>
-                                <h4 class="mb-0 card-title h6">Challenge</h4>
+                                <h4 class="mb-0 card-title h6">{{ x_('Challenge', 'web') }}</h4>
                             </div>
                         </div>
                         <div class="card-body">
@@ -171,7 +171,7 @@
                                 <p class="card-text">{{ $portfolio->challenge }}</p>
                             @else
                                 <div class="text-muted fst-italic">
-                                    <i class="bx bx-info-circle me-1"></i> No challenge information provided.
+                                    <i class="bx bx-info-circle me-1"></i> {{ x_('No challenge information provided.', 'web') }}
                                 </div>
                             @endif
                         </div>
@@ -187,7 +187,7 @@
                                         <i class="bx bx-bulb"></i>
                                     </span>
                                 </div>
-                                <h4 class="mb-0 card-title h6">Solution</h4>
+                                <h4 class="mb-0 card-title h6">{{ x_('Solution', 'web') }}</h4>
                             </div>
                         </div>
                         <div class="card-body">
@@ -195,7 +195,7 @@
                                 <p class="card-text">{{ $portfolio->solution }}</p>
                             @else
                                 <div class="text-muted fst-italic">
-                                    <i class="bx bx-info-circle me-1"></i> No solution information provided.
+                                    <i class="bx bx-info-circle me-1"></i> {{ x_('No solution information provided.', 'web') }}
                                 </div>
                             @endif
                         </div>
@@ -206,13 +206,13 @@
             <!-- Expertise & Services Section -->
             <div class="mt-4 border-0 shadow-sm card">
                 <div class="py-3 bg-light d-flex justify-content-between align-items-center">
-                    <h3 class="mb-0 h5"><i class="bx bx-badge-check text-primary me-2"></i> Expertise & Services</h3>
+                    <h3 class="mb-0 h5"><i class="bx bx-badge-check text-primary me-2"></i> {{ x_('Expertise & Services', 'web') }}</h3>
                 </div>
                 <div class="p-4 card-body">
                     <div class="row g-4">
                         <!-- Expertise Column -->
                         <div class="col-md-6">
-                            <h4 class="mb-3 h6 fw-bold">Areas of Expertise</h4>
+                            <h4 class="mb-3 h6 fw-bold">{{ x_('Areas of Expertise', 'web') }}</h4>
                             @if(is_array($portfolio->expertise) && count($portfolio->expertise) > 0)
                                 <div class="flex-wrap gap-2 d-flex">
                                     @foreach($portfolio->expertise as $expertise)
@@ -223,14 +223,14 @@
                                 </div>
                             @else
                                 <div class="text-muted fst-italic">
-                                    <i class="bx bx-info-circle me-1"></i> No expertise areas specified.
+                                    <i class="bx bx-info-circle me-1"></i> {{ x_('No expertise areas specified.', 'web') }}
                                 </div>
                             @endif
                         </div>
 
                         <!-- Services Column -->
                         <div class="col-md-6">
-                            <h4 class="mb-3 h6 fw-bold">Services Used</h4>
+                            <h4 class="mb-3 h6 fw-bold">{{ x_('Services Used', 'web') }}</h4>
                             @if($portfolio->services->count() > 0)
                                 <div class="flex-wrap gap-2 d-flex">
                                     @foreach($portfolio->services as $service)
@@ -241,7 +241,7 @@
                                 </div>
                             @else
                                 <div class="text-muted fst-italic">
-                                    <i class="bx bx-info-circle me-1"></i> No services associated with this project.
+                                    <i class="bx bx-info-circle me-1"></i> {{ x_('No services associated with this project.', 'web') }}
                                 </div>
                             @endif
                         </div>

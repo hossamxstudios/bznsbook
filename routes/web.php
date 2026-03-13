@@ -20,6 +20,28 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Middleware\UpdateLastSeen;
 
+// Locale switch (available to all visitors — no auth required)
+Route::post('/language/switch', function (\Illuminate\Http\Request $request) {
+    $locale = $request->input('locale', 'en');
+    $supported = array_merge(
+        array_keys(config('translation.available_locales', [])),
+        array_keys(config('translation.locales', ['en' => 'English']))
+    );
+    $supported[] = 'en';
+    if (!in_array($locale, $supported)) {
+        $locale = 'en';
+    }
+    session(['locale' => $locale]);
+    app()->setLocale($locale);
+    // Persist to DB if user is logged in (any guard)
+    if (auth()->check()) {
+        auth()->user()->update(['locale' => $locale]);
+    } elseif (auth('client')->check()) {
+        auth('client')->user()->update(['locale' => $locale]);
+    }
+    return back();
+})->name('language.switch');
+
 // Apply UpdateLastSeen middleware to all routes to track user activity
 Route::middleware([UpdateLastSeen::class])->group(function() {
 
@@ -36,6 +58,8 @@ Route::middleware([UpdateLastSeen::class])->group(function() {
     Route::get('/library/shipping-guide'                         , [PageController::class ,  'libraryShippingGuide'])->name('pages.library.shipping-guide');
     Route::get('/library/middle-east'                            , [PageController::class ,'libraryMiddleEastGuide'])->name('pages.library.middle-east');
     Route::get('/select-plan'                                    , [PageController::class , 'selectPlan'])->name('web.select-plan');
+    Route::get('/privacy-policy'                                 , [PageController::class ,          'privacyPage'])->name('pages.privacy');
+    Route::get('/terms-and-conditions'                           , [PageController::class ,            'termsPage'])->name('pages.terms');
 
     Route::get('/client/{client}'                                , [ClientController::class,           'publicView'])->name('client.profile.show');
     // client register

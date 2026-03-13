@@ -50,7 +50,7 @@
                                     <line x1="4" y1="20" x2="18" y2="20"></line>
                                 </svg>
                             </span></span>
-                            <span class="nav-link-text">Overview</span>
+                            <span class="nav-link-text">{{ x_('Overview', 'general') }}</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -63,7 +63,7 @@
                                     <circle cx="14.5" cy="7.5" r="4.5"></circle>
                                 </svg>
                             </span></span>
-                            <span class="nav-link-text">Analytics</span>
+                            <span class="nav-link-text">{{ x_('Analytics', 'general') }}</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -79,7 +79,7 @@
                                     <circle cx="8.5" cy="15.5" r="4.5"></circle>
                                 </svg>
                             </span></span>
-                            <span class="nav-link-text">Operations</span>
+                            <span class="nav-link-text">{{ x_('Operations', 'general') }}</span>
                         </a>
                     </li>
                 </ul>

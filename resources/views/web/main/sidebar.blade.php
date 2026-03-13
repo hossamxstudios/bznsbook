@@ -29,7 +29,7 @@
                         <li class="nav-item nav-link">
                             <ul class="navbar-nav flex-column">
                                 <li class="nav-item {{in_array(Request::segment(2) , $user_arr) ? 'active' : '' }}">
-                                    <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="User Mangement" data-bs-trigger="hover" data-target="#submenu_1">
+                                    <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="{{ x_('User Mangement', 'web-layout') }}" data-bs-trigger="hover" data-target="#submenu_1">
                                    <i class="ri-user-settings-line fs-3"></i>
                                     </a>
                                 </li>
@@ -58,7 +58,7 @@
                                             <div class="dropdown-divider"></div>
                                             <form action="{{ route('admin.logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="dropdown-item" href="#">Logout </button>
+                                                <button type="submit" class="dropdown-item" href="#">{{ x_('Logout', 'web-layout') }} </button>
                                             </form>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                 <div class="menu-group">
                     <ul class="navbar-nav flex-column">
                         <li class="nav-item {{in_array(Request::segment(2) , $user_arr) ? 'active' : '' }}">
-                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="User Mangement" data-bs-trigger="hover" data-target="#submenu_1">
+                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="{{ x_('User Mangement', 'web-layout') }}" data-bs-trigger="hover" data-target="#submenu_1">
                            <i class="ri-user-settings-line fs-5"></i>
                             </a>
                         </li>
@@ -85,7 +85,7 @@
                                 <span class="initial-wrap">{{ strtoupper(substr(auth()->user()->name ?? 'U', 0, 1)) }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right w-250p">
-                                <h6 class="dropdown-header">Logged account</h6>
+                                <h6 class="dropdown-header">{{ x_('Logged account', 'web-layout') }}</h6>
                                 <div class="dropdown-item py-2 rounded-3">
                                     <div class="media align-items-center active-user">
                                         <div class="media-head me-2">
@@ -105,7 +105,7 @@
                                             <div class="dropdown-divider"></div>
                                             <form action="{{ route('admin.logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="dropdown-item" href="#">Logout </button>
+                                                <button type="submit" class="dropdown-item" href="#">{{ x_('Logout', 'web-layout') }} </button>
                                             </form>
                                         </div>
                                     </div>

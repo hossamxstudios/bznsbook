@@ -91,7 +91,7 @@ class DemandController extends Controller
             $demand->addMediaFromRequest('proposal')->toMediaCollection('proposal');
         }
 
-        return redirect()->back()->with('success', 'Proposal uploaded successfully.');
+        return redirect()->back()->with('success', x_('Proposal uploaded successfully.', 'controller'));
     }
 
     /**
@@ -109,12 +109,12 @@ class DemandController extends Controller
 
         // Cannot cancel if already accepted and completed
         if ($demand->is_completed) {
-            return redirect()->back()->with('error', 'Cannot cancel a completed service request.');
+            return redirect()->back()->with('error', x_('Cannot cancel a completed service request.', 'controller'));
         }
 
         $demand->delete();
 
-        return redirect()->route('client.services.requested')->with('success', 'Service request canceled successfully.');
+        return redirect()->route('client.services.requested')->with('success', x_('Service request canceled successfully.', 'controller'));
     }
 
     /**
@@ -135,7 +135,7 @@ class DemandController extends Controller
             'is_rejected' => false
         ]);
 
-        return redirect()->back()->with('success', 'Service request accepted successfully.');
+        return redirect()->back()->with('success', x_('Service request accepted successfully.', 'controller'));
     }
 
     /**
@@ -156,7 +156,7 @@ class DemandController extends Controller
             'is_rejected' => true
         ]);
 
-        return redirect()->back()->with('success', 'Service request rejected successfully.');
+        return redirect()->back()->with('success', x_('Service request rejected successfully.', 'controller'));
     }
 
     /**
@@ -176,7 +176,7 @@ class DemandController extends Controller
             'is_completed' => true
         ]);
 
-        return redirect()->back()->with('success', 'Service request marked as completed.');
+        return redirect()->back()->with('success', x_('Service request marked as completed.', 'controller'));
     }
 
     /**
@@ -188,7 +188,7 @@ class DemandController extends Controller
             // Get the authenticated client
             $user = Auth::guard('client')->user();
             if (!$user) {
-                return redirect()->back()->with('error', 'You must be logged in to apply for services.');
+                return redirect()->back()->with('error', x_('You must be logged in to apply for services.', 'controller'));
             }
 
             // Find the service
@@ -197,7 +197,7 @@ class DemandController extends Controller
 
             // Prevent applying to your own service
             if ($service->client_id == $user->id) {
-                return redirect()->back()->with('error', 'You cannot apply to your own service.');
+                return redirect()->back()->with('error', x_('You cannot apply to your own service.', 'controller'));
             }
 
             // Validate the request data
@@ -238,10 +238,10 @@ class DemandController extends Controller
                 'demand_id' => $demand->id
             ]);
 
-            return redirect()->route('client.services.requested')->with('success', 'Your application has been submitted successfully.');
+            return redirect()->route('client.services.requested')->with('success', x_('Your application has been submitted successfully.', 'controller'));
         } catch (\Exception $e) {
             \Illuminate\Support\Facades\Log::error('Error submitting service application: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'There was a problem submitting your application. Please try again.');
+            return redirect()->back()->with('error', x_('There was a problem submitting your application. Please try again.', 'controller'));
         }
     }
 
@@ -261,7 +261,7 @@ class DemandController extends Controller
 
             // Ensure the service request is completed
             if (!$demand->is_completed) {
-                return redirect()->back()->with('error', 'You can only review completed services.');
+                return redirect()->back()->with('error', x_('You can only review completed services.', 'controller'));
             }
 
             // Validate the review data
@@ -283,7 +283,7 @@ class DemandController extends Controller
                     'rating' => $validated['rating'],
                     'content' => $validated['content'],
                 ]);
-                $message = 'Your review has been updated successfully.';
+                $message = x_('Your review has been updated successfully.', 'controller');
             } else {
                 // Create new review
                 $review = new \App\Models\Review([
@@ -295,14 +295,14 @@ class DemandController extends Controller
                     'is_approved' => 1 // Set to false initially, admin can approve later
                 ]);
                 $review->save();
-                $message = 'Your review has been submitted successfully.';
+                $message = x_('Your review has been submitted successfully.', 'controller');
             }
 
             return redirect()->back()->with('success', $message);
         } catch (\Exception $e) {
             // Log the error for debugging
             Log::error('Error submitting review: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'There was a problem submitting your review. Please try again.');
+            return redirect()->back()->with('error', x_('There was a problem submitting your review. Please try again.', 'controller'));
         }
     }
 }

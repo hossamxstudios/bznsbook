@@ -42,7 +42,7 @@ class ClientController extends Controller {
         ]);
         $validated['password'] = Hash::make($validated['password']);
         $client = Client::create($validated);
-        return redirect()->route('clients.index')->with('success', 'Client created successfully.');
+        return redirect()->route('clients.index')->with('success', x_('Client created successfully.', 'controller'));
     }
     /**
      * Update the specified client in storage.
@@ -78,7 +78,7 @@ class ClientController extends Controller {
             $validated['password'] = Hash::make($validated['password']);
         }
         $client->update($validated);
-        return redirect()->route('clients.index')->with('success', 'Client updated successfully.');
+        return redirect()->route('clients.index')->with('success', x_('Client updated successfully.', 'controller'));
     }
     /**
      * Remove the specified client from storage.
@@ -88,7 +88,7 @@ class ClientController extends Controller {
     public function destroy($id){
         $client = Client::findOrFail($id);
         $client->delete();
-        return redirect()->route('clients.index')->with('success', 'Client deleted successfully.');
+        return redirect()->route('clients.index')->with('success', x_('Client deleted successfully.', 'controller'));
     }
     /**
      * Remove multiple clients from storage.
@@ -98,7 +98,7 @@ class ClientController extends Controller {
     public function deleteAll(Request $request){
         $ids = $request->ids;
         Client::whereIn('id', explode(",", $ids))->delete();
-        return response()->json(['success' => "Clients deleted successfully."]);
+        return response()->json(['success' => x_('Clients deleted successfully.', 'controller')]);
     }
     /**
      * Display a listing of the trashed clients.
@@ -156,7 +156,7 @@ class ClientController extends Controller {
         unset($validated['cover_photo']);
         // Update the client model
         Client::where('id', $user->id)->update($validated);
-        return redirect()->back()->with('success', 'Profile updated successfully!');
+        return redirect()->back()->with('success', x_('Profile updated successfully!', 'controller'));
     }
     /**
      * Update client address information
@@ -172,7 +172,7 @@ class ClientController extends Controller {
         ]);
         // Update the client model
         Client::where('id', $user->id)->update($validated);
-        return redirect()->back()->with('success', 'Address updated successfully!');
+        return redirect()->back()->with('success', x_('Address updated successfully!', 'controller'));
     }
     /**
      * Update client social media information
@@ -188,7 +188,7 @@ class ClientController extends Controller {
         ]);
         // Update the client model
         Client::where('id', $user->id)->update($validated);
-        return redirect()->back()->with('success', 'Social links updated successfully!');
+        return redirect()->back()->with('success', x_('Social links updated successfully!', 'controller'));
     }
     /**
      * Update client password
@@ -202,14 +202,14 @@ class ClientController extends Controller {
         // Verify current password
         if (!Hash::check($request->current_password, $user->password)) {
             throw ValidationException::withMessages([
-                'current_password' => ['The current password is incorrect.'],
+                'current_password' => [x_('The current password is incorrect.', 'controller')],
             ]);
         }
         // Update the client model
         Client::where('id', $user->id)->update([
             'password' => Hash::make($request->password),
         ]);
-        return redirect()->back()->with('success', 'Password updated successfully!');
+        return redirect()->back()->with('success', x_('Password updated successfully!', 'controller'));
     }
     /**
      * Update client profile picture
@@ -224,9 +224,9 @@ class ClientController extends Controller {
             $user->clearMediaCollection('profile');
             // Add the new profile picture
             $user->addMediaFromRequest('profile_picture')->toMediaCollection('profile');
-            return redirect()->back()->with('success', 'Profile picture updated successfully!');
+            return redirect()->back()->with('success', x_('Profile picture updated successfully!', 'controller'));
         }
-        return redirect()->back()->with('error', 'Failed to upload profile picture.');
+        return redirect()->back()->with('error', x_('Failed to upload profile picture.', 'controller'));
     }
     /**
      * Delete client account
@@ -239,7 +239,7 @@ class ClientController extends Controller {
         // Perform any cleanup needed before deletion
         // Delete the client account
         Client::where('id', $user->id)->delete();
-        return redirect()->route('home')->with('success', 'Your account has been deleted.');
+        return redirect()->route('home')->with('success', x_('Your account has been deleted.', 'controller'));
     }
     /**
      * Log the user out of the application.
@@ -248,7 +248,7 @@ class ClientController extends Controller {
         auth('client')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/')->with('success', 'You have been logged out successfully.');
+        return redirect('/')->with('success', x_('You have been logged out successfully.', 'controller'));
     }
 // ------------------------- Frontend Functions -------------------------
 
@@ -331,7 +331,7 @@ class ClientController extends Controller {
             }
         }
         $user->save();
-        return redirect()->back()->with('success', 'Company information updated successfully!');
+        return redirect()->back()->with('success', x_('Company information updated successfully!', 'controller'));
     }
     /**
      * Delete a company document
@@ -344,13 +344,13 @@ class ClientController extends Controller {
         $mediaItem = \Spatie\MediaLibrary\MediaCollections\Models\Media::findOrFail($media);
         // Make sure the media belongs to the authenticated user
         if ($mediaItem->model_id != $user->id) {
-            return redirect()->back()->with('error', 'You are not authorized to delete this document.');
+            return redirect()->back()->with('error', x_('You are not authorized to delete this document.', 'controller'));
         }
         // Delete the media
         $mediaItem->delete();
-        return redirect()->back()->with('success', 'Document deleted successfully!');
+        return redirect()->back()->with('success', x_('Document deleted successfully!', 'controller'));
     }
-    
+
     /**
      * Display the public profile of a client
      *
@@ -360,13 +360,13 @@ class ClientController extends Controller {
     public function publicView(Client $client){
         // Load related data
         $client->load(['portfolios', 'services']);
-        
+
         // Get top services with highest ratings
         $topServices = $client->services()->orderBy('level', 'desc')->take(5)->get();
-        
+
         // Get the featured portfolios
         $portfolios = $client->portfolios()->with('media')->latest()->take(6)->get();
-        
+
         // Load projects with batches and available seats
         $projects = $client->hasMany('App\\Models\\Project', 'client_id')
             ->with(['batches' => function($query) {
@@ -378,21 +378,21 @@ class ClientController extends Controller {
             ->where('status', '!=', 'cancelled')
             ->latest()
             ->get();
-        
+
         return view('web.clients.profile1', compact('client', 'topServices', 'portfolios', 'projects'));
     }
-    
+
     public function subscribePlan(Request $request){
         $request->validate([
             'plan' => 'required',
             'price' => 'required',
         ]);
         if( $request->plan != 'monthly' && $request->plan != 'annual' && $request->plan != 'semi-annual' ){
-            return redirect()->back()->with('error','Invalid plan!')->withInput();
+            return redirect()->back()->with('error', x_('Invalid plan!', 'controller'))->withInput();
         }
         $client = auth('client')->user();
         if($client->hasActiveSubscription()){
-            return redirect()->back()->with('error','You already have an active subscription!');
+            return redirect()->back()->with('error', x_('You already have an active subscription!', 'controller'));
         }
         if($request->plan == 'monthly'){
             $ends_at   = now()->addMonths(1);
@@ -404,7 +404,7 @@ class ClientController extends Controller {
             $ends_at   = now()->addMonths(6);
             $billing_cycle = 'semi-annual';
         }else{
-            return redirect()->back()->with('error','Invalid plan!')->withInput();
+            return redirect()->back()->with('error', x_('Invalid plan!', 'controller'))->withInput();
         }
         $subscription                = new Subscription();
         $subscription->client_id     = $client->id;
@@ -415,8 +415,8 @@ class ClientController extends Controller {
         $subscription->is_active     = 1;
         $subscription->is_paid       = 1;
         if($subscription->save()){
-            return redirect()->back()->with('success', 'Plan subscribed successfully!');
+            return redirect()->back()->with('success', x_('Plan subscribed successfully!', 'controller'));
         }
-        return redirect()->back()->with('error', 'Failed to subscribe plan!');
+        return redirect()->back()->with('error', x_('Failed to subscribe plan!', 'controller'));
     }
 }

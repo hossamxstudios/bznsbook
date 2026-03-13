@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - Application Submitted</title>
+    <title>{{ x_('Thank You - Application Submitted', 'admin') }}</title>
     @include('admin.main.meta')
 </head>
 <body>
@@ -19,7 +19,7 @@
                                         <i data-feather="check-circle"></i>
                                     </span>
                                 </div>
-                                <h2 class="mb-4 display-6 fw-bold">Thank You!</h2>
+                                <h2 class="mb-4 display-6 fw-bold">{{ x_('Thank You!', 'admin') }}</h2>
                                 <p class="mb-5 fs-5 text-muted">
                                     Your application has been submitted successfully. We will review your application and get back to you soon.
                                 </p>

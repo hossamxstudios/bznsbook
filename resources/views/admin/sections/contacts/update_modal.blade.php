@@ -1,6 +1,6 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUpdate{{$contact->id}}" aria-labelledby="offcanvasUpdateLabel{{$contact->id}}" style="width:570px;">
     <div class="offcanvas-header" style="background: #474e5d;">
-        <h5 id="offcanvasUpdateLabel{{$contact->id}}" style="color:aliceblue">Update Contact</h5>
+        <h5 id="offcanvasUpdateLabel{{$contact->id}}" style="color:aliceblue">{{ x_('Update Contact', 'contacts') }}</h5>
         <button type="button" class="btn-close text-white"  data-bs-dismiss="offcanvas" aria-label="Close">X</button>
     </div>
     <div class="offcanvas-body">
@@ -8,7 +8,7 @@
             @csrf
             @method('POST')
             <div class="mb-3">
-                <label for="company_id{{$contact->id}}" class="form-label">Company Name</label>
+                <label for="company_id{{$contact->id}}" class="form-label">{{ x_('Company Name', 'contacts') }}</label>
                 <select class="form-control" id="company_id{{$contact->id}}" name="company_id" required>
                     @foreach ($companies as $company)
                         <option value="{{ $company->id }}" {{ $contact->company_id === $company->id ? 'selected' : '' }}>
@@ -18,30 +18,30 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="name{{$contact->id}}" class="form-label">Contact Name*</label>
+                <label for="name{{$contact->id}}" class="form-label">{{ x_('Contact Name*', 'contacts') }}</label>
                 <input type="text" class="form-control" id="name{{$contact->id}}" name="name" value="{{ $contact->name }}" required>
             </div>
             <div class="mb-3">
-                <label for="email{{$contact->id}}" class="form-label">Email*</label>
+                <label for="email{{$contact->id}}" class="form-label">{{ x_('Email*', 'contacts') }}</label>
                 <input type="email" class="form-control" id="email{{$contact->id}}" name="email" value="{{ $contact->email }}" required>
             </div>
             <div class="mb-3">
-                <label for="phone{{$contact->id}}" class="form-label">Phone</label>
+                <label for="phone{{$contact->id}}" class="form-label">{{ x_('Phone', 'contacts') }}</label>
                 <input type="text" class="form-control" id="phone{{$contact->id}}" name="phone" value="{{ $contact->phone }}" required>
             </div>
             <div class="mb-3">
-                <label for="title{{$contact->id}}" class="form-label">Title</label>
+                <label for="title{{$contact->id}}" class="form-label">{{ x_('Title', 'contacts') }}</label>
                 <input type="text" class="form-control" id="title{{$contact->id}}" name="title" value="{{ $contact->title }}" required>
             </div>
             <div class="mb-3">
-                <label for="status{{$contact->id}}" class="form-label">Status</label>
+                <label for="status{{$contact->id}}" class="form-label">{{ x_('Status', 'contacts') }}</label>
                 <select class="form-control" id="status{{$contact->id}}" name="status" required>
-                    <option value="new" {{ $contact->status === 'new' ? 'selected' : '' }}>New</option>
-                    <option value="active" {{ $contact->status === 'active' ? 'selected' : '' }}>Active</option>
-                    <option value="inactive" {{ $contact->status === 'inactive' ? 'selected' : '' }}>Inactive</option>
+                    <option value="new" {{ $contact->status === 'new' ? 'selected' : '' }}>{{ x_('New', 'contacts') }}</option>
+                    <option value="active" {{ $contact->status === 'active' ? 'selected' : '' }}>{{ x_('Active', 'contacts') }}</option>
+                    <option value="inactive" {{ $contact->status === 'inactive' ? 'selected' : '' }}>{{ x_('Inactive', 'contacts') }}</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Update Contact</button>
+            <button type="submit" class="btn btn-primary">{{ x_('Update Contact', 'contacts') }}</button>
         </form>
     </div>
 </div>

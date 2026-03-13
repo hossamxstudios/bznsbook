@@ -3,8 +3,8 @@
 <div class="col-md-8 offset-lg-1 mb-lg-4 pt-md-5 mt-n3 mt-md-0">
     <div class="ps-md-3 ps-lg-0 mt-md-2">
         <div class="mb-4 d-flex align-items-center justify-content-between">
-            <h1 class="mb-0 h2 pt-xl-1">Subscription</h1>
-            <a href="{{ route('web.select-plan') }}" class="btn btn-primary"><i class="bx bx-refresh fs-lg me-2"></i>Manage Plan</a>
+            <h1 class="mb-0 h2 pt-xl-1">{{ x_('Subscription', 'web') }}</h1>
+            <a href="{{ route('web.select-plan') }}" class="btn btn-primary"><i class="bx bx-refresh fs-lg me-2"></i>{{ x_('Manage Plan', 'web') }}</a>
         </div>
 
         @if($user->hasActiveSubscription())
@@ -32,10 +32,10 @@
                         <i class="bx bx-crown fs-3"></i>
                     </div>
                     <div>
-                        <h5 class="mb-1">{{ $planName }} Plan</h5>
-                        <p class="mb-0 text-muted">Your subscription expires on {{ $endDate->format('M d, Y') }}</p>
+                        <h5 class="mb-1">{{ $planName }} {{ x_('Plan', 'web') }}</h5>
+                        <p class="mb-0 text-muted">{{ x_('Your subscription expires on', 'web') }} {{ $endDate->format('M d, Y') }}</p>
                     </div>
-                    <span class="badge bg-success ms-auto fs-sm">Active</span>
+                    <span class="badge bg-success ms-auto fs-sm">{{ x_('Active', 'web') }}</span>
                 </div>
 
                 <div class="mb-3 progress" style="height: 6px;">
@@ -43,27 +43,27 @@
                 </div>
 
                 <div class="mb-4 d-flex justify-content-between">
-                    <small class="text-muted">{{ round($daysRemaining,2) }} days remaining in your billing cycle</small>
-                    <small class="fw-medium">{{ $percentUsed }}% used</small>
+                    <small class="text-muted">{{ round($daysRemaining,2) }} {{ x_('days remaining in your billing cycle', 'web') }}</small>
+                    <small class="fw-medium">{{ $percentUsed }}% {{ x_('used', 'web') }}</small>
                 </div>
 
                 <div class="row g-3">
                     <div class="col-sm-6 col-md-4">
                         <div class="p-3 text-center rounded border">
                             <h3 class="mb-1 h1">{{ $user->portfolios()->count() }}/∞</h3>
-                            <p class="mb-0 text-muted">Portfolio Items</p>
+                            <p class="mb-0 text-muted">{{ x_('Portfolio Items', 'web') }}</p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="p-3 text-center rounded border">
                             <h3 class="mb-1 h1">{{ $user->seats()->where('is_accepted',0)->where('is_rejected',0)->count() }}/∞</h3>
-                            <p class="mb-0 text-muted">Active Requests</p>
+                            <p class="mb-0 text-muted">{{ x_('Active Requests', 'web') }}</p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="p-3 text-center rounded border">
                             <h3 class="mb-1 h1">{{ $user->services()->count() }}</h3>
-                            <p class="mb-0 text-muted">Services</p>
+                            <p class="mb-0 text-muted">{{ x_('Services', 'web') }}</p>
                         </div>
                     </div>
                 </div>
@@ -77,10 +77,10 @@
                     <div class="p-3 mx-auto mb-3 bg-light rounded-circle text-muted" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
                         <i class="bx bx-calendar-x fs-1"></i>
                     </div>
-                    <h4>No Active Subscription</h4>
-                    <p class="text-muted">You don't have an active subscription plan. Subscribe to unlock premium features.</p>
+                    <h4>{{ x_('No Active Subscription', 'web') }}</h4>
+                    <p class="text-muted">{{ x_('You don\'t have an active subscription plan. Subscribe to unlock premium features.', 'web') }}</p>
                 </div>
-                <a href="{{ route('web.select-plan') }}" class="btn btn-primary">Browse Subscription Plans</a>
+                <a href="{{ route('web.select-plan') }}" class="btn btn-primary">{{ x_('Browse Subscription Plans', 'web') }}</a>
             </div>
         </div>
         @endif
@@ -89,67 +89,67 @@
         @if($user->hasActiveSubscription())
         <div class="mb-4 border-0 shadow-sm card">
             <div class="bg-transparent card-header d-flex align-items-center">
-                <h5 class="mb-0">Plan Details</h5>
-                <span class="badge bg-dark ms-3">${{ number_format($subscription->price, 2) }} / Month | billed {{ $subscription->billing_cycle }}</span>
+                <h5 class="mb-0">{{ x_('Plan Details', 'web') }}</h5>
+                <span class="badge bg-dark ms-3">${{ number_format($subscription->price, 2) }} / {{ x_('Month', 'web') }} | {{ x_('billed', 'web') }} {{ $subscription->billing_cycle }}</span>
             </div>
             <div class="p-4 card-body">
                 <div class="row g-4">
                     <div class="col-md-6">
-                        <h6 class="mb-3">{{ $planName }} Plan Features</h6>
+                        <h6 class="mb-3">{{ $planName }} {{ x_('Plan Features', 'web') }}</h6>
                         <ul class="mb-0 list-unstyled">
                             <li class="mb-2 d-flex align-items-center">
                                 <i class="bx bx-check-circle text-success me-2"></i>
-                                Unlimited concurrent projects
+                                {{ x_('Unlimited concurrent projects', 'web') }}
                             </li>
                             <li class="mb-2 d-flex align-items-center">
                                 <i class="bx bx-check-circle text-success me-2"></i>
-                                Unlimited active project requests
+                                {{ x_('Unlimited active project requests', 'web') }}
                             </li>
                             <li class="mb-2 d-flex align-items-center">
                                 <i class="bx bx-check-circle text-success me-2"></i>
-                                Unlimited portfolio items
+                                {{ x_('Unlimited portfolio items', 'web') }}
                             </li>
                             <li class="mb-2 d-flex align-items-center">
                                 <i class="bx bx-check-circle text-success me-2"></i>
-                                Priority matching
+                                {{ x_('Priority matching', 'web') }}
                             </li>
                             <li class="mb-2 d-flex align-items-center">
                                 <i class="bx bx-check-circle text-success me-2"></i>
-                                Featured in search results
+                                {{ x_('Featured in search results', 'web') }}
                             </li>
                             <li class="mb-2 d-flex align-items-center">
                                 <i class="bx bx-check-circle text-success me-2"></i>
-                                Premium content access
+                                {{ x_('Premium content access', 'web') }}
                             </li>
                             <li class="d-flex align-items-center">
                                 <i class="bx bx-check-circle text-success me-2"></i>
-                                Premium support
+                                {{ x_('Premium support', 'web') }}
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <h6 class="mb-3">Subscription Information</h6>
+                        <h6 class="mb-3">{{ x_('Subscription Information', 'web') }}</h6>
                         <div class="mb-4">
                             <div class="mb-2 d-flex justify-content-between">
-                                <span class="text-muted">Subscription ID:</span>
+                                <span class="text-muted">{{ x_('Subscription ID:', 'web') }}</span>
                                 <span class="fw-medium">{{ $subscription->id }}</span>
                             </div>
                             <div class="mb-2 d-flex justify-content-between">
-                                <span class="text-muted">Start Date:</span>
+                                <span class="text-muted">{{ x_('Start Date:', 'web') }}</span>
                                 <span class="fw-medium">{{ $startDate->format('M d, Y') }}</span>
                             </div>
                             <div class="mb-2 d-flex justify-content-between">
-                                <span class="text-muted">Expiry Date:</span>
+                                <span class="text-muted">{{ x_('Expiry Date:', 'web') }}</span>
                                 <span class="fw-medium">{{ $endDate->format('M d, Y') }}</span>
                             </div>
                             <div class="mb-2 d-flex justify-content-between">
-                                <span class="text-muted">Status:</span>
-                                <span class="badge bg-success">Active</span>
+                                <span class="text-muted">{{ x_('Status:', 'web') }}</span>
+                                <span class="badge bg-success">{{ x_('Active', 'web') }}</span>
                             </div>
                         </div>
 
                         <div class="mb-2 d-flex justify-content-between">
-                            <span>{{ $planName }} Plan</span>
+                            <span>{{ $planName }} {{ x_('Plan', 'web') }}</span>
                             <span>{{ number_format($subscription->price, 2) }} $</span>
                         </div>
                         @php
@@ -170,16 +170,16 @@
                             $totalAmount = $periodPrice + $taxAmount;
                         @endphp
                         <div class="mb-2 d-flex justify-content-between">
-                            <span>{{ $planName }} Plan ({{ $months }} month{{ $months > 1 ? 's' : '' }})</span>
+                            <span>{{ $planName }} {{ x_('Plan', 'web') }} ({{ $months }} {{ $months > 1 ? x_('months', 'web') : x_('month', 'web') }})</span>
                             <span>{{ number_format($periodPrice, 2) }} $</span>
                         </div>
                         <div class="mb-2 d-flex justify-content-between text-muted">
-                            <span>Tax (14%)</span>
+                            <span>{{ x_('Tax (14%)', 'web') }}</span>
                             <span>{{ number_format($taxAmount, 2) }} $</span>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between fw-bold">
-                            <span>Total ($)</span>
+                            <span>{{ x_('Total ($)', 'web') }}</span>
                             <span>{{ number_format($totalAmount, 2) }} $</span>
                         </div>
                     </div>
@@ -188,10 +188,10 @@
             <div class="bg-transparent card-footer">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <p class="mb-0 text-muted">Expiry date: <span class="fw-medium">{{ $endDate->format('M d, Y') }}</span></p>
+                        <p class="mb-0 text-muted">{{ x_('Expiry date:', 'web') }} <span class="fw-medium">{{ $endDate->format('M d, Y') }}</span></p>
                     </div>
                     <div class="btn-group">
-                        <a href="{{ route('web.select-plan') }}" class="btn btn-outline-primary">Manage Plan</a>
+                        <a href="{{ route('web.select-plan') }}" class="btn btn-outline-primary">{{ x_('Manage Plan', 'web') }}</a>
                     </div>
                 </div>
             </div>
@@ -200,18 +200,18 @@
         <!-- Billing History -->
         <div class="border-0 shadow-sm card">
             <div class="bg-transparent card-header">
-                <h5 class="mb-0">Subscription History</h5>
+                <h5 class="mb-0">{{ x_('Subscription History', 'web') }}</h5>
             </div>
             <div class="p-0 card-body">
                 <div class="table-responsive">
                     <table class="table mb-0">
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Plan</th>
-                                <th>Amount</th>
-                                <th>Period</th>
-                                <th>Status</th>
+                                <th>{{ x_('Date', 'web') }}</th>
+                                <th>{{ x_('Plan', 'web') }}</th>
+                                <th>{{ x_('Amount', 'web') }}</th>
+                                <th>{{ x_('Period', 'web') }}</th>
+                                <th>{{ x_('Status', 'web') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -242,23 +242,23 @@
                             @endphp
                             <tr>
                                 <td>{{ $startDate->format('M d, Y') }}</td>
-                                <td>{{ $planName }} Plan ({{ $months }} month{{ $months > 1 ? 's' : '' }})</td>
+                                <td>{{ $planName }} {{ x_('Plan', 'web') }} ({{ $months }} {{ $months > 1 ? x_('months', 'web') : x_('month', 'web') }})</td>
                                 <td>{{ number_format($totalAmount, 2) }} $</td>
                                 <td>{{ $startDate->format('M Y') }} - {{ $endDate->format('M Y') }}</td>
                                 <td>
                                     @if($sub->is_active && $sub->is_paid && $endDate->gt(now()))
-                                        <span class="badge bg-success">Active</span>
+                                        <span class="badge bg-success">{{ x_('Active', 'web') }}</span>
                                     @elseif($sub->is_paid)
-                                        <span class="badge bg-secondary">Expired</span>
+                                        <span class="badge bg-secondary">{{ x_('Expired', 'web') }}</span>
                                     @else
-                                        <span class="badge bg-danger">Unpaid</span>
+                                        <span class="badge bg-danger">{{ x_('Unpaid', 'web') }}</span>
                                     @endif
                                 </td>
                             </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="5" class="py-4 text-center text-muted">No subscription history available</td>
+                                <td colspan="5" class="py-4 text-center text-muted">{{ x_('No subscription history available', 'web') }}</td>
                             </tr>
                         @endif
                         </tbody>

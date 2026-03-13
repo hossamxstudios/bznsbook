@@ -9,7 +9,7 @@
             <p style="font-weight: bold; font-size: 2em; display:inline-block"> {{ $lead->name }}</p>
         </div>
         <div class="mb-3">
-            <p>Stage: <span style="color: red">{{ $lead->stage?->name }}</span></p>
+            <p>{{ x_('Stage:', 'leads') }} <span style="color: red">{{ $lead->stage?->name }}</span></p>
         </div>
         <div class="my-5 row justify-content-center text-center">
             <div class="col-3">
@@ -26,7 +26,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <p>Add Activity Log</p>
+                        <p>{{ x_('Add Activity Log', 'leads') }}</p>
                     </button>
                     <div class="dropdown-menu p-3" style="width: 400px;">
                         <form action="{{ route('logs.store') }}" method="post">
@@ -35,25 +35,25 @@
                             <input type="hidden" name="loggable_id" value="{{ $lead->id }}">
                             <input type="hidden" name="loggable_type" value="App\Models\Lead">
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logTitle">Title</label>
+                                <label class="form-label" for="logTitle">{{ x_('Title', 'leads') }}</label>
                                 <select class="form-control" id="title" name="title" required>
-                                    <option value="" selected disabled>Select a type</option>
-                                    <option value="Phone Called">Phone Called </option>
-                                    <option value="Sent Email">Sent Email</option>
-                                    <option value="Online meeting ">Online meeting </option>
-                                    <option value="Personal meeting ">Personal meeting </option>
-                                    <option value="Contacted by Whatsapp ">Contacted by Whatsapp </option>
+                                    <option value="" selected disabled>{{ x_('Select a type', 'leads') }}</option>
+                                    <option value="Phone Called">{{ x_('Phone Called', 'leads') }} </option>
+                                    <option value="Sent Email">{{ x_('Sent Email', 'leads') }}</option>
+                                    <option value="Online meeting ">{{ x_('Online meeting', 'leads') }} </option>
+                                    <option value="Personal meeting ">{{ x_('Personal meeting', 'leads') }} </option>
+                                    <option value="Contacted by Whatsapp ">{{ x_('Contacted by Whatsapp', 'leads') }} </option>
                                 </select>
                             </div>
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logDetails">Details</label>
-                                <textarea class="form-control" id="logDetails" name="details" rows="3" placeholder="Enter details here..." required></textarea>
+                                <label class="form-label" for="logDetails">{{ x_('Details', 'leads') }}</label>
+                                <textarea class="form-control" id="logDetails" name="details" rows="3" placeholder="{{ x_('Enter details here...', 'leads') }}" required></textarea>
                             </div>
                             <div class="form-group mb-2">
-                                <label class="form-label" for="logDate">Log Date</label>
+                                <label class="form-label" for="logDate">{{ x_('Log Date', 'leads') }}</label>
                                 <input type="date" class="form-control" id="logDate" name="log_date">
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Save Log</button>
+                            <button type="submit" class="btn btn-primary btn-sm">{{ x_('Save Log', 'leads') }}</button>
                         </form>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <p>Add Note</p>
+                        <p>{{ x_('Add Note', 'leads') }}</p>
                     </button>
                     <div class="dropdown-menu p-3" style="width: 400px;">
                         <form action="{{ route('notes.store') }}" method="post">
@@ -80,10 +80,10 @@
                             <input type="hidden" name="notable_id" value="{{ $lead->id }}">
                             <input type="hidden" name="notable_type" value="App\Models\Lead">
                             <div class="form-group mb-2">
-                                <label class="form-label" for="noteDetails">Note Details</label>
-                                <textarea class="form-control" id="note-details" name="details" rows="3" placeholder="Enter your note here..."></textarea>
+                                <label class="form-label" for="noteDetails">{{ x_('Note Details', 'leads') }}</label>
+                                <textarea class="form-control" id="note-details" name="details" rows="3" placeholder="{{ x_('Enter your note here...', 'leads') }}"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Save Note</button>
+                            <button type="submit" class="btn btn-primary btn-sm">{{ x_('Save Note', 'leads') }}</button>
                         </form>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                          </g>
                      </svg>
                  </div>
-                 <p> Assign Contact</p>
+                 <p> {{ x_('Assign Contact', 'leads') }}</p>
                 </button>
             </div>
             <div class="col-3">
@@ -117,7 +117,7 @@
                             </g>
                         </svg>
                     </div>
-                    <p> Assign Company</p>
+                    <p> {{ x_('Assign Company', 'leads') }}</p>
                 </button>
             </div>
         </div>
@@ -126,25 +126,25 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#Activity{{$lead->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="check-circle"></i></span></span>
-                        <span class="nav-link-text">Activity Log</span>
+                        <span class="nav-link-text">{{ x_('Activity Log', 'leads') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#nots{{$lead->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Nots</span>
+                        <span class="nav-link-text">{{ x_('Nots', 'leads') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#contacts{{$lead->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Contacts</span>
+                        <span class="nav-link-text">{{ x_('Contacts', 'leads') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#company{{$lead->id}}">
                         <span class="nav-icon-wrap"><span class="feather-icon"><i data-feather="file-text"></i></span></span>
-                        <span class="nav-link-text">Company</span>
+                        <span class="nav-link-text">{{ x_('Company', 'leads') }}</span>
                     </a>
                 </li>
             </ul>
@@ -168,7 +168,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="media-body" style="padding-bottom: 0;">
-                                                        <p> <span class="text-dark">By {{ $log->user?->name ?? 'Unknown User' }}</span><br>{{ $log->title}} <br> {!! $log->details!!}</p>
+                                                        <p> <span class="text-dark">{{ x_('By', 'leads') }} {{ $log->user?->name ?? x_('Unknown User', 'leads') }}</span><br>{{ $log->title}} <br> {!! $log->details!!}</p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -182,7 +182,7 @@
                    @foreach ($lead->notes as $note)
                         <div class="card card-sm">
                             <div class="card-body">
-                                <h5 class="card-title">Noted By {{ $note->user?->name }}</h5>
+                                <h5 class="card-title">{{ x_('Noted By', 'leads') }} {{ $note->user?->name }}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">{{ date('d-M-Y h:i A', strtotime($note->created_at)) }}</h6>
                                 <p class="card-text">{{ $note->details }}</p>
                             </div>
@@ -203,15 +203,15 @@
                                             </div>
                                         </div>
                                         <div class="media-body" style="padding-bottom: 0;">
-                                            <p> <span class="text-dark">Name: {{$lead->contact?->name ?? 'N/A' }}</span></p>
-                                            <p> <span class="text-dark">Email: {{$lead->contact?->email ?? 'N/A' }}</span></p>
-                                            <p> <span class="text-dark">Phone: {{$lead->contact?->phone ?? 'N/A' }}</span></p>
+                                            <p> <span class="text-dark">{{ x_('Name:', 'leads') }} {{$lead->contact?->name ?? x_('N/A', 'admin') }}</span></p>
+                                            <p> <span class="text-dark">{{ x_('Email:', 'leads') }} {{$lead->contact?->email ?? x_('N/A', 'admin') }}</span></p>
+                                            <p> <span class="text-dark">{{ x_('Phone:', 'leads') }} {{$lead->contact?->phone ?? x_('N/A', 'admin') }}</span></p>
                                             @if ($lead->contact?->company_id ? $lead->contact?->company?->name : $lead->contact?->company_name )
-                                            <p> <span class="text-dark">Company: {{$lead->contact?->company_id ? $lead->contact?->company?->name : $lead->contact?->company_name }}</span></p>
+                                            <p> <span class="text-dark">{{ x_('Company:', 'leads') }} {{$lead->contact?->company_id ? $lead->contact?->company?->name : $lead->contact?->company_name }}</span></p>
                                             @else
-                                            <p> <span class="text-dark">Company: N/A</span></p>
+                                            <p> <span class="text-dark">{{ x_('Company: N/A', 'leads') }}</span></p>
                                             @endif
-                                            <p> <span class="text-dark">Company Email:{{$lead->contact?->company_id ? $lead->contact?->company?->email : 'N/A' }}</span></p>
+                                            <p> <span class="text-dark">{{ x_('Company Email:', 'leads') }} {{$lead->contact?->company_id ? $lead->contact?->company?->email : x_('N/A', 'admin') }}</span></p>
                                         </div>
                                     </div>
                                 </li>
@@ -233,8 +233,8 @@
                                             </div>
                                         </div>
                                         <div class="media-body" style="padding-bottom: 0;">
-                                            <p> <span class="text-dark">Comapny: {{$lead->company?->name ?? 'N/A' }}</span></p>
-                                            <p> <span class="text-dark">Email: {{$lead->company?->email ?? 'N/A' }}</span></p>
+                                            <p> <span class="text-dark">{{ x_('Company:', 'leads') }} {{$lead->company?->name ?? x_('N/A', 'admin') }}</span></p>
+                                            <p> <span class="text-dark">{{ x_('Email:', 'leads') }} {{$lead->company?->email ?? x_('N/A', 'admin') }}</span></p>
                                         </div>
                                     </div>
                                 </li>
@@ -251,7 +251,7 @@
     <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Assign Company To Lead</h5>
+                    <h5 class="modal-title">{{ x_('Assign Company To Lead', 'leads') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -262,7 +262,7 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-12">
                                 <select name="company_id" class="form-control select2" style="width:100%">
-                                    <option value="">Select</option>
+                                    <option value="">{{ x_('Select', 'leads') }}</option>
                                     @foreach($companies as $company)
                                         <option value="{{ $company->id }}" data-email="{{ $company->email }}">
                                             {{ $company->name }}
@@ -271,7 +271,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-5">Assign</button>
+                        <button type="submit" class="btn btn-primary mt-5">{{ x_('Assign', 'leads') }}</button>
                     </form>
                 </div>
             </div>
@@ -282,7 +282,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Assign Contact To Lead</h5>
+                <h5 class="modal-title">{{ x_('Assign Contact To Lead', 'leads') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -293,7 +293,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-12">
                             <select name="contact_id" class="form-control select2" style="width:100%">
-                                <option value="">Select</option>
+                                <option value="">{{ x_('Select', 'leads') }}</option>
                                 @foreach($contacts as $contact)
                                     <option value="{{ $contact->id }}" data-email="{{ $contact->email }}">
                                         {{ $contact->name }}
@@ -302,7 +302,7 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-5">Assign</button>
+                    <button type="submit" class="btn btn-primary mt-5">{{ x_('Assign', 'leads') }}</button>
                 </form>
             </div>
         </div>

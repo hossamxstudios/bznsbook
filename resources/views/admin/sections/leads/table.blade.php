@@ -6,7 +6,7 @@
                 <div class="col-md-12 mb-md-4 mb-3">
                     <div class="card rounded-8 mb-0">
                         <div class="card-header card-header-action">
-                            <h6>Leads <span class="badge badge-sm badge-light ms-1">{{$leads->count()}}</span></h6>
+                            <h6>{{ x_('Leads', 'leads') }} <span class="badge badge-sm badge-light ms-1">{{$leads->count()}}</span></h6>
                         </div>
                         <div class="card-body">
                             <div class="contact-list-view">
@@ -14,15 +14,15 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Lead Name</th>
-                                            <th>Pipeline Name</th>
-                                            <th>Stage Name</th>
-                                            <th>Company</th>
-                                            <th>Contact</th>
-                                            <th>Type</th>
-                                            <th>Label</th>
-                                            <th>Last Contacted Date</th>
-                                            <th>Create Date</th>
+                                            <th>{{ x_('Lead Name', 'leads') }}</th>
+                                            <th>{{ x_('Pipeline Name', 'leads') }}</th>
+                                            <th>{{ x_('Stage Name', 'leads') }}</th>
+                                            <th>{{ x_('Company', 'leads') }}</th>
+                                            <th>{{ x_('Contact', 'leads') }}</th>
+                                            <th>{{ x_('Type', 'leads') }}</th>
+                                            <th>{{ x_('Label', 'leads') }}</th>
+                                            <th>{{ x_('Last Contacted Date', 'leads') }}</th>
+                                            <th>{{ x_('Create Date', 'leads') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -30,7 +30,7 @@
                                         <tr class="hover-row">
                                             <td>{{ $lead->id }}</td>
                                             <td style="background: white">
-                                                <button type="button" class="btn btn-link p-0 view-details-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasShow{{$lead->id}}" title="View Details">
+                                                <button type="button" class="btn btn-link p-0 view-details-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasShow{{$lead->id}}" title="{{ x_('View Details', 'leads') }}">
                                                     <span class="feather-icon"  style="margin-left: 30px;">
                                                         {{ $lead->name }}
                                                     </span>
@@ -41,8 +41,8 @@
                                                     </span>
                                                 </a>
                                                 <div role="menu" class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$lead->id}}">Edit</a>
-                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$lead->id}}">Delete</a>
+                                                    <a class="dropdown-item edit-tasklist" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUpdate{{$lead->id}}">{{ x_('Edit', 'leads') }}</a>
+                                                    <a class="dropdown-item delete-tasklist" href="#" data-bs-toggle="modal" data-bs-target="#deleteModalgrid{{$lead->id}}">{{ x_('Delete', 'leads') }}</a>
                                                 </div>
                                             </td>
                                             <td>{{ $lead->pipeline?->name }}</td>
@@ -51,7 +51,7 @@
                                             <td>{{ $lead->contact?->name }}</td>
                                             <td>{{ $lead->type }}</td>
                                             <td>{{ $lead->label }}</td>
-                                            <td>{{  $lead->last_contacted_at? date('Y/m/d', strtotime($lead->last_contacted_at)): 'N/A' }}</td>
+                                            <td>{{  $lead->last_contacted_at? date('Y/m/d', strtotime($lead->last_contacted_at)): x_('N/A', 'admin') }}</td>
                                             <td>{{  date('Y/m/d', strtotime($lead->created_at)) }}</td>
                                         </tr>
                                         @endforeach

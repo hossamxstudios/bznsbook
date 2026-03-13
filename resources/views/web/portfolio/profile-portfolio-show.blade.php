@@ -28,7 +28,7 @@
             if (deleteForm) {
                 deleteForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    if (confirm('Are you sure you want to delete this portfolio item? This action cannot be undone.')) {
+                    if (confirm('{{ x_("Are you sure you want to delete this portfolio item? This action cannot be undone.", "web") }}')) {
                         this.submit();
                     }
                 });
@@ -40,7 +40,7 @@
                 const newRow = document.createElement('div');
                 newRow.className = 'input-group mb-2';
                 newRow.innerHTML = `
-                    <input type="text" class="form-control" name="expertise[]" placeholder="E.g., Web Design">
+                    <input type="text" class="form-control" name="expertise[]" placeholder="{{ x_('E.g., Web Design', 'portfolio') }}">
                     <button type="button" class="btn btn-danger remove-edit-expertise"><i class="bx bx-minus"></i></button>
                 `;
                 expertiseContainer.appendChild(newRow);
@@ -102,7 +102,7 @@
                             const newRow = document.createElement('div');
                             newRow.className = 'input-group mb-2';
                             newRow.innerHTML = `
-                                <input type="text" class="form-control" name="expertise[]" value="${item}" placeholder="E.g., Web Design">
+                                <input type="text" class="form-control" name="expertise[]" value="${item}" placeholder="{{ x_('E.g., Web Design', 'portfolio') }}">
                                 <button type="button" class="btn btn-danger remove-edit-expertise"><i class="bx bx-minus"></i></button>
                             `;
                             expertiseContainer.appendChild(newRow);
@@ -112,7 +112,7 @@
                         const newRow = document.createElement('div');
                         newRow.className = 'input-group mb-2';
                         newRow.innerHTML = `
-                            <input type="text" class="form-control" name="expertise[]" placeholder="E.g., Web Design">
+                            <input type="text" class="form-control" name="expertise[]" placeholder="{{ x_('E.g., Web Design', 'portfolio') }}">
                             <button type="button" class="btn btn-success add-edit-expertise"><i class="bx bx-plus"></i></button>
                         `;
                         expertiseContainer.appendChild(newRow);

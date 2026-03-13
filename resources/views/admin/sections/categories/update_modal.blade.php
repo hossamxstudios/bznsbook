@@ -1,6 +1,6 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEdit{{ $category->id }}" data-bs-scroll="true" data-bs-backdrop="false" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
-        <h5 id="offcanvasRightLabel">Edit Category: {{ $category->name }}</h5>
+        <h5 id="offcanvasRightLabel">{{ x_('Edit Category:', 'categories') }} {{ $category->name }}</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -8,23 +8,23 @@
             @csrf
             <div class="row gx-3">
                 <div class="col-sm-12 form-group position-relative mb-3">
-                    <label class="form-label">Name</label>
+                    <label class="form-label">{{ x_('Name', 'categories') }}</label>
                     <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" value="{{ $category->name }}" required/>
                     @error('name')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @else
-                        <div class="invalid-feedback">Please enter a category name</div>
+                        <div class="invalid-feedback">{{ x_('Please enter a category name', 'categories') }}</div>
                     @enderror
                 </div>
                 <div class="col-sm-12 form-group position-relative mb-3">
-                    <label class="form-label">Details</label>
+                    <label class="form-label">{{ x_('Details', 'categories') }}</label>
                     <textarea class="form-control @error('details') is-invalid @enderror" name="details" rows="3">{{ $category->details }}</textarea>
                     @error('details')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary mt-4">Update</button>
+            <button type="submit" class="btn btn-primary mt-4">{{ x_('Update', 'categories') }}</button>
         </form>
     </div>
 </div>

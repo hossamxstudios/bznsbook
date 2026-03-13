@@ -17,7 +17,7 @@
                                             <i class="bi bi-person-badge fs-6"></i>
                                         </span>
                                     </div>
-                                    <span class="fs-6 text-dark fw-medium">Users Management</span>
+                                    <span class="fs-6 text-dark fw-medium">{{ x_('Users Management', 'web-layout') }}</span>
                                 </div>
                             </div>
 
@@ -25,13 +25,13 @@
                                 <li class="nav-item {{ request()->url() == route('roles.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('roles.index') }}">
                                         <i class="ri-list-check-2 fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Roles</span>
+                                        <span class="nav-link-text">{{ x_('Roles', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('users.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('users.index') }}">
                                         <i class="ri-team-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Users</span>
+                                        <span class="nav-link-text">{{ x_('Users', 'web-layout') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -52,52 +52,52 @@
                                             <span class="feather-icon"><i data-feather="briefcase"></i></span>
                                         </span>
                                     </div>
-                                    <span class="fs-6 text-dark fw-medium">CRM</span>
+                                    <span class="fs-6 text-dark fw-medium">{{ x_('CRM', 'web-layout') }}</span>
                                 </div>
                             </div>
                             <ul class="nav nav-light navbar-nav flex-column">
                                 <li class="nav-item {{ request()->url() == route('admin.home') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('admin.home') }}">
                                         <i class="ri-dashboard-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Dashboard</span>
+                                        <span class="nav-link-text">{{ x_('Dashboard', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('leads.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('leads.index') }}">
                                         <i class="ri-archive-drawer-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Leads</span>
+                                        <span class="nav-link-text">{{ x_('Leads', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('companies.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('companies.index') }}">
                                         <i class="ri-building-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Companies</span>
+                                        <span class="nav-link-text">{{ x_('Companies', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('contacts.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('contacts.index') }}">
                                         <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Contacts</span>
+                                        <span class="nav-link-text">{{ x_('Contacts', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('deals.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('deals.index') }}">
                                         <i class="ri-award-line fs-5" style="margin-right: 15px;"></i>
 
-                                        <span class="nav-link-text">Deals</span>
+                                        <span class="nav-link-text">{{ x_('Deals', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('pipelines.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('pipelines.index') }}">
                                         <i class="ri-filter-2-line fs-5" style="margin-right: 15px;"></i>
 
-                                        <span class="nav-link-text">Pipelines</span>
+                                        <span class="nav-link-text">{{ x_('Pipelines', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('industries.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('industries.index') }}">
                                         <i class="ri-building-2-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Industries</span>
+                                        <span class="nav-link-text">{{ x_('Industries', 'web-layout') }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -118,81 +118,81 @@
                                             <i class="bi bi-briefcase fs-6"></i>
                                         </span>
                                     </div>
-                                    <span class="fs-6 text-dark fw-medium">ATS Management</span>
+                                    <span class="fs-6 text-dark fw-medium">{{ x_('ATS Management', 'web-layout') }}</span>
                                 </div>
                             </div>
                             <ul class="nav nav-light navbar-nav flex-column">
                                 <li class="nav-item {{ request()->url() == route('ats.home') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('ats.home') }}">
                                         <i class="ri-dashboard-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">ATS Dashboard</span>
+                                        <span class="nav-link-text">{{ x_('ATS Dashboard', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('ats.clients.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('ats.clients.index') }}">
                                         <i class="bi bi-building fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Clients</span>
+                                        <span class="nav-link-text">{{ x_('Clients', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="">
                                         <i class="ri-file-user-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Clients' Hiring Managers</span>
+                                        <span class="nav-link-text">{{ x_('Clients\' Hiring Managers', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('jobs.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('jobs.index') }}">
                                         <i class="bi bi-briefcase fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text"> Jobs</span>
+                                        <span class="nav-link-text"> {{ x_('Jobs', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('candidates.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('candidates.index') }}">
                                         <i class="bi bi-person-badge fs-5" style="margin-right: 15px;"></i>
 
-                                        <span class="nav-link-text">Candidates</span>
+                                        <span class="nav-link-text">{{ x_('Candidates', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{  request()->url() == route('interviews.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('interviews.index') }}">
                                         <i class="bi bi-calendar2-range fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Interviews</span>
+                                        <span class="nav-link-text">{{ x_('Interviews', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{  request()->url() == route('job.offers.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('job.offers.index') }}">
                                         <i class="ri-bookmark-3-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Job Offers</span>
+                                        <span class="nav-link-text">{{ x_('Job Offers', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('ATS.pipelines.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('ATS.pipelines.index') }}">
                                         <i class="ri-filter-2-line fs-5" style="margin-right: 15px;"></i>
 
-                                        <span class="nav-link-text">Hirings Pipelines</span>
+                                        <span class="nav-link-text">{{ x_('Hirings Pipelines', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <hr style="border: 1px solid #3e3e3e;">
                                 <div class="mt-2 mb-3 d-flex align-items-center justify-content-between">
-									<div class="mb-0 title-sm text-primary">ATS Settings </div>
+									<div class="mb-0 title-sm text-primary">{{ x_('ATS Settings', 'web-layout') }} </div>
 								</div>
                                 <li class="nav-item {{ request()->url() == route('ATS.pipelines.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('ATS.pipelines.index') }}">
                                         <i class="ri-filter-2-line fs-5" style="margin-right: 15px;"></i>
 
-                                        <span class="nav-link-text">ATS Pipelines</span>
+                                        <span class="nav-link-text">{{ x_('ATS Pipelines', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ request()->url() == route('tags.index') ? 'active' : ''}}">
                                     <a class="nav-link" href="{{ route('tags.index') }}">
                                         <i class="bi bi-tag fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Tags</span>
+                                        <span class="nav-link-text">{{ x_('Tags', 'web-layout') }}</span>
                                     </a>
                                 </li>
                                 {{-- <li class="nav-item {{ request()->url() == route('users.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('users.index') }}">
                                         <i class="ri-team-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Users</span>
+                                        <span class="nav-link-text">{{ x_('Users', 'web-layout') }}</span>
                                     </a>
                                 </li> --}}
                             </ul>

@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="convertModal">Post Request As Job </h5>
+                <h5 class="modal-title" id="convertModal">{{ x_('Post Request As Job', 'general') }} </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{  route('job.requests.convert') }}" method="POST" enctype="multipart/form-data">
@@ -11,13 +11,13 @@
                     <div class="row g-3">
                         <input type="hidden" name="job_request_id" value="{{ $job_request->id }}">
                         <div class="col-12">
-                            <label for="title" class="form-label">Job Title *</label>
+                            <label for="title" class="form-label">{{ x_('Job Title *', 'general') }}</label>
                             <input type="text" class="form-control" name="title" value="{{ $job_request->title }}" required>
                         </div>
                         <div class="col-12">
-                            <label for="pipeline_id" class="form-label">Select Job Pipe Line  *</label>
+                            <label for="pipeline_id" class="form-label">{{ x_('Select Job Pipe Line  *', 'general') }}</label>
                             <select class="form-select" name="pipeline_id" required>
-                                <option value=""> Please Select A Pipeline</option>
+                                <option value=""> {{ x_('Please Select A Pipeline', 'general') }}</option>
                                 @foreach ($pipelines as $pipeline)
                                     <option value="{{ $pipeline->id }}">{{ $pipeline->name }}</option>
                                 @endforeach
@@ -27,13 +27,13 @@
                             <div class="col-12">
                                 <div class="form-check form-switch form-switch-lg">
                                     <input class="form-check-input" type="checkbox" name="is_published" checked>
-                                    <label class="form-check-label" for="is_published">Publish Job To Career Page</label>
+                                    <label class="form-check-label" for="is_published">{{ x_('Publish Job To Career Page', 'general') }}</label>
                                 </div>
                             </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-dark">Post Job</button>
+                    <button type="submit" class="btn btn-dark">{{ x_('Post Job', 'general') }}</button>
                 </div>
             </form>
         </div>

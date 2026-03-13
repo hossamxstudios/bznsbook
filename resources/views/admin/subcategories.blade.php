@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title> BZNSBOOK - Subcategories </title>
+    <title> {{ x_('BZNSBOOK - Subcategories', 'admin') }} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('admin.main.meta')
     <style>

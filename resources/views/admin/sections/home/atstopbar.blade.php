@@ -10,7 +10,7 @@
             <form action="/" method="GET" id="dateFilterForm">
                 <div class="d-flex flex-wrap justify-content-between flex-1">
                     <div class="d-flex align-items-center">
-                        <h5 class="pg-title fs-5 mb-0 d-flex align-items-center">Dashboard<span class="d-flex task-star marked ms-2"><span class="feather-icon"></span></span></h5>
+                        <h5 class="pg-title fs-5 mb-0 d-flex align-items-center">{{ x_('Dashboard', 'admin') }}<span class="d-flex task-star marked ms-2"><span class="feather-icon"></span></span></h5>
 
                         <div class="ms-3 d-xl-flex d-none">
                             <div class="input-group w-300p d-md-flex d-none">
@@ -41,7 +41,7 @@
                             <line x1="12" y1="4" x2="12" y2="20"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">Overview</span>
+                    <span class="nav-link-text">{{ x_('Overview', 'admin') }}</span>
                 </a>
             </li>
         </ul>

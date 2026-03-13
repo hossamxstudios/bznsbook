@@ -15,7 +15,10 @@ return Application::configure(basePath: dirname(__DIR__))
         // commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function ($middleware) {
+    ->withMiddleware(function (Middleware $middleware) {
+        $middleware->appendToGroup('web', [
+            \App\Http\Middleware\SetLocale::class,
+        ]);
         $middleware->redirectGuestsTo(function () {
             if (request()->is('company/*')) {
                 return route('admin.login');
@@ -28,6 +31,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
             'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
         ]);
+    })
+    ->withSchedule(function (\Illuminate\Console\Scheduling\Schedule $schedule) {
+        $schedule->command('translations:compile')->everySixHours();
     })
     ->withExceptions(function (Exceptions $exceptions) {
 

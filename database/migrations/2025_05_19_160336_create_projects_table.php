@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->constrained('clients')->onDelete('cascade');
-            $table->foreignId('winner')->nullable()->constrained('clients')->nullOnDelete();
+            $table->unsignedBigInteger('winner_id')->nullable();
+            $table->foreign('winner_id', 'projects_winner_foreign')->references('id')->on('clients')->onDelete('cascade');
             $table->string('name');
             $table->string('slug');
             $table->text('details')->nullable();

@@ -11,8 +11,8 @@
             </div>
             <div class="d-flex flex-wrap justify-content-between flex-1">
                 <div>
-                    <div class="pg-subtitle">Overview </div>
-                    <h5 class="pg-title fs-5">Jobs Board</h5>
+                    <div class="pg-subtitle">{{ x_('Overview', 'general') }} </div>
+                    <h5 class="pg-title fs-5">{{ x_('Jobs Board', 'general') }}</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -23,7 +23,7 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Add New Job</span>
+                                <span class="fs-7">{{ x_('Add New Job', 'general') }}</span>
                             </span>
                         </button>
                     </div>
@@ -36,7 +36,7 @@
                     <span class="nav-icon-wrap"><span class="svg-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-id" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><line x1="15" y1="8" x2="17" y2="8"></line><line x1="15" y1="12" x2="17" y2="12"></line><line x1="7" y1="16" x2="17" y2="16"></line></svg>
                     </span></span>
-                    <span class="nav-link-text">All Jobs</span>
+                    <span class="nav-link-text">{{ x_('All Jobs', 'general') }}</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -44,7 +44,7 @@
                     <span class="nav-icon-wrap"><span class="svg-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-id" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><line x1="15" y1="8" x2="17" y2="8"></line><line x1="15" y1="12" x2="17" y2="12"></line><line x1="7" y1="16" x2="17" y2="16"></line></svg>
                     </span></span>
-                    <span class="nav-link-text"> Accepted Jobs</span>
+                    <span class="nav-link-text"> {{ x_('Accepted Jobs', 'general') }}</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -52,7 +52,7 @@
                     <span class="nav-icon-wrap"><span class="svg-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-id" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><line x1="15" y1="8" x2="17" y2="8"></line><line x1="15" y1="12" x2="17" y2="12"></line><line x1="7" y1="16" x2="17" y2="16"></line></svg>
                     </span></span>
-                    <span class="nav-link-text">Job Requests</span>
+                    <span class="nav-link-text">{{ x_('Job Requests', 'general') }}</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -60,7 +60,7 @@
                     <span class="nav-icon-wrap"><span class="svg-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-id" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><line x1="15" y1="8" x2="17" y2="8"></line><line x1="15" y1="12" x2="17" y2="12"></line><line x1="7" y1="16" x2="17" y2="16"></line></svg>
                     </span></span>
-                    <span class="nav-link-text">All Rejected Requests</span>
+                    <span class="nav-link-text">{{ x_('All Rejected Requests', 'general') }}</span>
                 </a>
             </li>
         </ul>
