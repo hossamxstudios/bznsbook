@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{-- <title>{{ x_('BZNS BOOK', 'admin-layout') }}</title> --}}
+<title>{{ x_('BZNS BOOK', 'admin-layout') }}</title>
 {{-- <meta name="description" content="Project management Dashboard Template with reusable and flexible components for your SaaS web applications by hencework. Based on Bootstrap."> --}}
 <!-- Favicon -->
 <link rel="shortcut icon" href="{{ URL::asset('icon.png') }}">
@@ -28,7 +28,7 @@
 @if(str_starts_with(app()->getLocale(), 'ar'))
 <link href="{{ asset('dist/css/rtl.css') }}" rel="stylesheet" type="text/css">
 @endif
-{{--
+
 @php
     $jsTranslations = [
         'Success'              => function_exists('x_') ? x_('Success', 'js') : 'Success',
@@ -41,13 +41,13 @@
         'No permission'        => function_exists('x_') ? x_('No permission', 'js') : 'No permission',
         'Network error'        => function_exists('x_') ? x_('Network error', 'js') : 'Network error',
     ];
-@endphp --}}
-{{-- <script>
+@endphp
+<script>
     window.__translations = @json($jsTranslations);
     window.__ = function(key, fallback) {
         return (window.__translations && window.__translations[key]) || fallback || key;
     };
-</script> --}}
+</script>
 
 <style>
     /* .dataTables_scroll{

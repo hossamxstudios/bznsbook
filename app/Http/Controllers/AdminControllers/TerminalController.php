@@ -58,6 +58,8 @@ class TerminalController extends Controller
         // Translations
         'translations_compile'    => ['PHP', 'artisan', 'translations:compile'],
         'translations_scan'       => ['PHP', 'artisan', 'translations:scan'],
+        'translations_import'     => ['PHP', 'artisan', 'translations:import'],
+        'translations_import_force' => ['PHP', 'artisan', 'translations:import', '--force'],
 
         // Diagnostics
         'diagnose'                => ['DIAGNOSE'],

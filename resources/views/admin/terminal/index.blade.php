@@ -87,7 +87,7 @@
 </head>
 <body>
     <div class="hk-wrapper" data-layout="twocolumn" data-menu="light" data-footer="simple" data-hover="active">
-        {{-- @include('admin.main.sidebar') --}}
+        @include('admin.main.sidebar')
         <div class="py-0 hk-pg-wrapper">
             <div class="py-0 hk-pg-body">
                 <div class="taskboardapp-wrap">
@@ -189,6 +189,8 @@
                                                     <div class="cmd-group-title"><i class="bi bi-translate me-1"></i> Translations</div>
                                                     <button class="cmd-btn" data-cmd="translations_compile"><i class="bi bi-file-earmark-code"></i> translations:compile</button>
                                                     <button class="cmd-btn" data-cmd="translations_scan"><i class="bi bi-search"></i> translations:scan</button>
+                                                    <button class="cmd-btn" data-cmd="translations_import"><i class="bi bi-box-arrow-in-down"></i> import JSON to DB</button>
+                                                    <button class="cmd-btn warning" data-cmd="translations_import_force" data-confirm="This will overwrite existing DB translations with JSON values. Continue?"><i class="bi bi-box-arrow-in-down"></i> import JSON (overwrite)</button>
                                                 </div>
 
                                                 {{-- Diagnostics --}}
