@@ -376,27 +376,45 @@ class TranslationController extends Controller
             $items[$key->id] = $key->default_text;
         }
 
-        $service = app(TranslationService::class);
-        $results = $service->translateBatch($items, $locale);
-
         $succeeded = 0;
         $failed = 0;
 
-        foreach ($keys as $key) {
-            $translated = $results[(string) $key->id] ?? null;
-            if ($translated) {
-                Translation::updateOrCreate(
-                    ['translation_key_id' => $key->id, 'locale' => $locale],
-                    [
-                        'text'            => $translated,
-                        'is_ai_generated' => true,
-                        'is_approved'     => false,
-                    ]
-                );
-                $succeeded++;
-            } else {
-                $failed++;
+        try {
+            $service = app(TranslationService::class);
+
+            // Check if API key is configured
+            if (empty(config('services.openai.key'))) {
+                Cache::forget($batchKey);
+                return response()->json([
+                    'done'  => true,
+                    'error' => 'OpenAI API key is not configured. Set OPENAI_API_KEY in your .env file.',
+                    'total' => $batch['total'],
+                    'succeeded' => $batch['succeeded'],
+                    'failed'    => $batch['total'] - $batch['succeeded'],
+                ]);
             }
+
+            $results = $service->translateBatch($items, $locale);
+
+            foreach ($keys as $key) {
+                $translated = $results[(string) $key->id] ?? null;
+                if ($translated) {
+                    Translation::updateOrCreate(
+                        ['translation_key_id' => $key->id, 'locale' => $locale],
+                        [
+                            'text'            => $translated,
+                            'is_ai_generated' => true,
+                            'is_approved'     => false,
+                        ]
+                    );
+                    $succeeded++;
+                } else {
+                    $failed++;
+                }
+            }
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::error('translateAllNext error: ' . $e->getMessage());
+            $failed = count($chunk);
         }
 
         $batch['processed'] += count($chunk);

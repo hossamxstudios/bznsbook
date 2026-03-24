@@ -82,6 +82,18 @@
                             @enderror
                         </div>
 
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input @error('terms') is-invalid @enderror" type="checkbox" id="terms" name="terms" value="1" {{ old('terms') ? 'checked' : '' }}>
+                                <label class="form-check-label fs-base" for="terms">
+                                    {{ x_('I agree to the', 'general') }} <a href="{{ route('pages.terms') }}" target="_blank">{{ x_('Terms & Conditions', 'general') }}</a>
+                                </label>
+                                @error('terms')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary shadow-primary btn-lg w-100">{{ x_('Sign up', 'general') }}</button>
                     </form>
                     <a href="{{ route('password.request') }}" class="btn btn-link btn-lg w-100">{{ x_('Forgot Password ?', 'general') }}</a>

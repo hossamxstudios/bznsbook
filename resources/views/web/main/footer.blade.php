@@ -33,7 +33,7 @@
                       <li class="nav-item"><a href="{{ route('pages.contact') }}" class="px-0 pt-1 pb-2 nav-link d-inline-block">{{ x_('Contact', 'web-layout') }}</a></li>
                     </ul>
                     <ul class="mb-2 nav flex-column mb-lg-0">
-                      <li class="nav-item"><a href="{{ route('pages.terms') }}" class="px-0 pt-1 pb-2 nav-link d-inline-block">{{ x_('Terms &amp; Conditions', 'web-layout') }}</a></li>
+                      <li class="nav-item"><a href="{{ route('pages.terms') }}" class="px-0 pt-1 pb-2 nav-link d-inline-block">{{ x_('Terms and Conditions', 'web-layout') }}</a></li>
                       <li class="nav-item"><a href="{{ route('pages.privacy') }}" class="px-0 pt-1 pb-2 nav-link d-inline-block">{{ x_('Privacy Policy', 'web-layout') }}</a></li>
                     </ul>
                   </div>
@@ -53,10 +53,10 @@
                 </div>
                 <div class="pt-2 col-xl-4 col-lg-5 pt-lg-0">
                   <h6 class="mb-2">{{ x_('Contact Us', 'web-layout') }}</h6>
-                  <a href="mailto:info@bznsbook.com" class="fw-medium d-block mb-2">info@bznsbook.com</a>
-                  <a href="tel:+20201036943149" class="nav-link px-0 pt-1 pb-1 fs-sm">+202 01036943149</a>
-                  <a href="tel:+971554396086" class="nav-link px-0 pt-1 pb-1 fs-sm">+971 55 4396086</a>
-                  <p class="fs-sm mt-2 mb-0">{{ x_('90 Street, 5th District,', 'web-layout') }}<br>{{ x_('New Cairo, Egypt', 'web-layout') }}</p>
+                  <a href="mailto:info@bznsbook.com" class="mb-2 fw-medium d-block">info@bznsbook.com</a>
+                  <a href="tel:+20201036943149" class="px-0 pt-1 pb-1 nav-link fs-sm">+202 01036943149</a>
+                  <a href="tel:+971554396086" class="px-0 pt-1 pb-1 nav-link fs-sm">+971 55 4396086</a>
+                  <p class="mt-2 mb-0 fs-sm">{{ x_('90 Street, 5th District,', 'web-layout') }}<br>{{ x_('New Cairo, Egypt', 'web-layout') }}</p>
                 </div>
               </div>
             </div>

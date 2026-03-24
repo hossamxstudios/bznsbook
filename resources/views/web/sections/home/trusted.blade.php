@@ -1,6 +1,6 @@
   <!-- Brands (Carousel) -->
   <section class="container pt-3 pb-5 mt-2 mb-lg-2 mb-xl-4 pt-lg-5">
-    <h2 class="text-center pb-md-2">{{ x_('Trusted by Agencies &amp; Professionals Worldwide', 'home') }}</h2>
+    <h2 class="text-center pb-md-2">{{ x_('Trusted by Agencies & Professionals Worldwide', 'home') }}</h2>
     <div class="swiper mx-n2" data-swiper-options='{
       "slidesPerView": 2,
       "pagination": {

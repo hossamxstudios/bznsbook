@@ -86,7 +86,7 @@
                             <footer class="container-xxl footer">
                                 <div class="row">
                                     <div class="text-center col-xl-8">
-                                        <p class="pb-0 footer-text"><span class="copy-text">{{ x_('BZNSBOOKHr © 2025 All rights reserved.', 'general') }}</span> <a href="#" class="">{{ x_('Privacy Policy', 'general') }}</a><span class="footer-link-sep">|</span><a href="#" class="">{{ x_('T&amp;C', 'general') }}</a><span class="footer-link-sep">|</span><a href="#" class="">{{ x_('System Status', 'general') }}</a></p>
+                                        <p class="pb-0 footer-text"><span class="copy-text">{{ x_('BZNSBOOKHr © 2025 All rights reserved.', 'general') }}</span> <a href="#" class="">{{ x_('Privacy Policy', 'general') }}</a><span class="footer-link-sep">|</span><a href="#" class="">{{ x_('T&C', 'general') }}</a><span class="footer-link-sep">|</span><a href="#" class="">{{ x_('System Status', 'general') }}</a></p>
                                     </div>
                                 </div>
                             </footer>

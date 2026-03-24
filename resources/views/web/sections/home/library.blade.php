@@ -15,7 +15,7 @@
                             <div class="p-2 bg-opacity-10 bg-primary rounded-circle me-3">
                                 <i class="bx bx-search-alt text-primary fs-4"></i>
                             </div>
-                            <h5 class="mb-0">{{ x_('Discovery &amp; Visibility', 'home') }}</h5>
+                            <h5 class="mb-0">{{ x_('Discovery & Visibility', 'home') }}</h5>
                         </div>
                         <p class="mb-3"><i class="bx bx-check-circle text-primary me-2"></i> {{ x_('Get discovered by clients searching for your exact expertise and services.', 'home') }}</p>
                         <p class="mb-3"><i class="bx bx-check-circle text-primary me-2"></i> {{ x_('Browse professionals by category, skill, location, and ratings to find the perfect match.', 'home') }}</p>
