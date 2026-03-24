@@ -14,7 +14,7 @@
                         <a href="/" class="nav-link">{{ x_('Home', 'web-layout') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('pages.companies') }}" class="nav-link">{{ x_('Explore Professionals', 'web-layout') }}</a>
+                        <a href="{{ route('pages.companies') }}" class="nav-link">{{ x_('Our Partners', 'web-layout') }}</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('pages.pricing') }}" class="nav-link">{{ x_('Pricing', 'web-layout') }}</a>
