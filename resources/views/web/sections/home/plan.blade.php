@@ -21,7 +21,7 @@
                          </svg>
                          <h4 class="mb-0 fs-base fw-semibold text-nowrap ps-1">{{ x_('Monthly', 'home') }}</h4>
                      </div>
-                     <h5 class="my-2 text-primary my-sm-0">{{ x_('$65 / Month', 'home') }}</h5>
+                     <h5 class="my-2 text-primary my-sm-0">{{ x_('$10 / Month', 'home') }}</h5>
                      <div class="fs-sm">{{ x_('Billed Monthly', 'home') }}</div>
                  </li>
                  <li class="p-4 list-group-item d-flex flex-column flex-sm-row align-items-center justify-content-between">
@@ -34,7 +34,7 @@
                          </svg>
                          <h4 class="mb-0 fs-base fw-semibold text-nowrap ps-1">{{ x_('Semi Annual', 'home') }}</h4>
                      </div>
-                     <h5 class="px-3 py-0 my-3 rounded badge bg-light fs-5 fw-bold my-sm-0">{{ x_('$55 / Month', 'home') }}</h5>
+                     <h5 class="px-3 py-0 my-3 rounded badge bg-light fs-5 fw-bold my-sm-0">{{ x_('$8.5 / Month', 'home') }}</h5>
                      <div class="fs-sm">{{ x_('Billed Semi Annually', 'home') }}</div>
                  </li>
                  <li class="p-4 list-group-item d-flex flex-column flex-sm-row align-items-center justify-content-between">
@@ -47,7 +47,7 @@
                         </svg>
                         <h4 class="mb-0 fs-base fw-semibold text-nowrap ps-1">{{ x_('Annual', 'home') }}</h4>
                     </div>
-                    <h5 class="px-3 py-0 my-3 rounded badge bg-light fs-5 fw-bold my-sm-0">{{ x_('$45 / Month', 'home') }}</h5>
+                    <h5 class="px-3 py-0 my-3 rounded badge bg-light fs-5 fw-bold my-sm-0">{{ x_('$7.5 / Month', 'home') }}</h5>
                     <div class="fs-sm">{{ x_('Billed Annually', 'home') }}</div>
                 </li>
              </ul>

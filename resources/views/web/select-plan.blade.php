@@ -36,14 +36,14 @@
                                 <div class="text-center card-body">
                                     <h3 class="mb-2">{{ x_('Billed Monthly', 'web') }}</h3>
                                     <div class="pb-4 mb-3 fs-lg">{{ x_('Best for small teams', 'web') }}</div>
-                                    <div class="mb-1 display-5 text-dark" data-monthly-price>$65</div>
+                                    <div class="mb-1 display-5 text-dark" data-monthly-price>$10</div>
                                     <div class="mb-5 text-muted">{{ x_('per month', 'web') }}</div>
                                 </div>
                                 <div class="pt-0 pb-4 text-center border-0 card-footer">
                                     <form action="{{ route('client.subscribe.plan') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="plan" value="monthly">
-                                        <input type="hidden" name="price" value="65">
+                                        <input type="hidden" name="price" value="10">
                                         <button type="submit" class="btn btn-primary btn-lg">{{ x_('Get started now', 'web') }}</button>
                                     </form>
                                 </div>
@@ -56,14 +56,14 @@
                                 <div class="text-center card-body text-light">
                                     <h3 class="mb-2 text-light">{{ x_('Billed Annually', 'web') }}</h3>
                                     <div class="pb-4 mb-3 fs-lg">{{ x_('Best for large teams', 'web') }}</div>
-                                    <div class="mb-1 display-5" data-monthly-price>$45</div>
+                                    <div class="mb-1 display-5" data-monthly-price>$7.50</div>
                                     <div class="mb-5 opacity-50">{{ x_('per month', 'web') }}</div>
                                 </div>
                                 <div class="pt-0 pb-4 text-center border-0 card-footer">
                                     <form action="{{ route('client.subscribe.plan') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="plan" value="annual">
-                                        <input type="hidden" name="price" value="45">
+                                        <input type="hidden" name="price" value="90">
                                         <button type="submit" class="btn btn-light btn-lg shadow-secondary">{{ x_('Get started now', 'web') }}</button>
                                     </form>
                                 </div>
@@ -75,14 +75,14 @@
                                 <div class="text-center card-body">
                                     <h3 class="mb-2">{{ x_('Billed Bi-Annually', 'web') }}</h3>
                                     <div class="pb-4 mb-3 opacity-70 fs-lg">{{ x_('Best for growing teams', 'web') }}</div>
-                                    <div class="mb-1 display-5 text-dark" data-monthly-price>$55</div>
+                                    <div class="mb-1 display-5 text-dark" data-monthly-price>$8.5</div>
                                     <div class="mb-5 text-muted">{{ x_('per month', 'web') }}</div>
                                 </div>
                                 <div class="pt-0 pb-4 text-center border-0 card-footer">
                                     <form action="{{ route('client.subscribe.plan') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="plan" value="semi-annual">
-                                        <input type="hidden" name="price" value="55">
+                                        <input type="hidden" name="price" value="50">
                                         <button type="submit" class="btn btn-primary btn-lg">{{ x_('Get started now', 'web') }}</button>
                                     </form>
                                 </div>
