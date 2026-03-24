@@ -72,7 +72,7 @@
                             </div>
                             <div class="swiper-slide" data-swiper-tab="#screen-3">
                                 <div class="pb-1 mb-2 h5 text-primary">{{ x_('Step 3', 'home') }}</div>
-                                <h2 class="pb-1 h1">{{ x_('Connect &amp; Collaborate', 'home') }}</h2>
+                                <h2 class="pb-1 h1">{{ x_('Connect & Collaborate', 'home') }}</h2>
                                 <ul class="mx-auto list-unstyled d-table mx-md-0">
                                     <li class="pb-1 mb-2 d-flex fs-lg text-start">
                                         <i class="bx bx-check text-primary lead pe-1 me-1" style="margin-top: .125rem;"></i>

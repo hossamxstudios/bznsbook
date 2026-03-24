@@ -25,7 +25,7 @@
               </div>
               <div class="p-3 text-center card-body">
                 <h3 class="pt-1 mb-2 fs-lg fw-semibold">{{ x_('Jenny Wilson', 'about') }}</h3>
-                <p class="mb-0 fs-sm">{{ x_('Co-Founder &amp; CEO', 'about') }}</p>
+                <p class="mb-0 fs-sm">{{ x_('Co-Founder and CEO', 'about') }}</p>
               </div>
             </div>
           </div>

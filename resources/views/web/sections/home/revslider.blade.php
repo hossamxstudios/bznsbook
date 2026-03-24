@@ -29,9 +29,9 @@
                 </div>
             </div>
             <div class="text-center col-lg-5 col-md-6 text-md-start order-md-1">
-                <h1 class="display-5 mb-lg-4">{{ x_('Where Professionals Connect, Collaborate &amp; Grow', 'home') }}</h1>
+                <h1 class="display-5 mb-lg-4">{{ x_('Where Professionals Connect, Collaborate & Grow', 'home') }}</h1>
                 <p class="pb-3 mb-4 fs-xl pb-lg-0 mb-lg-5">{{ x_('Showcase your services, build your portfolio, post projects, and find the right partners. BznsBook is the professional marketplace for agencies, freelancers, and businesses.', 'home') }}</p>
-                <div class="d-flex flex-column flex-sm-row gap-3">
+                <div class="gap-3 d-flex flex-column flex-sm-row">
                     <a href="{{ route('client.register') }}" class="btn btn-primary btn-lg">{{ x_('Get Started Free', 'home') }}</a>
                     <a href="{{ route('pages.companies') }}" class="btn btn-outline-dark btn-lg">{{ x_('Browse Professionals', 'home') }}</a>
                 </div>

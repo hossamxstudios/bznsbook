@@ -13,8 +13,8 @@
         <!-- Page Header -->
         <section class="container pt-5 pb-3 mt-5">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h1 class="display-5 fw-bold mb-3">{{ x_('Terms &amp; Conditions', 'web') }}</h1>
+                <div class="text-center col-lg-8">
+                    <h1 class="mb-3 display-5 fw-bold">{{ x_('Terms Conditions', 'web') }}</h1>
                     <p class="fs-lg text-body-secondary">{{ x_('Last updated:', 'web') }} {{ now()->format('F d, Y') }}</p>
                 </div>
             </div>
@@ -24,19 +24,19 @@
         <section class="container pb-5 mb-md-4 mb-lg-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body p-4 p-lg-5">
+                    <div class="border-0 shadow-sm card">
+                        <div class="p-4 card-body p-lg-5">
 
                             <!-- Introduction -->
-                            <h2 class="h4 mb-3">{{ x_('1. Agreement to Terms', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('1. Agreement to Terms', 'web') }}</h2>
                             <p>{{ x_('By accessing or using BznsBook ("the Platform"), you agree to be bound by these Terms & Conditions ("Terms"). If you do not agree to these Terms, you must not access or use the Platform.', 'web') }}</p>
                             <p class="mb-4">{{ x_('BznsBook is a subscription-based professional services marketplace and portfolio network operated to connect agencies, freelancers, and businesses worldwide. These Terms govern your use of all features, services, and content available on the Platform.', 'web') }}</p>
 
                             <hr class="my-4">
 
                             <!-- Nature of Service -->
-                            <h2 class="h4 mb-3">{{ x_('2. Nature of Service', 'web') }}</h2>
-                            <div class="alert alert-primary mb-3">
+                            <h2 class="mb-3 h4">{{ x_('2. Nature of Service', 'web') }}</h2>
+                            <div class="mb-3 alert alert-primary">
                                 <i class="bx bx-info-circle me-2"></i>
                                 <strong>{{ x_('BznsBook does not sell any physical or hard products.', 'web') }}</strong>
                             </div>
@@ -53,7 +53,7 @@
                             <hr class="my-4">
 
                             <!-- Account Registration -->
-                            <h2 class="h4 mb-3">{{ x_('3. Account Registration', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('3. Account Registration', 'web') }}</h2>
                             <p>{{ x_('To access the full features of BznsBook, you must create an account and provide accurate, complete, and up-to-date information. You are responsible for:', 'web') }}</p>
                             <ul class="mb-4">
                                 <li>{{ x_('Maintaining the confidentiality of your account credentials', 'web') }}</li>
@@ -65,7 +65,7 @@
                             <hr class="my-4">
 
                             <!-- Subscription & Payment -->
-                            <h2 class="h4 mb-3">{{ x_('4. Subscription & Payment', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('4. Subscription & Payment', 'web') }}</h2>
                             <h3 class="h6 fw-bold">{{ x_('4.1 Subscription Plans', 'web') }}</h3>
                             <p>{{ x_('BznsBook provides its services for the period covered by your active subscription, from the start date until the expiry date of your chosen billing cycle (Monthly, Semi-Annual, or Annual).', 'web') }}</p>
 
@@ -73,7 +73,7 @@
                             <p>{{ x_('Once subscribed, you may access all data, profiles, and consultation features available on the Platform according to the permissions and features included in your subscription plan.', 'web') }}</p>
 
                             <h3 class="h6 fw-bold">{{ x_('4.3 Refund Policy', 'web') }}</h3>
-                            <div class="alert alert-warning mb-4">
+                            <div class="mb-4 alert alert-warning">
                                 <i class="bx bx-error-circle me-2"></i>
                                 <strong>{{ x_('No Refunds After Data Access:', 'web') }}</strong> {{ x_("Once you have reviewed the available data and accessed the Platform's services, you are not entitled to a refund of the subscription fee. In the event of failure to access the Platform's services due to technical malfunctions, complaints must be submitted via email. BznsBook will investigate and resolve the issue accordingly.", 'web') }}
                             </div>
@@ -88,7 +88,7 @@
                             <hr class="my-4">
 
                             <!-- Verified Badge -->
-                            <h2 class="h4 mb-3">{{ x_('5. Verified Badge Program', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('5. Verified Badge Program', 'web') }}</h2>
                             <p>{{ x_('Companies wishing to obtain a', 'web') }} <strong>{{ x_('"Verified Badge"', 'web') }}</strong> {{ x_('from BznsBook must submit the following documentation:', 'web') }}</p>
                             <ul class="mb-3">
                                 <li><strong>{{ x_('Commercial Record', 'web') }}</strong> {{ x_('(Trade License or equivalent business registration)', 'web') }}</li>
@@ -100,12 +100,12 @@
                             <hr class="my-4">
 
                             <!-- User Content & Data -->
-                            <h2 class="h4 mb-3">{{ x_('6. User Content & Data Privacy', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('6. User Content & Data Privacy', 'web') }}</h2>
                             <h3 class="h6 fw-bold">{{ x_('6.1 Your Content', 'web') }}</h3>
                             <p>{{ x_('You retain ownership of all content you post on BznsBook (services, portfolios, project descriptions, etc.). By posting content, you grant BznsBook a non-exclusive, worldwide license to display, distribute, and promote your content within the Platform.', 'web') }}</p>
 
                             <h3 class="h6 fw-bold">{{ x_('6.2 Data Sharing', 'web') }}</h3>
-                            <div class="alert alert-primary mb-3">
+                            <div class="mb-3 alert alert-primary">
                                 <i class="bx bx-shield-quarter me-2"></i>
                                 <strong>{{ x_('BznsBook will NOT share any private data except the information that you voluntarily share on your profile.', 'web') }}</strong>
                             </div>
@@ -120,7 +120,7 @@
                             <hr class="my-4">
 
                             <!-- User Responsibilities -->
-                            <h2 class="h4 mb-3">{{ x_('7. User Responsibilities & Prohibited Conduct', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('7. User Responsibilities & Prohibited Conduct', 'web') }}</h2>
                             <p>{{ x_('By using BznsBook, you agree NOT to:', 'web') }}</p>
                             <ul class="mb-4">
                                 <li>{{ x_('Provide false, misleading, or fraudulent information on your profile', 'web') }}</li>
@@ -137,7 +137,7 @@
                             <hr class="my-4">
 
                             <!-- Service Requests & Projects -->
-                            <h2 class="h4 mb-3">{{ x_('8. Service Requests & Project Marketplace', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('8. Service Requests & Project Marketplace', 'web') }}</h2>
                             <h3 class="h6 fw-bold">{{ x_('8.1 Service Requests', 'web') }}</h3>
                             <p>{{ x_('When you request a service from another member, the terms of the engagement (scope, pricing, timeline) are agreed upon between the parties. BznsBook facilitates the connection but is not a party to any contract or agreement between users.', 'web') }}</p>
 
@@ -150,14 +150,14 @@
                             <hr class="my-4">
 
                             <!-- Intellectual Property -->
-                            <h2 class="h4 mb-3">{{ x_('9. Intellectual Property', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('9. Intellectual Property', 'web') }}</h2>
                             <p>{{ x_('The BznsBook name, logo, design, and all associated intellectual property are owned by BznsBook. You may not use, copy, or distribute any of our trademarks, branding, or proprietary content without written permission.', 'web') }}</p>
                             <p class="mb-4">{{ x_('All platform features, source code, design elements, and documentation are protected by applicable intellectual property laws.', 'web') }}</p>
 
                             <hr class="my-4">
 
                             <!-- Limitation of Liability -->
-                            <h2 class="h4 mb-3">{{ x_('10. Limitation of Liability', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('10. Limitation of Liability', 'web') }}</h2>
                             <p>{{ x_('To the maximum extent permitted by applicable law:', 'web') }}</p>
                             <ul class="mb-4">
                                 <li>{{ x_('BznsBook is provided on an "as is" and "as available" basis without warranties of any kind', 'web') }}</li>
@@ -170,7 +170,7 @@
                             <hr class="my-4">
 
                             <!-- Account Suspension -->
-                            <h2 class="h4 mb-3">{{ x_('11. Account Suspension & Termination', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('11. Account Suspension & Termination', 'web') }}</h2>
                             <p>{{ x_('BznsBook reserves the right to suspend or terminate your account at any time if you:', 'web') }}</p>
                             <ul class="mb-4">
                                 <li>{{ x_('Violate any provision of these Terms', 'web') }}</li>
@@ -183,7 +183,7 @@
                             <hr class="my-4">
 
                             <!-- Complaints -->
-                            <h2 class="h4 mb-3">{{ x_('12. Complaints & Dispute Resolution', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('12. Complaints & Dispute Resolution', 'web') }}</h2>
                             <p>{{ x_('If you experience any issues with the Platform\'s services or functionality:', 'web') }}</p>
                             <ul class="mb-3">
                                 <li>{{ x_('Submit your complaint via email to', 'web') }} <a href="mailto:info@bznsbook.com">info@bznsbook.com</a></li>
@@ -195,21 +195,21 @@
                             <hr class="my-4">
 
                             <!-- Changes to Terms -->
-                            <h2 class="h4 mb-3">{{ x_('13. Changes to These Terms', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('13. Changes to These Terms', 'web') }}</h2>
                             <p class="mb-4">{{ x_('BznsBook reserves the right to modify these Terms at any time. We will notify registered users of significant changes via email or through a notice on the Platform. Your continued use of the Platform after any changes constitutes acceptance of the revised Terms.', 'web') }}</p>
 
                             <hr class="my-4">
 
                             <!-- Governing Law -->
-                            <h2 class="h4 mb-3">{{ x_('14. Governing Law', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('14. Governing Law', 'web') }}</h2>
                             <p class="mb-4">{{ x_('These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which BznsBook is registered, without regard to its conflict of law provisions.', 'web') }}</p>
 
                             <hr class="my-4">
 
                             <!-- Contact -->
-                            <h2 class="h4 mb-3">{{ x_('15. Contact Us', 'web') }}</h2>
+                            <h2 class="mb-3 h4">{{ x_('15. Contact Us', 'web') }}</h2>
                             <p>{{ x_('If you have any questions about these Terms & Conditions, please contact us:', 'web') }}</p>
-                            <ul class="list-unstyled mb-0">
+                            <ul class="mb-0 list-unstyled">
                                 <li class="mb-2"><i class="bx bx-envelope text-primary me-2"></i> <strong>{{ x_('Email:', 'web') }}</strong> <a href="mailto:info@bznsbook.com">info@bznsbook.com</a></li>
                                 <li class="mb-2"><i class="bx bx-phone text-primary me-2"></i> <strong>{{ x_('Phone:', 'web') }}</strong> <a href="tel:+20201036943149">+202 01036943149</a> / <a href="tel:+971554396086">+971 55 4396086</a></li>
                                 <li class="mb-2"><i class="bx bx-map text-primary me-2"></i> <strong>{{ x_('Address:', 'web') }}</strong> {{ x_('90 Street, 5th District, New Cairo, Egypt', 'web') }}</li>
